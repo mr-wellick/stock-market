@@ -2,7 +2,7 @@ import React     from "react";
 import PropTypes from "prop-types";
 import "./table.scss";
 
-const ShowTableData = (props) => {
+const Table = (props) => {
 
     // Stock name and data
     let { stockName, stockData } = props.data;
@@ -33,8 +33,8 @@ const ShowTableData = (props) => {
     );
 };
 
-ShowTableData.propTypes = {
+Table.propTypes = {
     stockData: PropTypes.object
 };
 
-export default ShowTableData;
+export default Table;
