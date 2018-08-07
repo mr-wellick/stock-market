@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { Form }             from "../../Components/Form";
-import { Table }            from "../../Components/Table";
-import { url, apiKey }      from "./api";
+import { Table }       from "../../Components/Table";
+import { url, apiKey } from "./api";
 import "./home.scss";
 
 class Home extends Component{
 
     state = {
-        stock: "TSLA",
-        data: {}
+        stockName: "TSLA",
+        stockData: {}
     }
 
     componentDidMount(){
-        let defautlStockToRetrieve = `symbol=${this.state.stock}&`;
+        let defautlStockToRetrieve = `symbol=${this.state.stockName}&`;
 
         fetch(url + defautlStockToRetrieve + apiKey)
             .then(response => response.json())
             .then(data => this.setState({
-                data: data["Monthly Adjusted Time Series"]
+                stockData: data["Monthly Adjusted Time Series"]
             }));
     }
 
@@ -27,7 +27,7 @@ class Home extends Component{
 
         // Use default stock TSLA.
         if(userInput === "")
-            userInput = this.state.stock;
+            userInput = this.state.stockName;
 
         // Parameter to retrieve data from api.
         let stockToRetrieve = `symbol=${userInput}&`;
@@ -36,8 +36,8 @@ class Home extends Component{
         fetch( url + stockToRetrieve + apiKey )
             .then(response => response.json())
             .then(data => this.setState({
-                stock: userInput,
-                data: data["Monthly Adjusted Time Series"]
+                stockName: userInput,
+                stockData: data["Monthly Adjusted Time Series"]
             }));
 
         // Prevent refresh of the page when submitting stock to view.
@@ -52,7 +52,7 @@ class Home extends Component{
             <section className="section">
                 <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
-                    <Table stockData={ this.state }/>
+                    <Table data={ this.state }/>
                     <div>This is where the histogram will be placed.</div>
                 </div>
             </section>
