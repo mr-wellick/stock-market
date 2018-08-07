@@ -9,6 +9,8 @@ class ScatterPlot extends Component{
         let { stockData } = this.props.data;
         let adjustedClose = Object.entries(stockData).map( item => item[1]["5. adjusted close"] );
 
+        // Need to remove old nodes first. Then update. Currently,
+        // all stock data remains present. We don't want this!
         select(this.node)
             .append("g")
             .selectAll("circle")
