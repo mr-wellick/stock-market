@@ -1,6 +1,7 @@
-import React, { Component }       from "react";
-import { Form, Table, Histogram } from "../../Components";
-import { url, apiKey }            from "./api";
+import React, { Component } from "react";
+import { Form, Table }      from "../../Components";
+import { ScatterPlot }      from "../../Components";
+import { url, apiKey }      from "./api";
 import "./home.scss";
 
 class Home extends Component{
@@ -53,7 +54,7 @@ class Home extends Component{
                 <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
                     <Table data={ this.state }/>
-                    <Histogram/>
+                    <ScatterPlot/>
                 </div>
             </section>
         );
