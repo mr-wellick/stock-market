@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import PropTypes            from "prop-types";
+import { select }           from "d3-selection";
 import "./scatterPlot.scss";
 
 class ScatterPlot extends Component{
+
+    componentDidMount(){
+        //select(this.node)
+        //    .append("g")
+        //   .selectAll("circle")
+    }
+
     render(){
         return(
             <svg
@@ -12,5 +21,9 @@ class ScatterPlot extends Component{
         );
     }
 }
+
+ScatterPlot.propTypes = {
+    data: PropTypes.object
+};
 
 export default ScatterPlot;
