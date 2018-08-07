@@ -5,8 +5,8 @@ import "./table.scss";
 const ShowTableData = (props) => {
 
     // Stock name and data
-    let { stockName, stockData }      = props.data;
-    let convertDataIntoArray = Object.entries(stockData).reverse();
+    let { stockName, stockData } = props.data;
+    let convertDataIntoArray     = Object.entries(stockData).reverse();
 
     return(
         <table>

@@ -3,7 +3,8 @@ import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // Import user defined components
-import { Home } from "./Views";
+import { Home }   from "./Views";
+import { Footer } from "./Views";
 
 // Application
 class App extends Component{
@@ -20,6 +21,7 @@ class App extends Component{
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
+                    <Route exact path="/" component={ Footer }></Route>
                 </Fragment>
             </Router>
         );
