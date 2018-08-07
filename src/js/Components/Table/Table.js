@@ -1,6 +1,6 @@
 import React     from "react";
 import PropTypes from "prop-types";
-import "./show-table-data.scss";
+import "./table.scss";
 
 const ShowTableData = (props) => {
 

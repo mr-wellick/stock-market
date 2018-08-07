@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form }             from "../../Components/Form";
-import { ShowTableData }    from "../../Components/ShowTableData";
+import { Table }            from "../../Components/Table";
 import { url, apiKey }      from "./api";
 import "./home.scss";
 
@@ -52,7 +52,7 @@ class Home extends Component{
             <section className="section">
                 <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
-                    <ShowTableData stockData={ this.state }/>
+                    <Table stockData={ this.state }/>
                     <div>This is where the histogram will be placed.</div>
                 </div>
             </section>
