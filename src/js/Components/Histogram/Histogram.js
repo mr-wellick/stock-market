@@ -1,14 +1,12 @@
-import React     from "react";
-//import PropTypes from "prop-types";
+import React, { Component } from "react";
 import "./histogram.scss";
 
-const Histogram = () => {
-    return(
-        <svg width="500" height="300"/>
-    );
-};
-
-//Histogram.propTypes = {
-//};
+class Histogram extends Component {
+    render(){
+        return(
+            <svg width="500" height="300"/>
+        );
+    }
+}
 
 export default Histogram;
