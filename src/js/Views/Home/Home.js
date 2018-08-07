@@ -22,30 +22,24 @@ class Home extends Component{
 
     onSubmit = (event) => {
         // Need variable for userInput.
-        let userInput;
-
-        // Use default stock TSLA or get userInput.
-        if(userInput === "")
-            userInput = this.state.stockName;
-        else
-            userInput = document.getElementById("section__form-input").value.toUpperCase();
-
-        // Parameter to retrieve data from api.
+        let userInput       = document.getElementById("section__form-input").value.toUpperCase();
         let stockToRetrieve = `symbol=${userInput}&`;
 
-        // Retrieve stock data and update state.
-        fetch( url + stockToRetrieve + apiKey )
-            .then(response => response.json())
-            .then(data => this.setState({
-                stockName: userInput,
-                stockData: data["Monthly Adjusted Time Series"]
-            }));
+        if(userInput !== ""){
+            // Retrieve stock data and update state.
+            fetch( url + stockToRetrieve + apiKey )
+                .then(response => response.json())
+                .then(data => this.setState({
+                    stockName: userInput,
+                    stockData: data["Monthly Adjusted Time Series"]
+                }));
+
+            // Reset user form field
+            document.getElementById("section__form-input").value = "";
+        }
 
         // Prevent refresh of the page when submitting stock to view.
         event.preventDefault();
-
-        // Reset user form field
-        document.getElementById("section__form-input").value = "";
     }
 
     render(){
