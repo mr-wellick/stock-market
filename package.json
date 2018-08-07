@@ -51,6 +51,7 @@
         "webpack-merge": "^4.1.4"
     },
     "dependencies": {
+        "d3": "^5.5.0",
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
         "react-redux": "^5.0.7",
