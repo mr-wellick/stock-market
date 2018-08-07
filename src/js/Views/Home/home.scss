@@ -1,0 +1,12 @@
+.section
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.section__table-style
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

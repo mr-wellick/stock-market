@@ -1,0 +1,32 @@
+// -----------------------------------
+// Set my preferred defaults
+// -----------------------------------
+body
+{
+    // ----------------------------------
+    // Remove margins that annoy me
+    // ----------------------------------
+
+    // Remove margins from body
+    margin: 0;
+
+    // Remove margins from all headers
+    h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+    // Remove margins from all paragraphs
+    p { margin: 0; }
+
+    // Remove margins from ul's
+    ul
+    {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase
+    }
+
+    // ----------------------------------------
+    // Set default styling for anchor tags
+    // ----------------------------------------
+    a { text-decoration: none; }
+}
