@@ -5,7 +5,7 @@ import "./scatterPlot.scss";
 
 class ScatterPlot extends Component{
 
-    appendNodes(){
+    componentDidUpdate(){
         let { stockData } = this.props.data;
         let adjustedClose = Object.entries(stockData).map( item => item[1]["5. adjusted close"] );
 
@@ -18,7 +18,6 @@ class ScatterPlot extends Component{
     }
 
     render(){
-        this.appendNodes();
         return(
             <svg
                 ref={ node => this.node = node }
