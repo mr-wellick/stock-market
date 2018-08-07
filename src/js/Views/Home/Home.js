@@ -1,12 +1,9 @@
-import React, { Component } from "react";
-import { Form }             from "../../Components/Form";
-import { Table }            from "../../Components/Table";
-import { Histogram }        from "../../Components/Histogram"; 
-import { url, apiKey }      from "./api";
+import React, { Component }       from "react";
+import { Form, Table, Histogram } from "../../Components";
+import { url, apiKey }            from "./api";
 import "./home.scss";
 
 class Home extends Component{
-
     state = {
         stockName: "TSLA",
         stockData: {}

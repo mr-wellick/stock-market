@@ -3,7 +3,7 @@ import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // Import user defined components
-import { Home } from "./Views/Home";
+import { Home } from "./Views";
 
 // Application
 class App extends Component{
