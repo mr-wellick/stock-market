@@ -34,7 +34,7 @@ const Table = (props) => {
 };
 
 Table.propTypes = {
-    stockData: PropTypes.object
+    data: PropTypes.object
 };
 
 export default Table;
