@@ -20,12 +20,14 @@ class Home extends Component{
     }
 
     onSubmit = (event) => {
-        // Get new user input.
-        let userInput = document.getElementById("section__form-input").value.toUpperCase();
+        // Need variable for userInput.
+        let userInput;
 
-        // Use default stock TSLA.
+        // Use default stock TSLA or get userInput.
         if(userInput === "")
             userInput = this.state.stockName;
+        else
+            userInput = document.getElementById("section__form-input").value.toUpperCase();
 
         // Parameter to retrieve data from api.
         let stockToRetrieve = `symbol=${userInput}&`;
