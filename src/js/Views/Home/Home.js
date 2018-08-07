@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { UserInput }        from "../../Components/UserInput";
+import { Form }             from "../../Components/Form";
 import { ShowTableData }    from "../../Components/ShowTableData";
 import { url, apiKey }      from "./api";
 import "./home.scss";
@@ -50,7 +50,7 @@ class Home extends Component{
     render(){
         return(
             <section className="section">
-                <UserInput onSubmit={ this.onSubmit }/>
+                <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
                     <ShowTableData stockData={ this.state }/>
                     <div>This is where the histogram will be placed.</div>
