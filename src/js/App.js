@@ -21,7 +21,7 @@ class App extends Component{
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
-                    <Route exact path="/" component={ Footer }></Route>
+                    <Route path="/" component={ Footer }></Route>
                 </Fragment>
             </Router>
         );
