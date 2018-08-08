@@ -11,10 +11,12 @@ import "./scatterPlot.scss";
 // Find xScale
 function findXScale(data, width = 500, padding = 10){
 
+
     let lastEntry = data.length - 1;
     let minDate   = new Date(data[0][0]);
     let maxDate   = new Date(data[lastEntry][0]);
     let scale     = scaleTime().domain([minDate, maxDate]);
+
     scale.range([padding, width - padding]);
 
     return(scale);
@@ -22,10 +24,10 @@ function findXScale(data, width = 500, padding = 10){
 
 function findYScale(data, height = 460, padding = 10){
 
-
     let yMin  = min(data, d => d[1]);
     let yMax  = max(data, d => d[1]);
     let scale = scaleLinear().domain([yMin, yMax]);
+
     scale.range([height - padding, padding]);
 
     return(scale);
@@ -35,8 +37,8 @@ class ScatterPlot extends Component{
 
     componentDidUpdate(){
 
-        let height  = 500;
-        let padding = 50;
+        //let height  = 500;
+        //let padding = 50;
 
         let { stockData } = this.props.data;
         let doubleArray   = Object.entries(stockData).map(item => [item[0], Number(item[1]["5. adjusted close"])]);
@@ -52,22 +54,22 @@ class ScatterPlot extends Component{
             .append("circle");
 
         // Find x and y scales
-        let x = findXScale(doubleArray);
-        let y = findYScale(doubleArray);
+        //let x = findXScale(doubleArray);
+        //let y = findYScale(doubleArray);
 
         // Find x
-        let xAxis = axisBottom(x);
-        select(this.node)
-            .append("g")
-            .attr("transform", "translate(0," + (height - padding) + ")")
-            .call(xAxis);
+        //let xAxis = axisBottom(x);
+        //select(this.node)
+        //    .append("g")
+        //    .attr("transform", "translate(0," + (height - padding) + ")")
+        //    .call(xAxis);
 
         // Find y
-        let yAxis = axisLeft(y);
-        select(this.node)
-            .append("g")
-            .attr("transform", "translate(" + padding + ",0)")
-            .call(yAxis);
+        //let yAxis = axisLeft(y);
+        //select(this.node)
+        //    .append("g")
+        //    .attr("transform", "translate(" + padding + ",0)")
+        //    .call(yAxis);
 
         // Finally add data points
         //select(this.node)
