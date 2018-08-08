@@ -8,6 +8,8 @@ import { axisBottom }       from "d3-axis";
 import { axisLeft }         from "d3-axis";
 import "./scatterPlot.scss";
 
+// Now, redo a line chart example in d3 to finalize this component.
+
 // Find xScale
 function findXScale(data, width = 500, padding = 10){
 
