@@ -48,7 +48,11 @@ class Home extends Component{
                 <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
                     <Table data={ this.state }/>
-                    <ScatterPlot data={ this.state }/>
+                    <ScatterPlot
+                        data={ this.state }
+                        width="500"
+                        height="300"
+                    />
                 </div>
             </section>
         );

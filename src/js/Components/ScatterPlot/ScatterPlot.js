@@ -34,18 +34,22 @@ function findYScale(data, height = 460, padding = 10){
 }
 
 class ScatterPlot extends Component{
-
     componentDidUpdate(){
 
-        //let height  = 500;
-        //let padding = 50;
+        let height  = 500;
+        let padding = 50;
 
         let { stockData } = this.props.data;
         let doubleArray   = Object.entries(stockData).map(item => [item[0], Number(item[1]["5. adjusted close"])]);
         doubleArray       = doubleArray.reverse();
 
-        // Need to remove old nodes first. Then update. Currently,
-        // all stock data remains present. We don't want this!
+        // Need to remove old nodes first then update.
+        if(this.node.children.length > 0){
+            select(this.node)
+                .selectAll("g")
+                .remove();
+        }
+
         select(this.node)
             .append("g")
             .selectAll("circle")
@@ -54,22 +58,22 @@ class ScatterPlot extends Component{
             .append("circle");
 
         // Find x and y scales
-        //let x = findXScale(doubleArray);
-        //let y = findYScale(doubleArray);
+        let x = findXScale(doubleArray);
+        let y = findYScale(doubleArray);
 
         // Find x
-        //let xAxis = axisBottom(x);
-        //select(this.node)
-        //    .append("g")
-        //    .attr("transform", "translate(0," + (height - padding) + ")")
-        //    .call(xAxis);
+        let xAxis = axisBottom(x);
+        select(this.node)
+            .append("g")
+            .attr("transform", "translate(0," + (height - padding) + ")")
+            .call(xAxis);
 
         // Find y
-        //let yAxis = axisLeft(y);
-        //select(this.node)
-        //    .append("g")
-        //    .attr("transform", "translate(" + padding + ",0)")
-        //    .call(yAxis);
+        let yAxis = axisLeft(y);
+        select(this.node)
+            .append("g")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(yAxis);
 
         // Finally add data points
         //select(this.node)
