@@ -1,40 +1,12 @@
-import React, { Component } from "react";
-import PropTypes            from "prop-types";
-import { select }           from "d3-selection";
-import { scaleLinear }      from "d3-scale";
-import { scaleTime }        from "d3-scale";
-import { max, min }         from "d3-array";
-import { axisBottom }       from "d3-axis";
-import { axisLeft }         from "d3-axis";
+import React, { Component }       from "react";
+import PropTypes                  from "prop-types";
+import { findXScale, findYScale } from "./Utilities";
+import { select }                 from "d3-selection";
+import { axisBottom }             from "d3-axis";
+import { axisLeft }               from "d3-axis";
 import "./scatterPlot.scss";
 
 // Now, redo a line chart example in d3 to finalize this component.
-
-// Find xScale
-function findXScale(data, width = 500, padding = 10){
-
-
-    let lastEntry = data.length - 1;
-    let minDate   = new Date(data[0][0]);
-    let maxDate   = new Date(data[lastEntry][0]);
-    let scale     = scaleTime().domain([minDate, maxDate]);
-
-    scale.range([padding, width - padding]);
-
-    return(scale);
-}
-
-function findYScale(data, height = 460, padding = 10){
-
-    let yMin  = min(data, d => d[1]);
-    let yMax  = max(data, d => d[1]);
-    let scale = scaleLinear().domain([yMin, yMax]);
-
-    scale.range([height - padding, padding]);
-
-    return(scale);
-}
-
 class ScatterPlot extends Component{
     componentDidUpdate(){
 
