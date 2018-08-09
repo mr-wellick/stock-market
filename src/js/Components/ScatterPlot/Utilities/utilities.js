@@ -6,8 +6,8 @@ import { max, min }    from "d3-array";
 export function findXScale(data, width = 500, padding = 10){
 
     let lastEntry = data.length - 1;
-    let minDate   = new Date(data[0][0]);
-    let maxDate   = new Date(data[lastEntry][0]);
+    let minDate   = data[0][0];
+    let maxDate   = data[lastEntry][0];
     let scale     = scaleTime().domain([minDate, maxDate]);
 
     scale.range([padding, width - padding]);

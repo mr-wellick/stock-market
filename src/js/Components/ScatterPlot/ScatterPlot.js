@@ -4,6 +4,7 @@ import { findXScale, findYScale } from "./Utilities";
 import { select }                 from "d3-selection";
 import { axisBottom }             from "d3-axis";
 import { axisLeft }               from "d3-axis";
+import { timeParse }              from "d3-time-format";
 import "./scatterPlot.scss";
 
 // Now, redo a line chart example in d3 to finalize this component.
@@ -12,8 +13,15 @@ class ScatterPlot extends Component{
 
         let height        = 500;
         let padding       = 50;
+        let parseTime     = timeParse("%Y-%m-%d");
         let { stockData } = this.props.data;
-        let doubleArray   = stockData.map(item =>[item[0], Number(item[1]["5. adjusted close"])]);
+        let doubleArray   = stockData.map(
+            item =>
+            [
+                parseTime(item[0]),
+                Number(item[1]["5. adjusted close"])
+            ]
+        );
 
         // Need to remove old nodes first then update.
         if(this.node.children.length > 0){
