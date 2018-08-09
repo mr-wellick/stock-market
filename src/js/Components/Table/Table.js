@@ -6,7 +6,6 @@ const Table = (props) => {
 
     // Stock name and data
     let { stockName, stockData } = props.data;
-    let convertDataIntoArray     = Object.entries(stockData).reverse();
 
     return(
         <table>
@@ -20,7 +19,7 @@ const Table = (props) => {
             </thead>
             <tbody>
                 {
-                    convertDataIntoArray.map( (item, index) =>
+                    stockData.map( (item, index) =>
                         <tr key={ index }>
                             <td>{ item[0] }</td>
                             <td>{ item[1]["1. open"] }</td>

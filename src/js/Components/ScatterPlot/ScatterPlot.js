@@ -10,12 +10,10 @@ import "./scatterPlot.scss";
 class ScatterPlot extends Component{
     componentDidUpdate(){
 
-        let height  = 500;
-        let padding = 50;
-
+        let height        = 500;
+        let padding       = 50;
         let { stockData } = this.props.data;
-        let doubleArray   = Object.entries(stockData).map(item => [item[0], Number(item[1]["5. adjusted close"])]);
-        doubleArray       = doubleArray.reverse();
+        let doubleArray   = stockData.map(item =>[item[0], Number(item[1]["5. adjusted close"])]);
 
         // Need to remove old nodes first then update.
         if(this.node.children.length > 0){
@@ -35,14 +33,14 @@ class ScatterPlot extends Component{
         let x = findXScale(doubleArray);
         let y = findYScale(doubleArray);
 
-        // Find x
+        // Find x and x-axis
         let xAxis = axisBottom(x);
         select(this.node)
             .append("g")
             .attr("transform", "translate(0," + (height - padding) + ")")
             .call(xAxis);
 
-        // Find y
+        // Find y and y-axis
         let yAxis = axisLeft(y);
         select(this.node)
             .append("g")

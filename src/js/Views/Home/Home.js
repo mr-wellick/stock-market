@@ -7,7 +7,7 @@ import "./home.scss";
 class Home extends Component{
     state = {
         stockName: "TSLA",
-        stockData: {}
+        stockData: []
     }
 
     componentDidMount(){
@@ -16,7 +16,7 @@ class Home extends Component{
         fetch(url + defautlStockToRetrieve + apiKey)
             .then(response => response.json())
             .then(data => this.setState({
-                stockData: data["Monthly Adjusted Time Series"]
+                stockData: Object.entries(data["Monthly Adjusted Time Series"]).reverse()
             }));
     }
 
@@ -31,7 +31,7 @@ class Home extends Component{
                 .then(response => response.json())
                 .then(data => this.setState({
                     stockName: userInput,
-                    stockData: data["Monthly Adjusted Time Series"]
+                    stockData: Object.entries(data["Monthly Adjusted Time Series"]).reverse()
                 }));
 
             // Reset user form field
