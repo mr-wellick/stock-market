@@ -57,8 +57,11 @@ class Home extends Component{
                         />
                         <Histogram
                             data={ this.state }
-                            width="600"
-                            height="400"
+                            width={ 600 }
+                            height={ 400 }
+                            padding={ 1 }
+                            scalar={ 15 }
+                            color="crimson"
                         />
                     </div>
                 </div>
