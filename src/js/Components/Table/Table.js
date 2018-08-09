@@ -14,6 +14,8 @@ const Table = (props) => {
                 <tr>
                     <th>Date</th>
                     <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
                     <th>Adjusted Close</th>
                 </tr>
             </thead>
@@ -23,6 +25,8 @@ const Table = (props) => {
                         <tr key={ index }>
                             <td>{ item[0] }</td>
                             <td>{ item[1]["1. open"] }</td>
+                            <td>{ item[1]["2. high"] }</td>
+                            <td>{ item[1]["3. low"] }</td>
                             <td>{ item[1]["5. adjusted close"] }</td>
                         </tr>
                     )
