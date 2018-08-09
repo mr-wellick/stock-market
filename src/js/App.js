@@ -2,6 +2,9 @@
 import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+// Import CSS
+import "./app.scss";
+
 // Import user defined components
 import { Home }   from "./Views";
 import { Footer } from "./Views";
@@ -12,9 +15,9 @@ class App extends Component{
         return(
             <Router>
                 <Fragment>
-                    <header>
-                        <h1>LRNZ</h1>
-                        <nav>
+                    <header className="header">
+                        <h1 className="header__title">LRNZ</h1>
+                        <nav className="header__navigation">
                             <ul>
                                 <li><Link to="/">Home</Link></li>
                             </ul>

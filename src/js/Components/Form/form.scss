@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     height: 30px;
-    border: 2px salmon solid;
+    border: 2px steelblue solid;
     padding: 30px;
 }
 
@@ -12,8 +12,8 @@
 {
     width: 10%;
     border: 0px;
-    color: black;
-    background-color: salmon;
+    color: white;
+    background-color: steelblue;
     text-transform: uppercase;
     &:hover
     {
@@ -23,8 +23,8 @@
 
 #section__form-input
 {
-    border-top: 2px salmon solid;
-    border-bottom: 2px salmon solid;
+    border-top: 2px steelblue solid;
+    border-bottom: 2px steelblue solid;
     border-left: 0px;
     border-right: 0px;
     width: 60%;

@@ -14,6 +14,7 @@ class ScatterPlot extends Component{
         // Get width, height, padding
         let { height } = this.props;
         let { width }  = this.props;
+        let { color }  = this.props;
         let padding    = 50;
 
         // Parse string dates to string objects, string values to numbers, and store data
@@ -53,7 +54,7 @@ class ScatterPlot extends Component{
             .append("path")
             .datum(data)
             .attr("fill", "none")
-            .attr("stroke", "steelblue")
+            .attr("stroke", color)
             .attr("stroke-width", 1.5)
             .attr("d", lineFunc);
     }
@@ -72,7 +73,8 @@ class ScatterPlot extends Component{
 ScatterPlot.propTypes = {
     data: PropTypes.object,
     width: PropTypes.string,
-    height: PropTypes.string
+    height: PropTypes.string,
+    color: PropTypes.string
 };
 
 export default ScatterPlot;
