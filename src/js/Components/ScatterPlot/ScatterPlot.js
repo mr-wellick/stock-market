@@ -1,17 +1,11 @@
 import React, { Component }       from "react";
 import PropTypes                  from "prop-types";
-//import { findXScale, findYScale } from "./Utilities";
+import { findXScale, findYScale } from "./Utilities";
 import { select }                 from "d3-selection";
-import { axisBottom }             from "d3-axis";
-import { axisLeft }               from "d3-axis";
+import { axisBottom, axisLeft }   from "d3-axis";
 import { timeParse }              from "d3-time-format";
 import { line }                   from "d3-shape";
 import "./scatterPlot.scss";
-
-// Move into own file
-import { min, max } from "d3-array";
-import { scaleTime } from "d3-scale";
-import { scaleLinear } from "d3-scale";
 
 // Now, reformat data labels.
 class ScatterPlot extends Component{
@@ -34,17 +28,9 @@ class ScatterPlot extends Component{
                 .remove();
         }
 
-        // Find x-scale
-        let xMin   = min(data, d => d[0]);
-        let xMax   = max(data, d => d[0]);
-        let xScale = scaleTime().domain([xMin, xMax]);
-        xScale.range([padding, width - padding]);
-
-        // Find y-scale
-        let yMin = min(data, d => d[1]);
-        let yMax = max(data, d => d[1]);
-        let yScale = scaleLinear().domain([yMin, yMax]);
-        yScale.range([height - padding, padding]);
+        // Find x-scale and y-scale
+        let xScale = findXScale(data, width, padding);
+        let yScale = findYScale(data, height, padding);
 
         // Add x-axis
         select(this.node)

@@ -50,8 +50,8 @@ class Home extends Component{
                     <Table data={ this.state }/>
                     <ScatterPlot
                         data={ this.state }
-                        width="500"
-                        height="300"
+                        width="600"
+                        height="400"
                     />
                 </div>
             </section>
