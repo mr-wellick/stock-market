@@ -8,7 +8,7 @@ class Histogram extends Component {
         let { stockData } = this.props.data;
 
         // Get dates and closing prices
-        let dates = stockData.map( item =>  new Date(item[0]) );
+        let dates         = stockData.map( item =>  new Date(item[0]) );
         let adjustedClose = stockData.map( item => Number(item[1]["5. adjusted close"]) );
     }
 
