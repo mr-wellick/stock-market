@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Table }      from "../../Components";
 import { ScatterPlot }      from "../../Components";
+import { Histogram }        from "../../Components";
 import { url, apiKey }      from "./api";
 import "./home.scss";
 
@@ -48,11 +49,18 @@ class Home extends Component{
                 <Form onSubmit={ this.onSubmit }/>
                 <div className="section__table-style">
                     <Table data={ this.state }/>
-                    <ScatterPlot
-                        data={ this.state }
-                        width="600"
-                        height="400"
-                    />
+                    <div>
+                        <ScatterPlot
+                            data={ this.state }
+                            width="600"
+                            height="400"
+                        />
+                        <Histogram
+                            data={ this.state }
+                            width="600"
+                            height="400"
+                        />
+                    </div>
                 </div>
             </section>
         );
