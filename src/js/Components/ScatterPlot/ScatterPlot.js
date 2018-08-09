@@ -5,20 +5,22 @@ import { select }                 from "d3-selection";
 import { axisBottom }             from "d3-axis";
 import { axisLeft }               from "d3-axis";
 import { timeParse }              from "d3-time-format";
+import { line }                   from "d3-shape";
 import "./scatterPlot.scss";
+
+// Move into own file
 import { min, max } from "d3-array";
 import { scaleTime } from "d3-scale";
 import { scaleLinear } from "d3-scale";
-import { line } from "d3-shape";
 
 // Now, reformat data labels.
 class ScatterPlot extends Component{
     componentDidUpdate(){
 
-        // Get width, height, paddin
-        let { height }    = this.props;
-        let { width }     = this.props;
-        let padding       = 50;
+        // Get width, height, padding
+        let { height } = this.props;
+        let { width }  = this.props;
+        let padding    = 50;
 
         // Parse string dates to string objects, string values to numbers, and store data
         let parseTime     = timeParse("%Y-%m-%d");
@@ -74,8 +76,8 @@ class ScatterPlot extends Component{
         return(
             <svg
                 ref={ node => this.node = node }
-                width="500"
-                height="300"
+                width={ this.props.width }
+                height={ this.props.height }
             />
         );
     }
