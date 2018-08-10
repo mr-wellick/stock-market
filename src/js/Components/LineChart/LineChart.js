@@ -96,7 +96,6 @@ class LineChart extends Component{
 }
 
 LineChart.propTypes = {
-    data: PropTypes.object,
     width: PropTypes.number,
     height: PropTypes.number,
     color: PropTypes.string,
