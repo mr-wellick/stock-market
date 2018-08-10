@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { Form, Table }      from "../../Components";
-import { ScatterPlot }      from "../../Components";
+import React, { Component }  from "react";
+import { Form, Table }       from "../../Components";
+import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
-import { url, apiKey }      from "./api";
+import { url, apiKey }       from "./api";
+import { findPercentChange } from "./Utilities";
 import "./home.scss";
 
 class Home extends Component{
@@ -14,6 +15,7 @@ class Home extends Component{
         low: [],
         close: [],
         adjustedClose: [],
+        percentChange: [],
         errorMessage: false,
         errorData: ""
     }
@@ -36,6 +38,7 @@ class Home extends Component{
                 let low           = __data__.map( item => Number(item[1]["3. low"]).toFixed(2) );
                 let close         = __data__.map( item => Number(item[1]["4. close"]).toFixed(2) );
                 let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
+                let percentChange = findPercentChange(adjustedClose);
 
                 // Finally, update data
                 this.setState({
@@ -44,7 +47,8 @@ class Home extends Component{
                     high: high,
                     low: low,
                     close: close,
-                    adjustedClose: adjustedClose
+                    adjustedClose: adjustedClose,
+                    percentChange: percentChange
                 });
             });
     }
@@ -77,6 +81,7 @@ class Home extends Component{
                                 low: [],
                                 close: [],
                                 adjustedClose: [],
+                                percentChange: [],
                                 errorMessage: !this.state.errorMessage,
                                 errorData: rawData[0][1]
                             });
@@ -94,6 +99,7 @@ class Home extends Component{
                             let low           = __data__.map( item => Number(item[1]["3. low"]).toFixed(2) );
                             let close         = __data__.map( item => Number(item[1]["4. close"]).toFixed(2) );
                             let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
+                            let percentChange = findPercentChange(adjustedClose);
 
                             // Finally, update data
                             this.setState({
@@ -104,6 +110,7 @@ class Home extends Component{
                                 low: low,
                                 close: close,
                                 adjustedClose: adjustedClose,
+                                percentChange: percentChange,
                                 errorMessage: false,
                                 errorData: ""
                             });
@@ -123,7 +130,7 @@ class Home extends Component{
             <section>
                 <Form onSubmit={ this.onSubmit }/>
                 <Table data={ this.state }/>
-                <ScatterPlot
+                <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }
                     yValues={ this.state.adjustedClose }
@@ -131,6 +138,17 @@ class Home extends Component{
                     height={ 400 }
                     color={ "orange" }
                     padding={ 55 }
+                    percent={ false }
+                />
+                <LineChart
+                    errorMessage={ this.state.errorMessage }
+                    xValues={ this.state.dates }
+                    yValues={ this.state.percentChange }
+                    width={ 600 }
+                    height={ 400 }
+                    color={ "crimson" }
+                    padding={ 55 }
+                    percent={ true }
                 />
                 {/*
                 <Histogram

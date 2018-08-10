@@ -27,22 +27,3 @@ export function findYScale(data, height = 300, padding = 10)
 
     return(yScale);
 }
-
-// Find percent change for prices
-export function findPercentChange(data)
-{
-
-    let rmFirstEntry = data.slice(1);
-    let rmLastEntry  = data.slice(0, data.length -1 );
-    let results      = [];
-
-    for(let i = 0; i < rmFirstEntry.length; i++)
-    {
-        let numerator     = rmFirstEntry[i] - rmLastEntry[i];
-        let denominator   = rmLastEntry[i];
-        let percentChange = Number((numerator / denominator).toFixed(2));
-        results.push(percentChange);
-    }
-
-    return(results);
-}

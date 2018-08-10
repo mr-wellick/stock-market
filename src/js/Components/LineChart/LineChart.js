@@ -9,16 +9,17 @@ import "./scatterPlot.scss";
 
 // Now, reformat data labels.
 // Line and axis data removed. But svg plot remains when no data is retrieved.
-class ScatterPlot extends Component{
+class LineChart extends Component{
     componentDidUpdate(){
-        let { height }    = this.props;
-        let { width }     = this.props;
-        let { color }     = this.props;
-        let { padding }   = this.props;
+        let { height }  = this.props;
+        let { width }   = this.props;
+        let { color }   = this.props;
+        let { padding } = this.props;
 
         // Data to render
         let { errorMessage }     = this.props;
         let { xValues, yValues } = this.props;
+        let { percent }          = this.props;
 
         // Remove current plot when an incorrect api call is made
         if(errorMessage)
@@ -27,8 +28,15 @@ class ScatterPlot extends Component{
         {
             // Parse date values to objects
             let parseTime = timeParse("%Y-%m-%d");
-            let dates     = xValues.map(item => parseTime(item));
-            let value     = yValues.map( item => Number(item) );
+            let value = yValues.map( item => Number(item) );
+            let dates;
+
+            // If we want to display percent change over time, we need to remove
+            // the first entry of dates to match length of yValues.
+            if(percent)
+                dates = xValues.map(item => parseTime(item)).splice(1);
+            else
+                dates = xValues.map(item => parseTime(item)).splice(1);
 
             // Format data into an array of [[x, y], ..... , ]
             let __finalData__ = [];
@@ -87,7 +95,7 @@ class ScatterPlot extends Component{
     }
 }
 
-ScatterPlot.propTypes = {
+LineChart.propTypes = {
     data: PropTypes.object,
     width: PropTypes.number,
     height: PropTypes.number,
@@ -95,7 +103,8 @@ ScatterPlot.propTypes = {
     padding: PropTypes.number,
     errorMessage: PropTypes.bool,
     xValues: PropTypes.array,
-    yValues: PropTypes.array
+    yValues: PropTypes.array,
+    percent: PropTypes.bool
 };
 
-export default ScatterPlot;
+export default LineChart;
