@@ -46,7 +46,7 @@ class Home extends Component{
         return(
             <section>
                 <Form onSubmit={ this.onSubmit }/>
-                {/*<Table data={ this.state.stockData }/>*/}
+                <Table data={ this.state.stockData }/>
                 {/*<ScatterPlot
                     data={ this.state }
                     width="600"
