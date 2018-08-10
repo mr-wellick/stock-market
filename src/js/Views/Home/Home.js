@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Table }      from "../../Components";
-import { ScatterPlot }      from "../../Components";
+//import { ScatterPlot }      from "../../Components";
 //import { Histogram }        from "../../Components";
 import { url, apiKey }      from "./api";
 import "./home.scss";
@@ -8,7 +8,14 @@ import "./home.scss";
 class Home extends Component{
     state = {
         stockName: "TSLA",
-        stockData: []
+        dates: [],
+        open: [],
+        high: [],
+        low: [],
+        close: [],
+        adjustedClose: [],
+        errorMessage: false,
+        errorData: ""
     }
 
     componentDidMount(){
@@ -16,9 +23,30 @@ class Home extends Component{
 
         fetch(url + defautlStockToRetrieve + apiKey)
             .then(response => response.json())
-            .then(data => this.setState({
-                stockData: Object.entries(data)
-            }));
+            .then(data => {
+
+                // Turn data into array
+                let __data__ = Object.entries(data)[1][1];
+                __data__     = Object.entries(__data__).reverse();
+
+                // Get dates and parse into date objects
+                let dates         = __data__.map( item => item[0] );
+                let open          = __data__.map( item => Number(item[1]["1. open"]).toFixed(2) );
+                let high          = __data__.map( item => Number(item[1]["2. high"]).toFixed(2) );
+                let low           = __data__.map( item => Number(item[1]["3. low"]).toFixed(2) );
+                let close         = __data__.map( item => Number(item[1]["4. close"]).toFixed(2) );
+                let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
+
+                // Finally, update data
+                this.setState({
+                    dates: dates,
+                    open: open,
+                    high: high,
+                    low: low,
+                    close: close,
+                    adjustedClose: adjustedClose
+                });
+            });
     }
 
     onSubmit = (event) => {
@@ -30,11 +58,58 @@ class Home extends Component{
             // Retrieve stock data and update state.
             fetch( url + stockToRetrieve + apiKey )
                 .then(response => response.json())
-                .then(data => this.setState({
-                    stockName: userInput,
-                    stockData: Object.entries(data)
-                }));
+                .then(data => {
 
+                    // Get raw data
+                    let rawData = Object.entries(data);
+
+                    // Check for error messages
+                    if(rawData[0] !== undefined)
+                    {
+                        // Reset all state fields for errors.
+                        if(rawData[0][0] === "Error Message")
+                        {
+                            this.setState({
+                                stockName: "NO STOCK",
+                                dates: [],
+                                open: [],
+                                high: [],
+                                low: [],
+                                close: [],
+                                adjustedClose: [],
+                                errorMessage: !this.state.errorMessage,
+                                errorData: rawData[0][1]
+                            });
+                        }
+                        else // Set state when successful call is made
+                        {
+                            // Turn data into array
+                            let __data__ = Object.entries(data)[1][1];
+                            __data__     = Object.entries(__data__).reverse();
+
+                            // Get dates and parse into date objects
+                            let dates         = __data__.map( item => item[0] );
+                            let open          = __data__.map( item => Number(item[1]["1. open"]).toFixed(2) );
+                            let high          = __data__.map( item => Number(item[1]["2. high"]).toFixed(2) );
+                            let low           = __data__.map( item => Number(item[1]["3. low"]).toFixed(2) );
+                            let close         = __data__.map( item => Number(item[1]["4. close"]).toFixed(2) );
+                            let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
+
+                            // Finally, update data
+                            this.setState({
+                                stockName: userInput,
+                                dates: dates,
+                                open: open,
+                                high: high,
+                                low: low,
+                                close: close,
+                                adjustedClose: adjustedClose,
+                                errorMessage: false,
+                                errorData: ""
+                            });
+                        }
+                    }
+                });
             // Reset user form field
             document.getElementById("section__form-input").value = "";
         }
@@ -47,7 +122,8 @@ class Home extends Component{
         return(
             <section>
                 <Form onSubmit={ this.onSubmit }/>
-                <Table data={ this.state.stockData }/>
+                <Table data={ this.state }/>
+                {/*
                 <ScatterPlot
                     data={ this.state }
                     width={ 600 }
@@ -55,7 +131,6 @@ class Home extends Component{
                     color={ "orange" }
                     padding={ 55 }
                 />
-                {/*
                 <Histogram
                     data={ this.state }
                     width={ 600 }
@@ -63,7 +138,8 @@ class Home extends Component{
                     padding={ 1 }
                     scalar={ 15 }
                     color="crimson"
-                />*/}
+                />
+                */}
             </section>
         );
     }
