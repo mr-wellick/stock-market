@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Table }      from "../../Components";
-//import { ScatterPlot }      from "../../Components";
+import { ScatterPlot }      from "../../Components";
 //import { Histogram }        from "../../Components";
 import { url, apiKey }      from "./api";
 import "./home.scss";
@@ -123,14 +123,16 @@ class Home extends Component{
             <section>
                 <Form onSubmit={ this.onSubmit }/>
                 <Table data={ this.state }/>
-                {/*
                 <ScatterPlot
-                    data={ this.state }
+                    errorMessage={ this.state.errorMessage }
+                    xValues={ this.state.dates }
+                    yValues={ this.state.adjustedClose }
                     width={ 600 }
                     height={ 400 }
                     color={ "orange" }
                     padding={ 55 }
                 />
+                {/*
                 <Histogram
                     data={ this.state }
                     width={ 600 }
