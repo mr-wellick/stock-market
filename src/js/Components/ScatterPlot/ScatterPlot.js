@@ -12,7 +12,6 @@ import "./scatterPlot.scss";
 // Line and axis data removed. But svg plot remains when no data is retrieved.
 class ScatterPlot extends Component{
     componentDidUpdate(){
-
         let { height }    = this.props;
         let { width }     = this.props;
         let { color }     = this.props;
@@ -23,15 +22,12 @@ class ScatterPlot extends Component{
         {
             // Remove SVG if no data is available
             if(stockData[0][0] === "Error Message")
-            {
-                select(this.node)
-                    .selectAll("g")
-                    .remove();
-            }
+                select(this.node).selectAll("g").remove();
             else
             {
                 // Parse data
                 let data = Object.entries(stockData[1][1]).reverse();
+
                 // Parse dates into date objects
                 let parseTime = timeParse("%Y-%m-%d");
                 let dates     = data.map( item => parseTime(item[0]) ).slice(1); // Remove first entry to match percentChange.
@@ -49,11 +45,7 @@ class ScatterPlot extends Component{
 
                 // Need to remove old nodes first then update.
                 if(this.node.children.length > 0)
-                {
-                    select(this.node)
-                        .selectAll("g")
-                        .remove();
-                }
+                    select(this.node).selectAll("g").remove();
 
                 // Find x-scale and y-scale
                 let xScale = findXScale(__finalData__, width, padding);

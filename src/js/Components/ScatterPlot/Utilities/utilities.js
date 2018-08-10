@@ -10,7 +10,7 @@ export function findXScale(data, width = 500, padding = 10)
     let xMin   = min(data, d => d[0]);
     let xMax   = max(data, d => d[0]);
     let xScale = scaleTime().domain([xMin, xMax]);
-    xScale.range([padding, width - padding]);
+    xScale.range([padding, width - padding]).nice();
 
     return(xScale);
 }
@@ -23,7 +23,7 @@ export function findYScale(data, height = 300, padding = 10)
     let yMin   = min(data, d => d[1]);
     let yMax   = max(data, d => d[1]);
     let yScale = scaleLinear().domain([yMin, yMax]);
-    yScale.range([height - padding, padding]);
+    yScale.range([height - padding, padding]).nice();
 
     return(yScale);
 }
