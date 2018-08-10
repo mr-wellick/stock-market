@@ -1,13 +1,7 @@
-import React     from "react";
-import PropTypes from "prop-types";
+import React      from "react";
+import PropTypes  from "prop-types";
+import { Errors } from "./Errors";
 import "./table.scss";
-
-// If error in api call
-const Error = (props) => {
-    return(
-        <h1>{ props.error[0][1] }</h1>
-    );
-};
 
 // Show table when data is retrieved
 const Success = (props) => {
@@ -52,7 +46,7 @@ const Table = (props) => {
     if(stockData[0] !== undefined){
         if(stockData[0][0] === "Error Message"){
             return(
-                <Error error={stockData}/>
+                <Errors error={stockData}/>
             );
         }
         else{
