@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Table }      from "../../Components";
-import { ScatterPlot }      from "../../Components";
-import { Histogram }        from "../../Components";
+//import { ScatterPlot }      from "../../Components";
+//import { Histogram }        from "../../Components";
 import { url, apiKey }      from "./api";
 import "./home.scss";
 
@@ -17,7 +17,7 @@ class Home extends Component{
         fetch(url + defautlStockToRetrieve + apiKey)
             .then(response => response.json())
             .then(data => this.setState({
-                stockData: Object.entries(data["Monthly Adjusted Time Series"]).reverse()
+                stockData: Object.entries(data)
             }));
     }
 
@@ -31,8 +31,7 @@ class Home extends Component{
             fetch( url + stockToRetrieve + apiKey )
                 .then(response => response.json())
                 .then(data => this.setState({
-                    stockName: userInput,
-                    stockData: Object.entries(data["Monthly Adjusted Time Series"]).reverse()
+                    stockData: Object.entries(data)
                 }));
 
             // Reset user form field
@@ -45,27 +44,23 @@ class Home extends Component{
 
     render(){
         return(
-            <section className="section">
+            <section>
                 <Form onSubmit={ this.onSubmit }/>
-                <div className="section__table-style">
-                    <Table data={ this.state }/>
-                    <div>
-                        <ScatterPlot
-                            data={ this.state }
-                            width="600"
-                            height="400"
-                            color="orange"
-                        />
-                        <Histogram
-                            data={ this.state }
-                            width={ 600 }
-                            height={ 400 }
-                            padding={ 1 }
-                            scalar={ 15 }
-                            color="crimson"
-                        />
-                    </div>
-                </div>
+                {/*<Table data={ this.state.stockData }/>*/}
+                {/*<ScatterPlot
+                    data={ this.state }
+                    width="600"
+                    height="400"
+                    color="orange"
+                />
+                <Histogram
+                    data={ this.state }
+                    width={ 600 }
+                    height={ 400 }
+                    padding={ 1 }
+                    scalar={ 15 }
+                    color="crimson"
+                />*/}
             </section>
         );
     }
