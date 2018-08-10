@@ -5,7 +5,7 @@ import { select }                 from "d3-selection";
 import { axisBottom, axisLeft }   from "d3-axis";
 import { timeParse }              from "d3-time-format";
 import { line }                   from "d3-shape";
-import "./scatterPlot.scss";
+import "./lineChart.scss";
 
 // Now, reformat data labels.
 // Line and axis data removed. But svg plot remains when no data is retrieved.
