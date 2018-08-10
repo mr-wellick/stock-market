@@ -9,6 +9,7 @@ import { line }                   from "d3-shape";
 import "./scatterPlot.scss";
 
 // Now, reformat data labels.
+// Line and axis data removed. But svg plot remains when no data is retrieved.
 class ScatterPlot extends Component{
     componentDidUpdate(){
 
@@ -22,7 +23,11 @@ class ScatterPlot extends Component{
         {
             // Remove SVG if no data is available
             if(stockData[0][0] === "Error Message")
-                select(this.node).remove();
+            {
+                select(this.node)
+                    .selectAll("g")
+                    .remove();
+            }
             else
             {
                 // Parse data
@@ -85,13 +90,13 @@ class ScatterPlot extends Component{
 
     render(){
         return(
-            <section>
+            <div>
                 <svg
                     ref={ node => this.node = node }
                     width={ this.props.width }
                     height={ this.props.height }
                 />
-            </section>
+            </div>
         );
     }
 }
