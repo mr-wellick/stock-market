@@ -28,7 +28,7 @@ class LineChart extends Component{
         {
             // Parse date values to objects
             let parseTime = timeParse("%Y-%m-%d");
-            let value = yValues.map( item => Number(item) );
+            let value     = yValues.map( item => Number(item) );
             let dates;
 
             // If we want to display percent change over time, we need to remove
@@ -36,7 +36,7 @@ class LineChart extends Component{
             if(percent)
                 dates = xValues.map(item => parseTime(item)).splice(1);
             else
-                dates = xValues.map(item => parseTime(item)).splice(1);
+                dates = xValues.map(item => parseTime(item));
 
             // Format data into an array of [[x, y], ..... , ]
             let __finalData__ = [];
