@@ -26,12 +26,11 @@ class Home extends Component{
         fetch(url + defautlStockToRetrieve + apiKey)
             .then(response => response.json())
             .then(data => {
-
-                // Turn data into array
+                // Turn data into array.
                 let __data__ = Object.entries(data)[1][1];
                 __data__     = Object.entries(__data__).reverse();
 
-                // Get dates and parse into date objects
+                // Store data in its own variable.
                 let dates         = __data__.map( item => item[0] );
                 let open          = __data__.map( item => Number(item[1]["1. open"]).toFixed(2) );
                 let high          = __data__.map( item => Number(item[1]["2. high"]).toFixed(2) );
@@ -40,7 +39,7 @@ class Home extends Component{
                 let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
                 let percentChange = findPercentChange(adjustedClose);
 
-                // Finally, update data
+                // Finally, update state.
                 this.setState({
                     dates: dates,
                     open: open,
@@ -63,14 +62,13 @@ class Home extends Component{
             fetch( url + stockToRetrieve + apiKey )
                 .then(response => response.json())
                 .then(data => {
-
-                    // Get raw data
+                    // Get raw data.
                     let rawData = Object.entries(data);
 
-                    // Check for error messages
+                    // Check for error messages.
                     if(rawData[0] !== undefined)
                     {
-                        // Reset all state fields for errors.
+                        // Reset all state fields if error occurs.
                         if(rawData[0][0] === "Error Message")
                         {
                             this.setState({
@@ -86,13 +84,13 @@ class Home extends Component{
                                 errorData: rawData[0][1]
                             });
                         }
-                        else // Set state when successful call is made
+                        else // Set state when successful call is made.
                         {
-                            // Turn data into array
+                            // Turn data into array.
                             let __data__ = Object.entries(data)[1][1];
                             __data__     = Object.entries(__data__).reverse();
 
-                            // Get dates and parse into date objects
+                            // Store data in its own variable.
                             let dates         = __data__.map( item => item[0] );
                             let open          = __data__.map( item => Number(item[1]["1. open"]).toFixed(2) );
                             let high          = __data__.map( item => Number(item[1]["2. high"]).toFixed(2) );
@@ -101,7 +99,7 @@ class Home extends Component{
                             let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
                             let percentChange = findPercentChange(adjustedClose);
 
-                            // Finally, update data
+                            // Finally, update state.
                             this.setState({
                                 stockName: userInput,
                                 dates: dates,
@@ -117,7 +115,7 @@ class Home extends Component{
                         }
                     }
                 });
-            // Reset user form field
+            // Reset user form field.
             document.getElementById("section__form-input").value = "";
         }
 
