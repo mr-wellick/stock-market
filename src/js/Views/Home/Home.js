@@ -48,12 +48,12 @@ class Home extends Component{
             <section>
                 <Form onSubmit={ this.onSubmit }/>
                 <Table data={ this.state.stockData }/>
-               <ScatterPlot
+                <ScatterPlot
                     data={ this.state }
-                    width={ 500 }
-                    height={ 300 }
+                    width={ 600 }
+                    height={ 400 }
                     color={ "orange" }
-                    padding={ 50 }
+                    padding={ 55 }
                 />
                 {/*
                 <Histogram
