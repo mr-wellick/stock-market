@@ -1,10 +1,13 @@
-import React, { Component }       from "react";
-import PropTypes                  from "prop-types";
-import { findXScale, findYScale } from "./Utilities";
-import { select }                 from "d3-selection";
-import { axisBottom, axisLeft }   from "d3-axis";
-import { timeParse }              from "d3-time-format";
-import { line }                   from "d3-shape";
+import React, { Component } from "react";
+import PropTypes            from "prop-types";
+import { findScale }        from "./Utilities";
+import { scaleLinear }      from "d3-scale";
+import { scaleTime }        from "d3-scale";
+import { select }           from "d3-selection";
+import { axisBottom }       from "d3-axis";
+import {  axisLeft }        from "d3-axis";
+import { timeParse }        from "d3-time-format";
+import { line }             from "d3-shape";
 import "./lineChart.scss";
 
 // Now, reformat data labels.
@@ -50,9 +53,13 @@ class LineChart extends Component{
             if(this.node.children.length > 0)
                 select(this.node).selectAll("g").remove();
 
-            // Find x-scale and y-scale
-            let xScale = findXScale(__finalData__, width, padding);
-            let yScale = findYScale(__finalData__, height, padding);
+            // Find x-scale
+            let xScale = findScale(__finalData__, 0, scaleTime);
+            xScale.range([padding, width - padding]).nice();
+
+            // Find y-scale
+            let yScale = findScale(__finalData__, 1, scaleLinear);
+            yScale.range([height - padding, padding]).nice();
 
             // Add x-axis
             select(this.node)

@@ -1,29 +1,11 @@
-import { scaleLinear } from "d3-scale";
-import { scaleTime }   from "d3-scale";
 import { max, min }    from "d3-array";
 
-// Find xScale
-export function findXScale(data, width = 500, padding = 10)
+// Find a scale
+export default function findScale(data, index, scaleType)
 {
+    let Min   = min(data, d => d[index]);
+    let Max   = max(data, d => d[index]);
+    let scale = scaleType().domain([Min, Max]);
 
-    // Find x-scale
-    let xMin   = min(data, d => d[0]);
-    let xMax   = max(data, d => d[0]);
-    let xScale = scaleTime().domain([xMin, xMax]);
-    xScale.range([padding, width - padding]).nice();
-
-    return(xScale);
-}
-
-// Find xScale
-export function findYScale(data, height = 300, padding = 10)
-{
-
-    // Find y-scale
-    let yMin   = min(data, d => d[1]);
-    let yMax   = max(data, d => d[1]);
-    let yScale = scaleLinear().domain([yMin, yMax]);
-    yScale.range([height - padding, padding]).nice();
-
-    return(yScale);
+    return(scale);
 }
