@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { findScale }        from "./Utilities";
+import { addAxis }          from "./Utilities";
 import { scaleLinear }      from "d3-scale";
 import { scaleTime }        from "d3-scale";
 import { select }           from "d3-selection";
 import { axisBottom }       from "d3-axis";
-import {  axisLeft }        from "d3-axis";
+import { axisLeft }         from "d3-axis";
 import { timeParse }        from "d3-time-format";
 import { line }             from "d3-shape";
 import "./lineChart.scss";
@@ -48,7 +49,6 @@ class LineChart extends Component{
                 __finalData__.push([dates[i], value[i]]);
             }
 
-
             // Need to remove old nodes first then update.
             if(this.node.children.length > 0)
                 select(this.node).selectAll("g").remove();
@@ -57,21 +57,16 @@ class LineChart extends Component{
             let xScale = findScale(__finalData__, 0, scaleTime);
             xScale.range([padding, width - padding]).nice();
 
+            // Add x-axis
+            let pad = height - padding;
+            addAxis(this.node, pad, axisBottom, xScale);
+
             // Find y-scale
             let yScale = findScale(__finalData__, 1, scaleLinear);
             yScale.range([height - padding, padding]).nice();
 
-            // Add x-axis
-            select(this.node)
-                .append("g")
-                .attr("transform", "translate(0," + (height - padding) + ")")
-                .call(axisBottom(xScale));
-
             // Add y-axis
-            select(this.node)
-                .append("g")
-                .attr("transform", "translate(" + padding + ",0)")
-                .call(axisLeft(yScale));
+            addAxis(this.node, padding, axisLeft, yScale, false);
 
             // Line object
             let lineFunc = line().x(d => xScale(d[0])).y(d => yScale(d[1]));

@@ -1,1 +1,2 @@
-export { default as findScale }  from "./utilities";
+export { findScale } from "./utilities";
+export { addAxis }   from "./utilities";
