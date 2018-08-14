@@ -21,35 +21,32 @@ class Home extends Component{
     }
 
     componentDidMount(){
+        // Retrieve TSLA stock by default.
         let defautlStockToRetrieve = `symbol=${this.state.stockName}&`;
 
-        fetch(url + defautlStockToRetrieve + apiKey)
-            .then(response => response.json())
-            .then(data => {
-                // Turn data into array.
-                let __data__ = Object.entries(data)[1][1];
-                __data__     = Object.entries(__data__).reverse();
+        // Get data and formatt into correct form before processing.
+        let p1 = fetch(url + defautlStockToRetrieve + apiKey)
+            .then(res => res.json())
+            .then(data => Object.entries(data)[1][1]) // BUG. Sometimes it works other times it doesn't.
+            .then(formattedData => Object.entries(formattedData).reverse());
 
-                // Store data in its own variable.
-                let dates         = __data__.map( item => item[0] );
-                let open          = __data__.map( item => Number(item[1]["1. open"]).toFixed(2) );
-                let high          = __data__.map( item => Number(item[1]["2. high"]).toFixed(2) );
-                let low           = __data__.map( item => Number(item[1]["3. low"]).toFixed(2) );
-                let close         = __data__.map( item => Number(item[1]["4. close"]).toFixed(2) );
-                let adjustedClose = __data__.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
-                let percentChange = findPercentChange(adjustedClose);
+        // Now process data.
+        p1.then(data => {
+            // Need to derive percentChange from adjustedClose.
+            let adjustedClose = data.map( item => Number(item[1]["5. adjusted close"]).toFixed(2) );
+            let percentChange = findPercentChange(adjustedClose);
 
-                // Finally, update state.
-                this.setState({
-                    dates: dates,
-                    open: open,
-                    high: high,
-                    low: low,
-                    close: close,
-                    adjustedClose: adjustedClose,
-                    percentChange: percentChange
-                });
+            // Finally, update state.
+            this.setState({
+                dates:         data.map( item => item[0] ),
+                open:          data.map( item => Number(item[1]["1. open"]).toFixed(2) ),
+                high:          data.map( item => Number(item[1]["2. high"]).toFixed(2) ),
+                low:           data.map( item => Number(item[1]["3. low"]).toFixed(2) ),
+                close:         data.map( item => Number(item[1]["4. close"]).toFixed(2) ),
+                adjustedClose: adjustedClose,
+                percentChange: percentChange
             });
+        });
     }
 
     onSubmit = (event) => {
@@ -58,14 +55,14 @@ class Home extends Component{
         let stockToRetrieve = `symbol=${userInput}&`;
 
         if(userInput !== ""){
-            // Retrieve stock data and update state.
-            fetch( url + stockToRetrieve + apiKey )
-                .then(response => response.json())
-                .then(data => {
+            // Retrieve stock data.
+            let p2 = fetch( url + stockToRetrieve + apiKey ).then(response => response.json());
+
+                // Process data.
+                p2.then(data => {
                     // Get raw data.
                     let rawData = Object.entries(data);
 
-                    // Check for error messages.
                     if(rawData[0] !== undefined)
                     {
                         // Reset all state fields if error occurs.
