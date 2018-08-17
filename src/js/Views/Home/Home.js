@@ -24,7 +24,7 @@ class Home extends Component{
         // Retrieve TSLA stock by default.
         let defautlStockToRetrieve = `symbol=${this.state.stockName}&`;
 
-        // Get data and formatt into correct form before processing.
+        // Get data and format into correct form before processing.
         let p1 = fetch(url + defautlStockToRetrieve + apiKey)
             .then(res => res.json())
             .then(data => Object.entries(data)[1][1]) // BUG. Sometimes it works other times it doesn't.
