@@ -1,5 +1,6 @@
 import { USER_DATA_TYPE_SELECTION } from "../Actions";
 import { GET_USER_INPUT }           from "../Actions";
+import { FETCH_DATA }               from "../Actions";
 
 export function userSelect(dataType)
 {
@@ -16,3 +17,8 @@ export function userInput(stockName)
         stockName
     };
 }
+
+// New Creators
+//function fetchData()
+//{
+//}
