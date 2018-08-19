@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import PropTypes            from "prop-types";
 
 class DataSelector extends Component{
+    // Pick crypto or stock mode.
+    onChange = (event) => {
+        let typeOfDataToRetrieve = event.target.value;
+
+        // Dispatch an action to here to select data type.
+        console.log(typeOfDataToRetrieve);
+    }
+
     render(){
         return(
             <form>
                 <label htmlFor="data_type_selector">Select stock or crypto mode</label>
-                <select id="data_type_selector" onChange={ this.props.onChange }>
+                <select id="data_type_selector" onChange={ this.onChange }>
                     <optgroup label="Stock Market Data">
                         <option value="function=TIME_SERIES_MONTHLY_ADJUSTED">Monthly Adjusted</option>
                         <option value="function=TIME_SERIES_DAILY_ADJUSTED">Daily Adjusted</option>
@@ -20,9 +27,5 @@ class DataSelector extends Component{
         );
     }
 }
-
-DataSelector.propTypes = {
-    onChange: PropTypes.func
-};
 
 export default DataSelector;

@@ -21,15 +21,10 @@ class Home extends Component{
         event.preventDefault();
     }
 
-    onChange = (event) => {
-        let typeOfDataToRequest = event.target.value;
-        console.log(typeOfDataToRequest);
-    }
-
     render(){
         return(
             <section>
-                <DataSelector onChange={ this.onChange }/>
+                <DataSelector/>
                 <Form onSubmit={ this.onSubmit }/>
                 {/*
                 <Table data={ this.state }/>
