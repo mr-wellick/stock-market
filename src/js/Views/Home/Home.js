@@ -10,7 +10,7 @@ import { SideBar }          from "../SideBar";
 import "./home.scss";
 
 // Import redux stuff
-import { userInput } from "../../Redux";
+import { fetchData } from "../../Redux";
 import { connect }   from "react-redux";
 
 class Home extends Component{
@@ -21,7 +21,7 @@ class Home extends Component{
         // Get stock name and reset user form field
         if(userInput !== "")
         {
-            this.props.setStock(userInput);
+            this.props.getData(userInput);
             document.getElementById("section__form-input").value = "";
         }
 
@@ -35,7 +35,7 @@ class Home extends Component{
                 <SideBar/>
                 <Form onSubmit={ this.onSubmit }/>
                 {/*
-                <Table data={ this.state }/>
+                <Table data={ this.props }/>
                 <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }
@@ -72,21 +72,21 @@ class Home extends Component{
 
 let mapStateToProps = (state) => {
     return {
-        userInput: state.stockName
+        userInput: state.stockName,
+        stockData: state.stockData
     };
 };
 
 let mapDispatchToProps = (dispatch) => {
-    return{
-        setStock: (name) => {
-            dispatch(userInput(name));
+    return {
+        getData: (name) => {
+            dispatch(fetchData(name));
         }
     };
-
 };
 
 Home.propTypes = {
-    setStock: PropTypes.func
+    getData: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

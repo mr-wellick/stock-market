@@ -1,12 +1,13 @@
 import { USER_DATA_TYPE_SELECTION } from "../Actions";
 import { GET_USER_INPUT }           from "../Actions";
+import { FETCH_DATA }               from "../Actions";
 import { combineReducers }          from "redux";
 import { createStore }              from "redux";
 import { applyMiddleware }          from "redux";
 import { createLogger }             from "redux-logger";
 import thunkMiddleware              from "redux-thunk";
 
-function userSelectReducer(state = { dataType: "function=TIME_SERIES_MONTHLY_ADJUSTED" }, action)
+function userSelectReducer(state = { dataType: "function=TIME_SERIES_MONTHLY_ADJUSTED&" }, action)
 {
     switch(action.type)
     {
@@ -32,9 +33,23 @@ function userInputReducer(state = { stockName: "TSLA" }, action)
     }
 }
 
+function get(state = { stockData: [] }, action)
+{
+    switch(action.type)
+    {
+        case FETCH_DATA:
+            return Object.assign({}, state, {
+                stockData: action.stockData
+            });
+        default:
+            return state;
+    }
+}
+
 // Create reducer
 let rootReducer = combineReducers({
     stockName: userInputReducer,
+    stockData: get,
     dataType: userSelectReducer
 });
 
