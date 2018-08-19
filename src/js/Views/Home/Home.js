@@ -14,6 +14,10 @@ import { fetchData } from "../../Redux";
 import { connect }   from "react-redux";
 
 class Home extends Component{
+    componentDidMount(){
+        this.props.getData("TSLA");
+    }
+
     // Get user input
     onSubmit = (event) => {
         let userInput = document.getElementById("section__form-input").value.toUpperCase();
