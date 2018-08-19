@@ -1,5 +1,6 @@
 import React, { Component }  from "react";
 import { Form, Table }       from "../../Components";
+import { DataSelector }      from "../DataSelector";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
 //import { url, apiKey }       from "./api";
@@ -20,9 +21,15 @@ class Home extends Component{
         event.preventDefault();
     }
 
+    onChange = (event) => {
+        let typeOfDataToRequest = event.target.value;
+        console.log(typeOfDataToRequest);
+    }
+
     render(){
         return(
             <section>
+                <DataSelector onChange={ this.onChange }/>
                 <Form onSubmit={ this.onSubmit }/>
                 {/*
                 <Table data={ this.state }/>
