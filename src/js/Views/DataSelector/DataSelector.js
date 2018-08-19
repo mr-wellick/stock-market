@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { userSelect }       from "../../Redux";
+import { connect }          from "react-redux";
+import PropTypes            from "prop-types";
+
 
 class DataSelector extends Component{
     // Pick crypto or stock mode.
     onChange = (event) => {
-        let typeOfDataToRetrieve = event.target.value;
-
-        // Dispatch an action to here to select data type.
-        console.log(typeOfDataToRetrieve);
+        let retievalType = event.target.value;
+        this.props.setData(retievalType);
     }
 
     render(){
@@ -28,4 +30,22 @@ class DataSelector extends Component{
     }
 }
 
-export default DataSelector;
+let mapStateToProps = (state) => {
+    return {
+        dataType: state.dataType
+    };
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        setData: (type) => {
+            dispatch(userSelect(type));
+        }
+    };
+};
+
+DataSelector.propTypes = {
+    setData: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DataSelector);

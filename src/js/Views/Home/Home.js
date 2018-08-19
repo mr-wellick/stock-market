@@ -7,12 +7,16 @@ import { DataSelector }      from "../DataSelector";
 //import { findPercentChange } from "./Utilities";
 import "./home.scss";
 
+// Import redux stuff
+import { userInput } from "../../Redux";
+import { connect }   from "react-redux";
+
 class Home extends Component{
     // Get user input
     onSubmit = (event) => {
         // Need variable for userInput.
         let userInput = document.getElementById("section__form-input").value.toUpperCase();
-        console.log(userInput);
+        this.props.setStock(userInput);
 
         // Reset user form field.
         document.getElementById("section__form-input").value = "";
@@ -62,4 +66,19 @@ class Home extends Component{
     }
 }
 
-export default Home;
+let mapStateToProps = (state) => {
+    return {
+        stockName: state.stockName
+    };
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return{
+        setStock: (name) => {
+            dispatch(userInput(name));
+        }
+    };
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
