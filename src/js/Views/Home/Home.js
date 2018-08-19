@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
+import { SideBar }          from "../SideBar";
 //import { Table }            from "../../Components";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
@@ -29,9 +30,9 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.props);
         return(
             <section>
+                <SideBar/>
                 <Form onSubmit={ this.onSubmit }/>
                 {/*
                 <Table data={ this.state }/>
@@ -71,7 +72,7 @@ class Home extends Component{
 
 let mapStateToProps = (state) => {
     return {
-        stockName: state.stockName
+        userInput: state.stockName
     };
 };
 
