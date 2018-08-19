@@ -39,6 +39,7 @@ export function fetchData(stockName)
         dispatch(userInput(stockName));
         return fetch( url + fun + symbol + apiKey )
                     .then(res => res.json())
+                    .then(data => Object.entries(data)[1][1])
                     .then(data => Object.entries(data))
                     .then(data => dispatch(receivedData(data)));
     };

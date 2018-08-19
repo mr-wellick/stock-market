@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
-//import { Table }            from "../../Components";
+import { Table }            from "../../Components";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
 //import { url, apiKey }       from "./api";
@@ -34,8 +34,8 @@ class Home extends Component{
             <section>
                 <SideBar/>
                 <Form onSubmit={ this.onSubmit }/>
-                {/*
                 <Table data={ this.props }/>
+                {/*
                 <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }
