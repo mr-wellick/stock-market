@@ -1,6 +1,8 @@
-import React, { Component }  from "react";
-import { Form, Table }       from "../../Components";
-import { DataSelector }      from "../DataSelector";
+import React, { Component } from "react";
+import PropTypes            from "prop-types";
+import { Form  }            from "../../Components";
+//import { Table }            from "../../Components";
+import { DataSelector }     from "../DataSelector";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
 //import { url, apiKey }       from "./api";
@@ -14,12 +16,14 @@ import { connect }   from "react-redux";
 class Home extends Component{
     // Get user input
     onSubmit = (event) => {
-        // Need variable for userInput.
         let userInput = document.getElementById("section__form-input").value.toUpperCase();
-        this.props.setStock(userInput);
 
-        // Reset user form field.
-        document.getElementById("section__form-input").value = "";
+        // Get stock name and reset user form field
+        if(userInput !== "")
+        {
+            this.props.setStock(userInput);
+            document.getElementById("section__form-input").value = "";
+        }
 
         // Prevent refresh of the page when submitting stock to view.
         event.preventDefault();
@@ -79,6 +83,10 @@ let mapDispatchToProps = (dispatch) => {
         }
     };
 
+};
+
+Home.propTypes = {
+    setStock: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
