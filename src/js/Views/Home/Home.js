@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 //import { Table }            from "../../Components";
-//import { DataSelector }     from "../DataSelector";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
 //import { url, apiKey }       from "./api";
@@ -35,7 +34,6 @@ class Home extends Component{
             <section>
                 <Form onSubmit={ this.onSubmit }/>
                 {/*
-                <DataSelector/>
                 <Table data={ this.state }/>
                 <LineChart
                     errorMessage={ this.state.errorMessage }
