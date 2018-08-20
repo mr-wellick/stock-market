@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
-import { Table }            from "../../Components";
+//import { Table }            from "../../Components";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
-//import { url, apiKey }       from "./api";
-//import { findPercentChange } from "./Utilities";
 import "./home.scss";
 
 // Import redux stuff
@@ -35,11 +33,13 @@ class Home extends Component{
 
     render(){
         return(
-            <section>
-                <SideBar/>
-                <Form onSubmit={ this.onSubmit }/>
-                <Table data={ this.props }/>
+            <section className="home-container">
+                <div className="home-container__input-selection">
+                    <SideBar/>
+                    <Form onSubmit={ this.onSubmit }/>
+                </div>
                 {/*
+                <Table data={ this.props }/>
                 <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }

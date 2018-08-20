@@ -1,0 +1,20 @@
+.home-container
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2rem;
+}
+
+.home-container__input-selection
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.selections-container
+{
+    padding: 1rem;
+}

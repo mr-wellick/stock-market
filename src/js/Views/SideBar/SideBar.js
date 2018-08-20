@@ -12,7 +12,7 @@ class SideBar extends Component{
 
     render(){
         return(
-            <div className="selector-container">
+            <div className="selections-container">
                 <form onChange={ this.onChange }>
                     <label htmlFor="selections">Choose stock or crypto mode</label>
                     <select id="selections">

@@ -7,7 +7,7 @@ import "./app.scss";
 
 // Import user defined components
 import { Home }   from "./Views";
-import { Footer } from "./Views";
+//import { Footer } from "./Views";
 
 // Application
 class App extends Component{
@@ -15,16 +15,16 @@ class App extends Component{
         return(
             <Router>
                 <Fragment>
-                    <header className="header">
-                        <h1 className="header__title">LRNZ</h1>
-                        <nav className="header__navigation">
+                    <header className="main-header">
+                        <h1 className="main-header__title">LRNZ</h1>
+                        <nav className="main-header__navigation">
                             <ul>
                                 <li><Link to="/">Home</Link></li>
                             </ul>
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
-                    <Route path="/" component={ Footer }></Route>
+                    {/*<Route path="/" component={ Footer }></Route>*/}
                 </Fragment>
             </Router>
         );
