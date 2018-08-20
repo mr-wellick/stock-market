@@ -12,19 +12,21 @@ class SideBar extends Component{
 
     render(){
         return(
-            <form onChange={ this.onChange }>
-                <label htmlFor="selection_type">Choose stock or crypto mode</label>
-                <select id="selection_type">
-                    <optgroup label="Stocks">
-                        <option value="function=TIME_SERIES_MONTHLY_ADJUSTED&">Monthly Adjusted</option>
-                        <option value="function=TIME_SERIES_DAILY_ADJUSTED&">Daily Adjusted</option>
-                    </optgroup>
-                    <optgroup label="Cryptocurrency">
-                        <option value="function=DIGITAL_CURRENCY_MONTHLY&">Monthly</option>
-                        <option value="function=DIGITAL_CURRENCY_DAILY&">Daily</option>
-                    </optgroup>
-                </select>
-            </form>
+            <div className="selector-container">
+                <form onChange={ this.onChange }>
+                    <label htmlFor="selections">Choose stock or crypto mode</label>
+                    <select id="selections">
+                        <optgroup label="Stocks">
+                            <option value="function=TIME_SERIES_MONTHLY_ADJUSTED&">Monthly Adjusted</option>
+                            <option value="function=TIME_SERIES_DAILY_ADJUSTED&">Daily Adjusted</option>
+                        </optgroup>
+                        <optgroup label="Cryptocurrency">
+                            <option value="function=DIGITAL_CURRENCY_MONTHLY&">Monthly</option>
+                            <option value="function=DIGITAL_CURRENCY_DAILY&">Daily</option>
+                        </optgroup>
+                    </select>
+                </form>
+            </div>
         );
     }
 }
