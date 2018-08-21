@@ -12,7 +12,7 @@ import { fetchData } from "../../Redux";
 import { connect }   from "react-redux";
 
 class Home extends Component{
-    componentDidMount(){
+    unsafe_componentWillMount(){
         this.props.getData("TSLA");
     }
 
