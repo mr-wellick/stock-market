@@ -35,8 +35,7 @@ function userInputReducer(state = { stockName: "TSLA" }, action)
 }
 
 function get(
-    state =
-    {
+    state = {
         stockData: [],
          dates: [],
          open: [],
