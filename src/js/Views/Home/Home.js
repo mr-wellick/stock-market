@@ -76,8 +76,17 @@ class Home extends Component{
 
 let mapStateToProps = (state) => {
     return {
-        userInput: state.stockName,
-        stockData: state.stockData,
+        userInput:     state.stockName,
+        stockData:     state.stockData,
+        dates:         state.dates,
+        open:          state.open,
+        high:          state.high,
+        low:           state.low,
+        close:         state.close,
+        adjustedClose: state.adjustedClose,
+        percentChange: state.percentChange,
+        error:         state.error,
+        errorMessage:  state.errorMessage
     };
 };
 
@@ -90,7 +99,9 @@ let mapDispatchToProps = (dispatch) => {
 };
 
 Home.propTypes = {
-    getData: PropTypes.func
+    getData: PropTypes.func,
+    stockData: PropTypes.object,
+    userInput: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
