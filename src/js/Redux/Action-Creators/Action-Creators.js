@@ -53,6 +53,7 @@ export function fetchData(stockName)
                         {
                             let processData = Object.entries(checkData[1][1]);
 
+                            // Check for stock or crypto data
                             if(stockOrCrypto)
                                 dispatch(receivedCrypto(processData));
                             else
@@ -60,8 +61,6 @@ export function fetchData(stockName)
 
                             // reset stock-or-crypto tracker
                             stockOrCrypto = false;
-
-                            console.log(processData);
                         }
                     });
     };
@@ -90,11 +89,11 @@ function receivedData(stockData)
     return {
         type: FETCH_DATA,
         stockData,
-        dates: stockData.map(item => item[0]),
-        open: stockData.map( item => item[1]["1. open"] ),
-        high: stockData.map( item => item[1]["2. high"] ),
-        low: stockData.map( item => item[1]["3. low"] ),
-        close: stockData.map( item => item[1]["4. close"] ),
+        dates:         stockData.map(item => item[0]),
+        open:          stockData.map( item => item[1]["1. open"] ),
+        high:          stockData.map( item => item[1]["2. high"] ),
+        low:           stockData.map( item => item[1]["3. low"] ),
+        close:         stockData.map( item => item[1]["4. close"] ),
         adjustedClose: stockData.map( item => item[1]["5. adjusted close"] ),
         percentChange: [],
         error: false,
