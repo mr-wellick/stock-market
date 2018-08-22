@@ -30,11 +30,15 @@ export function fetchData(stockName)
     let type = store.getState().dataType.dataType.substring(9, 20);
     let fun  = store.getState().dataType.dataType;
     let symbol;
+    let stockOrCrypto = false;
 
     if(type === "TIME_SERIES")
         symbol = `symbol=${stockName}&`;
     else
-        symbol = `symbol=${stockName}&market=USD&`;
+    {
+        symbol        = `symbol=${stockName}&market=USD&`;
+        stockOrCrypto = true;
+    }
 
     return function(dispatch){
         dispatch(userInput(stockName));
@@ -48,11 +52,38 @@ export function fetchData(stockName)
                         else
                         {
                             let processData = Object.entries(checkData[1][1]);
-                            dispatch(receivedData(processData));
+
+                            if(stockOrCrypto)
+                                dispatch(receivedCrypto(processData));
+                            else
+                                dispatch(receivedData(processData));
+
+                            // reset stock-or-crypto tracker
+                            stockOrCrypto = false;
+
+                            console.log(processData);
                         }
                     });
     };
 }
+
+function receivedCrypto(stockData)
+{
+    return {
+        type: FETCH_DATA,
+        stockData,
+        dates:         stockData.map(item => item[0]),
+        open:          stockData.map( item => item[1]["1a. open (USD)"]  ),
+        high:          stockData.map( item => item[1]["2a. high (USD)"]  ),
+        low:           stockData.map( item => item[1]["3a. low (USD)"]   ),
+        close:         stockData.map( item => item[1]["4a. close (USD)"] ),
+        adjustedClose: [],
+        percentChange: [],
+        error: false,
+        errorMessage: ""
+    };
+}
+
 
 function receivedData(stockData)
 {
