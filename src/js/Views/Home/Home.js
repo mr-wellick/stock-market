@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
-//import { Table }            from "../../Components";
+import { Table }            from "../../Components";
 //import { LineChart }         from "../../Components";
 //import { Histogram }        from "../../Components";
 import "./home.scss";
@@ -38,8 +38,8 @@ class Home extends Component{
                     <SideBar/>
                     <Form onSubmit={ this.onSubmit }/>
                 </div>
+                <Table data={ this.props.stockData } name={ this.props.userInput }/>
                 {/*
-                <Table data={ this.props }/>
                 <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }
@@ -77,7 +77,7 @@ class Home extends Component{
 let mapStateToProps = (state) => {
     return {
         userInput: state.stockName,
-        stockData: state.stockData
+        stockData: state.stockData,
     };
 };
 

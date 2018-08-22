@@ -4,12 +4,17 @@ import "./table.scss";
 
 const Table = (props) => {
 
-    let { userInput, stockData } = props.data;
+    let { stockName }           = props.name;
+    let { stockData }           = props.data; 
+    let { error, errorMessage } = props.data;
+
+    if(error)
+        return(<h1>{ errorMessage }</h1>);
 
     // Render stock data.
     return(
         <table>
-            <caption>{ userInput.stockName }</caption>
+            <caption>{ stockName }</caption>
             <thead>
                 <tr>
                     <th>Dates</th>
@@ -17,7 +22,7 @@ const Table = (props) => {
             </thead>
             <tbody>
                 {
-                    stockData.stockData.map( (item, index) =>
+                    stockData.map( (item, index) => 
                         <tr key={ index }>
                             <td>{ item[0] }</td>
                         </tr>

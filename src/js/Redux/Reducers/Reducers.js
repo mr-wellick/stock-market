@@ -1,6 +1,7 @@
 import { USER_DATA_TYPE_SELECTION } from "../Actions";
 import { GET_USER_INPUT }           from "../Actions";
 import { FETCH_DATA }               from "../Actions";
+import { ERROR_ON_FETCH_DATA }      from "../Actions";
 import { combineReducers }          from "redux";
 import { createStore }              from "redux";
 import { applyMiddleware }          from "redux";
@@ -33,18 +34,66 @@ function userInputReducer(state = { stockName: "TSLA" }, action)
     }
 }
 
-function get(state = { stockData: [] }, action)
+function get(state = {
+    stockData: [],
+    dates: [],
+    open: [],
+    high: [],
+    low: [],
+    close: [],
+    adjustedClose: [],
+    percentChange: [],
+    error: false,
+    errorMessage: ""
+},
+    action)
 {
     switch(action.type)
     {
         case FETCH_DATA:
             return Object.assign({}, state, {
-                stockData: action.stockData
+                stockData: action.stockData,
+                dates: action.dates,
+                open: action.open,
+                high: action.high,
+                low: action.low,
+                close: action.close,
+                adjustedClose: action.adjustedClose,
+                percentChange: action.percentChange,
+                error: action.error,
+                errorMessage: action.errorMessage
+            });
+        case ERROR_ON_FETCH_DATA:
+            return Object.assign({}, state, {
+                stockData: action.stockData,
+                dates: [],
+                open: [],
+                high: [],
+                low: [],
+                close: [],
+                adjustedClose: [],
+                percentChange: [],
+                error: action.error,
+                errorMessage: action.errorMessage
             });
         default:
             return state;
     }
 }
+
+//function error(state = { error: false, errorMessage: "" }, action)
+//{
+//    switch(action.type)
+//    {
+//        case ERROR_ON_FETCH_DATA:
+//            return Object.assign({}, state, {
+//                error: action.error,
+//                errorMessage: action.errorMessage
+//            });
+//        default:
+//            return state;
+//    }
+//}
 
 // Create reducer
 let rootReducer = combineReducers({
