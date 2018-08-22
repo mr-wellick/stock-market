@@ -10,6 +10,9 @@ const Table = (props) => {
     let { open, high, low, close } = props.data;
     let { percentChange }          = props.data;
 
+    // For percent change we lose one value in our array. So, add placeholder
+    percentChange = [0].concat(percentChange);
+
     // If we have an error, log it. If we have no data, say so.
     if(error)
         return(<h1>{ errorMessage }</h1>);
