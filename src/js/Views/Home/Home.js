@@ -44,6 +44,7 @@ class Home extends Component{
                 <section className="home-data-container">
                     <Table data={ this.props.stockData } name={ this.props.userInput }/>
                     <div className="charts">
+                        <h2>Closing Price</h2>
                         <LineChart
                             errorMessage={ this.props.stockData.error }
                             xValues={ this.props.stockData.dates }
@@ -54,6 +55,7 @@ class Home extends Component{
                             padding={ 55 }
                             percent={ false }
                         />
+                        <h2>Percent Change</h2>
                         <LineChart
                             errorMessage={ this.props.stockData.error }
                             xValues={ this.props.stockData.dates }

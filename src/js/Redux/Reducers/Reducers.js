@@ -34,19 +34,22 @@ function userInputReducer(state = { stockName: "TSLA" }, action)
     }
 }
 
-function get(state = {
-    stockData: [],
-    dates: [],
-    open: [],
-    high: [],
-    low: [],
-    close: [],
-    adjustedClose: [],
-    percentChange: [],
-    error: false,
-    errorMessage: ""
-},
-    action)
+function get(
+    state =
+    {
+        stockData: [],
+         dates: [],
+         open: [],
+         high: [],
+         low: [],
+         close: [],
+         adjustedClose: [],
+         percentChange: [],
+         error: false,
+         errorMessage: ""
+    },
+    action
+)
 {
     switch(action.type)
     {
@@ -80,20 +83,6 @@ function get(state = {
             return state;
     }
 }
-
-//function error(state = { error: false, errorMessage: "" }, action)
-//{
-//    switch(action.type)
-//    {
-//        case ERROR_ON_FETCH_DATA:
-//            return Object.assign({}, state, {
-//                error: action.error,
-//                errorMessage: action.errorMessage
-//            });
-//        default:
-//            return state;
-//    }
-//}
 
 // Create reducer
 let rootReducer = combineReducers({
