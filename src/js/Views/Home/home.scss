@@ -1,7 +1,5 @@
 .home-container
 {
-    display: grid;
-    grid-template-columns: 1fr;
     margin: 2rem;
 }
 
@@ -12,6 +10,12 @@
     justify-items: center;
     align-items: center;
     padding: 1rem;
+}
+
+.home-data-container
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .selections-container

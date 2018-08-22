@@ -8,6 +8,7 @@ const Table = (props) => {
     let { stockData }              = props.data;
     let { error, errorMessage }    = props.data;
     let { open, high, low, close } = props.data;
+    let { percentChange }          = props.data;
 
     // If we have an error, log it. If we have no data, say so.
     if(error)
@@ -17,31 +18,35 @@ const Table = (props) => {
 
     // Render stock or crypto data.
     return(
-        <table>
-            <caption>{ stockName }</caption>
-            <thead>
-                <tr>
-                    <th>Dates</th>
-                    <th>Open</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Close</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    stockData.map( (item, index) =>
-                        <tr key={ index }>
-                            <td>{ item[0] }</td>
-                            <td>{ open[index] }</td>
-                            <td>{ high[index] }</td>
-                            <td>{ low[index] }</td>
-                            <td>{ close[index] }</td>
-                        </tr>
-                    )
-                }
-            </tbody>
-        </table>
+        <div className="table-container">
+            <table align="center">
+                <caption>{ stockName }</caption>
+                <thead>
+                    <tr>
+                        <th>Dates</th>
+                        <th>Open</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Close</th>
+                        <th>Percent Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        stockData.map( (item, index) =>
+                            <tr key={ index }>
+                                <td>{ item[0] }</td>
+                                <td>{ open[index] }</td>
+                                <td>{ high[index] }</td>
+                                <td>{ low[index] }</td>
+                                <td>{ close[index] }</td>
+                                <td>{ percentChange[index] }</td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </div>
     );
 };
 

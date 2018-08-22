@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Fragment }         from "react";
 import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
@@ -12,7 +13,7 @@ import { fetchData } from "../../Redux";
 import { connect }   from "react-redux";
 
 class Home extends Component{
-    unsafe_componentWillMount(){
+    componentDidMount(){
         this.props.getData("TSLA");
     }
 
@@ -33,32 +34,38 @@ class Home extends Component{
 
     render(){
         return(
-            <section className="home-container">
-                <div className="home-container__input-selection">
-                    <SideBar/>
-                    <Form onSubmit={ this.onSubmit }/>
-                </div>
-                <Table data={ this.props.stockData } name={ this.props.userInput }/>
-                <LineChart
-                    errorMessage={ this.props.stockData.error }
-                    xValues={ this.props.stockData.dates }
-                    yValues={ this.props.stockData.close }
-                    width={ 600 }
-                    height={ 400 }
-                    color={ "orange" }
-                    padding={ 55 }
-                    percent={ false }
-                />
-                <LineChart
-                    errorMessage={ this.props.stockData.error }
-                    xValues={ this.props.stockData.dates }
-                    yValues={ this.props.stockData.percentChange }
-                    width={ 600 }
-                    height={ 400 }
-                    color={ "crimson" }
-                    padding={ 55 }
-                    percent={ true }
-                />
+            <Fragment>
+                <section className="home-container">
+                    <div className="home-container__input-selection">
+                        <SideBar/>
+                        <Form onSubmit={ this.onSubmit }/>
+                    </div>
+                </section>
+                <section className="home-data-container">
+                    <Table data={ this.props.stockData } name={ this.props.userInput }/>
+                    <div className="charts">
+                        <LineChart
+                            errorMessage={ this.props.stockData.error }
+                            xValues={ this.props.stockData.dates }
+                            yValues={ this.props.stockData.close }
+                            width={ 600 }
+                            height={ 400 }
+                            color={ "orange" }
+                            padding={ 55 }
+                            percent={ false }
+                        />
+                        <LineChart
+                            errorMessage={ this.props.stockData.error }
+                            xValues={ this.props.stockData.dates }
+                            yValues={ this.props.stockData.percentChange }
+                            width={ 600 }
+                            height={ 400 }
+                            color={ "crimson" }
+                            padding={ 55 }
+                            percent={ true }
+                        />
+                    </div>
+                </section>
                 {/*
                 <Histogram
                     data={ this.props.stockData }
@@ -69,7 +76,7 @@ class Home extends Component{
                     color="crimson"
                 />
                 */}
-            </section>
+            </Fragment>
         );
     }
 }
