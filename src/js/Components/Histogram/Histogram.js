@@ -21,16 +21,12 @@ class Histogram extends Component {
 
     componentDidUpdate(){
         // Data and svg basic data
-        let { stockData }     = this.props.data;
+        let { percentChange } = this.props.data;
         let { scalar }        = this.props;
         let { width, height } = this.props;
         let { color }         = this.props;
 
-        // Get dates and closing prices
-        let adjustedClose = stockData.map( item => Number(item[1]["5. adjusted close"]) );
-
         // Get percent change of prices
-        let percentChange = findPercentChange(adjustedClose);
         let frequencies   = findFrequencies(percentChange);
 
         // First, check for old nodes to remove

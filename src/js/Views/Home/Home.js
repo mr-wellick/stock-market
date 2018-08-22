@@ -4,7 +4,7 @@ import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
 import { Table }            from "../../Components";
 import { LineChart }        from "../../Components";
-//import { Histogram }        from "../../Components";
+//import { Histogram }        from "../../Components"; // Need to fix bar scaling.
 import "./home.scss";
 
 // Import redux stuff
@@ -32,7 +32,6 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.props)
         return(
             <section className="home-container">
                 <div className="home-container__input-selection">
@@ -50,19 +49,19 @@ class Home extends Component{
                     padding={ 55 }
                     percent={ false }
                 />
-                {/*
                 <LineChart
-                    errorMessage={ this.state.errorMessage }
-                    xValues={ this.state.dates }
-                    yValues={ this.state.percentChange }
+                    errorMessage={ this.props.stockData.error }
+                    xValues={ this.props.stockData.dates }
+                    yValues={ this.props.stockData.percentChange }
                     width={ 600 }
                     height={ 400 }
                     color={ "crimson" }
                     padding={ 55 }
                     percent={ true }
                 />
+                {/*
                 <Histogram
-                    data={ this.state }
+                    data={ this.props.stockData }
                     width={ 600 }
                     height={ 400 }
                     padding={ 1 }
