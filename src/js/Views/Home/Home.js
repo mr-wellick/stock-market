@@ -3,7 +3,7 @@ import PropTypes            from "prop-types";
 import { Form  }            from "../../Components";
 import { SideBar }          from "../SideBar";
 import { Table }            from "../../Components";
-//import { LineChart }         from "../../Components";
+import { LineChart }        from "../../Components";
 //import { Histogram }        from "../../Components";
 import "./home.scss";
 
@@ -32,6 +32,7 @@ class Home extends Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <section className="home-container">
                 <div className="home-container__input-selection">
@@ -39,17 +40,17 @@ class Home extends Component{
                     <Form onSubmit={ this.onSubmit }/>
                 </div>
                 <Table data={ this.props.stockData } name={ this.props.userInput }/>
-                {/*
                 <LineChart
-                    errorMessage={ this.state.errorMessage }
-                    xValues={ this.state.dates }
-                    yValues={ this.state.adjustedClose }
+                    errorMessage={ this.props.stockData.error }
+                    xValues={ this.props.stockData.dates }
+                    yValues={ this.props.stockData.close }
                     width={ 600 }
                     height={ 400 }
                     color={ "orange" }
                     padding={ 55 }
                     percent={ false }
                 />
+                {/*
                 <LineChart
                     errorMessage={ this.state.errorMessage }
                     xValues={ this.state.dates }

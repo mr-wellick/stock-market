@@ -3,6 +3,7 @@ import { GET_USER_INPUT }           from "../Actions";
 import { FETCH_DATA }               from "../Actions";
 import { ERROR_ON_FETCH_DATA }      from "../Actions";
 import { store }                    from "../Reducers";
+import { findPercentChange }        from "../../Views/Home/Utilities";
 
 // api stuff
 const url    = "https://www.alphavantage.co/query?";
@@ -51,7 +52,7 @@ export function fetchData(stockName)
                             dispatch(errorOnDataRetrieval(checkData));
                         else
                         {
-                            let processData = Object.entries(checkData[1][1]);
+                            let processData = Object.entries(checkData[1][1]).reverse();
 
                             // Check for stock or crypto data
                             if(stockOrCrypto)
@@ -77,7 +78,7 @@ function receivedCrypto(stockData)
         low:           stockData.map( item => item[1]["3a. low (USD)"]   ),
         close:         stockData.map( item => item[1]["4a. close (USD)"] ),
         adjustedClose: [],
-        percentChange: [],
+        percentChange: findPercentChange(stockData.map( item => item[1]["4a. close (USD)"] )),
         error: false,
         errorMessage: ""
     };
@@ -95,7 +96,7 @@ function receivedData(stockData)
         low:           stockData.map( item => item[1]["3. low"] ),
         close:         stockData.map( item => item[1]["4. close"] ),
         adjustedClose: stockData.map( item => item[1]["5. adjusted close"] ),
-        percentChange: [],
+        percentChange: findPercentChange(stockData.map( item => item[1]["5. adjusted close"] )),
         error: false,
         errorMessage: ""
     };

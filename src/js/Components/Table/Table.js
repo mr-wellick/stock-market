@@ -22,6 +22,10 @@ const Table = (props) => {
             <thead>
                 <tr>
                     <th>Dates</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +33,10 @@ const Table = (props) => {
                     stockData.map( (item, index) =>
                         <tr key={ index }>
                             <td>{ item[0] }</td>
+                            <td>{ open[index] }</td>
+                            <td>{ high[index] }</td>
+                            <td>{ low[index] }</td>
+                            <td>{ close[index] }</td>
                         </tr>
                     )
                 }
