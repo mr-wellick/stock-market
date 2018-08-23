@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "../../Components";
-import "./Home.scss";
+import "./home.scss";
 
 class Home extends Component{
     render(){

@@ -2,7 +2,7 @@
 import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Home }                                 from "./Views";
-import "./App.scss";
+import "./app.scss";
 
 class App extends Component{
     render(){
