@@ -4,24 +4,24 @@ import { USER_INPUT } from "../../Constants";
 /**
  ** Begin Tests
  **/
-test("Check correct action is returned by retrieve action-creator", () => {
+test("Check correct action type is returned by retrieve action-creator", () => {
 
-    let userInput = createNew("TSLA");
-    let { type }  = retrieve(userInput);
+    let userInput       = name;
+    let userInputAction = retrieve(userInput);
+    let { type }        = userInputAction;
     expect(type).toBe(USER_INPUT);
 });
 
 test("Check correct assest name is returned", () => {
 
-    let userInput     = createNew("TSLA");
-    let { assetName } = retrieve(userInput);
-    expect(assetName).toBe(userInput);
+    let userInput       = name;
+    let userInputAction = retrieve(userInput);
+    let { assetName }   = userInputAction;
+    expect(assetName).toBe(name);
 });
 /**
  ** End Tests
  **/
 
-function createNew(assetName)
-{
-    return assetName;
-}
+ // Asset name.
+ let name = "TSLA";
