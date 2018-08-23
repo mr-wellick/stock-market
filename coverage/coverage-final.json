@@ -1,2 +1,0 @@
-{"/Users/lrnz/Desktop/securities-app/src/js/Redux/Actions/user-input.js": {"path":"/Users/lrnz/Desktop/securities-app/src/js/Redux/Actions/user-input.js","statementMap":{"0":{"start":{"line":5,"column":4},"end":{"line":8,"column":6}}},"fnMap":{"0":{"name":"retrieve","decl":{"start":{"line":3,"column":9},"end":{"line":3,"column":17}},"loc":{"start":{"line":4,"column":0},"end":{"line":9,"column":1}},"line":4}},"branchMap":{},"s":{"0":2},"f":{"0":2},"b":{},"_coverageSchema":"332fd63041d2c1bcb487cc26dd0d5f7d97098a6c","hash":"f5bea85a45bd5f33411f51c6ea08b99336cb1abe"}
-}
