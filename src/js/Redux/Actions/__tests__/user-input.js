@@ -4,14 +4,14 @@ import { USER_INPUT } from "../../Constants";
 /**
  ** Begin Tests
  **/
-test("Check correct action type is returned by retrieve action-creator", () => {
+test("Check correct action type is returned by userInput action-creator", () => {
 
     let userInputAction = userInput(name);
     let { type }        = userInputAction;
     expect(type).toBe(USER_INPUT);
 });
 
-test("Check correct asset name is returned by retrieve action-creator", () => {
+test("Check correct asset name is returned by userInput action-creator", () => {
 
     let userInputAction = userInput(name);
     let { assetName }   = userInputAction;
