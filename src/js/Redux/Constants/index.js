@@ -1,1 +1,2 @@
-export let USER_INPUT= "USER_INPUT";
+export let USER_INPUT     = "USER_INPUT";
+export let USER_SELECTION = "USER_SELECTION";

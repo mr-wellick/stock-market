@@ -1,1 +1,2 @@
-export { retrieve } from "./Actions";
+export { retrieve }  from "./Actions";
+export { determine } from "./Actions";
