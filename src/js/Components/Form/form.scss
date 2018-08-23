@@ -1,4 +1,7 @@
 // Form container
+//.section-home__form__container
+//{
+//}
 
 // Form element
 .section-home__form
@@ -6,19 +9,18 @@
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr 1fr;
-    padding: 1em;
 }
 
 // Form children
 .section-home__form-input
 {
-    width: 275px;
+    width: 20em;
     text-align: center;
 }
 
 .section-home__form-input input
 {
-    width: 250px;
+    width: 20em;
     margin-top: 5px;
     margin-bottom: 5px;
     padding-top: 5px;
@@ -32,13 +34,13 @@
 
 .section-home__form-submit
 {
-    width: 275px;
+    width: 20em;
     text-align: center;
 }
 
 .section-home__form-submit input
 {
-    width: 250px;
+    width: 20em;
     padding: 0;
     margin-top: 5px;
     margin-bottom: 5px;
