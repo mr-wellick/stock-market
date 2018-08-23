@@ -1,6 +1,6 @@
 import { USER_INPUT } from "../Constants";
 
-function retrieve(assetName)
+function userInput(assetName)
 {
     return {
         type: USER_INPUT,
@@ -8,4 +8,4 @@ function retrieve(assetName)
     };
 }
 
-export default retrieve;
+export default userInput;

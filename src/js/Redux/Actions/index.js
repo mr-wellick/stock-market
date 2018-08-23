@@ -1,2 +1,2 @@
-export { retrieve }  from "./user-input.js";
-export { determine } from "./user-selection.js";
+export { userInput }     from "./user-input.js";
+export { userSelection } from "./user-selection.js";

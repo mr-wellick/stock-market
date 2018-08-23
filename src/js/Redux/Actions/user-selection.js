@@ -1,6 +1,6 @@
 import { USER_SELECTION } from "../Constants";
 
-function determine(assetType)
+function userSelection(assetType)
 {
     return {
         type: USER_SELECTION,
@@ -8,4 +8,4 @@ function determine(assetType)
     }
 }
 
-export default determine;
+export default userSelection;

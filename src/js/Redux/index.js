@@ -1,2 +1,2 @@
-export { retrieve }  from "./Actions";
-export { determine } from "./Actions";
+export { userInput }     from "./Actions";
+export { userSelection } from "./Actions";
