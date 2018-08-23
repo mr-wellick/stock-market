@@ -7,9 +7,8 @@
     },
     "jest": {
         "testEnvironment": "jest-environment-node",
-        "collectCoverageFrom": [
-            "src/js/*",
-            "!src/js/index.js"
+        "collectCoverageFrom":[
+            "**/src/js/Redux/Actions/**"
         ],
         "coverageThreshold": {
             "global": {
