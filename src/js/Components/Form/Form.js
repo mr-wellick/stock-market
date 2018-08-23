@@ -3,7 +3,6 @@ import "./form.scss";
 
 class Form extends Component{
     render(){
-        console.log(this.props);
         return(
             <div className="section-home-form__container">
                 <form className="section-home__form">
