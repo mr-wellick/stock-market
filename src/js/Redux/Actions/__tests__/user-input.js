@@ -12,7 +12,7 @@ test("Check correct action type is returned by retrieve action-creator", () => {
     expect(type).toBe(USER_INPUT);
 });
 
-test("Check correct assest name is returned", () => {
+test("Check correct asset name is returned by retrieve action-creator", () => {
 
     let userInput       = name;
     let userInputAction = retrieve(userInput);
