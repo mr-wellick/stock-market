@@ -5,7 +5,7 @@ import "./home.scss";
 class Home extends Component{
     render(){
         return(
-            <section>
+            <section className="section-home">
                 <Form/>
             </section>
         );
