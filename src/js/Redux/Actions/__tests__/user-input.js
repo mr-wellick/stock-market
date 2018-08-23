@@ -1,12 +1,6 @@
 import retrieve       from "../user-input.js";
 import { USER_INPUT } from "../../Constants";
 
-// Create a new assest for testing.
-function createNew(assetName)
-{
-    return assetName;
-}
-
 /**
  ** Begin Tests
  **/
@@ -23,3 +17,11 @@ test("Check correct assest name is returned", () => {
     let { assetName } = retrieve(userInput);
     expect(assetName).toBe(userInput);
 });
+/**
+ ** End Tests
+ **/
+
+function createNew(assetName)
+{
+    return assetName;
+}
