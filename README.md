@@ -1,3 +1,6 @@
+# Here's a screenshot of the app
+![alt text](app.png)
+
 # A stock market web app
 1. Query a single stock or crypto-coin at a time.
 2. Each query will display its corresponding table and line charts for daily or monthly prices.
