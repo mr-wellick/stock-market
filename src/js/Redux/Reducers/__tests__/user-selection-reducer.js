@@ -11,14 +11,12 @@ test("when correct action is generated, update state", () => {
     expect(assetType).toBe(DIGITAL_CURRENCY);
 });
 
-test("when an incorrect action is generated, return default state", () => {
+test("when an incorrect action is generated, return initial state", () => {
     let incorrectAction = actionCreator("AN_INCORRECT_ACTION", DIGITAL_CURRENCY);
     let nextState       = userSelectionReducer(initialState, incorrectAction);
     let { assetType }   = nextState;
     expect(assetType).toBe(TIME_SERIES);
 });
-
-
 /**
  ** End Test
  **/
