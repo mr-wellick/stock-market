@@ -1,7 +1,7 @@
 {
     "scripts": {
-        "start": "nodemon -w webpack.config.js -w webpack.parts.js --exec webpack-dev-server --mode development --env development --open --hot --host 0.0.0.0",
-        "build": "webpack --mode production --env production",
+        "dev": "nodemon -w webpack.config.js -w webpack.parts.js --exec webpack-dev-server --mode development --env development --open --hot --host 0.0.0.0",
+        "prod": "webpack --mode production --env production",
         "test": "jest --coverage",
         "test:watch": "jest --watchAll"
     },
