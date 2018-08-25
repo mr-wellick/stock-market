@@ -8,7 +8,7 @@ class Form extends Component{
                 <form className="section-home__form">
                     <div className="section-home__form-input">
                         <input
-                            type="text" 
+                            type="text"
                             placeholder="Enter a ticker: TSLA, BTC, IBM"
                         />
                     </div>
