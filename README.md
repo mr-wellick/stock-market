@@ -1,5 +1,5 @@
-# Here's a screenshot of the app
-![alt text](app.png)
+# Visit the site
+1. https://ll2nz.github.io/securities-app/
 
 # A stock market web app
 1. Query a single stock or crypto-coin at a time.
