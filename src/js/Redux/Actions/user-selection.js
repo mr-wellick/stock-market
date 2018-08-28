@@ -5,7 +5,7 @@ function userSelection(assetType)
     return {
         type: USER_SELECTION,
         assetType
-    }
+    };
 }
 
 export default userSelection;
