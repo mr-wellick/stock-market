@@ -1,7 +1,8 @@
+// Main user interactions
 export let USER_INPUT     = "USER_INPUT";
 export let USER_SELECTION = "USER_SELECTION";
 
-// Error handling action for api calls
-let FETCH;
-let FETCH_SUCCESS;
-let FETCH_ERROR;
+// Api related actions
+export let FETCH         = "FETCH";
+export let FETCH_SUCCESS = "FETCH_SUCCESS";
+export let FETCH_ERROR   = "FETCH_ERROR";
