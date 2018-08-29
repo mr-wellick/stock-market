@@ -1,27 +1,20 @@
 import React, { Component } from "react";
+import PropTypes            from "prop-types";
 import "./form.scss";
 
 class Form extends Component{
     render(){
         return(
-            <div className="section-home-form__container">
-                <form className="section-home__form">
-                    <div className="section-home__form-input">
-                        <input
-                            type="text"
-                            placeholder="Enter a ticker: TSLA, BTC, IBM"
-                        />
-                    </div>
-                    <div className="section-home__form-submit">
-                        <input
-                            type="submit"
-                            value="View"
-                        />
-                    </div>
-                </form>
-            </div>
+            <form>
+                <input type="text" placeholder={ this.props.placeholder }/>
+                <input type="submit" value="View"/>
+            </form>
         );
     }
 }
+
+Form.propTypes = {
+    placeholder: PropTypes.string
+};
 
 export default Form;
