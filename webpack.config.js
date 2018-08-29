@@ -1,88 +1,58 @@
-// Application paths
-// -------------------
-const path  = require("path");
-const paths = {
-    src: path.join(__dirname, "/src/js"),
-    build: path.join(__dirname, "build")
-};
+// Base webpack config
+let path          = require("path");
+let webpack       = require("webpack");
+let merge         = require("webpack-merge");
+let template      = require("html-webpack-plugin");
+let cleanBuildDir = require("clean-webpack-plugin");
 
-// Merge utility and webpack.parts.js
-// -----------------------------------
-const merge = require("webpack-merge");
-const parts = require("./webpack.parts.js");
+// Development, production, and presets
+let configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
+//let configPreset =          require("./build-utils/loadPresets.js");
 
-// HTML template and remove build/ dir each time webpack runs
-// -----------------------------------------------------------
-const template        = require("html-webpack-plugin");
-const clean_build_dir = require("clean-webpack-plugin");
-
-// Extract CSS into own file
-// ----------------------------
-const css_extract = require("mini-css-extract-plugin");
-
-// Common Configuration: Includes entry, output, and HTML template
-// -----------------------------------------------------------------
-const common_configuration = merge(
-    [
-        // Configurations for entry and output paths for our application
+// Final webpack configuration
+module.exports = ( { mode, presets } = { mode: "production", presets: [] } ) => {
+    return merge(
         {
-            entry: paths.src,
+            mode,
+            entry: path.join(__dirname, "./src/js/index.js"),
             output:
             {
-                path: paths.build,
+                path: path.join(__dirname, "build"),
                 filename: "[name].js"
+            },
+            module:
+            {
+                rules:
+                [
+                    {
+                        test: /\.(png|jpg|svg)$/,
+                        use:
+                        {
+                            loader: "url-loader",
+                            options: { limit: 500 }
+                        }
+                    },
+                    {
+                        test: /\.ts$/, use: [ "ts-loader" ]
+                    },
+                    {
+                        test: /\.js$/,
+                        loader: "babel-loader",
+                        query:
+                        {
+                            presets: [ "@babel/preset-react", "@babel/preset-env" ]
+                        }
+                    }
+                ]
             },
             plugins:
             [
                 new template({ template: "src/index.html" }),
-                new clean_build_dir(["build"]),
-                new css_extract({ filename: "[name].css" })
+                new webpack.ProgressPlugin(),
+                new cleanBuildDir(["build"])
             ]
         },
-        // Sass to CSS transpilation process
-        parts.load_css(
-            {
-                exclude: /node_modules/
-            }
-        ),
-        // ES6 & JSX to vanilla JavaScript
-        parts.load_javascript(
-            {
-                include: paths.src,
-                exclude: /node_modules/
-            }
-        )
-    ]
-);
-
-// Development configuration
-// ----------------------------
-const development_configuration = merge(
-    [
-        parts.development_server({
-            host: process.env.HOST,
-            port: process.env.port
-        }),
-        parts.load_images()
-    ]
-);
-
-// Production configuration
-// ---------------------------
-const production_configuration = merge(
-    [
-        parts.load_images()
-    ]
-);
-
-// Should we use production or development configuration
-// -------------------------------------------------------
-module.exports = (env) =>
-{
-
-    // Return either dev or prod configurations
-    if(env === "development")
-        return merge(common_configuration, development_configuration);
-    else
-        return merge(common_configuration, production_configuration);
+        configType(mode),
+        //configPreset({ mode, presets })
+    );
 };

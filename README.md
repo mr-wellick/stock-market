@@ -1,10 +1,19 @@
-# Visit the site
-1. https://ll2nz.github.io/securities-app/
+# A Webpack Configuration Template
+1. My personal webpack template, which is updated frequently.
 
-# A stock market web app
-1. Query a single stock or crypto-coin at a time.
-2. Each query will display its corresponding table and line charts for daily or monthly prices.
+# Supported Features
++ React, React-Router, Redux
++ Sass
++ Typescript
++ Jest
++ ES6
 
-# Using the app
-1. Either supply a valid stock ticker: TSLA, KO, GOOGL. Or a valid crypto-coin: BTC, LTC, ETH.
-2. If an invalid entry is submitted, you will be shown the following url: https://www.alphavantage.co/documentation/.
+# Running the Application
+```zsh
+# Clone the repo and run
+cd $name (name of the cloned repo)
+yarn install (npm install)
+
+# Next, to run the app
+yarn run dev (npm run dev)
+```
