@@ -1,2 +1,1 @@
-export { Home }   from "./Home";
-export { Footer } from "./Footer";
+export { Home } from "./Home";

@@ -1,3 +1,6 @@
-export { userSelect } from "./Action-Creators";
-export { fetchData }  from "./Action-Creators";
-export { store }      from "./Reducers";
+// Action creators
+export { userInput }     from "./Actions";
+export { userSelection } from "./Actions";
+
+// Store
+export { store } from "./Reducers";

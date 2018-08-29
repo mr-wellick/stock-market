@@ -1,30 +1,22 @@
 // React & React-Router
 import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-// Import CSS
+import { Home }                                 from "./Views";
 import "./app.scss";
 
-// Import user defined components
-import { Home }   from "./Views";
-//import { Footer } from "./Views";
-
-// Application
 class App extends Component{
     render(){
         return(
             <Router>
                 <Fragment>
-                    <header className="main-header">
-                        <h1 className="main-header__title">LRNZ</h1>
-                        <nav className="main-header__navigation">
+                    <header>
+                        <nav>
                             <ul>
                                 <li><Link to="/">Home</Link></li>
                             </ul>
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
-                    {/*<Route path="/" component={ Footer }></Route>*/}
                 </Fragment>
             </Router>
         );

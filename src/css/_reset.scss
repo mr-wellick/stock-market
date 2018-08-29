@@ -1,32 +1,33 @@
-// -----------------------------------
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html
+{
+    box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after */
+*, 
+*:before, 
+*:after
+{
+  box-sizing: inherit;
+}
+
 // Set my preferred defaults
-// -----------------------------------
 body
 {
-    // ----------------------------------
-    // Remove margins that annoy me
-    // ----------------------------------
+    h1,h2,h3,h4,h5,h6
+    {
+        margin: 0;
+    }
 
-    // Remove margins from body
-    margin: 0;
-
-    // Remove margins from all headers
-    h1, h2, h3, h4, h5, h6 { margin: 0; }
-
-    // Remove margins from all paragraphs
-    p { margin: 0; }
-
-    // Remove margins from ul's
     ul
     {
         margin: 0;
         padding: 0;
         list-style: none;
-        text-transform: uppercase
+        text-transform: uppercase;
     }
 
-    // ----------------------------------------
     // Set default styling for anchor tags
-    // ----------------------------------------
     a { text-decoration: none; }
 }

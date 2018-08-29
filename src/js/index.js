@@ -1,14 +1,10 @@
 // React & React-Router
-import React      from "react";
-import { render } from "react-dom";
-
-// Import CSS
-import "../css/style.scss";
-import App from "./App";
-
-// Import Redux
+import React        from "react";
+import { render }   from "react-dom";
+import App          from "./App";
 import { Provider } from "react-redux";
 import { store }    from "./Redux";
+import "../css/style.scss";
 
 render(
     <Provider store={ store }>
