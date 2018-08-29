@@ -32,7 +32,7 @@ function actionCreator(action, assetType)
     return {
         type: action,
         assetType
-    }
+    };
 }
 
 // Use cases for assetType

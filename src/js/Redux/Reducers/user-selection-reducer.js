@@ -1,7 +1,7 @@
 import { USER_SELECTION } from "../Constants";
 
 function userSelectionReducer(
-    state = { dataType: "function=TIME_SERIES_MONTHLY_ADJUSTED&" }, 
+    state = { assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&" }, 
     action
 )
 {
