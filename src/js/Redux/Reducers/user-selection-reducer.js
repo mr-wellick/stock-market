@@ -1,6 +1,9 @@
 import { USER_SELECTION } from "../Constants";
 
-function userSelectionReducer(state, action)
+function userSelectionReducer(
+    state = { dataType: "function=TIME_SERIES_MONTHLY_ADJUSTED&" }, 
+    action
+)
 {
     switch(action.type)
     {

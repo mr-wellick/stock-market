@@ -1,6 +1,9 @@
 import { USER_INPUT } from "../Constants";
 
-function userInputReducer(state, action)
+function userInputReducer(
+    state = { assetName: "TSLA" },
+    action
+)
 {
     switch(action.type)
     {

@@ -3,18 +3,19 @@ import { FETCH_ERROR }   from "../Constants";
 import { userInput }     from "./user-input";
 
 // api stuff
-let url    = "https://www.alphavantage.co/query?";
-let apiKey = "apikey=AAG3PU4MLMB9JHS3";
+//let url    = "https://www.alphavantage.co/query?";
+//let apiKey = "apikey=AAG3PU4MLMB9JHS3";
 
 // stock or crypto data
-let stock  = `symbol=${assetName}&`;
-let crypto = `symbol=${assetName}&market=USD&`;
+//let stock  = `symbol=${assetName}&`;
+//let crypto = `symbol=${assetName}&market=USD&`;
 
 function fetchSuccess(assetData)
 {
     return {
         type: FETCH_SUCCESS,
-        assetData
+        assetData,
+        errorMessage: ""
     };
 }
 
@@ -34,7 +35,7 @@ function fetchAPIData(assetName)
         dispatch(userInput(assetName));
 
         // 2. Return a promise
-        return fetch(``)
+        return fetch(data)
                 .then(res => res.json())
                 .then(data => Object.entries(data))
                 .then(data =>{
