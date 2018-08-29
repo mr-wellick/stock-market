@@ -1,7 +1,7 @@
 import stockReducer from "../stock-reducer";
 
 test("test initial asset name is TSLA", () => {
-    let name                = "TSLA"
+    let name                = "TSLA";
     let nextState           = stockReducer(initialState, incorrectAction);
     let { userInteraction } = nextState;
     let { assetName }       = userInteraction;
