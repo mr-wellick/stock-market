@@ -16,6 +16,7 @@ function stockReducer(
         case USER_INPUT:
             return Object.assign({}, state, {
                 userInteraction: {
+                    ...state.userInteraction,
                     assetName: action.assetName
                 }
             });
