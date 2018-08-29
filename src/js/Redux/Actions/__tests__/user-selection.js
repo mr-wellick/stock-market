@@ -1,9 +1,6 @@
 import userSelection      from "../user-selection.js";
 import { USER_SELECTION } from "../../Constants";
 
-/**
- ** Begin Tests
- **/
 test("if user selects stock asset, return time series",() => {
     let selectionAction = userSelection(TIME_SERIES);
     let { assetType }   = selectionAction;
@@ -23,9 +20,6 @@ test("make sure correct action is returned by userSelection action-creator", () 
     let { type }        = selectionAction;
     expect(type).toBe(USER_SELECTION);
 });
-/**
- ** End Tests
- **/
 
 // Selection types
 let TIME_SERIES      = "TIME_SERIES";

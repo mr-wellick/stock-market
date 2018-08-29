@@ -1,9 +1,6 @@
 import userSelectionReducer from "../user-selection-reducer";
 import { USER_SELECTION }   from "../../Constants";
 
-/**
- ** Begin Test
- **/
 test("when correct action is generated, update state", () => {
     let correctAction = actionCreator(USER_SELECTION, DIGITAL_CURRENCY);
     let nextState     = userSelectionReducer(initialState, correctAction);
@@ -17,9 +14,6 @@ test("when an incorrect action is generated, return initial state", () => {
     let { assetType }   = nextState;
     expect(assetType).toBe(TIME_SERIES);
 });
-/**
- ** End Test
- **/
 
 // Default state
 let initialState = {

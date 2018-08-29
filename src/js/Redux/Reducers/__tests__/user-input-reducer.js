@@ -1,9 +1,6 @@
 import userInputReducer from "../user-input-reducer.js";
 import { USER_INPUT }   from "../../Constants";
 
-/**
- ** Begin Test
- **/
 test("when correct action is generated, update state", () => {
 
     let correctAction  = actionCreator(USER_INPUT, "AAPL");
@@ -19,9 +16,6 @@ test("when an incorrect action is generated, return default state", () => {
     let { assetName }   = nextState;
     expect(assetName).toBe("TSLA");
 });
-/**
- ** End Test
- **/
 
 // Default state
 let initialState = {
