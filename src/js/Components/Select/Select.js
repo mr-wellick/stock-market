@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import PropTypes            from "prop-types";
 import "./select.scss";
+
+
 
 class Select extends Component{
     render(){
@@ -7,13 +10,21 @@ class Select extends Component{
             <form>
                 <select>
                     <optgroup label={ this.props.label }>
-                        <option value="function=TIME_SERIES_MONTHLY_ADJUSTED&">Monthly Adjusted</option>
-                        <option value="function=TIME_SERIES_DAILY_ADJUSTED&">Daily Adjusted</option>
+                        {
+                            this.props.stockDataTypes.map( (item, key) => 
+                                <option key={ key } value={item[1]}>{ item[0] }</option>
+                            )
+                        }
                     </optgroup>
                 </select>
             </form>
         );
     }
 }
+
+Select.propTypes = {
+    label: PropTypes.string,
+    stockDataTypes: PropTypes.array
+};
 
 export default Select;

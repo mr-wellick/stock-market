@@ -3,11 +3,20 @@ import { Form }             from "../../Components";
 import { Select }           from "../../Components";
 import "./home.scss";
 
+// Data types for stocks
+let stockDataTypes = [
+    ["Monthly Adjusted", "function=TIME_SERIES_MONTHLY_ADJUSTED&"],
+    ["Daily Adjusted", "function=TIME_SERIES_DAILY_ADJUSTED&"] 
+];
+
 class Home extends Component{
     render(){
         return(
             <section>
-                <Select label="Stocks"/>
+                <Select
+                    label="Stocks"
+                    stockDataTypes={ stockDataTypes }
+                />
                 <Form placeholder="Enter a valid stock ticker: TSLA, NFLX, KO"/>
             </section>
         );
