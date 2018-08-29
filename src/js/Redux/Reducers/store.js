@@ -11,8 +11,8 @@ import thunkMiddleware     from "redux-thunk";
 
 // Gather reducers
 let rootReducer = combineReducers({
-    userInputReducer,
-    userSelectionReducer
+    assetName: userInputReducer,
+    assetType: userSelectionReducer
 });
 
 // Create action logger for development

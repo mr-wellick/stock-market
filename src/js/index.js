@@ -1,7 +1,14 @@
 // React & React-Router
-import React      from "react";
-import { render } from "react-dom";
-import App        from "./App";
+import React        from "react";
+import { render }   from "react-dom";
+import App          from "./App";
+import { Provider } from "react-redux";
+import { store }    from "./Redux";
 import "../css/style.scss";
 
-render(<App/>, window.document.querySelector(".app"));
+render(
+    <Provider store={ store }>
+        <App/>
+    </Provider>,
+    window.document.querySelector(".app")
+);

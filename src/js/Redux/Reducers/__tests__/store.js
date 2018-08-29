@@ -7,7 +7,7 @@ test("make sure default asset name is TSLA", () => {
     expect(assetName).toBe(defaultAssetName);
 });
 
-test("make sure default asset type time series monthly adjusted", () => {
+test("make sure default asset type is time series monthly adjusted", () => {
     let defaultAssetType         = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
     let { userSelectionReducer } = store.getState();
     let { assetType }            = userSelectionReducer;
