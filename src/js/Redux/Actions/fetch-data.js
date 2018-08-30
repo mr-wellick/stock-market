@@ -1,6 +1,10 @@
 import { userInput }     from "./user-input";
 import { FETCH_ERROR }   from "../Constants";
 //import { FETCH_SUCCESS } from "../Constants";
+//let url    = "https://www.alphavantage.co/query?";
+//let symbol = `symbol${assetName}&`
+//let apiKey = "apikey=AAG3PU4MLMB9JHS3";
+
 
 // Process data when incorrect api call is made
 function fetchError(assetData){
