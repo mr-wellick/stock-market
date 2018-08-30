@@ -1,15 +1,28 @@
-import { userInput } from "";
+import { userInput }     from "./user-input";
+import { FETCH_ERROR }   from "../Constants";
+//import { FETCH_SUCCESS } from "../Constants";
 
 // Process data when incorrect api call is made
 function fetchError(assetData){
-    return assetData;
+
+    // 1. Process data first
+
+    // 2. Then create action
+    return {
+        type: FETCH_ERROR,
+        assetData,
+        error: true,
+        errorMessage: ""
+    };
 }
 
 // Process data when correct api call is made
-function fetchSuccess(assetData){
-    return assetData;
-}
-
+//function fetchSuccess(assetData){
+//    return {
+//        type: FETCH_SUCCESS,
+//        assetData
+//    };
+//}
 
 // Make api request
 function fetchData(assetName)
@@ -26,11 +39,6 @@ function fetchData(assetName)
                         // 3. Dispatch data to error handler
                         if(data[0][1] === "Error Message")
                             dispatch(fetchError(data));
-                        else
-                        {
-                            // 4. Dispatch data to success handler
-                            dispatch(fetchSuccess(data));
-                        }
                     });
     };
 }
