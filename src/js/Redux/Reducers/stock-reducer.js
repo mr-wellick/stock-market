@@ -15,7 +15,6 @@ function stockReducer(
     {
         case USER_INPUT:
             return Object.assign({}, state, {
-                // remove user interaction propperty and update tests
                 userInteraction: {
                     ...state.userInteraction,
                     assetName: action.assetName
