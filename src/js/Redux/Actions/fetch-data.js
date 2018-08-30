@@ -1,3 +1,4 @@
+import { store }         from "../Reducers";
 import { userInput }     from "./user-input";
 import { FETCH_ERROR }   from "../Constants";
 //import { FETCH_SUCCESS } from "../Constants";
@@ -9,14 +10,12 @@ import { FETCH_ERROR }   from "../Constants";
 // Process data when incorrect api call is made
 function fetchError(assetData){
 
-    // 1. Process data first
-
-    // 2. Then create action
     return {
         type: FETCH_ERROR,
         assetData,
         error: true,
-        errorMessage: ""
+        errorMessage: assetData[0][1],
+        processedData: {}
     };
 }
 
@@ -31,6 +30,9 @@ function fetchError(assetData){
 // Make api request
 function fetchData(assetName)
 {
+    // Get data type request: monthly or daily.
+    let dataType = store.getState();
+
     return function(dispatch){
 
         // 1. First Dispatch user input
