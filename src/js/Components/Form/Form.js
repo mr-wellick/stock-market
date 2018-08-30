@@ -32,7 +32,7 @@ class Form extends Component{
 // Map state to props
 let mapState = (state) => {
     return {
-       ...state.assetName
+        ...state.userInteraction
     };
 };
 

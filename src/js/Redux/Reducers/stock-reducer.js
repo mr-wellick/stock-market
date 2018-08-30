@@ -1,5 +1,5 @@
 import { USER_INPUT }     from "../Constants";
-//import { USER_SELECTION } from "../Constants";
+import { USER_SELECTION } from "../Constants";
 
 function stockReducer(
     state = {
@@ -15,9 +15,17 @@ function stockReducer(
     {
         case USER_INPUT:
             return Object.assign({}, state, {
+                // remove user interaction propperty and update tests
                 userInteraction: {
                     ...state.userInteraction,
                     assetName: action.assetName
+                }
+            });
+        case USER_SELECTION:
+            return Object.assign({}, state, {
+                userInteraction: {
+                    ...state.userInteraction,
+                    assetType: action.assetType
                 }
             });
         default:

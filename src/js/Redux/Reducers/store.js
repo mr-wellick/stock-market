@@ -1,6 +1,5 @@
 // Reducers
-import userInputReducer     from "./user-input-reducer";
-import userSelectionReducer from "./user-selection-reducer";
+import stockReducer from "./stock-reducer";
 
 // Redux imports
 import { combineReducers } from "redux";
@@ -11,8 +10,7 @@ import thunkMiddleware     from "redux-thunk";
 
 // Gather reducers
 let rootReducer = combineReducers({
-    assetName: userInputReducer,
-    assetType: userSelectionReducer
+     userInteraction: stockReducer
 });
 
 // Create action logger for development

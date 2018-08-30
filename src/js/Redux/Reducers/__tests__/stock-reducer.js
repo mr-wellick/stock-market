@@ -1,7 +1,8 @@
-import stockReducer   from "../stock-reducer";
-import { USER_INPUT } from "../../Constants";
-import { userInput }  from "../../Actions";
+import stockReducer      from "../stock-reducer";
+import { userInput }     from "../../Actions";
+import { userSelection } from "../../Actions";
 
+// Test default case
 test("test initial asset name is TSLA", () => {
     let name                = "TSLA";
     let nextState           = stockReducer(initialState, incorrectAction);
@@ -18,6 +19,7 @@ test("test initial asset type to be monthly adjusted", () => {
     expect(assetType).toBe(type);
 });
 
+// Test USER_INPUT case
 test("test user input action updates asset name", () => {
     let newAssetName        = "AAPL";
     let correctAction       = userInput("AAPL");
@@ -27,6 +29,17 @@ test("test user input action updates asset name", () => {
     expect(assetName).toBe(newAssetName);
 });
 
+// Test USER_SELECTION  case
+test("test user selection action updates asset type", () => {
+    let newAssetType        = "function=TIME_SERIES_DAILY_ADJUSTED&";
+    let correctAction       = userSelection(newAssetType);
+    let nextState           = stockReducer(initialState, correctAction);
+    let { userInteraction } = nextState;
+    let { assetType }       = userInteraction;
+    expect(assetType).toBe(newAssetType);
+});
+
+// Helpers
 let initialState = {
     userInteraction: {
         assetName: "TSLA",
