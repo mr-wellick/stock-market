@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
+import { userSelection }    from "../../Redux";
+import { connect }          from "react-redux";
 import "./select.scss";
 
-
-
 class Select extends Component{
+    onChange = (event) => {
+        let assetType = event.target.value;
+        this.props.userSelection(assetType);
+    }
+
     render(){
         return(
-            <form>
+            <form onChange={ this.onChange }>
                 <select>
                     <optgroup label={ this.props.label }>
                         {
@@ -24,7 +29,23 @@ class Select extends Component{
 
 Select.propTypes = {
     label: PropTypes.string,
-    stockDataTypes: PropTypes.array
+    stockDataTypes: PropTypes.array,
+    userSelection: PropTypes.func
 };
 
-export default Select;
+// Map state
+let mapState = (state) => {
+    return {
+        ...state.userInteraction
+    };
+};
+
+let mapDispatch = (dispatch) => {
+    return {
+        userSelection: (assetType) => {
+            dispatch(userSelection(assetType));
+        }
+    };
+};
+
+export default connect(mapState, mapDispatch)(Select);
