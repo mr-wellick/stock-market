@@ -25,11 +25,12 @@ class Form extends Component{
                         id="user-input"
                         className="user__form-input"
                     />
-                    <input
+                    <button
                         type="submit"
-                        value="View"
                         className="user__form-submit"
-                    />
+                    >
+                       VIEW 
+                    </button>
                 </form>
             </div>
         );

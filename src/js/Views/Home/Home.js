@@ -17,7 +17,7 @@ class Home extends Component{
                     label="Stocks"
                     stockDataTypes={ stockDataTypes }
                 />
-                <Form placeholder="Enter a valid stock ticker: TSLA, NFLX, KO"/>
+                <Form placeholder="Enter ticker"/>
             </section>
         );
     }
