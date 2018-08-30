@@ -17,7 +17,9 @@ class Select extends Component{
                     <optgroup label={ this.props.label }>
                         {
                             this.props.stockDataTypes.map( (item, key) => 
-                                <option key={ key } value={item[1]}>{ item[0] }</option>
+                                <option key={ key } value={item[1]}>
+                                    { item[0] }
+                                </option>
                             )
                         }
                     </optgroup>
