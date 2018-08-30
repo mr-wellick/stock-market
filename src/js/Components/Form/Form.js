@@ -17,14 +17,21 @@ class Form extends Component{
 
     render(){
         return(
-            <form onSubmit={ this.onSubmit }>
-                <input
-                    type="text"
-                    placeholder={ this.props.placeholder }
-                    id="user-input"
-                />
-                <input type="submit" value="View"/>
-            </form>
+            <div className="user__form-container">
+                <form onSubmit={ this.onSubmit } className="user__form"> 
+                    <input
+                        type="text"
+                        placeholder={ this.props.placeholder }
+                        id="user-input"
+                        className="user__form-input"
+                    />
+                    <input
+                        type="submit"
+                        value="View"
+                        className="user__form-submit"
+                    />
+                </form>
+            </div>
         );
     }
 }

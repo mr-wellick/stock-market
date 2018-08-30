@@ -12,7 +12,7 @@ let stockDataTypes = [
 class Home extends Component{
     render(){
         return(
-            <section>
+            <section className="user__interaction">
                 <Select
                     label="Stocks"
                     stockDataTypes={ stockDataTypes }
