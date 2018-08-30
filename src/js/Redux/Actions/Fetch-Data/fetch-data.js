@@ -1,37 +1,19 @@
-import { store }         from "../Reducers";
-import { userInput }     from "./user-input";
-import { FETCH_ERROR }   from "../Constants";
-//import { FETCH_SUCCESS } from "../Constants";
+//import { store }   from "../../Reducers";
+import userInput  from "../user-input";
+import fetchError from "./fetch-error";
+//import  fetchSuccess from "./fetch-success";
 //let url    = "https://www.alphavantage.co/query?";
 //let symbol = `symbol${assetName}&`
 //let apiKey = "apikey=AAG3PU4MLMB9JHS3";
 
 
-// Process data when incorrect api call is made
-function fetchError(assetData){
 
-    return {
-        type: FETCH_ERROR,
-        assetData,
-        error: true,
-        errorMessage: assetData[0][1],
-        processedData: {}
-    };
-}
-
-// Process data when correct api call is made
-//function fetchSuccess(assetData){
-//    return {
-//        type: FETCH_SUCCESS,
-//        assetData
-//    };
-//}
 
 // Make api request
 function fetchData(assetName)
 {
-    // Get data type request: monthly or daily.
-    let dataType = store.getState();
+    // Get asset type request: monthly or daily.
+    //let assetType = store.getState();
 
     return function(dispatch){
 
