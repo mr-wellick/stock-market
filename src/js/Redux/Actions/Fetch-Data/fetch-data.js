@@ -1,13 +1,10 @@
 //import { store }   from "../../Reducers";
 import userInput  from "../user-input";
 import fetchError from "./fetch-error";
-//import  fetchSuccess from "./fetch-success";
+import  fetchSuccess from "./fetch-success";
 //let url    = "https://www.alphavantage.co/query?";
 //let symbol = `symbol${assetName}&`
 //let apiKey = "apikey=AAG3PU4MLMB9JHS3";
-
-
-
 
 // Make api request
 function fetchData(assetName)
@@ -24,9 +21,11 @@ function fetchData(assetName)
         return fetch().then(res => res.json())
                       .then(data => Object.entries(data))
                       .then(data => {
-                        // 3. Dispatch data to error handler
+                        // 3. Dispatch error or success
                         if(data[0][1] === "Error Message")
                             dispatch(fetchError(data));
+                        else
+                            dispatch(fetchSuccess(data));
                     });
     };
 }
