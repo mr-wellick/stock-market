@@ -12,19 +12,21 @@ class Select extends Component{
 
     render(){
         return(
-            <form onChange={ this.onChange }>
-                <select>
-                    <optgroup label={ this.props.label }>
-                        {
-                            this.props.stockDataTypes.map( (item, key) => 
-                                <option key={ key } value={ item[1] }>
-                                    { item[0] }
-                                </option>
-                            )
-                        }
-                    </optgroup>
-                </select>
-            </form>
+            <div className="user__selection-container">
+                <form onChange={ this.onChange } className="user__selection">
+                    <select>
+                        <optgroup label={ this.props.label }>
+                            {
+                                this.props.stockDataTypes.map( (item, key) =>
+                                    <option key={ key } value={ item[1] }>
+                                        { item[0] }
+                                    </option>
+                                )
+                            }
+                        </optgroup>
+                    </select>
+                </form>
+            </div>
         );
     }
 }
@@ -42,6 +44,7 @@ let mapState = (state) => {
     };
 };
 
+// Map dispatch
 let mapDispatch = (dispatch) => {
     return {
         userSelection: (assetType) => {

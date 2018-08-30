@@ -1,0 +1,12 @@
+// Styling for main contents in Home.js component
+.user__interaction
+{
+    display: grid;
+    padding: 20px;
+
+    // Applies beginning at 750 pixels
+    @media (min-width: 750px)
+    {
+        grid-template-columns: 1fr 2fr;
+    }
+}

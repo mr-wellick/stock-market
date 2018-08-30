@@ -18,7 +18,7 @@ class Form extends Component{
     render(){
         return(
             <div className="user__form-container">
-                <form onSubmit={ this.onSubmit } className="user__form"> 
+                <form onSubmit={ this.onSubmit } className="user__form">
                     <input
                         type="text"
                         placeholder={ this.props.placeholder }
@@ -29,7 +29,7 @@ class Form extends Component{
                         type="submit"
                         className="user__form-submit"
                     >
-                       VIEW 
+                       VIEW
                     </button>
                 </form>
             </div>
