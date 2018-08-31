@@ -1,6 +1,7 @@
 function proccessData(assetData){
     // Process data into array
-    let newDataArray = Object.entries(assetData[1][1]).reverse();
+    let covertDataToArray = Object.entries(assetData);
+    let newDataArray      = Object.entries(covertDataToArray[1][1]).reverse();
 
     // Get all Object properties from newDataArray
     // Create empty object to hold new properties

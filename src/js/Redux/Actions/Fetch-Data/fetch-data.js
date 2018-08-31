@@ -19,10 +19,9 @@ function fetchData(assetName)
 
         //2. Next, request data
         return fetch().then(res => res.json())
-                      .then(data => Object.entries(data))
                       .then(data => {
                         // 3. Dispatch error or success
-                        if(data[0][1] === "Error Message")
+                        if(data["Error Message"])
                             dispatch(fetchError(data));
                         else
                             dispatch(fetchSuccess(data));
