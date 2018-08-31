@@ -4,43 +4,44 @@ import "./table.scss";
 
 let Table = (props) => {
     // Get all data
-    let { error, errorMessage, assetData } = props.fetchedData;
-    let { processedData }                  = props.fetchedData;
-    let assetName;
-    let assetKeys;
+    let { error, errorMessage } = props.fetchedData;
+    let { processedData }       = props.fetchedData;
+    let { assetName, Dates }    = processedData;
 
-    // If we have data, get asset name & variables to render
-    if(assetData["Meta Data"])
-    {
-        assetName = assetData["Meta Data"]["2. Symbol"];
-        assetKeys = Object.keys(processedData);
-        console.log(Object.entries(processedData));
-    }
-    
-    // If we have no data, alert user
-    // Error is false on initial load.
+    // If no data, tell user to enter an asset
+    // Error is false on initial render
     if(assetName === undefined && !error)
         return( <h2>No Stock Data</h2> );
-    
-    // If we have an error, show api documentation
-    if(error)
+    else if(error)
         return( <h2>{ errorMessage }</h2> );
 
-    // Render table on successful api call
     return(
         <table>
             <caption>{ assetName }</caption>
             <thead>
                 <tr>
-                    {
-                        assetKeys.map( (item, index) => 
-                            <th key={ index }>
-                                { item.slice(2).toUpperCase() }
-                            </th>
-                        )
-                    }
+                    <th>Dates</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Adjusted Close</th>
+                    <th>Volume</th>
                 </tr>
             </thead>
+            <tbody>
+                {
+                    Dates.map( (item, index) => 
+                        <tr key={ index }>
+                            <td>{ item }</td>
+                            <td>{ processedData["1. open"][index] }</td>
+                            <td>{ processedData["2. high"][index] }</td>
+                            <td>{ processedData["3. low"][index] }</td>
+                            <td>{ processedData["5. adjusted close"][index] }</td>
+                            <td>{ processedData["6. volume"][index] }</td>
+                        </tr>
+                    )
+                }
+            </tbody>
         </table>
     );
 };

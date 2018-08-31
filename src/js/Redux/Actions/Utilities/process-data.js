@@ -20,6 +20,16 @@ function proccessData(assetData){
             );
         }
     
+    // Get asset name, keys, and dates
+    let sybmol      = assetData["Meta Data"]["2. Symbol"];
+    let newDataKeys = Object.keys(newDataPropertiesObject);
+    let dates       = newDataArray.map( item => item[0]);
+
+    // Add new entries to object
+    newDataPropertiesObject["assetName"] = sybmol;
+    newDataPropertiesObject["assetKeys"] = newDataKeys;
+    newDataPropertiesObject["Dates"]     = dates;
+    
     // Return new object with corresponding data
     return newDataPropertiesObject;
 }

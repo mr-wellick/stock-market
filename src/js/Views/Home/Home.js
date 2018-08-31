@@ -53,6 +53,7 @@ class Home extends Component{
 // Map state to props
 let mapState = (state) => {
     return {
+        ...state.userInteraction,
         ...state.fetchedData
     };
 };
