@@ -4,6 +4,9 @@
     padding: 10px;
     margin: 20px;
 
+    display: block;
+    height: 300px;
+    overflow: auto;
 }
 
 // Table element
@@ -28,11 +31,6 @@
         padding: 5px;
         border: 1px solid gray;
     }
-
-    
-
-
-
 
     // Applies while under 320 pixels
     @media (max-width: 450px)
