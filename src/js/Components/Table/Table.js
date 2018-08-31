@@ -6,7 +6,7 @@ let Table = (props) => {
     // Get all data
     let { error, errorMessage } = props.fetchedData;
     let { processedData }       = props.fetchedData;
-    let { assetName, Dates }    = processedData;
+    let { assetName, dates }    = processedData;
 
     // If no data, tell user to enter an asset
     // Error is false on initial render
@@ -30,7 +30,7 @@ let Table = (props) => {
             </thead>
             <tbody>
                 {
-                    Dates.map( (item, index) => 
+                    dates.map( (item, index) => 
                         <tr key={ index }>
                             <td>{ item }</td>
                             <td>{ processedData["1. open"][index] }</td>
