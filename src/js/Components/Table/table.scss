@@ -1,0 +1,42 @@
+// Container for data table
+.api__data-container
+{
+    padding: 10px;
+    margin: 20px;
+
+}
+
+// Table element
+.api__data-table
+{
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-collapse: collapse;
+
+    // Style table columns and table rows
+    th
+    {
+        background-color: beige;
+        color: black;
+        font-weight: 100;
+        border: 1px solid gray;
+        padding: 5px;
+    } 
+
+    td
+    {
+        padding: 5px;
+        border: 1px solid gray;
+    }
+
+    
+
+
+
+
+    // Applies while under 320 pixels
+    @media (max-width: 450px)
+    {
+        #hide{ display: none; }
+    }
+}

@@ -40,10 +40,7 @@ class Home extends Component{
                     />
                 </section>
                 <section>
-                    <Table
-                        fetchedData={ this.props.fetchedData }
-                    />
-
+                    <Table fetchedData={ this.props.fetchedData }/>
                 </section>
             </Fragment>
         );
