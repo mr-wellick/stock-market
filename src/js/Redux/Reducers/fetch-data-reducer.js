@@ -3,7 +3,7 @@ import { FETCH_ERROR }   from "../Constants";
 
 function fetchDataReducer(
     state = {
-        fectchedData: {
+        fetchedData: {
             assetData: [],
             error: false,
             errorMessage: "",
@@ -17,8 +17,8 @@ function fetchDataReducer(
     {
         case FETCH_ERROR:
             return Object.assign({}, state, {
-                fectchedData: {
-                    ...state.fectchedData,
+                fetchedData: {
+                    ...state.fetchedData,
                     assetData: action.assetData,
                     error: action.error,
                     errorMessage: action.errorMessage,
@@ -27,8 +27,8 @@ function fetchDataReducer(
             });
         case FETCH_SUCCESS:
             return Object.assign({}, state, {
-                fectchedData: {
-                    ...state.fectchedData,
+                fetchedData: {
+                    ...state.fetchedData,
                     assetData: action.assetData,
                     error: action.error,
                     errorMessage: action.errorMessage,

@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { Form }             from "../../Components";
+import PropTypes            from "prop-types";
+import { Fragment }         from "react";
+import { userInput }        from "../../Redux";
+import { fetchData }        from "../../Redux";
+import { connect }          from "react-redux";
+import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
 import "./home.scss";
 
@@ -10,17 +15,65 @@ let stockDataTypes = [
 ];
 
 class Home extends Component{
+    onSubmit = (event) => {
+        let assetName = document.querySelector("#user-input").value.toUpperCase();
+        if(assetName !== "")
+        {
+            this.props.userInput(assetName);
+            this.props.fetchData(assetName);
+            document.querySelector("#user-input").value = "";
+        }
+        event.preventDefault();
+    }
+
     render(){
         return(
-            <section className="user__interaction">
-                <Select
-                    label="Stocks"
-                    stockDataTypes={ stockDataTypes }
-                />
-                <Form placeholder="Enter ticker"/>
-            </section>
+            <Fragment>
+                <section className="user__interaction">
+                    <Select
+                        label="Stocks"
+                        stockDataTypes={ stockDataTypes }
+                    />
+                    <Form
+                        onSubmit={ this.onSubmit }
+                        placeholder="Enter ticker"
+                    />
+                </section>
+                <section>
+                    <Table
+                        fetchedData={ this.props.fetchedData }
+                    />
+
+                </section>
+            </Fragment>
         );
     }
 }
 
-export default Home;
+// Map state to props
+let mapState = (state) => {
+    return {
+        ...state.fetchedData
+    };
+};
+
+// Map dispatch to props
+let mapDispatch = (dispatch) => {
+    return {
+        userInput: (assetName) => {
+            dispatch(userInput(assetName));
+        },
+        fetchData: (assetName) => {
+            dispatch(fetchData(assetName));
+        }
+    };
+};
+
+// PropType checking
+Home.propTypes = {
+    userInput: PropTypes.func,
+    fetchData: PropTypes.func,
+    fetchedData: PropTypes.object
+};
+
+export default connect(mapState, mapDispatch)(Home);
