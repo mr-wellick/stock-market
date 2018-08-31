@@ -29,6 +29,16 @@ function proccessData(assetData){
     newDataPropertiesObject["assetName"] = sybmol;
     newDataPropertiesObject["assetKeys"] = newDataKeys;
     newDataPropertiesObject["dates"]     = dates;
+
+    // Format data
+    newDataPropertiesObject[newDataKeys[1]] = newDataPropertiesObject[newDataKeys[1]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[2]] = newDataPropertiesObject[newDataKeys[2]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[3]] = newDataPropertiesObject[newDataKeys[3]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[4]] = newDataPropertiesObject[newDataKeys[4]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[5]] = newDataPropertiesObject[newDataKeys[5]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[6]] = newDataPropertiesObject[newDataKeys[6]].map( item => Number(item).toFixed(2) );
+    newDataPropertiesObject[newDataKeys[7]] = newDataPropertiesObject[newDataKeys[7]].map( item => Number(item).toFixed(2) );
+
     
     // Return new object with corresponding data
     return newDataPropertiesObject;

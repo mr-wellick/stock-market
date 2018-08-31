@@ -25,7 +25,6 @@ let Table = (props) => {
                     <th>High</th>
                     <th>Low</th>
                     <th>Adjusted Close</th>
-                    <th>Volume</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +36,6 @@ let Table = (props) => {
                             <td>{ processedData["2. high"][index] }</td>
                             <td>{ processedData["3. low"][index] }</td>
                             <td>{ processedData["5. adjusted close"][index] }</td>
-                            <td>{ processedData["6. volume"][index] }</td>
                         </tr>
                     )
                 }
