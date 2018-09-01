@@ -40,7 +40,9 @@ class Home extends Component{
                     />
                 </section>
                 <section className="data__section">
-                    <Table fetchedData={ this.props.fetchedData }/>
+                    <Table
+                        fetchedData={ this.props.fetchedData }
+                    />
                 </section>
             </Fragment>
         );

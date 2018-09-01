@@ -4,16 +4,8 @@ import "./table.scss";
 
 let Table = (props) => {
     // Get all data
-    let { error, errorMessage } = props.fetchedData;
     let { processedData }       = props.fetchedData;
     let { assetName, dates }    = processedData;
-
-    // If no data, tell user to enter an asset
-    // Error is false on initial render
-    if(assetName === undefined && !error)
-        return( <h2>No Stock Data</h2> );
-    else if(error)
-        return( <h2>{ errorMessage }</h2> );
 
     return(
         <div className="api__data-container">
