@@ -1,10 +1,10 @@
 import { IS_FETCHING_DATA } from "../../Constants";
 
-function isFetchingData()
+function isFetchingData(requesting)
 {
     return {
         type: IS_FETCHING_DATA,
-        isFetching: true 
+        isFetching: requesting 
     };
 }
 

@@ -19,15 +19,22 @@ function fetchData(assetName)
     let fullURL = url + assetType + symbol + apiKey;
 
     return function(dispatch){
-        dispatch(isFetchingData());
-        // 1. Next, request data
+        // 1. Notify app of inital request
+        dispatch(isFetchingData(true));
+        // 2. Next, request data
         return fetch(fullURL).then(res => res.json())
                       .then(data => {
-                        // 2. Dispatch error or success
+                        // 3. Dispatch error or success
                         if(data["Error Message"])
+                        {
                             dispatch(fetchError(data));
+                            dispatch(isFetchingData(false));
+                        }
                         else
+                        {
                             dispatch(fetchSuccess(data));
+                            dispatch(isFetchingData(false));
+                        }
                     });
     };
 }
