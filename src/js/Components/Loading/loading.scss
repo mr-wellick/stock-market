@@ -1,0 +1,42 @@
+// Variables
+$animation-time: 1s;
+
+.loading
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100px;
+}
+
+.box
+{
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    background: rgba(white, 0.7);
+    filter: blur(1px);
+    animation: load $animation-time linear infinite;
+
+    // Box delay animations
+    &:nth-of-type(2)
+    {
+        animation-delay: -( $animation-time / 4 );
+    }
+    &:nth-of-type(3)
+    {
+        animation-delay: -( $animation-time / 4 ) * 2;
+    }
+    &:nth-of-type(4)
+    {
+        animation-delay: -( $animation-time / 4 ) * 3;
+    }
+}
+
+@keyframes load
+{
+    0%  { opacity: 0; }
+    30% { opacity: 0; }
+    90% { opacity: 1; }
+    100%{ opacity: 0; }
+}

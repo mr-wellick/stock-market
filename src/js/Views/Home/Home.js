@@ -39,7 +39,7 @@ class Home extends Component{
                         placeholder="Enter ticker"
                     />
                 </section>
-                <section>
+                <section className="data__section">
                     <Table fetchedData={ this.props.fetchedData }/>
                 </section>
             </Fragment>
