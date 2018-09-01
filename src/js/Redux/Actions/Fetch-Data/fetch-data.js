@@ -1,6 +1,7 @@
-import { store }    from "../../Reducers";
-import fetchError   from "./fetch-error";
-import fetchSuccess from "./fetch-success";
+import { store }      from "../../Reducers";
+import fetchError     from "./fetch-error";
+import fetchSuccess   from "./fetch-success";
+import isFetchingData from "./is-fetching-data";
 
 // API info for data request
 let url    = "https://www.alphavantage.co/query?";
@@ -18,6 +19,7 @@ function fetchData(assetName)
     let fullURL = url + assetType + symbol + apiKey;
 
     return function(dispatch){
+        dispatch(isFetchingData());
         // 1. Next, request data
         return fetch(fullURL).then(res => res.json())
                       .then(data => {

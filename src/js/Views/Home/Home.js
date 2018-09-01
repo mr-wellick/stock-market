@@ -4,7 +4,7 @@ import { Fragment }         from "react";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
 import { connect }          from "react-redux";
-import { Form, Table }      from "../../Components";
+import { Form }             from "../../Components";
 import { Select }           from "../../Components";
 import "./home.scss";
 
@@ -27,7 +27,6 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.props)
         return(
             <Fragment>
                 <section className="user__interaction">
@@ -50,6 +49,7 @@ class Home extends Component{
 // Map state to props
 let mapState = (state) => {
     return {
+        ...state.networkRequest,
         ...state.userInteraction,
         ...state.fetchedData
     };
