@@ -1,9 +1,9 @@
-import { FETCHING_DATA } from "../../Constants";
+import { IS_FETCHING_DATA } from "../../Constants";
 
 function isFetchingData()
 {
     return {
-        type: FETCHING_DATA,
+        type: IS_FETCHING_DATA,
         isFetching: true
     };
 }

@@ -27,6 +27,7 @@ class Home extends Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <Fragment>
                 <section className="user__interaction">
@@ -40,9 +41,6 @@ class Home extends Component{
                     />
                 </section>
                 <section className="data__section">
-                    <Table
-                        fetchedData={ this.props.fetchedData }
-                    />
                 </section>
             </Fragment>
         );
