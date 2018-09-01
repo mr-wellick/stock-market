@@ -4,7 +4,7 @@ import { Fragment }         from "react";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
 import { connect }          from "react-redux";
-import { Form }             from "../../Components";
+import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
 import "./home.scss";
 
@@ -40,6 +40,10 @@ class Home extends Component{
                     />
                 </section>
                 <section className="data__section">
+                    <Table
+                        fetchedData={ this.props.fetchedData }
+                        isFetching={ this.props.isFetching }
+                    />
                 </section>
             </Fragment>
         );
@@ -71,7 +75,8 @@ let mapDispatch = (dispatch) => {
 Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    fetchedData: PropTypes.object
+    fetchedData: PropTypes.object,
+    isFetching: PropTypes.bool
 };
 
 export default connect(mapState, mapDispatch)(Home);

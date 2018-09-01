@@ -1,11 +1,24 @@
-import React     from "react";
-import PropTypes from "prop-types";
+import React       from "react";
+import PropTypes   from "prop-types";
+import { Loading } from "../Loading";
+import { Error }   from "../Error";
 import "./table.scss";
 
 let Table = (props) => {
     // Get all data
-    let { processedData }       = props.fetchedData;
-    let { assetName, dates }    = processedData;
+    let { isFetching }                         = props;
+    let { processedData, error, errorMessage } = props.fetchedData;
+    let { assetName, dates }                   = processedData;
+
+    // Tell user we have no data. Error is false on initial render
+    if(processedData["assetName"] === undefined && !error)
+        return <h2>No data</h2>;
+    // Show loading status when fetching data
+    else if(isFetching)
+        return <Loading/>;
+    // Show error message
+    else if(error)
+        return <Error errorMessage={ errorMessage }/>;
 
     return(
         <div className="api__data-container">
@@ -39,7 +52,8 @@ let Table = (props) => {
 };
 
 Table.propTypes = {
-    fetchedData: PropTypes.object
+    fetchedData: PropTypes.object,
+    isFetching: PropTypes.bool
 };
 
 export default Table;
