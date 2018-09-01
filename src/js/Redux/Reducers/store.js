@@ -19,14 +19,25 @@ let rootReducer = combineReducers({
 
 // Create action logger for development
 let logger = createLogger();
+let store;
 
-// Finally create store
-let store = createStore(
-    rootReducer,
-    applyMiddleware(
-        thunkMiddleware,
-        logger
-    )
-);
+// Make sure logger middleware is only available in production
+if(process.env.NODE_ENV === "development")
+{
+    store = createStore(
+        rootReducer,
+        applyMiddleware(
+            thunkMiddleware,
+            logger
+        )
+    );
+}
+else
+{
+    store = createStore(
+        rootReducer,
+        applyMiddleware(thunkMiddleware)
+    ); 
+}
 
 export default store;

@@ -15,6 +15,11 @@ let stockDataTypes = [
 ];
 
 class Home extends Component{
+    componentDidMount(){
+        let { assetName } = this.props.userInteraction;
+        this.props.fetchData(assetName);
+    }
+
     onSubmit = (event) => {
         let assetName = document.querySelector("#user-input").value.toUpperCase();
         if(assetName !== "")
@@ -76,7 +81,8 @@ Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
     fetchedData: PropTypes.object,
-    isFetching: PropTypes.bool
+    isFetching: PropTypes.bool,
+    userInteraction: PropTypes.object
 };
 
 export default connect(mapState, mapDispatch)(Home);
