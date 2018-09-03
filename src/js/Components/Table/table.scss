@@ -1,8 +1,8 @@
 // Container for data table
 .api__data-container
 {
-    padding: 10px;
-    margin: 20px;
+    //padding: 10px;
+    //margin: 20px;
 
     //display: block;
     //height: 300px;
@@ -17,9 +17,15 @@
     border-collapse: collapse;
 
     // Style table columns and table rows
+    thead
+    {
+        display: block;
+    }
+
     th
     {
         background-color: beige;
+        min-width: 110px;
         color: black;
         font-weight: 100;
         border: 1px solid gray;
@@ -28,8 +34,16 @@
 
     td
     {
+        min-width: 110px;
         padding: 5px;
         border: 1px solid gray;
+    }
+
+    tbody
+    {
+        display: block;
+        height: 400px;
+        overflow-y: scroll;
     }
 
     // Applies while under 320 pixels
