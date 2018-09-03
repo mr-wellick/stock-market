@@ -4,9 +4,9 @@ import "./error.scss";
 
 let Error = (props) => {
     return(
-        <h2>
+        <div>
             { props.errorMessage }
-        </h2>
+        </div>
     );
 };
 
