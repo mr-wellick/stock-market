@@ -16,8 +16,12 @@
 .data__section
 {
     display: grid;
-    grid-template-rows: 1fr;
-    align-self: center;
-    justify-self: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    @media(max-width: 550px)
+    {
+        grid-template-columns: 1fr;
+    }
 
 }

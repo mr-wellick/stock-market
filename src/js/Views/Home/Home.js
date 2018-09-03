@@ -6,6 +6,7 @@ import { fetchData }        from "../../Redux";
 import { connect }          from "react-redux";
 import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
+import { LineChart }        from "../../Components";
 import "./home.scss";
 
 // Data types for stocks
@@ -48,6 +49,12 @@ class Home extends Component{
                     <Table
                         fetchedData={ this.props.fetchedData }
                         isFetching={ this.props.isFetching }
+                    />
+                    <LineChart
+                        width={ 600 }
+                        height={ 400 }
+                        fetchedData={ this.props.fetchedData }
+                        color="crimson"
                     />
                 </section>
             </Fragment>
