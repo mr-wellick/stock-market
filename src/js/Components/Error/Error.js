@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import "./error.scss";
 
 let Error = (props) => {
-
     return(
-        <h2>{ props.errorMessage }</h2>
+        <h2>
+            { props.errorMessage }
+        </h2>
     );
 };
 

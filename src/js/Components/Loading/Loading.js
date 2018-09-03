@@ -1,7 +1,7 @@
 import React from "react";
 import "./loading.scss";
 
-let Loading = (props) => {
+let Loading = () => {
     return(
         <div className="loading">
                 <div className="box"></div>

@@ -29,7 +29,7 @@ class Form extends Component{
 // Prop type checking
 Form.propTypes = {
     onSubmit: PropTypes.func,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
 };
 
 export default Form;
