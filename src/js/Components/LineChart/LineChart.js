@@ -8,6 +8,7 @@ import { scaleLinear }      from "d3-scale";
 import { axisBottom }       from "d3-axis";
 import { axisLeft }         from "d3-axis";
 import { line }             from "d3-shape";
+//import { transition }       from "d3-transition";
 import "./lineChart.scss";
 
 class LineChart extends Component{
@@ -45,8 +46,10 @@ class LineChart extends Component{
             let xAxisPadding = "translate(0," + (this.props.height - 50) + ")";
             select(this.node)
                 .append("g")
+                .attr("class", "x-axis")
                 .attr("transform", xAxisPadding)
                 .call(axisBottom(xScale));
+
 
             // Find y-scale
             let yMin   = min( __dataToRender__, d => d[1] );
