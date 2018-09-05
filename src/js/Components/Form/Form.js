@@ -5,22 +5,10 @@ import "./form.scss";
 class Form extends Component{
     render(){
         return(
-            <div className="user__form-container">
-                <form onSubmit={ this.props.onSubmit } className="user__form">
-                    <input
-                        type="text"
-                        placeholder={ this.props.placeholder }
-                        id="user-input"
-                        className="user__form-input"
-                    />
-                    <button
-                        type="submit"
-                        className="user__form-submit"
-                    >
-                       VIEW
-                    </button>
-                </form>
-            </div>
+            <form onSubmit={ this.props.onSubmit }>
+                <input type="text" placeholder={ this.props.placeholder } id="user-input"/>
+                <button type="submit">VIEW</button>
+            </form>
         );
     }
 }

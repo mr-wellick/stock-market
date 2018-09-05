@@ -11,22 +11,21 @@ class Select extends Component{
     }
 
     render(){
+        let { stockDataTypes } = this.props;
         return(
-            <div className="user__selection-container">
-                <form onChange={ this.onChange } className="user__selection">
-                    <select>
-                        <optgroup label={ this.props.label }>
-                            {
-                                this.props.stockDataTypes.map( (item, key) =>
-                                    <option key={ key } value={ item[1] }>
-                                        { item[0] }
-                                    </option>
-                                )
-                            }
-                        </optgroup>
-                    </select>
-                </form>
-            </div>
+            <form onChange={ this.onChange }>
+                <select>
+                    <optgroup label={ this.props.label }>
+                    {
+                        stockDataTypes.map( (item, key) =>
+                            <option key={ key } value={ item[1] }>
+                                { item[0] }
+                            </option>
+                        )
+                    }
+                    </optgroup>
+                </select>
+            </form>
         );
     }
 }

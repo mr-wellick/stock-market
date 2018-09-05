@@ -10,7 +10,7 @@ function proccessData(assetData){
 
     // Add dataProperties to newDataPropertiesObject
     dataProperties.forEach( item => newDataPropertiesObject[item] = [] );
-    
+
     // Get all data corresponding to newDataPropertiesObject
     for(let i = 0; i < dataProperties.length; i++)
         for(let j = 0; j < newDataArray.length; j++)
@@ -19,7 +19,7 @@ function proccessData(assetData){
                 newDataArray[j][1][dataProperties[i]]
             );
         }
-    
+
     // Get asset name, keys, and dates
     let sybmol      = assetData["Meta Data"]["2. Symbol"];
     let newDataKeys = ["dates"].concat(Object.keys(newDataPropertiesObject));
@@ -39,7 +39,6 @@ function proccessData(assetData){
     newDataPropertiesObject[newDataKeys[6]] = newDataPropertiesObject[newDataKeys[6]].map( item => Number(item).toFixed(2) );
     newDataPropertiesObject[newDataKeys[7]] = newDataPropertiesObject[newDataKeys[7]].map( item => Number(item).toFixed(2) );
 
-    
     // Return new object with corresponding data
     return newDataPropertiesObject;
 }

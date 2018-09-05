@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { Fragment }         from "react";
+import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
-import { connect }          from "react-redux";
 import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
 import { LineChart }        from "../../Components";
@@ -35,27 +35,13 @@ class Home extends Component{
     render(){
         return(
             <Fragment>
-                <section className="user__interaction">
-                    <Select
-                        label="Stocks"
-                        stockDataTypes={ stockDataTypes }
-                    />
-                    <Form
-                        onSubmit={ this.onSubmit }
-                        placeholder="Enter ticker"
-                    />
+                <section>
+                    <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
+                    <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
-                <section className="data__section">
-                    <Table
-                        fetchedData={ this.props.fetchedData }
-                        isFetching={ this.props.isFetching }
-                    />
-                    <LineChart
-                        width={ 600 }
-                        height={ 400 }
-                        fetchedData={ this.props.fetchedData }
-                        color="crimson"
-                    />
+                <section>
+                    <Table fetchedData={ this.props.fetchedData } isFetching={ this.props.isFetching }/>
+                    <LineChart width={ 600 } height={ 400 } fetchedData={ this.props.fetchedData } color="crimson"/>
                 </section>
             </Fragment>
         );
