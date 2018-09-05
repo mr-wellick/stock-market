@@ -15,7 +15,7 @@ class LineChart extends Component{
 
         componentDidUpdate(){
         // Get Data
-        let { processedData } = this.props.fetchedData;
+        let { processedData } = this.props;
         let { color }         = this.props;
         let dates             = processedData["dates"];
         let prices            = processedData["5. adjusted close"];
@@ -91,7 +91,7 @@ class LineChart extends Component{
 LineChart.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
-    fetchedData: PropTypes.object,
+    processedData: PropTypes.object,
     color: PropTypes.string
 };
 
