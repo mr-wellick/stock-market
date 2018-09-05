@@ -13,7 +13,7 @@ class Select extends Component{
     render(){
         let { stockDataTypes } = this.props;
         return(
-            <form onChange={ this.onChange }>
+            <form onChange={ this.onChange } className={ this.props.className }>
                 <select>
                     <optgroup label={ this.props.label }>
                     {
@@ -33,7 +33,8 @@ class Select extends Component{
 Select.propTypes = {
     label: PropTypes.string,
     stockDataTypes: PropTypes.array,
-    userSelection: PropTypes.func
+    userSelection: PropTypes.func,
+    className: PropTypes.string
 };
 
 // Map state

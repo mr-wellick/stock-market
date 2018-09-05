@@ -1,0 +1,39 @@
+.main-header
+{
+    // Layout
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    // Box model
+    padding: 10px;
+}
+
+.main-nav__items
+{
+    // Layout
+    display: flex;
+    justify-content: space-around;
+}
+
+.section-data
+{
+    // Display
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+// Applies up to 500px
+@media (max-width: 500px)
+{
+    .main-header
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header__logo-display
+    {
+        display: none;
+    }
+}

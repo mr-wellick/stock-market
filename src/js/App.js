@@ -8,10 +8,19 @@ class App extends Component{
         return(
             <Router>
                 <Fragment>
-                    <header>
-                        <nav>
-                            <ul>
-                                <li><Link to="/">Home</Link></li>
+                    <header className="main-header">
+                        <h1 className="main-header__logo-display">Valores</h1>
+                        <nav className="main-nav">
+                            <ul className="main-nav__items">
+                                <li className="main-nav__item">
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li className="main-nav__item">
+                                    <Link to="/Basics">Basics</Link>
+                                </li>
+                                <li className="main-nav__item">
+                                    <Link to="/Portfolio">Portfolio</Link>
+                                </li>
                             </ul>
                         </nav>
                     </header>

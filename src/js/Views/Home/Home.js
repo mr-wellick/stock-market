@@ -41,11 +41,11 @@ class Home extends Component{
 
         return(
             <Fragment>
-                <section>
-                    <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
-                    <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
+                <section className="section-form">
+                    <Select className="section-form__select" label="Stocks" stockDataTypes={ stockDataTypes }/>
+                    <Form className="section-form__input" onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
-                <section>
+                <section className="section-data">
                     {
                         (() => {
                             if(error)
@@ -53,10 +53,10 @@ class Home extends Component{
                             else if(isFetching)
                                 return <Loading/>;
                             else if(processedData["assetName"] !== undefined)
-                                return <Table processedData={ processedData }/>;
+                                return <Table  className="section-data__table" processedData={ processedData }/>;
                         })()
                     }
-                    <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
+                    {/*<LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>*/}
                 </section>
             </Fragment>
         );
