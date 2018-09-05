@@ -7,6 +7,8 @@ import { fetchData }        from "../../Redux";
 import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
 import { LineChart }        from "../../Components";
+import { Loading }          from "../../Components";
+import { Error }            from "../../Components";
 import "./home.scss";
 
 // Data types for stocks
@@ -33,6 +35,10 @@ class Home extends Component{
     }
 
     render(){
+        let { isFetching }          = this.props;
+        let { processedData }       = this.props.fetchedData;
+        let { error, errorMessage } = this.props.fetchedData;
+
         return(
             <Fragment>
                 <section>
@@ -40,8 +46,17 @@ class Home extends Component{
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section>
-                    <Table fetchedData={ this.props.fetchedData } isFetching={ this.props.isFetching }/>
-                    <LineChart width={ 600 } height={ 400 } fetchedData={ this.props.fetchedData } color="crimson"/>
+                    {
+                        (() => {
+                            if(error)
+                                return <Error errorMessage={ errorMessage }/>;
+                            else if(isFetching)
+                                return <Loading/>;
+                            else if(processedData["assetName"] !== undefined)
+                                return <Table processedData={ processedData }/>;
+                        })()
+                    }
+                    <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
                 </section>
             </Fragment>
         );
