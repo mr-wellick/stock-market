@@ -1,5 +1,5 @@
 // Table element
-.section-data__table
+.stocks-table
 {
     box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -38,7 +38,7 @@
 
 @media (max-width: 600px)
 {
-    .section-data__col, .section-data__row
+    .stocks-table__col, .stocks-table__row
     {
         display: none;
     }

@@ -5,7 +5,7 @@ import "./form.scss";
 class Form extends Component{
     render(){
         return(
-            <form  className={ this.props.className } onSubmit={ this.props.onSubmit }>
+            <form  className="section-form__input" onSubmit={ this.props.onSubmit }>
                 <input type="text" placeholder={ this.props.placeholder } id="user-input"/>
                 <button type="submit">VIEW</button>
             </form>

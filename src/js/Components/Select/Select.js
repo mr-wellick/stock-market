@@ -13,7 +13,7 @@ class Select extends Component{
     render(){
         let { stockDataTypes } = this.props;
         return(
-            <form onChange={ this.onChange } className={ this.props.className }>
+            <form onChange={ this.onChange } className="section-form__select">
                 <select>
                     <optgroup label={ this.props.label }>
                     {

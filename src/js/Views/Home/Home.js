@@ -6,7 +6,7 @@ import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
 import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
-import { LineChart }        from "../../Components";
+//import { LineChart }        from "../../Components";
 import { Loading }          from "../../Components";
 import { Error }            from "../../Components";
 import "./home.scss";
@@ -42,8 +42,8 @@ class Home extends Component{
         return(
             <Fragment>
                 <section className="section-form">
-                    <Select className="section-form__select" label="Stocks" stockDataTypes={ stockDataTypes }/>
-                    <Form className="section-form__input" onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
+                    <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
+                    <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section className="section-data">
                     {
@@ -53,7 +53,7 @@ class Home extends Component{
                             else if(isFetching)
                                 return <Loading/>;
                             else if(processedData["assetName"] !== undefined)
-                                return <Table  className="section-data__table" processedData={ processedData }/>;
+                                return <Table processedData={ processedData }/>;
                         })()
                     }
                     {/*<LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>*/}
