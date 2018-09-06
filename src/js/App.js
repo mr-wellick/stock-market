@@ -9,7 +9,7 @@ class App extends Component{
             <Router>
                 <Fragment>
                     <header className="main-header">
-                        <h1 className="main-header__logo--display">Valores</h1>
+                        <h1 className="main-header__logo--display">&sigma; Stocks</h1>
                         <nav className="main-nav">
                             <ul className="main-nav__items">
                                 <li className="main-nav__item">
