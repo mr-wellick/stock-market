@@ -6,7 +6,8 @@ import "./app.scss";
 class App extends Component{
     render(){
         return(
-            <Router>
+            <Router basename={ process.env.PUBLIC_URL }>
+                {/* basename fix for gh-pages */}
                 <Fragment>
                     <header className="main-header">
                         <h1 className="main-header__logo--display">&sigma; Stocks</h1>
