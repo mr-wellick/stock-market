@@ -41,7 +41,7 @@ class Home extends Component{
 
         return(
             <Fragment>
-                <section className="section-form">
+                <section className="section-forms">
                     <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>

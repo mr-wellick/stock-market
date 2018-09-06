@@ -5,14 +5,13 @@ import "./form.scss";
 class Form extends Component{
     render(){
         return(
-            <form  className="section-form__input" onSubmit={ this.props.onSubmit }>
-                <input type="text" placeholder={ this.props.placeholder } id="user-input"/>
-                <button type="submit">VIEW</button>
+            <form  className="form-input" onSubmit={ this.props.onSubmit }>
+                <input className="form-input__text" type="text" placeholder={ this.props.placeholder } id="user-input"/>
+                <button className="form-input__btn" type="submit">VIEW</button>
             </form>
         );
     }
 }
-
 
 // Prop type checking
 Form.propTypes = {

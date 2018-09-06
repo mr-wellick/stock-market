@@ -7,26 +7,26 @@ let Table = (props) => {
     let { assetName, dates } = processedData;
 
     return(
-        <div>
+        <div className="section-data__container">
             <table className="stocks-table">
                 <caption>{ assetName }</caption>
-                <thead>
+                <thead className="stocks-table__thead">
                     <tr>
                         <th>Dates</th>
-                        <th className="stocks-table__col">High</th>
-                        <th className="stocks-table__col">Open</th>
-                        <th className="stocks-table__col">Low</th>
+                        <th className="stocks-table__th--responsive">High</th>
+                        <th className="stocks-table__th--responsive">Open</th>
+                        <th className="stocks-table__th--responsive">Low</th>
                         <th>Adjusted Close</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="stocks-table__tbody">
                     {
                         dates.map( (item, index) =>
                             <tr key={ index }>
                                 <td>{ item }</td>
-                                <td className="stocks-table__row">{ processedData["1. open"][index] }</td>
-                                <td className="stocks-table__row">{ processedData["2. high"][index] }</td>
-                                <td className="stocks-table__row">{ processedData["3. low"][index] }</td>
+                                <td className="stocks-table__td--responsive">{ processedData["1. open"][index] }</td>
+                                <td className="stocks-table__td--responsive">{ processedData["2. high"][index] }</td>
+                                <td className="stocks-table__td--responsive">{ processedData["3. low"][index] }</td>
                                 <td>{ processedData["5. adjusted close"][index] }</td>
                             </tr>
                         )

@@ -1,7 +1,7 @@
 // Variables
 $animation-time: 1s;
 
-.loading
+.loading-icon
 {
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +9,7 @@ $animation-time: 1s;
     width: 100px;
 }
 
-.box
+.loading-icon__box
 {
     height: 40px;
     width: 40px;
@@ -18,7 +18,6 @@ $animation-time: 1s;
     filter: blur(1px);
     animation: load $animation-time linear infinite;
 
-    // Box delay animations
     &:nth-of-type(2)
     {
         animation-delay: -( $animation-time / 4 );
