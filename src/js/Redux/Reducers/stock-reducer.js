@@ -18,7 +18,7 @@ function stockReducer(
             });
         case USER_SELECTION:
             return Object.assign({}, state, {
-                ...state.userInteraction,
+                ...state,
                 assetType: action.assetType
             });
         default:
