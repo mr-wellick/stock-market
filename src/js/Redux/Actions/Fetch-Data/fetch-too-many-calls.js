@@ -4,13 +4,13 @@ import { FETCH_TOO_MANY_CALLS } from "../../Constants";
 function fetchTooManyCalls(assetData){
 
     // Process too many api calls
-    let processedData = Object.entries(assetData);
+    let customErrorMessage = "You have exceeded the call limit. Please wait a few seconds and try again.";
 
     return {
         type: FETCH_TOO_MANY_CALLS,
-        assetData: [],
+        assetData,
         error: true,
-        errorMessage: processedData[0][1],
+        errorMessage: customErrorMessage,
         processedData: {}
     };
 }

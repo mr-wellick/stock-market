@@ -4,7 +4,7 @@ function isFetchingData(requesting)
 {
     return {
         type: IS_FETCHING_DATA,
-        isFetching: requesting 
+        isFetching: requesting
     };
 }
 

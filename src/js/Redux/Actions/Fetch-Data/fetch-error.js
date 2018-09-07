@@ -10,8 +10,7 @@ function fetchError(assetData){
         assetData: processedData,
         error: true,
         errorMessage: processedData[0][1],
-        processedData: {},
-        apiCallLimitReached: false
+        processedData: {}
     };
 }
 
