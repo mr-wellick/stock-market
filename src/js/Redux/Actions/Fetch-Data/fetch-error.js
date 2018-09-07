@@ -11,6 +11,7 @@ function fetchError(assetData){
         error: true,
         errorMessage: processedData[0][1],
         processedData: {},
+        apiCallLimitReached: false
     };
 }
 

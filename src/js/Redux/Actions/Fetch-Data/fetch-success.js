@@ -11,7 +11,8 @@ function fetchSuccess(assetData){
         assetData,
         error: false,
         errorMessage: "",
-        processedData: newData
+        processedData: newData,
+        apiCallLimitReached: false
     };
 }
 

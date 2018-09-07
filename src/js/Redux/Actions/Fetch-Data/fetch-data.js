@@ -1,7 +1,8 @@
-import { store }      from "../../Reducers";
-import fetchError     from "./fetch-error";
-import fetchSuccess   from "./fetch-success";
-import isFetchingData from "./is-fetching-data";
+import { store }         from "../../Reducers";
+import fetchError        from "./fetch-error";
+import fetchSuccess      from "./fetch-success";
+import isFetchingData    from "./is-fetching-data";
+import fetchTooManyCalls from "./fetch-too-many-calls";
 
 // API info for data request
 let url    = "https://www.alphavantage.co/query?";
@@ -30,9 +31,14 @@ function fetchData(assetName)
                             dispatch(fetchError(data));
                             dispatch(isFetchingData(false));
                         }
-                        else
+                        else if(data["Meta Data"])
                         {
                             dispatch(fetchSuccess(data));
+                            dispatch(isFetchingData(false));
+                        }
+                        else if(data["Information"])
+                        {
+                            dispatch(fetchTooManyCalls(data));
                             dispatch(isFetchingData(false));
                         }
                     });
