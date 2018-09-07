@@ -1,13 +1,12 @@
 import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Home }                                 from "./Views";
 import "./app.scss";
+import { Home }                                 from "./Views";
 
 class App extends Component{
     render(){
         return(
-            <Router basename={ process.env.PUBLIC_URL }>
-                {/* basename fix for gh-pages */}
+            <Router>
                 <Fragment>
                     <header className="main-header">
                         <h1 className="main-header__logo--display">&sigma; Stocks</h1>

@@ -14,7 +14,8 @@ import "./home.scss";
 // Data types for stocks
 let stockDataTypes = [
     ["Monthly Adjusted", "function=TIME_SERIES_MONTHLY_ADJUSTED&"],
-    ["Daily Adjusted", "function=TIME_SERIES_DAILY_ADJUSTED&"]
+    ["Daily Adjusted", "function=TIME_SERIES_DAILY_ADJUSTED&"],
+
 ];
 
 class Home extends Component{
