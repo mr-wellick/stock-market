@@ -6,7 +6,7 @@ import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
 import { Form, Table }      from "../../Components";
 import { Select }           from "../../Components";
-//import { LineChart }        from "../../Components";
+import { LineChart }        from "../../Components";
 import { Loading }          from "../../Components";
 import { Error }            from "../../Components";
 import "./home.scss";
@@ -35,13 +35,13 @@ class Home extends Component{
     }
 
     render(){
-        let { isFetching }          = this.props;
+        let { isFetching }          = this.props.networkRequest;
         let { processedData }       = this.props.fetchedData;
         let { error, errorMessage } = this.props.fetchedData;
 
         return(
             <Fragment>
-                <section className="section-forms">
+                    <section className="section-forms">
                     <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
@@ -56,8 +56,8 @@ class Home extends Component{
                                 return <Table processedData={ processedData }/>;
                         })()
                     }
-                    {/*<LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>*/}
                 </section>
+                <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
             </Fragment>
         );
     }
@@ -66,9 +66,7 @@ class Home extends Component{
 // Map state to props
 let mapState = (state) => {
     return {
-        ...state.networkRequest,
-        ...state.userInteraction,
-        ...state.fetchedData
+        ...state
     };
 };
 
@@ -88,9 +86,10 @@ let mapDispatch = (dispatch) => {
 Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    fetchedData: PropTypes.object,
-    isFetching: PropTypes.bool,
-    userInteraction: PropTypes.object
+    userInteraction: PropTypes.object,
+    networkRequest: PropTypes.object,
+    fetchedData: PropTypes.object
+
 };
 
 export default connect(mapState, mapDispatch)(Home);

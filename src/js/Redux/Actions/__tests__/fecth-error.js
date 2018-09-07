@@ -5,7 +5,7 @@ import { errorData }   from "../Fetch-Data";
 // Need to add more tests
 test("make sure fetch error returns correct object properties", () => {
     // User error data returned by api
-    let errorAction = fetchError(errorData); 
+    let errorAction = fetchError(errorData);
 
     // Check correct properties are generated
     expect(errorAction).toHaveProperty("type", FETCH_ERROR);

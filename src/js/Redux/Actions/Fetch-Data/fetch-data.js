@@ -12,7 +12,7 @@ function fetchData(assetName)
 {
     // Get asset type request: monthly or daily.
     // Symbol used for either stocks or cryptocurrency
-    let assetType = store.getState().userInteraction.userInteraction.assetType;
+    let assetType = store.getState().userInteraction.assetType;
     let symbol    = `symbol=${assetName}&`;
 
     // Full url to use in request

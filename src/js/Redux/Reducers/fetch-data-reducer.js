@@ -3,13 +3,11 @@ import { FETCH_ERROR }   from "../Constants";
 
 function fetchDataReducer(
     state = {
-        fetchedData: {
-            assetData: [],
-            error: false,
-            errorMessage: "",
-            processedData: {}
-        }
-    }, 
+        assetData: [],
+        error: false,
+        errorMessage: "",
+        processedData: {}
+    },
     action
 )
 {
@@ -17,23 +15,19 @@ function fetchDataReducer(
     {
         case FETCH_ERROR:
             return Object.assign({}, state, {
-                fetchedData: {
-                    ...state.fetchedData,
-                    assetData: action.assetData,
-                    error: action.error,
-                    errorMessage: action.errorMessage,
-                    processedData: action.processedData
-                }
+                ...state,
+                assetData: action.assetData,
+                error: action.error,
+                errorMessage: action.errorMessage,
+                processedData: action.processedData
             });
         case FETCH_SUCCESS:
             return Object.assign({}, state, {
-                fetchedData: {
-                    ...state.fetchedData,
-                    assetData: action.assetData,
-                    error: action.error,
-                    errorMessage: action.errorMessage,
-                    processedData: action.processedData
-                }
+                ...state,
+                assetData: action.assetData,
+                error: action.error,
+                errorMessage: action.errorMessage,
+                processedData: action.processedData
             });
         default:
             return state;
