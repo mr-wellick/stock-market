@@ -3,10 +3,8 @@ import { USER_SELECTION } from "../Constants";
 
 function stockReducer(
     state = {
-        userInteraction: {
-            assetName: "TSLA",
-            assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
-        }
+        assetName: "TSLA",
+        assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
     },
     action
 )
@@ -15,17 +13,13 @@ function stockReducer(
     {
         case USER_INPUT:
             return Object.assign({}, state, {
-                userInteraction: {
-                    ...state.userInteraction,
-                    assetName: action.assetName
-                }
+                ...state,
+                assetName: action.assetName
             });
         case USER_SELECTION:
             return Object.assign({}, state, {
-                userInteraction: {
-                    ...state.userInteraction,
-                    assetType: action.assetType
-                }
+                ...state.userInteraction,
+                assetType: action.assetType
             });
         default:
             return state;

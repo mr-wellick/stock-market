@@ -6,16 +6,14 @@ import { userSelection } from "../../Actions";
 test("test initial asset name is TSLA", () => {
     let name                = "TSLA";
     let nextState           = stockReducer(initialState, incorrectAction);
-    let { userInteraction } = nextState;
-    let { assetName }       = userInteraction;
+    let { assetName }       = nextState;
     expect(assetName).toBe(name);
 });
 
 test("test initial asset type to be monthly adjusted", () => {
     let type                = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
     let nextState           = stockReducer(initialState, incorrectAction);
-    let { userInteraction } = nextState;
-    let { assetType }       = userInteraction;
+    let { assetType }       = nextState;
     expect(assetType).toBe(type);
 });
 
@@ -24,8 +22,7 @@ test("test user input action updates asset name", () => {
     let newAssetName        = "AAPL";
     let correctAction       = userInput("AAPL");
     let nextState           = stockReducer(initialState, correctAction);
-    let { userInteraction } = nextState;
-    let { assetName }       = userInteraction;
+    let { assetName }       = nextState;
     expect(assetName).toBe(newAssetName);
 });
 
@@ -34,17 +31,14 @@ test("test user selection action updates asset type", () => {
     let newAssetType        = "function=TIME_SERIES_DAILY_ADJUSTED&";
     let correctAction       = userSelection(newAssetType);
     let nextState           = stockReducer(initialState, correctAction);
-    let { userInteraction } = nextState;
-    let { assetType }       = userInteraction;
+    let { assetType }       = nextState;
     expect(assetType).toBe(newAssetType);
 });
 
 // Helpers
 let initialState = {
-    userInteraction: {
-        assetName: "TSLA",
-        assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
-    }
+    assetName: "TSLA",
+    assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
 };
 
 let incorrectAction = {
