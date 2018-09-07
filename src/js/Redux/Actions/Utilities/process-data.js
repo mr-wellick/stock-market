@@ -1,46 +1,30 @@
 function proccessData(assetData){
-    // Process data into array
-    let covertDataToArray = Object.entries(assetData);
-    let newDataArray      = Object.entries(covertDataToArray[1][1]).reverse();
 
-    // Get all Object properties from newDataArray
-    // Create empty object to hold new properties
-    let dataProperties          = Object.keys(newDataArray[1][1]);
-    let newDataPropertiesObject = {};
+    // Get base data
+    let baseData = Object.entries(assetData);
 
-    // Add dataProperties to newDataPropertiesObject
-    dataProperties.forEach( item => newDataPropertiesObject[item] = [] );
+    // Now get meta data and raw data
+    let metaData = baseData[0][1];
+    let rawData  = Object.entries(baseData[1][1]).reverse();
 
-    // Get all data corresponding to newDataPropertiesObject
-    for(let i = 0; i < dataProperties.length; i++)
-        for(let j = 0; j < newDataArray.length; j++)
-        {
-            newDataPropertiesObject[dataProperties[i]].push(
-                newDataArray[j][1][dataProperties[i]]
-            );
-        }
+    // Get rawData properties
+    let assetKeys = Object.keys(rawData[0][1]);
 
-    // Get asset name, keys, and dates
-    let sybmol      = assetData["Meta Data"]["2. Symbol"];
-    let newDataKeys = ["dates"].concat(Object.keys(newDataPropertiesObject));
-    let dates       = newDataArray.map( item => item[0]);
+    // Create new object where we'll store new data
+    let processedData = {};
 
-    // Add new entries to object
-    newDataPropertiesObject["assetName"] = sybmol;
-    newDataPropertiesObject["assetKeys"] = newDataKeys;
-    newDataPropertiesObject["dates"]     = dates;
+    // Process raw data and store in each corresponding object property
+    assetKeys.forEach(function passThroughEach(assetKey){
+        processedData[assetKey] = rawData.map( item => Number(item[1][assetKey]).toFixed(2) );
+    });
 
-    // Format data
-    newDataPropertiesObject[newDataKeys[1]] = newDataPropertiesObject[newDataKeys[1]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[2]] = newDataPropertiesObject[newDataKeys[2]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[3]] = newDataPropertiesObject[newDataKeys[3]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[4]] = newDataPropertiesObject[newDataKeys[4]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[5]] = newDataPropertiesObject[newDataKeys[5]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[6]] = newDataPropertiesObject[newDataKeys[6]].map( item => Number(item).toFixed(2) );
-    newDataPropertiesObject[newDataKeys[7]] = newDataPropertiesObject[newDataKeys[7]].map( item => Number(item).toFixed(2) );
+    // Now create new properties for dates, assetKeys, and Meta Data
+    processedData["dates"]     = rawData.map( item => item[0] );
+    processedData["assetKeys"] = ["dates"].concat(assetKeys); // Need to add dates to assetKeys since not provided by default
+    processedData["metaData"]  = metaData;
 
     // Return new object with corresponding data
-    return newDataPropertiesObject;
+    return processedData;
 }
 
 export default proccessData;

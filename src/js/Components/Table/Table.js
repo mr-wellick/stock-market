@@ -3,8 +3,9 @@ import PropTypes   from "prop-types";
 import "./table.scss";
 
 let Table = (props) => {
-    let { processedData }    = props;
-    let { assetName, dates } = processedData;
+    let { processedData } = props;
+    let {  dates }        = processedData;
+    let assetName         = processedData.metaData["2. Symbol"];
 
     return(
         <div className="section-data__container">

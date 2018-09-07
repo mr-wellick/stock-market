@@ -52,7 +52,7 @@ class Home extends Component{
                                 return <Error errorMessage={ errorMessage }/>;
                             else if(isFetching)
                                 return <Loading/>;
-                            else if(processedData["assetName"] !== undefined)
+                            else if(processedData["metaData"] !== undefined)
                                 return <Table processedData={ processedData }/>;
                         })()
                     }
