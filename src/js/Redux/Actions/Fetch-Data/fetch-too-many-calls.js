@@ -3,7 +3,6 @@ import { FETCH_TOO_MANY_CALLS } from "../../Constants";
 // Process data when incorrect api call is made
 function fetchTooManyCalls(assetData){
 
-    // Process too many api calls
     let customErrorMessage = "You have exceeded the call limit. Please wait a few seconds and try again.";
 
     return {
