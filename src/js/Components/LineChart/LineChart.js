@@ -65,6 +65,15 @@ class LineChart extends Component{
             // Create line
             let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
 
+            // Check if last price is up or down
+            let lastPos     = __dataToRender__.length - 1;
+
+            // If last price is lower than day/month before, show red.
+            if(__dataToRender__[lastPos][1] < __dataToRender__[0][1])
+                color = "red";
+            else
+                color = "green";
+
             select(".line-data")
                 .datum(__dataToRender__)
                 .transition()
