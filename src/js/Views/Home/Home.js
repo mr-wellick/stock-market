@@ -25,6 +25,9 @@ class Home extends Component{
 
     onSubmit = (event) => {
         let assetName = document.querySelector("#user-input").value.toUpperCase();
+        let pattern   = /([A-Za-z]+)/;
+        assetName     = assetName.match(pattern)[0];
+
         if(assetName !== "")
         {
             this.props.userInput(assetName);
