@@ -8,7 +8,7 @@ import { scaleLinear }      from "d3-scale";
 import { axisBottom }       from "d3-axis";
 import { axisLeft }         from "d3-axis";
 import { line }             from "d3-shape";
-//import { transition }       from "d3-transition";
+import { transition }       from "d3-transition";
 import "./lineChart.scss";
 
 class LineChart extends Component{
@@ -25,10 +25,6 @@ class LineChart extends Component{
         // Parse data into numbers and date object
         if( dates !== undefined && prices !== undefined )
         {
-            // Remove old group nodes if any
-            if( this.node.children.length > 0 )
-                select(this.node).selectAll("g").remove();
-
             dates  = dates.map( item => timeFormatter(item) );
             prices = prices.map( item => Number(item) );
 
@@ -44,9 +40,9 @@ class LineChart extends Component{
 
             // Add x-axis
             let xAxisPadding = "translate(0," + (this.props.height - 50) + ")";
-            select(this.node)
-                .append("g")
-                .attr("class", "x-axis")
+            select(".x-axis")
+                .transition()
+                .duration(1200)
                 .attr("transform", xAxisPadding)
                 .call(axisBottom(xScale));
 
@@ -59,17 +55,21 @@ class LineChart extends Component{
 
             // Add y-axis
             let yAxisPadding = "translate(" + 50 + ",0)";
-            select(this.node)
-                .append("g")
+            select(".y-axis")
+                .transition()
+                .delay(1000)
+                .duration(1200)
                 .attr("transform", yAxisPadding)
                 .call(axisLeft(yScale));
 
             // Create line
             let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
-            select(this.node)
-                .append("g")
-                .append("path")
+
+            select(".line-data")
                 .datum(__dataToRender__)
+                .transition()
+                .delay(2400)
+                .duration(500)
                 .attr("fill", "none")
                 .attr("stroke", color)
                 .attr("stroke-width", 1.5)
@@ -83,7 +83,13 @@ class LineChart extends Component{
                 ref={ node => this.node = node }
                 width={ this.props.width }
                 height={ this.props.height }
-            />
+            >
+                <g className="x-axis"></g>
+                <g className="y-axis"></g>
+                <g>
+                    <path className="line-data"/>
+                </g>
+            </svg>
         );
     }
 }

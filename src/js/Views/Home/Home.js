@@ -59,8 +59,8 @@ class Home extends Component{
                                 return <Table processedData={ processedData }/>;
                         })()
                     }
+                    <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
                 </section>
-                <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
             </Fragment>
         );
     }

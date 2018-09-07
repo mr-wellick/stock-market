@@ -2,14 +2,14 @@ import { FETCH_ERROR } from "../../Constants";
 
 // Process data when incorrect api call is made
 function fetchError(assetData){
-    // Process data
-    let processedData = Object.entries(assetData);
+
+    let customErrorMessage = "You have entered an invalid stock ticker. Please try again.";
 
     return {
         type: FETCH_ERROR,
-        assetData: processedData,
+        assetData,
         error: true,
-        errorMessage: processedData[0][1],
+        errorMessage: customErrorMessage,
         processedData: {}
     };
 }
