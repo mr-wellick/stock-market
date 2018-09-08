@@ -15,7 +15,9 @@ function proccessData(assetData){
 
     // Process raw data and store in each corresponding object property
     assetKeys.forEach(function passThroughEach(assetKey){
-        processedData[assetKey] = rawData.map( item => Number(item[1][assetKey]).toFixed(2) );
+        processedData[assetKey] = rawData.map(function createNewArray(item){
+            return Number(item[1][assetKey]).toFixed(2);
+        });
     });
 
     // Now create new properties for dates, assetKeys, and Meta Data
