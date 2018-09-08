@@ -13,6 +13,15 @@ import "./lineChart.scss";
 
 class LineChart extends Component{
 
+        // Functions to generate grids
+        make_x_gridlines(xScale) {
+            return axisBottom(xScale).ticks(5);
+        }
+
+        make_y_gridlines(yScale) {
+            return axisLeft(yScale).ticks(5);
+        }
+
         componentDidUpdate(){
         // Get Data
         let { processedData } = this.props;
@@ -62,11 +71,8 @@ class LineChart extends Component{
                 .attr("transform", yAxisPadding)
                 .call(axisLeft(yScale));
 
-            // Create line
-            let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
-
             // Check if last price is up or down
-            let lastPos     = __dataToRender__.length - 1;
+            let lastPos = __dataToRender__.length - 1;
 
             // If last price is lower than day/month before, show red.
             if(__dataToRender__[lastPos][1] < __dataToRender__[0][1])
@@ -74,6 +80,8 @@ class LineChart extends Component{
             else
                 color = "green";
 
+            // Create line
+            let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
             select(".line-data")
                 .datum(__dataToRender__)
                 .transition()
@@ -83,6 +91,21 @@ class LineChart extends Component{
                 .attr("stroke", color)
                 .attr("stroke-width", 1.5)
                 .attr("d", lineForChart);
+
+            // We only want to add grids on initial render. Once we query new stocks, we don't need
+            // to keep adding grid lines.
+            if(this.node.children.length <= 3)
+            {
+                select(this.node).append("g")
+                                 .attr("class", "grid")
+                                 .attr("transform", "translate(0," + (this.props.height - 50) + ")")
+                                 .call(this.make_x_gridlines(xScale).tickSize(-(this.props.height - 100)).tickFormat(""));
+
+                select(this.node).append("g")
+                                 .attr("class", "grid")
+                                 .attr("transform", "translate(" + 50 + ",0)")
+                                 .call(this.make_y_gridlines(yScale).tickSize(-(this.props.width - 100)).tickFormat(""));
+            }
         }
     }
 
