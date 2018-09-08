@@ -38,11 +38,11 @@ Select.propTypes = {
 };
 
 // Map state
-let mapState = (state) => {
-    return {
-        ...state.userInteraction
-    };
-};
+//let mapState = (state) => {
+//    return {
+//        ...state.userInteraction
+//    };
+//};
 
 // Map dispatch
 let mapDispatch = (dispatch) => {
@@ -53,4 +53,4 @@ let mapDispatch = (dispatch) => {
     };
 };
 
-export default connect(mapState, mapDispatch)(Select);
+export default connect(null, mapDispatch)(Select);
