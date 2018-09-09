@@ -13,7 +13,7 @@ let apiKey = "apikey=AAG3PU4MLMB9JHS3";
 function fetchData(assetsName)
 {
     // Get assetType to be requested: monthly or daily
-    let assetType = store.getState().userInteraction.assetType;
+    let { assetType } = store.getState().userInteraction;
 
     return function(dispatch){
         // 1. Notify app of inital request
