@@ -5,10 +5,6 @@ import fetchTooManyCalls from "./fetch-too-many-calls";
 import isFetchingData    from "./is-fetching-data";
 import fetchComplete     from "./fetch-complete.js";
 
-// API info for data request
-let url    = "https://www.alphavantage.co/query?";
-let apiKey = "apikey=AAG3PU4MLMB9JHS3";
-
 // Make api request
 function fetchData(assetsName)
 {
@@ -16,30 +12,33 @@ function fetchData(assetsName)
     let { assetType } = store.getState().userInteraction;
 
     return function(dispatch){
-        // 1. Notify app of inital request
+        // Begin request
         dispatch(isFetchingData(true));
+        return Promise.all(
+            // Iterate through each asset and request
+            assetsName.map(name =>
+                fetch(`https://www.alphavantage.co/query?${assetType}symbol=${name}&apikey=AAG3PU4MLMB9JHS3`)
+                    .then(res => res.json())
+            )
+        )
+        .then( allDataSets => {
+            // Will use to store final data
+            let checkedData = [];
 
-        // 2. Next, request data
-        return Promise
-                .all( assetsName.map( item => fetch( url + assetType + `symbol=${item}&` + apiKey).then(res => res.json())) )
-                .then( allDataSets => {
-                    // Create new array where we will store data after it's checked
-                    let checkedData = [];
+            // Checks data and process accordingly
+            allDataSets.map( item => {
+                if(item["Error Message"])
+                    checkedData.push( fetchError(item) );
+                else if(item["Meta Data"])
+                    checkedData.push( fetchSuccess(item) );
+                else if(item["Information"])
+                    checkedData.push( fetchTooManyCalls(item) );
+            });
 
-                    allDataSets.map( item => {
-                        if(item["Error Message"])
-                            checkedData.push( fetchError(item) );
-
-                        if(item["Meta Data"])
-                            checkedData.push( fetchSuccess(item) );
-
-                        if(item["Information"])
-                            checkedData.push( fetchTooManyCalls(item) );
-                    });
-
-                    dispatch(fetchComplete(checkedData));
-                    dispatch(isFetchingData(false));
-                });
+            // End request
+            dispatch(fetchComplete(checkedData));
+            dispatch(isFetchingData(false));
+        });
     };
 }
 
