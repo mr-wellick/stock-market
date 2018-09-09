@@ -12,13 +12,6 @@ import {  Table }           from "../../Components";
 //import { Error }            from "../../Components";
 import "./home.scss";
 
-// Data types for stocks
-let stockDataTypes = [
-    ["Monthly Adjusted", "function=TIME_SERIES_MONTHLY_ADJUSTED&"],
-    ["Daily Adjusted", "function=TIME_SERIES_DAILY_ADJUSTED&"],
-
-];
-
 class Home extends Component{
     //componentDidMount(){
     //    let { assetsName } = this.props.userInteraction;
@@ -52,7 +45,7 @@ class Home extends Component{
         return(
             <Fragment>
                     <section className="section-forms">
-                    <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
+                    <Select label="Stocks"/>
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section className="section-data">
