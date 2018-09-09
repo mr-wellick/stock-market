@@ -17,7 +17,7 @@ function fetchData(assetsName)
         return Promise.all(
             // Iterate through each asset and request
             assetsName.map(name =>
-                fetch(`https://www.alphavantage.co/query?${assetType}symbol=${name}&apikey=AAG3PU4MLMB9JHS3`)
+                fetch(`https://www.alphavantage.co/query?${assetType}symbol=${name}&apikey=${process.env.API_KEY}`)
                     .then(res => res.json())
             )
         )
