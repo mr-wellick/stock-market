@@ -1,3 +1,5 @@
+import findPercentChange from "./find-percent-change.js";
+
 function processData(assetData){
 
     /*
@@ -35,9 +37,10 @@ function processData(assetData){
     });
 
     // Now create new properties for dates, assetKeys, and Meta Data
-    processedData["dates"]     = rawData.map( item => item[0] );
-    processedData["assetKeys"] = ["dates"].concat(assetKeys); // Need to add dates to assetKeys since not provided by default
-    processedData["symbol"]    = metaData["2. Symbol"];
+    processedData["dates"]        = rawData.map( item => item[0] );
+    processedData["assetKeys"]    = ["dates"].concat(assetKeys);
+    processedData["symbol"]       = metaData["2. Symbol"];
+    processedData["percentChage"] = findPercentChange(processedData["5. adjusted close"]);
 
     // Return new object with corresponding data
     return processedData;
