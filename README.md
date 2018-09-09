@@ -1,16 +1,13 @@
 # Visit the site
 1. https://ll2nz.github.io/securities-app/
+2. This site is a previous iteration of the web app.
+3. I'm hoping to release the new iteration soon.
 
 # A stock market web app
-1. Query a single stock.
-2. Each query will display its corresponding table and line charts for daily or monthly prices.
-
+1. Query single/multiple stock(s).
+2. Each query will show you a table with the latest monthly/daily adjusted price for each stock.
+3. Invalid stock entries will be removed by default and only valid entries will shown.
 
 # Using the app
-1. Supply a valid stock ticker: TSLA, KO, GOOGL.
-2. If an invalid entry is submitted, you will be shown the following url: https://www.alphavantage.co/documentation/.
-
-# New feature being developed
-1. Currently working on a feature that will allow you to query n stocks at a time.
-2. Using these n stocks, you will be shown the return-risk space (scatter plot).
-3. Finally, the minimum risk portfolio using these n stocks will be calculated and plotted on the return-risk space.
+1. Supply a single stock ticker: TSLA.
+2. Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO, ....
