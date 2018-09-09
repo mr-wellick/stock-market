@@ -1,41 +1,15 @@
-import { FETCH_SUCCESS }        from "../Constants";
-import { FETCH_ERROR }          from "../Constants";
-import { FETCH_TOO_MANY_CALLS } from "../Constants";
+import { FETCH_COMPLETE } from "../Constants";
 
-let initialState = {
-    assetData: [],
-    error: false,
-    errorMessage: "",
-    processedData: {}
-};
+let initialState = { assetsData: [] };
 
 function fetchDataReducer(state = initialState, action)
 {
     switch(action.type)
     {
-        case FETCH_ERROR:
+        case FETCH_COMPLETE:
             return Object.assign({}, state, {
                 ...state,
-                assetData: action.assetData,
-                error: action.error,
-                errorMessage: action.errorMessage,
-                processedData: action.processedData
-            });
-        case FETCH_SUCCESS:
-            return Object.assign({}, state, {
-                ...state,
-                assetData: action.assetData,
-                error: action.error,
-                errorMessage: action.errorMessage,
-                processedData: action.processedData
-            });
-        case FETCH_TOO_MANY_CALLS:
-            return Object.assign({}, state, {
-                ...state,
-                assetData: action.assetData,
-                error: action.error,
-                errorMessage: action.errorMessage,
-                processedData: action.processedData
+                assetsData: action.assetsData,
             });
         default:
             return state;

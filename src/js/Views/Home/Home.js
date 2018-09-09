@@ -7,7 +7,7 @@ import { fetchData }        from "../../Redux";
 import { Form }             from "../../Components";
 //import {  Table }           from "../../Components";
 import { Select }           from "../../Components";
-import { LineChart }        from "../../Components";
+//import { LineChart }        from "../../Components";
 //import { Loading }          from "../../Components";
 //import { Error }            from "../../Components";
 import "./home.scss";
@@ -30,7 +30,7 @@ class Home extends Component{
         let assetNames = document.querySelector("#user-input").value.toUpperCase();
         let pattern    = /([A-Za-z]+)/;
 
-        // Note: need to check for leading white spaces first.
+        // Note: need to check for leading and trailing white spaces first.
         if(assetNames !== "")
         {
             // Make sure to remove spaces or other non letter characters
@@ -38,12 +38,9 @@ class Home extends Component{
             assetNames = assetNames.map( item => item.match(pattern)[0] );
 
             this.props.userInput(assetNames);
-            //this.props.fetchData(assetNames);
+            this.props.fetchData(assetNames);
             document.querySelector("#user-input").value = "";
         }
-
-
-
 
         event.preventDefault();
     }

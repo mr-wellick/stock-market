@@ -3,6 +3,7 @@ import { processData }   from "./Utilities";
 
 // Process data when correct api call is made
 function fetchSuccess(assetData){
+
     // Process data
     let newData = processData(assetData);
 

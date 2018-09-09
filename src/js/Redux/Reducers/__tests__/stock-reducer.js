@@ -2,46 +2,55 @@ import stockReducer      from "../stock-reducer";
 import { userInput }     from "../../Actions";
 import { userSelection } from "../../Actions";
 
-// Test default case
-test("test initial asset name is TSLA", () => {
-    let name                = "TSLA";
-    let nextState           = stockReducer(initialState, incorrectAction);
-    let { assetName }       = nextState;
-    expect(assetName).toBe(name);
+test("test default case returns the following assetsName: [TSLA, KO, IBM, AAPL, NFLX]", () => {
+    let defaultNames   = ["TSLA", "KO", "IBM", "AAPL", "NFLX"];
+    let nextState      = stockReducer(initialState, incorrectAction);
+    let { assetsName } = nextState;
+
+    expect(assetsName).toContain(defaultNames[0]);
+    expect(assetsName).toContain(defaultNames[1]);
+    expect(assetsName).toContain(defaultNames[2]);
+    expect(assetsName).toContain(defaultNames[3]);
+    expect(assetsName).toContain(defaultNames[4]);
 });
 
-test("test initial asset type to be monthly adjusted", () => {
-    let type                = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
-    let nextState           = stockReducer(initialState, incorrectAction);
-    let { assetType }       = nextState;
+test("test default asset type to be monthly adjusted", () => {
+    let type          = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
+    let nextState     = stockReducer(initialState, incorrectAction);
+    let { assetType } = nextState;
+
     expect(assetType).toBe(type);
 });
 
-// Test USER_INPUT case
-test("test user input action updates asset name", () => {
-    let newAssetName        = "AAPL";
-    let correctAction       = userInput("AAPL");
-    let nextState           = stockReducer(initialState, correctAction);
-    let { assetName }       = nextState;
-    expect(assetName).toBe(newAssetName);
+test("test user input action updates assets name", () => {
+    let newAssetNames  = ["AAPL", "KO", "IBM"];
+    let correctAction  = userInput(newAssetNames);
+    let nextState      = stockReducer(initialState, correctAction);
+    let { assetsName } = nextState;
+
+    expect(assetsName).toContain(newAssetNames[0]);
+    expect(assetsName).toContain(newAssetNames[1]);
+    expect(assetsName).toContain(newAssetNames[2]);
 });
 
-// Test USER_SELECTION  case
 test("test user selection action updates asset type", () => {
-    let newAssetType        = "function=TIME_SERIES_DAILY_ADJUSTED&";
-    let correctAction       = userSelection(newAssetType);
-    let nextState           = stockReducer(initialState, correctAction);
-    let { assetType }       = nextState;
+    let newAssetType  = "function=TIME_SERIES_DAILY_ADJUSTED&";
+    let correctAction = userSelection(newAssetType);
+    let nextState     = stockReducer(initialState, correctAction);
+    let { assetType } = nextState;
+
     expect(assetType).toBe(newAssetType);
 });
 
 // Helpers
 let initialState = {
-    assetName: "TSLA",
+    assetsName: ["TSLA", "KO", "IBM", "AAPL", "NFLX"],
     assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
 };
 
 let incorrectAction = {
     type: "INCORRECT_ACTION",
-    assetName: "APPL"
+    assetsName: "APPL"
 };
+
+

@@ -7,3 +7,4 @@ export let IS_FETCHING_DATA     = "IS_FETCHING_DATA";
 export let FETCH_SUCCESS        = "FETCH_SUCCESS";
 export let FETCH_ERROR          = "FETCH_ERROR";
 export let FETCH_TOO_MANY_CALLS = "FETCH_TOO_MANY_CALLS";
+export let FETCH_COMPLETE       = "FETCH_COMPLETE";

@@ -2,7 +2,7 @@ import { USER_INPUT }     from "../Constants";
 import { USER_SELECTION } from "../Constants";
 
 let initialState = {
-    assetName: "TSLA",
+    assetsName: ["TSLA", "KO", "IBM", "AAPL", "NFLX"],
     assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
 };
 
@@ -13,7 +13,7 @@ function stockReducer(state = initialState, action)
         case USER_INPUT:
             return Object.assign({}, state, {
                 ...state,
-                assetName: action.assetName
+                assetsName: action.assetsName
             });
         case USER_SELECTION:
             return Object.assign({}, state, {

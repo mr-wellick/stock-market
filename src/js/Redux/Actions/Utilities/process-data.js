@@ -1,4 +1,4 @@
-function proccessData(assetData){
+function processData(assetData){
 
     /*
      * Incoming assetData is of the form:
@@ -43,4 +43,4 @@ function proccessData(assetData){
     return processedData;
 }
 
-export default proccessData;
+export default processData;
