@@ -1,6 +1,6 @@
-import { fetchSuccess }  from "../Fetch-Data";
-import { msftData }      from "../Fetch-Data";
 import { FETCH_SUCCESS } from "../../Constants";
+import { msftData }      from "../Testing-Data";
+import  fetchSuccess     from "../fetch-success";
 
 test("test correct action object is created for fetch success", () => {
     // Data returned by api processed by fetch-success action creator

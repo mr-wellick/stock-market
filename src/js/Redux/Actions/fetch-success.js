@@ -1,5 +1,5 @@
-import { FETCH_SUCCESS } from "../../Constants";
-import { processData }   from "../Utilities";
+import { FETCH_SUCCESS } from "../Constants";
+import { processData }   from "./Utilities";
 
 // Process data when correct api call is made
 function fetchSuccess(assetData){

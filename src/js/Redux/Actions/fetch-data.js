@@ -1,4 +1,4 @@
-import { store }         from "../../Reducers";
+import { store }         from "../Reducers";
 import fetchError        from "./fetch-error";
 import fetchSuccess      from "./fetch-success";
 import isFetchingData    from "./is-fetching-data";

@@ -1,4 +1,4 @@
-import { FETCH_ERROR } from "../../Constants";
+import { FETCH_ERROR } from "../Constants";
 
 // Process data when incorrect api call is made
 function fetchError(assetData){

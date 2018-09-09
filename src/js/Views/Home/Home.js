@@ -7,7 +7,7 @@ import { fetchData }        from "../../Redux";
 import { Form }             from "../../Components";
 //import {  Table }           from "../../Components";
 import { Select }           from "../../Components";
-//import { LineChart }        from "../../Components";
+import { LineChart }        from "../../Components";
 //import { Loading }          from "../../Components";
 //import { Error }            from "../../Components";
 import "./home.scss";
@@ -41,7 +41,7 @@ class Home extends Component{
 
     render(){
         //let { isFetching }          = this.props.networkRequest;
-        //let { processedData }       = this.props.fetchedData;
+        let { processedData }       = this.props.fetchedData;
         //let { error, errorMessage } = this.props.fetchedData;
 
         return(
@@ -62,9 +62,9 @@ class Home extends Component{
                                 return <Table processedData={ processedData }/>;
                         })()
                     }
-                    <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
                 </section>
                 */}
+                <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
             </Fragment>
         );
     }

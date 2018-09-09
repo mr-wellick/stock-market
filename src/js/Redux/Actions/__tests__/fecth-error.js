@@ -1,6 +1,6 @@
 import { FETCH_ERROR } from "../../Constants";
-import { fetchError }  from "../Fetch-Data";
-import { errorData }   from "../Fetch-Data";
+import { errorData }   from "../Testing-Data";
+import  fetchError     from "../fetch-error";
 
 // Need to add more tests
 test("make sure fetch error returns correct object properties", () => {

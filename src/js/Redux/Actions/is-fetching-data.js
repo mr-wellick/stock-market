@@ -1,4 +1,4 @@
-import { IS_FETCHING_DATA } from "../../Constants";
+import { IS_FETCHING_DATA } from "../Constants";
 
 function isFetchingData(requesting)
 {

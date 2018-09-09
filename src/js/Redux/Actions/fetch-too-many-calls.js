@@ -1,4 +1,4 @@
-import { FETCH_TOO_MANY_CALLS } from "../../Constants";
+import { FETCH_TOO_MANY_CALLS } from "../Constants";
 
 // Process data when incorrect api call is made
 function fetchTooManyCalls(assetData){
