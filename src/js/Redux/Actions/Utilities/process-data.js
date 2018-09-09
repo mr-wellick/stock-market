@@ -1,5 +1,19 @@
 function proccessData(assetData){
 
+    /*
+     * Incoming assetData is of the form:
+     *
+     * {
+     *
+     *   "Meta Data": { info, symbol, ... }
+     *   "Time Series ( Daily or Monthly )":
+     *      {
+     *          "some date": { open, high, ... }
+     *      }
+     * }
+     *
+     */
+
     // Get base data
     let baseData = Object.entries(assetData);
 
