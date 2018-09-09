@@ -20,28 +20,37 @@ let stockDataTypes = [
 ];
 
 class Home extends Component{
-    componentDidMount(){
-        let { assetName } = this.props.userInteraction;
-        this.props.fetchData(assetName);
-    }
+    //componentDidMount(){
+    //    let { assetName } = this.props.userInteraction;
+    //    this.props.fetchData(assetName);
+    //}
 
     onSubmit = (event) => {
-        let assetName = document.querySelector("#user-input").value.toUpperCase();
-        let pattern   = /([A-Za-z]+)/;
-        assetName     = assetName.match(pattern)[0];
+        // Get assetNames and turn into array
+        let assetNames = document.querySelector("#user-input").value.toUpperCase();
+        let pattern    = /([A-Za-z]+)/;
 
-        if(assetName !== "")
+        // Note: need to check for leading white spaces first.
+        if(assetNames !== "")
         {
-            this.props.userInput(assetName);
-            this.props.fetchData(assetName);
+            // Make sure to remove spaces or other non letter characters
+            assetNames = assetNames.split(",");
+            assetNames = assetNames.map( item => item.match(pattern)[0] );
+
+            this.props.userInput(assetNames);
+            //this.props.fetchData(assetNames);
             document.querySelector("#user-input").value = "";
         }
+
+
+
+
         event.preventDefault();
     }
 
     render(){
         //let { isFetching }          = this.props.networkRequest;
-        let { processedData }       = this.props.fetchedData;
+        //let { processedData }       = this.props.fetchedData;
         //let { error, errorMessage } = this.props.fetchedData;
 
         return(
@@ -63,8 +72,8 @@ class Home extends Component{
                         })()
                     }
                 </section>
-                */}
                 <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
+                */}
             </Fragment>
         );
     }
