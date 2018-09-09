@@ -1,13 +1,12 @@
 import { USER_INPUT }     from "../Constants";
 import { USER_SELECTION } from "../Constants";
 
-function stockReducer(
-    state = {
-        assetName: "TSLA",
-        assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
-    },
-    action
-)
+let initialState = {
+    assetName: "TSLA",
+    assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
+};
+
+function stockReducer(state = initialState, action)
 {
     switch(action.type)
     {

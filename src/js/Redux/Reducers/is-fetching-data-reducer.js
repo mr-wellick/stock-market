@@ -1,11 +1,10 @@
 import { IS_FETCHING_DATA } from "../Constants";
 
-function isFetchingDataReducer(
-    state = {
-        isFetching: false
-    },
-    action
-)
+let initialState = {
+    isFetching: false
+};
+
+function isFetchingDataReducer(state = initialState, action)
 {
     switch(action.type)
     {

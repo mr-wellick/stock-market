@@ -12,7 +12,6 @@ let apiKey = "apikey=AAG3PU4MLMB9JHS3";
 function fetchData(assetName)
 {
     // Get asset type request: monthly or daily.
-    // Symbol used for either stocks or cryptocurrency
     let assetType = store.getState().userInteraction.assetType;
     let symbol    = `symbol=${assetName}&`;
 

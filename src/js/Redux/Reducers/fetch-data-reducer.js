@@ -2,15 +2,14 @@ import { FETCH_SUCCESS }        from "../Constants";
 import { FETCH_ERROR }          from "../Constants";
 import { FETCH_TOO_MANY_CALLS } from "../Constants";
 
-function fetchDataReducer(
-    state = {
-        assetData: [],
-        error: false,
-        errorMessage: "",
-        processedData: {}
-    },
-    action
-)
+let initialState = {
+    assetData: [],
+    error: false,
+    errorMessage: "",
+    processedData: {}
+};
+
+function fetchDataReducer(state = initialState, action)
 {
     switch(action.type)
     {
