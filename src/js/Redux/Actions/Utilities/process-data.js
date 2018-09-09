@@ -37,7 +37,7 @@ function processData(assetData){
     // Now create new properties for dates, assetKeys, and Meta Data
     processedData["dates"]     = rawData.map( item => item[0] );
     processedData["assetKeys"] = ["dates"].concat(assetKeys); // Need to add dates to assetKeys since not provided by default
-    processedData["metaData"]  = metaData;
+    processedData["symbol"]    = metaData["2. Symbol"];
 
     // Return new object with corresponding data
     return processedData;
