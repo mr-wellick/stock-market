@@ -5,10 +5,10 @@ import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
 import { Form }             from "../../Components";
-//import {  Table }           from "../../Components";
 import { Select }           from "../../Components";
+import { Loading }          from "../../Components";
+import {  Table }           from "../../Components";
 //import { LineChart }        from "../../Components";
-//import { Loading }          from "../../Components";
 //import { Error }            from "../../Components";
 import "./home.scss";
 
@@ -21,8 +21,8 @@ let stockDataTypes = [
 
 class Home extends Component{
     //componentDidMount(){
-    //    let { assetName } = this.props.userInteraction;
-    //    this.props.fetchData(assetName);
+    //    let { assetsName } = this.props.userInteraction;
+    //    this.props.fetchData(assetsName);
     //}
 
     onSubmit = (event) => {
@@ -46,9 +46,8 @@ class Home extends Component{
     }
 
     render(){
-        //let { isFetching }          = this.props.networkRequest;
-        //let { processedData }       = this.props.fetchedData;
-        //let { error, errorMessage } = this.props.fetchedData;
+        let { isFetching } = this.props.networkRequest;
+        let { assetsData } = this.props.fetchedData;
 
         return(
             <Fragment>
@@ -56,21 +55,16 @@ class Home extends Component{
                     <Select label="Stocks" stockDataTypes={ stockDataTypes }/>
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
-                {/*
                 <section className="section-data">
                     {
                         (() => {
-                            if(error)
-                                return <Error errorMessage={ errorMessage }/>;
-                            else if(isFetching)
+                            if(isFetching)
                                 return <Loading/>;
-                            else if(processedData["metaData"] !== undefined)
-                                return <Table processedData={ processedData }/>;
+                            else
+                                return <Table assetsData={ assetsData }/>;
                         })()
                     }
                 </section>
-                <LineChart width={ 600 } height={ 400 } processedData={ processedData } color="crimson"/>
-                */}
             </Fragment>
         );
     }
