@@ -1,6 +1,5 @@
 function findPercentChange(arr)
 {
-    // Note: Reverse array first
     let newLength    = arr.length - 1;
     let rmFirstEntry = arr.slice(1);
     let rmLastEntry  = arr.slice(0, newLength);
@@ -15,7 +14,6 @@ function findPercentChange(arr)
         percentChage.push( (numerator[i] / denominator[i]).toFixed(3) );
 
     // Add zero since we lose one entry when finding percent change
-    // Reverse array once more
     percentChage = [0].concat(percentChage);
 
     return percentChage;
