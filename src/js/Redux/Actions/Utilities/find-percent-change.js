@@ -6,11 +6,11 @@ function findPercentChange(arr)
     let rmFirstEntry = arr.slice(1);
     let rmLastEntry  = arr.slice(0, newLength);
     let numerator    = [];
-    let denominator  = rmFirstEntry;
+    let denominator  = rmLastEntry;
     let percentChage = [];
 
     for(let i = 0; i < newLength; i++)
-        numerator.push( (rmLastEntry[i] - rmFirstEntry[i]) );
+        numerator.push( (rmFirstEntry[i] - rmLastEntry[i]) );
 
     for(let i = 0; i < newLength; i++)
         percentChage.push( (numerator[i] / denominator[i]).toFixed(3) );
