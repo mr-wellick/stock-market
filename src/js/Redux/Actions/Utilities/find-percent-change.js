@@ -1,5 +1,7 @@
 function findPercentChange(arr)
 {
+    // Reverse array to properly compute percent changes
+    arr              = arr.reverse();
     let newLength    = arr.length - 1;
     let rmFirstEntry = arr.slice(1);
     let rmLastEntry  = arr.slice(0, newLength);
@@ -16,7 +18,8 @@ function findPercentChange(arr)
     // Add zero since we lose one entry when finding percent change
     percentChage = [0].concat(percentChage);
 
-    return percentChage;
+    // Reverse once more to match dates
+    return percentChage.reverse();
 }
 
 export default findPercentChange;

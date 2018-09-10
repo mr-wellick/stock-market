@@ -21,7 +21,7 @@ function processData(assetData){
 
     // Now get meta data and raw data
     let metaData = baseData[0][1];
-    let rawData  = Object.entries(baseData[1][1]).reverse();
+    let rawData  = Object.entries(baseData[1][1]);
 
     // Get rawData properties
     let assetKeys = Object.keys(rawData[0][1]);
@@ -37,10 +37,10 @@ function processData(assetData){
     });
 
     // Now create new properties for dates, assetKeys, and Meta Data
-    processedData["dates"]        = rawData.map( item => item[0] );
-    processedData["assetKeys"]    = ["dates"].concat(assetKeys);
-    processedData["symbol"]       = metaData["2. Symbol"];
-    processedData["percentChage"] = findPercentChange(processedData["5. adjusted close"]);
+    processedData["dates"]         = rawData.map( item => item[0] );
+    processedData["symbol"]        = metaData["2. Symbol"];
+    processedData["percentChange"] = findPercentChange(processedData["5. adjusted close"]);
+    //processedData["assetKeys"]     = ["dates"].concat(assetKeys);
 
     // Return new object with corresponding data
     return processedData;

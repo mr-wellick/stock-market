@@ -13,20 +13,14 @@ import {  Table }           from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
-    //componentDidMount(){
-    //    let { assetsName } = this.props.userInteraction;
-    //    this.props.fetchData(assetsName);
-    //}
-
     onSubmit = (event) => {
         // Get assetNames and turn into array
         let assetNames = document.querySelector("#user-input").value.toUpperCase();
+        assetNames     = assetNames.trim(); // Remove leading/trailing white space
         let pattern    = /([A-Za-z]+)/;
 
-        // Note: need to check for leading and trailing white spaces first.
         if(assetNames !== "")
         {
-            // Make sure to remove spaces or other non letter characters
             assetNames = assetNames.split(",");
             assetNames = assetNames.map( item => item.match(pattern)[0] );
 
@@ -35,6 +29,8 @@ class Home extends Component{
             document.querySelector("#user-input").value = "";
         }
 
+        // If user only enters spaces, clear form only
+        document.querySelector("#user-input").value = "";
         event.preventDefault();
     }
 
@@ -53,7 +49,7 @@ class Home extends Component{
                         (() => {
                             if(isFetching)
                                 return <Loading/>;
-                            else
+                            else if(assetsData.length !== 0)
                                 return <Table assetsData={ assetsData }/>;
                         })()
                     }
@@ -61,6 +57,12 @@ class Home extends Component{
             </Fragment>
         );
     }
+
+    //componentDidMount(){
+    //    let { assetsName } = this.props.userInteraction;
+    //    this.props.fetchData(assetsName);
+    //}
+
 }
 
 // Map state to props
