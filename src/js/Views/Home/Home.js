@@ -17,7 +17,7 @@ class Home extends Component{
         // Get assetNames and turn into array
         let assetNames = document.querySelector("#user-input").value.toUpperCase();
         assetNames     = assetNames.trim(); // Remove leading/trailing white space
-        let pattern    = /([A-Za-z]+)/;
+        let pattern    = /([A-Za-z]+)/; // Used to match a single word only
 
         if(assetNames !== "")
         {
@@ -91,7 +91,6 @@ Home.propTypes = {
     userInteraction: PropTypes.object,
     networkRequest: PropTypes.object,
     fetchedData: PropTypes.object
-
 };
 
 export default connect(mapState, mapDispatch)(Home);
