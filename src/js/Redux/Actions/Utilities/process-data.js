@@ -36,7 +36,7 @@ function processData(assetData){
         });
     });
 
-    // Now create new properties for dates, assetKeys, and Meta Data
+    // Now create new properties for dates, assetKeys, and percent change
     processedData["dates"]         = rawData.map( item => item[0] );
     processedData["symbol"]        = metaData["2. Symbol"];
     processedData["percentChange"] = findPercentChange(processedData["5. adjusted close"]);
