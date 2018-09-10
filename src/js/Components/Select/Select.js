@@ -8,7 +8,6 @@ class Select extends Component{
     onChange = (event) => {
         let assetType = event.target.value;
         this.props.userSelection(assetType);
-        console.log(assetType);
     }
 
     render(){
