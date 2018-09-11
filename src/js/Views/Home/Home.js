@@ -15,14 +15,13 @@ import "./home.scss";
 class Home extends Component{
     onSubmit = (event) => {
         // Get assetNames and turn into array
-        let assetNames = document.querySelector("#user-input").value.toUpperCase();
-        assetNames     = assetNames.trim(); // Remove leading/trailing white space
-        let pattern    = /([A-Za-z]+)/; // Used to match a single word only
+        let assetNames = document.querySelector("#user-input").value.toUpperCase().trim();
+        let matchWord  = /([A-Za-z]+)/; // Used to match a single word only
 
         if(assetNames !== "")
         {
             assetNames = assetNames.split(",");
-            assetNames = assetNames.map( item => item.match(pattern)[0] );
+            assetNames = assetNames.map( item => item.match(matchWord)[0] );
 
             this.props.userInput(assetNames);
             this.props.fetchData(assetNames);
@@ -40,7 +39,7 @@ class Home extends Component{
 
         return(
             <Fragment>
-                    <section className="section-forms">
+                <section className="section-forms">
                     <Select label="Stocks"/>
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
