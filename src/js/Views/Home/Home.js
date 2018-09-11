@@ -16,12 +16,12 @@ class Home extends Component{
     onSubmit = (event) => {
         // Get assetNames and turn into array
         let assetNames = document.querySelector("#user-input").value.toUpperCase().trim();
-        let matchWord  = /([A-Za-z]+)/; // Used to match a single word only
+        let singleWord = /([A-Z]+)/;
 
         if(assetNames !== "")
         {
             assetNames = assetNames.split(",");
-            assetNames = assetNames.map( item => item.match(matchWord)[0] );
+            assetNames = assetNames.map(item => item.match(singleWord)[0]);
 
             this.props.userInput(assetNames);
             this.props.fetchData(assetNames);
