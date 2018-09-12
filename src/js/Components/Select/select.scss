@@ -1,0 +1,30 @@
+.form-select
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-monthly__container-option label
+{
+    border-right: 1px solid black;
+}
+
+.form-monthly__container-option label,
+.form-daily__container-option label
+{
+    display: block;
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-select [type=radio]
+{
+    display: none;
+}
+
+.form-select [type=radio]:checked ~ label
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,34 +1,33 @@
-//.main-header
-//{
-//    display: grid;
-//    grid-template-columns: 1fr 1fr;
-//    align-items: center;
-//    padding: 10px;
-//}
-//
-//.main-nav__items
-//{
-//    display: flex;
-//    justify-content: space-around;
-//}
-//
-//.section-data
-//{
-//    display: grid;
-//    grid-template-columns: 1fr;
-//    justify-items: center;
-//}
-//
-//// Applies up to 500px
-//@media (max-width: 500px)
-//{
-//    .main-header
-//    {
-//        grid-template-columns: 1fr;
-//    }
-//
-//    .main-header__logo--display
-//    {
-//        display: none;
-//    }
-//}
+// Header
+.main-header
+{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.main-header__logo--display
+{
+    display: none;
+}
+
+// Navigation
+.main-nav
+{
+    padding: 20px;
+}
+
+.main-nav__items
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-nav__item a
+{
+    color: black;
+}
+
+.main-nav__item a:hover
+{
+    color: red;
+}
