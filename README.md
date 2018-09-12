@@ -1,7 +1,6 @@
 # Visit the site
-1. https://ll2nz.github.io/securities-app/
-2. This site is a previous iteration of the web app.
-3. I'm hoping to release the new iteration soon.
+1. This site is a previous iteration of the app: https://ll2nz.github.io/securities-app/
+2. I'm hoping to release the new iteration soon.
 
 # A stock market web app
 1. Query single/multiple stock(s).
