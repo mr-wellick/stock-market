@@ -21,7 +21,7 @@ let rootReducer = combineReducers({
 let logger = createLogger();
 let store;
 
-// Make sure logger middleware is only available in production
+// Make sure logger middleware is only available in development
 if(process.env.NODE_ENV === "development")
 {
     store = createStore(
