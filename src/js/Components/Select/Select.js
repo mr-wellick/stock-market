@@ -13,19 +13,32 @@ class Select extends Component{
     render(){
         return(
             <form onChange={ this.onChange } className="form-select">
-                <select className="form-select__options">
-                    <optgroup label="Stocks">
-                        <option value="function=TIME_SERIES_MONTHLY_ADJUSTED&">Monthly Adjusted</option>
-                        <option value="function=TIME_SERIES_DAILY_ADJUSTED&">Daily Adjusted</option>
-                    </optgroup>
-                </select>
+                <div className="form-monthly__container-option">
+                    <input
+                        type="radio"
+                        id="monthly"
+                        name="stock-type"
+                        value="function=TIME_SERIES_MONTHLY_ADJUSTED&"
+                        defaultChecked
+                    />
+                    <label htmlFor="monthly">Monthly</label>
+                </div>
+                <div className="form-daily__container-option">
+                    <input
+                        type="radio"
+                        id="daily"
+                        name="stock-type"
+                        value="function=TIME_SERIES_DAILY_ADJUSTED&"
+                    />
+                    <label htmlFor="daily">Daily</label>
+                </div>
             </form>
         );
     }
 }
 
 Select.propTypes = {
-    userSelection: PropTypes.func,
+    userSelection: PropTypes.func
 };
 
 // Map dispatch

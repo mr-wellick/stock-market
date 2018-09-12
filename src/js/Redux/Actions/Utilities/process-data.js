@@ -37,10 +37,9 @@ function processData(assetData){
     });
 
     // Now create new properties for dates, assetKeys, and percent change
-    processedData["dates"]         = rawData.map( item => item[0] );
+    processedData["dates"]         = rawData.map( item => item[0] ).reverse();
     processedData["symbol"]        = metaData["2. Symbol"];
     processedData["percentChange"] = findPercentChange(processedData["5. adjusted close"]);
-    //processedData["assetKeys"]     = ["dates"].concat(assetKeys);
 
     // Return new object with corresponding data
     return processedData;

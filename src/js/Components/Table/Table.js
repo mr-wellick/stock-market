@@ -9,7 +9,6 @@ let Table = ({ assetsData }) => {
     return(
         <div className="section-data__container">
             <table className="stocks-table">
-                <caption>{ filteredData[0]["processedData"]["dates"][0] }</caption>
                 <thead className="stocks-table__thead">
                     <tr>
                         <th>Stocks</th>
@@ -22,8 +21,7 @@ let Table = ({ assetsData }) => {
                     filteredData.map( (item, index) =>
                         <tr key={ index }>
                             <td>{ item["processedData"]["symbol"] }</td>
-                            {/* Don't know why adjusted close array is the only one being reversed but not the others??? */}
-                            <td>{ item["processedData"]["5. adjusted close"].reverse()[0] }</td>
+                            <td>{ item["processedData"]["5. adjusted close"][0] }</td>
                             <td>{ item["processedData"]["percentChange"][0] }</td>
                         </tr>
                     )
