@@ -7,27 +7,27 @@ let Table = ({ assetsData }) => {
     let filteredData = assetsData.filter( item => item["type"] === "FETCH_SUCCESS" );
 
     return(
-        <div className="section-data__container">
-            <table className="stocks-table">
-                <thead className="stocks-table__thead">
-                    <tr>
-                        <th>Stocks</th>
-                        <th>Adjusted Close</th>
-                        <th>Percent Change</th>
+        <div>
+        <table className="stocks-table">
+            <thead>
+                <tr>
+                    <th className="stocks-table__cols">Stocks</th>
+                    <th className="stocks-table__cols">Price</th>
+                    <th className="stocks-table__cols">% Change</th>
+                </tr>
+            </thead>
+            <tbody>
+            {
+                filteredData.map( (item, index) =>
+                    <tr key={ index }>
+                        <td>{ item["processedData"]["symbol"] }</td>
+                        <td>{ item["processedData"]["5. adjusted close"][0] }</td>
+                        <td>{ item["processedData"]["percentChange"][0] }</td>
                     </tr>
-                </thead>
-                <tbody>
-                {
-                    filteredData.map( (item, index) =>
-                        <tr key={ index }>
-                            <td>{ item["processedData"]["symbol"] }</td>
-                            <td>{ item["processedData"]["5. adjusted close"][0] }</td>
-                            <td>{ item["processedData"]["percentChange"][0] }</td>
-                        </tr>
-                    )
-                }
-                </tbody>
-            </table>
+                )
+            }
+            </tbody>
+        </table>
         </div>
     );
 };

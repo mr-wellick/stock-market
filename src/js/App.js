@@ -2,6 +2,7 @@ import "./app.scss";
 import React, { Component, Fragment }           from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Home }                                 from "./Views";
+import { Footer }                               from "./Components";
 
 class App extends Component{
     render(){
@@ -25,6 +26,7 @@ class App extends Component{
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
+                    <Route path="/" component={ Footer }></Route>
                 </Fragment>
             </Router>
         );

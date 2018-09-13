@@ -52,15 +52,16 @@ class Home extends Component{
                                 return <Table assetsData={ assetsData }/>;
                         })()
                     }
+                    <svg width="300" height="250"></svg>
                 </section>
             </Fragment>
         );
     }
 
-    //componentDidMount(){
-    //    let { assetsName } = this.props.userInteraction;
-    //    this.props.fetchData(assetsName);
-    //}
+    componentDidMount(){
+        let { assetsName } = this.props.userInteraction;
+        this.props.fetchData(assetsName);
+    }
 
 }
 

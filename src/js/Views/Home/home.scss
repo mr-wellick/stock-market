@@ -1,6 +1,12 @@
 .section-data
 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-items: center;
+}
+
+.section-data svg
+{
+    margin-top: 20px;
+    background-color: gray;
 }
