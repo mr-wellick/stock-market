@@ -10,7 +10,9 @@ function processData(assetData){
      *   "Meta Data": { info, symbol, ... }
      *   "Time Series ( Daily or Monthly )":
      *      {
-     *          "some date": { open, high, ... }
+     *          "some date": { open, high, ... },
+     *          "some date": { open, high, ... },
+     *           ...
      *      }
      * }
      *
@@ -18,30 +20,23 @@ function processData(assetData){
 
     // Get base data
     let baseData = Object.entries(assetData);
-
-    // Now get meta data and raw data
     let metaData = baseData[0][1];
     let rawData  = Object.entries(baseData[1][1]);
 
-    // Get rawData properties
-    let assetKeys = Object.keys(rawData[0][1]);
+    // Extract data to use
+    let symbol        = metaData["2. Symbol"];
+    let dates         = rawData.map( date => date[0] );
+    let adjustedClose = rawData.map( price => price[1]["5. adjusted close"] );
+    let percentChange = findPercentChange(adjustedClose);
 
-    // Create new object where we'll store new data
-    let processedData = {};
+    // Store all data in new object
+    let processedData = {
+        symbol,
+        dates,
+        adjustedClose,
+        percentChange
+    };
 
-    // Process raw data and store in each corresponding object property
-    assetKeys.forEach(function passThroughEach(assetKey){
-        processedData[assetKey] = rawData.map(function createNewArray(item){
-            return Number(item[1][assetKey]).toFixed(2);
-        });
-    });
-
-    // Now create new properties for dates, assetKeys, and percent change
-    processedData["dates"]         = rawData.map( item => item[0] ).reverse();
-    processedData["symbol"]        = metaData["2. Symbol"];
-    processedData["percentChange"] = findPercentChange(processedData["5. adjusted close"]);
-
-    // Return new object with corresponding data
     return processedData;
 }
 

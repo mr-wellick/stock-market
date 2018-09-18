@@ -7,7 +7,6 @@ test("make sure data processData returns correct object", () => {
 
     expect(formattedData).toHaveProperty("dates");
     expect(formattedData).toHaveProperty("symbol");
+    expect(formattedData).toHaveProperty("adjustedClose");
+    expect(formattedData).toHaveProperty("percentChange");
 });
-
-// Note: can't use string vaule "1. open."
-//       Although string value is a valid property, we get an error message.

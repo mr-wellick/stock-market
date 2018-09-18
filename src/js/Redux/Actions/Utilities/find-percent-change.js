@@ -19,7 +19,7 @@ function findPercentChange(arr)
     percentChage = [0].concat(percentChage);
 
     // Reverse once more to match dates
-    return percentChage;
+    return percentChage.reverse();
 }
 
 export default findPercentChange;
