@@ -21,7 +21,7 @@ let Table = ({ assetsData }) => {
                 filteredData.map( (item, index) =>
                     <tr key={ index }>
                         <td>{ item["processedData"]["symbol"] }</td>
-                        <td>{ item["processedData"]["5. adjusted close"][0] }</td>
+                        <td>{ item["processedData"]["adjustedClose"][0] }</td>
                         <td>{ item["processedData"]["percentChange"][0] }</td>
                     </tr>
                 )

@@ -58,10 +58,10 @@ class Home extends Component{
         );
     }
 
-    componentDidMount(){
-        let { assetsName } = this.props.userInteraction;
-        this.props.fetchData(assetsName);
-    }
+    //componentDidMount(){
+    //    let { assetsName } = this.props.userInteraction;
+    //    this.props.fetchData(assetsName);
+    //}
 
 }
 
