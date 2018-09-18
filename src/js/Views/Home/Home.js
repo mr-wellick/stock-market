@@ -21,7 +21,7 @@ class Home extends Component{
         if(assetNames !== "")
         {
             assetNames = assetNames.split(",");
-            assetNames = assetNames.map(item => item.match(singleWord)[0]);
+            assetNames = assetNames.map(item => item.match(singleWord)[0]); // match() returns an array.
 
             this.props.userInput(assetNames);
             this.props.fetchData(assetNames);
