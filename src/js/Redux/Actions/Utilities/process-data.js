@@ -26,7 +26,7 @@ function processData(assetData){
     // Extract data to use
     let symbol        = metaData["2. Symbol"];
     let dates         = rawData.map( date => date[0] );
-    let adjustedClose = rawData.map( price => price[1]["5. adjusted close"] );
+    let adjustedClose = rawData.map( price => price[1]["5. adjusted close"] ).reverse();
     let percentChange = findPercentChange(adjustedClose);
 
     // Store all data in new object
