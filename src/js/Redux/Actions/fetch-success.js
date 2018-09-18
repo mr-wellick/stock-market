@@ -9,9 +9,6 @@ function fetchSuccess(assetData){
 
     return {
         type: FETCH_SUCCESS,
-        assetData,
-        error: false,
-        errorMessage: "",
         processedData: newData
     };
 }

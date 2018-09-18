@@ -8,8 +8,5 @@ test("test correct action object is created for fetch success", () => {
 
     // Check properties exist
     expect(processedData).toHaveProperty("type", FETCH_SUCCESS);
-    expect(processedData).toHaveProperty("assetData");
-    expect(processedData).toHaveProperty("error", false);
-    expect(processedData).toHaveProperty("errorMessage", "");
     expect(processedData).toHaveProperty("processedData");
 });
