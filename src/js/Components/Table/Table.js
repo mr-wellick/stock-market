@@ -14,6 +14,7 @@ let Table = ({ assetsData }) => {
                     <th className="stocks-table__cols">Stocks</th>
                     <th className="stocks-table__cols">Price</th>
                     <th className="stocks-table__cols">% Change</th>
+                    <th className="stocks-table__cols">Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@ let Table = ({ assetsData }) => {
                         <td>{ item["processedData"]["symbol"] }</td>
                         <td>{ item["processedData"]["adjustedClose"][0] }</td>
                         <td>{ item["processedData"]["percentChange"][0] }</td>
+                        <td>{ item["processedData"]["dates"][0] }</td>
                     </tr>
                 )
             }
