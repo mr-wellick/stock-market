@@ -5,9 +5,8 @@ test("make sure data processData returns correct object", () => {
 
     let formattedData = processData(msftData);
 
-    expect(formattedData).toHaveProperty("assetKeys");
     expect(formattedData).toHaveProperty("dates");
-    expect(formattedData).toHaveProperty("metaData");
+    expect(formattedData).toHaveProperty("symbol");
 });
 
 // Note: can't use string vaule "1. open."
