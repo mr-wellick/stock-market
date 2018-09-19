@@ -35,7 +35,8 @@ class Home extends Component{
 
     render(){
         let { isFetching } = this.props.networkRequest;
-        let { assetsData } = this.props.fetchedData;
+        //let { assetsData } = this.props.fetchedData;
+        console.log(this.props);
 
         return(
             <Fragment>
@@ -48,7 +49,7 @@ class Home extends Component{
                         (() => {
                             if(isFetching)
                                 return <Loading/>;
-                            else if(assetsData.length !== 0)
+                            else if(false)
                                 return <Table assetsData={ assetsData }/>;
                         })()
                     }

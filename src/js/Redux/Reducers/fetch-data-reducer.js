@@ -1,6 +1,10 @@
 import { FETCH_COMPLETE } from "../Constants";
 
-let initialState = { assetsData: [] };
+let initialState = {
+    success: [],
+    error: [],
+    tooManyCalls: []
+};
 
 function fetchDataReducer(state = initialState, action)
 {
@@ -9,7 +13,9 @@ function fetchDataReducer(state = initialState, action)
         case FETCH_COMPLETE:
             return Object.assign({}, state, {
                 ...state,
-                assetsData: action.assetsData,
+                success: action.success,
+                error: action.error,
+                tooManyCalls: action.tooManyCalls
             });
         default:
             return state;
