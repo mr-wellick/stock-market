@@ -1,8 +1,8 @@
 import React     from "react";
 import PropTypes from "prop-types";
-import "./error.scss";
+import "./errors.scss";
 
-let Error = (props) => {
+let Errors = (props) => {
     return(
         <div>
             { props.errorMessage }
@@ -10,8 +10,8 @@ let Error = (props) => {
     );
 };
 
-Error.propTypes = {
+Errors.propTypes = {
     errorMessage: PropTypes.string
 };
 
-export default Error;
+export default Errors;

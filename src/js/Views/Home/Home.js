@@ -4,7 +4,7 @@ import { Fragment }         from "react";
 import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
-import { Form }             from "../../Components";
+import { Input }             from "../../Components";
 import { Select }           from "../../Components";
 import { Loading }          from "../../Components";
 import {  Table }           from "../../Components";
@@ -39,7 +39,7 @@ class Home extends Component{
             <Fragment>
                 <section className="section-forms">
                     <Select/>
-                    <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
+                    <Input onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section className="section-data">
                     {

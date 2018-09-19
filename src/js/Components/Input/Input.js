@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
-import "./form.scss";
+import "./input.scss";
 
-class Form extends Component{
+class Input extends Component{
     render(){
         return(
             <form  className="form-input" onSubmit={ this.props.onSubmit }>
@@ -14,10 +14,10 @@ class Form extends Component{
 }
 
 // Prop type checking
-Form.propTypes = {
+Input.propTypes = {
     onSubmit: PropTypes.func,
     placeholder: PropTypes.string,
     className: PropTypes.string
 };
 
-export default Form;
+export default Input;
