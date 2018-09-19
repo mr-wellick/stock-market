@@ -6,7 +6,7 @@ let initialState = {
     tooManyCallsData: []
 };
 
-function fetchDataReducer(state = initialState, action)
+function receivedDataReducer(state = initialState, action)
 {
     switch(action.type)
     {
@@ -22,4 +22,4 @@ function fetchDataReducer(state = initialState, action)
     }
 }
 
-export default fetchDataReducer;
+export default receivedDataReducer;

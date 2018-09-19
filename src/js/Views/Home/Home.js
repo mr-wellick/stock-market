@@ -34,6 +34,7 @@ class Home extends Component{
     }
 
     render(){
+        console.log(this.props);
         //let { isFetching }       = this.props;
         //let { successData }      = this.props.fetchedData;
 

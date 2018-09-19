@@ -1,6 +1,6 @@
 import userInteractionReducer from "../user-interaction-reducer.js";
-import { userInput }     from "../../Actions";
-import { userSelection } from "../../Actions";
+import { userInput }          from "../../Actions";
+import { userSelection }      from "../../Actions";
 
 test("test default case returns the following assetsName: [TSLA, KO, IBM, AAPL, NFLX]", () => {
     let defaultNames   = ["TSLA", "KO", "IBM", "AAPL", "NFLX"];
