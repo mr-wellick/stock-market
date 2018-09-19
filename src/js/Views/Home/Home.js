@@ -39,7 +39,7 @@ class Home extends Component{
             <Fragment>
                 <section className="section-forms">
                     <Select/>
-                    <Input onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
+                    <Input onSubmit={ this.onSubmit } placeholder="Enter ticker(s)"/>
                 </section>
                 <section className="section-data">
                     {
