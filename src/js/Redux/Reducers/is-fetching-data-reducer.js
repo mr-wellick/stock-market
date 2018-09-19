@@ -1,7 +1,7 @@
 import { IS_FETCHING_DATA } from "../Constants";
 
 let initialState = {
-    isFetching: false
+    requestingData: false
 };
 
 function isFetchingDataReducer(state = initialState, action)
@@ -11,7 +11,7 @@ function isFetchingDataReducer(state = initialState, action)
         case IS_FETCHING_DATA:
             return Object.assign({}, state, {
                 ...state,
-                isFetching: action.isFetching
+                requestingData: action.requestingData
             });
         default:
             return state;
