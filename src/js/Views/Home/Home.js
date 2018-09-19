@@ -34,8 +34,8 @@ class Home extends Component{
     }
 
     render(){
-        let { isFetching }       = this.props.networkRequest;
-        let { successData }      = this.props.fetchedData;
+        //let { isFetching }       = this.props;
+        //let { successData }      = this.props.fetchedData;
 
         return(
             <Fragment>
@@ -44,14 +44,14 @@ class Home extends Component{
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section className="section-data">
-                    {
+                    {/*
                         (() => {
                             if(isFetching)
                                 return <Loading/>;
                             else if(successData.length > 0)
                                 return <Table successData={ successData }/>;
                         })()
-                    }
+                    */}
                     <svg width="300" height="250"></svg>
                 </section>
             </Fragment>
