@@ -13,8 +13,8 @@ import thunkMiddleware     from "redux-thunk";
 // Gather reducers
 let rootReducer = combineReducers({
      userInteraction: userInteractionReducer,
-     fetchedData: fetchDataReducer,
-     networkRequest: isFetchingDataReducer
+     fetchData: fetchDataReducer,
+     isFetchingData: isFetchingDataReducer
 });
 
 // Create action logger for development
