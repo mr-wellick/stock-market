@@ -8,9 +8,7 @@ function fetchTooManyCalls(assetData){
     return {
         type: FETCH_TOO_MANY_CALLS,
         assetData,
-        error: true,
         errorMessage: customErrorMessage,
-        processedData: {}
     };
 }
 

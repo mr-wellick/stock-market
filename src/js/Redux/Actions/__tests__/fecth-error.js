@@ -10,7 +10,5 @@ test("make sure fetch error returns correct object properties", () => {
     // Check correct properties are generated
     expect(errorAction).toHaveProperty("type", FETCH_ERROR);
     expect(errorAction).toHaveProperty("assetData");
-    expect(errorAction).toHaveProperty("error", true);
     expect(errorAction).toHaveProperty("errorMessage");
-    expect(errorAction).toHaveProperty("processedData");
 });

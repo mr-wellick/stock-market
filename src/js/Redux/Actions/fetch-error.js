@@ -8,9 +8,7 @@ function fetchError(assetData){
     return {
         type: FETCH_ERROR,
         assetData,
-        error: true,
         errorMessage: customErrorMessage,
-        processedData: {}
     };
 }
 

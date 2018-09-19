@@ -7,9 +7,7 @@ test("for too many calls being made", () => {
 
     expect(actionObject).toHaveProperty("type", FETCH_TOO_MANY_CALLS);
     expect(actionObject).toHaveProperty("assetData", apiMessage);
-    expect(actionObject).toHaveProperty("error", true);
     expect(actionObject).toHaveProperty("errorMessage", customErrorMessage);
-    expect(actionObject).toHaveProperty("processedData", {});
 });
 
 // The data returned for this action is an object: { Information: "Some message about too many api calls." }
