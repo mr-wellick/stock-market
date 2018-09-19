@@ -2,9 +2,10 @@ import React       from "react";
 import PropTypes   from "prop-types";
 import "./table.scss";
 
-let Table = ({ assetsData }) => {
+let Table = (props) => {
 
-    let filteredData = assetsData.filter( item => item["type"] === "FETCH_SUCCESS" );
+    //let filteredData = assetsData.filter( item => item["type"] === "FETCH_SUCCESS" );
+    console.log(props)
 
     return(
         <div>
@@ -18,7 +19,7 @@ let Table = ({ assetsData }) => {
                 </tr>
             </thead>
             <tbody>
-            {
+            {/*
                 filteredData.map( (item, index) =>
                     <tr key={ index }>
                         <td>{ item["processedData"]["symbol"] }</td>
@@ -27,7 +28,7 @@ let Table = ({ assetsData }) => {
                         <td>{ item["processedData"]["dates"][0] }</td>
                     </tr>
                 )
-            }
+                */}
             </tbody>
         </table>
         </div>

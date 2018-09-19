@@ -35,8 +35,7 @@ class Home extends Component{
 
     render(){
         let { isFetching } = this.props.networkRequest;
-        //let { assetsData } = this.props.fetchedData;
-        console.log(this.props);
+        let { success }    = this.props.fetchedData;
 
         return(
             <Fragment>
@@ -49,8 +48,8 @@ class Home extends Component{
                         (() => {
                             if(isFetching)
                                 return <Loading/>;
-                            else if(false)
-                                return <Table assetsData={ assetsData }/>;
+                            else if(success.length > 0)
+                                return <Table success={ success }/>;
                         })()
                     }
                     <svg width="300" height="250"></svg>
