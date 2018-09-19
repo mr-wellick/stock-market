@@ -30,14 +30,14 @@ function processData(assetData){
     let percentChange = findPercentChange(adjustedClose);
 
     // Store all data in new object
-    let processedData = {
+    let newData = {
         symbol,
         dates,
         adjustedClose,
         percentChange
     };
 
-    return processedData;
+    return newData;
 }
 
 export default processData;
