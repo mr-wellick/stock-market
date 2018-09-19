@@ -34,9 +34,8 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.props);
-        //let { isFetching }       = this.props;
-        //let { successData }      = this.props.fetchedData;
+        let { requestingData } = this.props.isFetchingData;
+        let { successData }    = this.props.receivedData;
 
         return(
             <Fragment>
@@ -45,14 +44,14 @@ class Home extends Component{
                     <Form onSubmit={ this.onSubmit } placeholder="Enter ticker"/>
                 </section>
                 <section className="section-data">
-                    {/*
+                    {
                         (() => {
-                            if(isFetching)
+                            if(requestingData)
                                 return <Loading/>;
                             else if(successData.length > 0)
                                 return <Table successData={ successData }/>;
                         })()
-                    */}
+                    }
                     <svg width="300" height="250"></svg>
                 </section>
             </Fragment>
@@ -89,9 +88,8 @@ let mapDispatch = (dispatch) => {
 Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    userInteraction: PropTypes.object,
-    networkRequest: PropTypes.object,
-    fetchedData: PropTypes.object
+    isFetchingData: PropTypes.object,
+    receivedData: PropTypes.object
 };
 
 export default connect(mapState, mapDispatch)(Home);
