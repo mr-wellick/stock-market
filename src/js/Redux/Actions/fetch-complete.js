@@ -6,15 +6,15 @@ import { FETCH_TOO_MANY_CALLS } from "../Constants";
 function fetchComplete(assetsData)
 {
     // Filter data
-    let success      = assetsData.filter( dataSet => dataSet["type"] === FETCH_SUCCESS );
-    let error        = assetsData.filter( dataSet => dataSet["type"] === FETCH_ERROR );
-    let tooManyCalls = assetsData.filter( dataSet => dataSet["type"] === FETCH_TOO_MANY_CALLS );
+    let successData      = assetsData.filter( dataSet => dataSet["type"] === FETCH_SUCCESS );
+    let errorData        = assetsData.filter( dataSet => dataSet["type"] === FETCH_ERROR );
+    let tooManyCallsData = assetsData.filter( dataSet => dataSet["type"] === FETCH_TOO_MANY_CALLS );
 
     return {
         type: FETCH_COMPLETE,
-        success,
-        error,
-        tooManyCalls
+        successData,
+        errorData,
+        tooManyCallsData
     };
 }
 

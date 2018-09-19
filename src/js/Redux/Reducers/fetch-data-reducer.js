@@ -1,9 +1,9 @@
 import { FETCH_COMPLETE } from "../Constants";
 
 let initialState = {
-    success: [],
-    error: [],
-    tooManyCalls: []
+    successData: [],
+    errorData: [],
+    tooManyCallsData: []
 };
 
 function fetchDataReducer(state = initialState, action)
@@ -13,9 +13,9 @@ function fetchDataReducer(state = initialState, action)
         case FETCH_COMPLETE:
             return Object.assign({}, state, {
                 ...state,
-                success: action.success,
-                error: action.error,
-                tooManyCalls: action.tooManyCalls
+                success: action.successData,
+                error: action.errorData,
+                tooManyCalls: action.tooManyCallsData
             });
         default:
             return state;

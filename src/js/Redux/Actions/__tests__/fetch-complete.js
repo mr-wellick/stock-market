@@ -13,6 +13,7 @@ test("need to refactor fetch complete", () => {
     let dataToDispatch = fetchComplete(dataArray);
 
     expect(dataToDispatch).toHaveProperty("type", FETCH_COMPLETE);
-    expect(dataToDispatch).toHaveProperty("error");
-    expect(dataToDispatch).toHaveProperty("tooManyCalls");
+    expect(dataToDispatch).toHaveProperty("successData");
+    expect(dataToDispatch).toHaveProperty("errorData");
+    expect(dataToDispatch).toHaveProperty("tooManyCallsData");
 });
