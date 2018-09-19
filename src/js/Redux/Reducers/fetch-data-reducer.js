@@ -13,9 +13,9 @@ function fetchDataReducer(state = initialState, action)
         case FETCH_COMPLETE:
             return Object.assign({}, state, {
                 ...state,
-                success: action.successData,
-                error: action.errorData,
-                tooManyCalls: action.tooManyCallsData
+                successData: action.successData,
+                errorData: action.errorData,
+                tooManyCallsData: action.tooManyCallsData
             });
         default:
             return state;
