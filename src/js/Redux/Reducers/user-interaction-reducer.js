@@ -6,7 +6,7 @@ let initialState = {
     assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&"
 };
 
-function stockReducer(state = initialState, action)
+function userInteractionReducer(state = initialState, action)
 {
     switch(action.type)
     {
@@ -25,4 +25,4 @@ function stockReducer(state = initialState, action)
     }
 }
 
-export default stockReducer;
+export default userInteractionReducer;

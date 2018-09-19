@@ -34,8 +34,8 @@ class Home extends Component{
     }
 
     render(){
-        let { isFetching } = this.props.networkRequest;
-        let { successData }    = this.props.fetchedData;
+        let { isFetching }       = this.props.networkRequest;
+        let { successData }      = this.props.fetchedData;
 
         return(
             <Fragment>
