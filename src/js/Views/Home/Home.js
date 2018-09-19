@@ -8,8 +8,6 @@ import { Form }             from "../../Components";
 import { Select }           from "../../Components";
 import { Loading }          from "../../Components";
 import {  Table }           from "../../Components";
-//import { LineChart }        from "../../Components";
-//import { Error }            from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
