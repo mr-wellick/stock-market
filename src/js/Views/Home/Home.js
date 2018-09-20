@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import PropTypes            from "prop-types";
-import { Fragment }         from "react";
-import { connect }          from "react-redux";
-import { userInput }        from "../../Redux";
-import { fetchData }        from "../../Redux";
-import { Input }            from "../../Components";
-import { Select }           from "../../Components";
-import { Loading }          from "../../Components";
-import {  Table }           from "../../Components";
-import { Axis }             from "../../Components";
-import { findTimeScale }    from "../../Utilities";
-import { findLinearScale }  from "../../Utilities";
+import React         from "react";
+import { Component } from "react";
+import { Fragment }  from "react";
+import PropTypes     from "prop-types";
+import { connect }   from "react-redux";
+import { userInput } from "../../Redux";
+import { fetchData } from "../../Redux";
+import { Input }     from "../../Components";
+import { Select }    from "../../Components";
+import { Loading }   from "../../Components";
+import { Table }     from "../../Components";
+import { Svg }       from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -53,23 +52,7 @@ class Home extends Component{
                             return(
                                 <Fragment>
                                     <Table successData={ successData }/>
-                                    {/* Create new component SVG */}
-                                    <svg width="300" height="250">
-                                        <Axis
-                                            scale={ findTimeScale(successData[0]["processedData"]["dates"]) }
-                                            padding={ 40 }
-                                            width={ 300 }
-                                            height={ 250 }
-                                            axis={ "x-axis" }
-                                        />
-                                        <Axis
-                                            scale={ findLinearScale(successData[0]["processedData"]["percentChange"]) }
-                                            padding={ 40 }
-                                            width={ 300 }
-                                            height={ 250 }
-                                            axis={ "y-axis" }
-                                        />
-                                    </svg>
+                                    <Svg successData={ successData }/>
                                 </Fragment>
                             );
                         else
@@ -83,10 +66,10 @@ class Home extends Component{
         );
     }
 
-    componentDidMount(){
-        let { assetsName } = this.props.userInteraction;
-        this.props.fetchData(assetsName);
-    }
+    //componentDidMount(){
+    //    let { assetsName } = this.props.userInteraction;
+    //    this.props.fetchData(assetsName);
+    //}
 
 }
 
