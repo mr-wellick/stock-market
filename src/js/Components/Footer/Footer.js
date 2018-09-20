@@ -5,7 +5,8 @@ class Footer extends Component{
     render(){
         return(
             <footer className="main-footer">
-                <h2>This is the footer for now</h2>
+                <h4>Developed by Ll2NZ</h4>
+                <h6>Disclaimer: Not intended to replace a financial advisor</h6>
             </footer>
         );
     }

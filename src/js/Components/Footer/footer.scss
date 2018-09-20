@@ -2,10 +2,6 @@
 {
     display: grid;
     grid-template-columns: 1fr;
+    justify-items: center;
     margin: 20px 0;
-}
-
-.main-footer h2
-{
-    text-align: center;
 }
