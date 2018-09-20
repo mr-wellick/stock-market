@@ -12,20 +12,23 @@ class LineChart extends Component{
         width: 300,
         height: 250,
         padding: 40,
-        activeData: this.props.successData[0]
+        x: this.props.successData[0]["processedData"]["dates"],
+        y: this.props.successData[0]["processedData"]["adjustedClose"],
+        xScale: findTimeScale(this.props.successData[0]["processedData"]["dates"]),
+        yScale: findLinearScale(this.props.successData[0]["processedData"]["adjustedClose"]),
     }
 
     render(){
         let { width, height, padding } = this.state;
-        let { activeData }             = this.state;
+        let { x, y, xScale, yScale }   = this.state;
 
         return(
             <svg width={ width } height={ height }>
                 <Line
-                    x={ activeData["processedData"]["dates"] }
-                    xScale={ findTimeScale(activeData["processedData"]["dates"]) }
-                    y={ activeData["processedData"]["percentChange"] }
-                    yScale={ findLinearScale(activeData["processedData"]["percentChange"]) }
+                    x={ x }
+                    xScale={ xScale }
+                    y={ y }
+                    yScale={ yScale }
                     r={ 2 }
                     color={ "orange" }
                     padding={ padding }
@@ -33,14 +36,14 @@ class LineChart extends Component{
                     height={ height }
                 />
                 <Axis
-                    scale={ findTimeScale(activeData["processedData"]["dates"]) }
+                    scale={ xScale }
                     padding={ padding }
                     width={ width }
                     height={ height }
                     axis={ "x-axis" }
                 />
                 <Axis
-                    scale={ findLinearScale(activeData["processedData"]["percentChange"]) }
+                    scale={ yScale }
                     padding={ padding }
                     width={ width }
                     height={ height }

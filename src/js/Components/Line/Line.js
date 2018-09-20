@@ -1,5 +1,6 @@
 import React         from "react";
 import { Component } from "react";
+import PropTypes     from "prop-types";
 import { line }      from "d3-shape";
 import { select }    from "d3-selection";
 import "./line.scss";
@@ -14,11 +15,11 @@ class Line extends Component{
         let { color }          = this.props;
         let dataToRender       = [];
 
-        // Convert data to proper form
-        x = x.map(date => new Date(date)).reverse();
-        y = y.map(percentChange => Number(percentChange)).reverse();
+        // Convert data to proper format
+        x = x.map(date => new Date(date));
+        y = y.map(percentChange => Number(percentChange));
 
-        // Set scales ranges so data is visible
+        // Set scale ranges so data is visible
         xScale.range([padding, width - padding]).nice();
         yScale.range([(height - padding), padding]).nice();
 
@@ -48,5 +49,16 @@ class Line extends Component{
         this.calculateLine();
     }
 }
+
+Line.propTypes = {
+    x: PropTypes.array,
+    xScale: PropTypes.func,
+    y: PropTypes.array,
+    yScale: PropTypes.func,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    padding: PropTypes.number,
+    color: PropTypes.string
+};
 
 export default Line;
