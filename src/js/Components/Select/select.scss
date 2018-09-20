@@ -26,5 +26,6 @@
 
 .form-select [type=radio]:checked ~ label
 {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(221, 164, 167, 1);
+    color: white;
 }

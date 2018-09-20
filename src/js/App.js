@@ -17,10 +17,10 @@ class App extends Component{
                                     <Link to="/">Home</Link>
                                 </li>
                                 <li className="main-nav__item">
-                                    <Link to="/Basics">Basics</Link>
+                                    <Link to="/">Basics</Link>
                                 </li>
                                 <li className="main-nav__item">
-                                    <Link to="/Portfolio">Portfolio</Link>
+                                    <Link to="/">Portfolio</Link>
                                 </li>
                             </ul>
                         </nav>

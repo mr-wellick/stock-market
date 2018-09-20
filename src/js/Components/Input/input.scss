@@ -1,20 +1,41 @@
-// User form input container
-//box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
 .form-input
 {
     display: flex;
     flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .form-input__text
 {
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-input__text:hover
+{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.form-input__btn
+{
+    background-color: #22b2c7;
+    color: white;
+}
+
+.form-input__btn:hover
+{
+    color: black;
+    background-color: rgba(34, 178, 199, 0.5);
 }
 
 .form-input__text,
 .form-input__btn
 {
-    border: 1px solid black;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
     margin-top: 10px;
     padding: 8px 0;
 }

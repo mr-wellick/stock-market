@@ -3,6 +3,11 @@
 {
     display: grid;
     grid-template-columns: 1fr;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .main-header__logo--display
