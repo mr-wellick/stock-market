@@ -9,7 +9,7 @@ import { Input }     from "../../Components";
 import { Select }    from "../../Components";
 import { Loading }   from "../../Components";
 import { Table }     from "../../Components";
-import { Svg }       from "../../Components";
+import { LineChart } from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -52,7 +52,7 @@ class Home extends Component{
                             return(
                                 <Fragment>
                                     <Table successData={ successData }/>
-                                    <Svg successData={ successData }/>
+                                    <LineChart successData={ successData }/>
                                 </Fragment>
                             );
                         else
