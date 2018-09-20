@@ -4,10 +4,13 @@ import { Fragment }         from "react";
 import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
-import { Input }             from "../../Components";
+import { Input }            from "../../Components";
 import { Select }           from "../../Components";
 import { Loading }          from "../../Components";
 import {  Table }           from "../../Components";
+import { Axis }             from "../../Components";
+import { findTimeScale }    from "../../Utilities";
+import { findLinearScale }  from "../../Utilities";
 import "./home.scss";
 
 class Home extends Component{
@@ -42,24 +45,48 @@ class Home extends Component{
                     <Input onSubmit={ this.onSubmit } placeholder="Enter ticker(s)"/>
                 </section>
                 <section className="section-data">
-                    {
-                        (() => {
-                            if(requestingData)
-                                return <Loading/>;
-                            else if(successData.length > 0)
-                                return <Table successData={ successData }/>;
-                        })()
-                    }
-                    <svg width="300" height="250"></svg>
+                {
+                    (() => {
+                        if(requestingData)
+                            return <Loading/>;
+                        else if(successData.length > 0)
+                            return(
+                                <Fragment>
+                                    <Table successData={ successData }/>
+                                    {/* Create new component SVG */}
+                                    <svg width="300" height="250">
+                                        <Axis
+                                            scale={ findTimeScale(successData[0]["processedData"]["dates"]) }
+                                            padding={ 40 }
+                                            width={ 300 }
+                                            height={ 250 }
+                                            axis={ "x-axis" }
+                                        />
+                                        <Axis
+                                            scale={ findLinearScale(successData[0]["processedData"]["percentChange"]) }
+                                            padding={ 40 }
+                                            width={ 300 }
+                                            height={ 250 }
+                                            axis={ "y-axis" }
+                                        />
+                                    </svg>
+                                </Fragment>
+                            );
+                        else
+                        {
+                            return <div> Please enter a stock(s) seperated by a comma.</div>;
+                        }
+                    })()
+                }
                 </section>
             </Fragment>
         );
     }
 
-    //componentDidMount(){
-    //    let { assetsName } = this.props.userInteraction;
-    //    this.props.fetchData(assetsName);
-    //}
+    componentDidMount(){
+        let { assetsName } = this.props.userInteraction;
+        this.props.fetchData(assetsName);
+    }
 
 }
 
@@ -87,7 +114,8 @@ Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
     isFetchingData: PropTypes.object,
-    receivedData: PropTypes.object
+    receivedData: PropTypes.object,
+    userInteraction: PropTypes.object
 };
 
 export default connect(mapState, mapDispatch)(Home);

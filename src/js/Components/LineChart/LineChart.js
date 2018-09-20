@@ -13,15 +13,6 @@ import "./lineChart.scss";
 
 class LineChart extends Component{
 
-        // Functions to generate grids
-        make_x_gridlines(xScale) {
-            return axisBottom(xScale).ticks(5);
-        }
-
-        make_y_gridlines(yScale) {
-            return axisLeft(yScale).ticks(5);
-        }
-
         componentDidUpdate(){
         // Get Data
         let { processedData } = this.props;
@@ -91,21 +82,6 @@ class LineChart extends Component{
                 .attr("stroke", color)
                 .attr("stroke-width", 1.5)
                 .attr("d", lineForChart);
-
-            // We only want to add grids on initial render. Once we query new stocks, we don't need
-            // to keep adding grid lines.
-            if(this.node.children.length <= 3)
-            {
-                select(this.node).append("g")
-                                 .attr("class", "grid")
-                                 .attr("transform", "translate(0," + (this.props.height - 50) + ")")
-                                 .call(this.make_x_gridlines(xScale).tickSize(-(this.props.height - 100)).tickFormat(""));
-
-                select(this.node).append("g")
-                                 .attr("class", "grid")
-                                 .attr("transform", "translate(" + 50 + ",0)")
-                                 .call(this.make_y_gridlines(yScale).tickSize(-(this.props.width - 100)).tickFormat(""));
-            }
         }
     }
 
