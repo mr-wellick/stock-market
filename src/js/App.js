@@ -26,6 +26,10 @@ class App extends Component{
                         </nav>
                     </header>
                     <Route exact path="/" component={ Home }></Route>
+                    {/*
+                        <Route exact path="/Basics" component={ Basics }></Route>
+                        <Route exact path="/Portfolio" component={ Portfolio }></Route>
+                    */}
                     <Route path="/" component={ Footer }></Route>
                 </Fragment>
             </Router>
