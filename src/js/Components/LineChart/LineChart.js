@@ -2,8 +2,9 @@ import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
 import { Axis }            from "../Axis";
-import { findTimeScale }   from "../../Utilities/";
-import { findLinearScale } from "../../Utilities/";
+import { Line }            from "../Line";
+import { findTimeScale }   from "../../Utilities";
+import { findLinearScale } from "../../Utilities";
 import "./lineChart.scss";
 
 class LineChart extends Component{
@@ -20,6 +21,17 @@ class LineChart extends Component{
 
         return(
             <svg width={ width } height={ height }>
+                <Line
+                    x={ activeData["processedData"]["dates"] }
+                    xScale={ findTimeScale(activeData["processedData"]["dates"]) }
+                    y={ activeData["processedData"]["percentChange"] }
+                    yScale={ findLinearScale(activeData["processedData"]["percentChange"]) }
+                    r={ 2 }
+                    color={ "orange" }
+                    padding={ padding }
+                    width={ width }
+                    height={ height }
+                />
                 <Axis
                     scale={ findTimeScale(activeData["processedData"]["dates"]) }
                     padding={ padding }
