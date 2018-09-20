@@ -12,6 +12,8 @@ class LineChart extends Component{
         width: 300,
         height: 250,
         padding: 40,
+        r: 2,
+        color: "orange",
         x: this.props.successData[0]["processedData"]["dates"],
         y: this.props.successData[0]["processedData"]["adjustedClose"],
         xScale: findTimeScale(this.props.successData[0]["processedData"]["dates"]),
@@ -21,6 +23,7 @@ class LineChart extends Component{
     render(){
         let { width, height, padding } = this.state;
         let { x, y, xScale, yScale }   = this.state;
+        let { r, color }               = this.state;
 
         return(
             <svg width={ width } height={ height }>
@@ -29,8 +32,8 @@ class LineChart extends Component{
                     xScale={ xScale }
                     y={ y }
                     yScale={ yScale }
-                    r={ 2 }
-                    color={ "orange" }
+                    r={ r }
+                    color={ color }
                     padding={ padding }
                     width={ width }
                     height={ height }

@@ -10,6 +10,7 @@ import { Select }    from "../../Components";
 import { Loading }   from "../../Components";
 import { Table }     from "../../Components";
 import { LineChart } from "../../Components";
+import { Errors }    from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -34,8 +35,10 @@ class Home extends Component{
     }
 
     render(){
-        let { requestingData } = this.props.isFetchingData;
-        let { successData }    = this.props.receivedData;
+        let { requestingData }   = this.props.isFetchingData;
+        let { successData }      = this.props.receivedData;
+        let { errorData }        = this.props.receivedData;
+        let { tooManyCallsData } = this.props.receivedData;
 
         return(
             <Fragment>
@@ -45,9 +48,41 @@ class Home extends Component{
                 </section>
                 <section className="section-data">
                 {
+                    // Alert user to possible errors
+                    (() => {
+                        if(errorData.length > 0 && tooManyCallsData.length > 0)
+                        {
+                            return (
+                                <Errors
+                                    errorMessage="Incorrect stock entered and
+                                    exceeded the api call limit. Please wait a few seconds and try again."
+                                />
+                            );
+                        }
+                        else if(errorData.length > 0 && tooManyCallsData.length === 0)
+                        {
+                            return (
+                                <Errors
+                                    errorMessage="You entered an incorrect stock, which was dropped."
+                                />
+                            );
+                        }
+                        else if(tooManyCallsData.length > 0 && errorData.length === 0)
+                        {
+                            return (
+                                <Errors
+                                    errorMessage="You have exceeded the api call limit.
+                                    Please wait a few seconds and try again."
+                                />
+                            );
+                        }
+                    })()
+                }
+                {
+                    // Render succesful data
                     (() => {
                         if(requestingData)
-                            return <Loading/>;
+                            return (<Loading/>);
                         else if(successData.length > 0)
                             return(
                                 <Fragment>
@@ -55,10 +90,6 @@ class Home extends Component{
                                     <LineChart successData={ successData }/>
                                 </Fragment>
                             );
-                        else
-                        {
-                            return <div> Please enter a stock(s) seperated by a comma.</div>;
-                        }
                     })()
                 }
                 </section>
