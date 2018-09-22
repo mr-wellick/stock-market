@@ -10,9 +10,10 @@ let DroppedStock = (props) => {
     return(
         <div className="dropped-stock">
             <div className={ toggle ? "dropped-stock__message--hide" : "" }>
+                <strong>Error! </strong>
                 { errorMessage }
             </div>
-            <div className="dropped-stock__message--toggler" onClick={ props.onClick }>X</div>
+            <div className="dropped-stock__message--toggler" onClick={ props.onClick }>x</div>
         </div>
     );
 };
