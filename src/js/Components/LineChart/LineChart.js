@@ -1,6 +1,7 @@
 import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
+import { connect }         from "react-redux";
 import { Axis }            from "../Axis";
 import { Line }            from "../Line";
 import { findTimeScale }   from "../../Utilities";
@@ -61,4 +62,10 @@ LineChart.propTypes = {
     successData: PropTypes.array
 };
 
-export default LineChart;
+let mapState = (state) => {
+    return {
+        ...state.receivedData
+    };
+};
+
+export default connect(mapState, null)(LineChart);

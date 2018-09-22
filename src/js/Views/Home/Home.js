@@ -87,7 +87,7 @@ class Home extends Component{
                             return(
                                 <Fragment>
                                     <Table/>
-                                    <LineChart successData={ successData }/>
+                                    <LineChart/>
                                 </Fragment>
                             );
                     })()
