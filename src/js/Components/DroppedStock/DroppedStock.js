@@ -8,9 +8,9 @@ class DroppedStock extends Component{
             <div className="dropped-stock">
                 <div>
                     <strong>Error!</strong> Entered incorrect stock.
+                </div>
+                <a className="dropped-stock__message--toggler">X</a>
             </div>
-            <a className="dropped-stock__message--toggler">X</a>
-        </div>
         );
     }
 }
