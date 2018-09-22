@@ -27,7 +27,7 @@ class PossibleErrors extends Component{
             {
                 (() => {
                     if(errorData.length > 0 && tooManyCallsData.length === 0)
-                        return <DroppedStock errorData={ errorData } onClick={ this.onClick } toggle={ toggle }/>;
+                        return <DroppedStock onClick={ this.onClick } toggle={ toggle }/>;
                 })()
             }
             </Fragment>

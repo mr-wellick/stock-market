@@ -6,7 +6,7 @@
     background-color: #f2dede;
     border-color: #eed3d7;
     border-radius: 4px;
-    padding: 8px 35px 8px 14px;
+    padding: 8px 15px 8px 14px;
     margin-bottom: 18px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     width: 90%;
@@ -14,6 +14,13 @@
 
 .dropped-stock__message--toggler
 {
+    opacity: 0.5;
+}
+
+.dropped-stock__message--toggler:hover
+{
+    color: black;
+    cursor: pointer;
 }
 
 // Yellow color styling for warning message
