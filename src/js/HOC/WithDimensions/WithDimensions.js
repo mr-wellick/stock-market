@@ -1,6 +1,5 @@
 import React         from "react";
 import { Component } from "react";
-import "./withDimensions.scss";
 
 let WithDimensions = (WrappedComponent) => {
     return class extends Component{
