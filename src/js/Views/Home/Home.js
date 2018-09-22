@@ -3,7 +3,6 @@ import { Component }      from "react";
 import { Fragment }       from "react";
 import PropTypes          from "prop-types";
 import { connect }        from "react-redux";
-import { userInput }      from "../../Redux";
 import { fetchData }      from "../../Redux";
 import { Input }          from "../../Components";
 import { Select }         from "../../Components";
@@ -13,26 +12,6 @@ import { PossibleErrors } from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
-    onSubmit = (event) => {
-        // Get assetNames and turn into array
-        let assetNames = document.querySelector("#user-input").value.toUpperCase().trim();
-        let singleWord = /([A-Z]+)/;
-
-        if(assetNames !== "")
-        {
-            assetNames = assetNames.split(",");
-            assetNames = assetNames.map(item => item.match(singleWord)[0]); // match() returns an array.
-
-            this.props.userInput(assetNames);
-            this.props.fetchData(assetNames);
-            document.querySelector("#user-input").value = "";
-        }
-
-        // If user only enters spaces, clear form only
-        document.querySelector("#user-input").value = "";
-        event.preventDefault();
-    }
-
     render(){
         let { requestingData } = this.props.isFetchingData;
         let { successData }    = this.props.receivedData;
@@ -41,19 +20,19 @@ class Home extends Component{
             <Fragment>
                 <section className="section-forms">
                     <Select/>
-                    <Input onSubmit={ this.onSubmit } placeholder="Enter ticker(s)"/>
+                    <Input/>
                 </section>
                 <section className="section-data">
                     <PossibleErrors/>
-                {
-                    // Render succesful data
-                    (() => {
-                        if(requestingData)
-                            return (<Loading/>);
-                        else if(successData.length > 0)
-                            return(<Table/>);
-                    })()
-                }
+                    {
+                        // Render succesful data
+                        (() => {
+                            if(requestingData)
+                                return (<Loading/>);
+                            else if(successData.length > 0)
+                                return(<Table/>);
+                        })()
+                    }
                 </section>
             </Fragment>
         );
@@ -76,11 +55,8 @@ let mapState = (state) => {
 // Map dispatch to props
 let mapDispatch = (dispatch) => {
     return {
-        userInput: (assetName) => {
-            dispatch(userInput(assetName));
-        },
-        fetchData: (assetName) => {
-            dispatch(fetchData(assetName));
+        fetchData: (assetNames) => {
+            dispatch(fetchData(assetNames));
         }
     };
 };
