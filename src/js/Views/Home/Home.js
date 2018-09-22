@@ -10,7 +10,7 @@ import { Select }    from "../../Components";
 import { Loading }   from "../../Components";
 import { Table }     from "../../Components";
 import { LineChart } from "../../Components";
-import { Errors }    from "../../Components";
+//import { Errors }    from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -37,8 +37,8 @@ class Home extends Component{
     render(){
         let { requestingData }   = this.props.isFetchingData;
         let { successData }      = this.props.receivedData;
-        let { errorData }        = this.props.receivedData;
-        let { tooManyCallsData } = this.props.receivedData;
+        //let { errorData }        = this.props.receivedData;
+        //let { tooManyCallsData } = this.props.receivedData;
 
         return(
             <Fragment>
@@ -47,7 +47,7 @@ class Home extends Component{
                     <Input onSubmit={ this.onSubmit } placeholder="Enter ticker(s)"/>
                 </section>
                 <section className="section-data">
-                {
+                    {/*
                     // Alert user to possible errors
                     (() => {
                         if(errorData.length > 0 && tooManyCallsData.length > 0)
@@ -77,7 +77,7 @@ class Home extends Component{
                             );
                         }
                     })()
-                }
+                */}
                 {
                     // Render succesful data
                     (() => {
@@ -86,7 +86,7 @@ class Home extends Component{
                         else if(successData.length > 0)
                             return(
                                 <Fragment>
-                                    <Table successData={ successData }/>
+                                    <Table/>
                                     <LineChart successData={ successData }/>
                                 </Fragment>
                             );

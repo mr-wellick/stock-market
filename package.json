@@ -11,6 +11,7 @@
     "description": "A web application allowing you to query stock data",
     "main": "index.js",
     "author": "Pablo Lorenzo",
+    "homepage": "https://ll2nz.github.io/securities-app/",
     "license": "GPL-3.0",
     "devDependencies": {
         "@babel/core": "^7.0.0",
