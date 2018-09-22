@@ -7,7 +7,6 @@ import { DroppedStock } from "../DroppedStock";
 import "./possibleErrors.scss";
 
 class PossibleErrors extends Component{
-
     state = {
         toggle: false
     }

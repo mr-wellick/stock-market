@@ -34,10 +34,8 @@ class Home extends Component{
     }
 
     render(){
-        let { requestingData }   = this.props.isFetchingData;
-        let { successData }      = this.props.receivedData;
-        //let { errorData }        = this.props.receivedData;
-        //let { tooManyCallsData } = this.props.receivedData;
+        let { requestingData } = this.props.isFetchingData;
+        let { successData }    = this.props.receivedData;
 
         return(
             <Fragment>
@@ -47,37 +45,6 @@ class Home extends Component{
                 </section>
                 <section className="section-data">
                     <PossibleErrors/>
-                    {/*
-                    // Alert user to possible errors
-                    (() => {
-                        if(errorData.length > 0 && tooManyCallsData.length > 0)
-                        {
-                            return (
-                                <Errors
-                                    errorMessage="Incorrect stock entered and
-                                    exceeded the api call limit. Please wait a few seconds and try again."
-                                />
-                            );
-                        }
-                        else if(errorData.length > 0 && tooManyCallsData.length === 0)
-                        {
-                            return (
-                                <Errors
-                                    errorMessage="You entered an incorrect stock, which was dropped."
-                                />
-                            );
-                        }
-                        else if(tooManyCallsData.length > 0 && errorData.length === 0)
-                        {
-                            return (
-                                <Errors
-                                    errorMessage="You have exceeded the api call limit.
-                                    Please wait a few seconds and try again."
-                                />
-                            );
-                        }
-                    })()
-                */}
                 {
                     // Render succesful data
                     (() => {
