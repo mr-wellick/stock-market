@@ -1,33 +1,32 @@
-import React            from "react";
-import { Component }    from "react";
-import { Fragment }     from "react";
-import PropTypes        from "prop-types";
-import { connect }      from "react-redux";
-import { DroppedStock } from "../DroppedStock";
+import React                 from "react";
+import { Component }         from "react";
+import { Fragment }          from "react";
+import PropTypes             from "prop-types";
+import { connect }           from "react-redux";
+import { DroppedStock }      from "../DroppedStock";
+import { ExceededCallLimit } from "../ExceededCallLimit";
 import "./possibleErrors.scss";
 
 class PossibleErrors extends Component{
-    state = {
-        toggle: false
-    }
-
-    onClick = () => {
-        this.setState({
-            toggle: !this.state.toggle
-        });
-    }
-
-    render(){
+      render(){
         let { errorData }        = this.props;
         let { tooManyCallsData } = this.props;
-        let { toggle }           = this.state;
 
         return(
             <Fragment>
             {
                 (() => {
                     if(errorData.length > 0 && tooManyCallsData.length === 0)
-                        return <DroppedStock onClick={ this.onClick } toggle={ toggle }/>;
+                        return <DroppedStock/>;
+                    if(tooManyCallsData.length > 0 && errorData.length === 0)
+                        return <ExceededCallLimit/>;
+                    else if(errorData.length > 0 && tooManyCallsData.length > 0)
+                        return(
+                            <Fragment>
+                                <DroppedStock/>
+                                <ExceededCallLimit/>
+                            </Fragment>
+                        );
                 })()
             }
             </Fragment>
