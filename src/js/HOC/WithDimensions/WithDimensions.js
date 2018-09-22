@@ -16,6 +16,7 @@ let WithDimensions = (WrappedComponent) => {
                     width={ this.state.width }
                     height={ this.state.height }
                     padding={ this.state.padding }
+                    { ...this.props }
                 />
             );
         }

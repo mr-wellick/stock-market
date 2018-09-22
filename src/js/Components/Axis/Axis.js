@@ -8,7 +8,7 @@ import "./axis.scss";
 
 class Axis extends Component{
 
-    computeAxis(){
+    findScale(){
         let { scale }         = this.props;
         let { width, height } = this.props;
         let { padding }       = this.props;
@@ -46,7 +46,7 @@ class Axis extends Component{
     }
 
     componentDidMount(){
-        this.computeAxis();
+        this.findScale();
     }
 }
 

@@ -9,7 +9,6 @@ import { Input }     from "../../Components";
 import { Select }    from "../../Components";
 import { Loading }   from "../../Components";
 import { Table }     from "../../Components";
-//import { LineChart } from "../../Components";
 //import { Errors }    from "../../Components";
 import "./home.scss";
 
@@ -84,11 +83,7 @@ class Home extends Component{
                         if(requestingData)
                             return (<Loading/>);
                         else if(successData.length > 0)
-                            return(
-                                <Fragment>
-                                    <Table/>
-                                </Fragment>
-                            );
+                            return(<Table/>);
                     })()
                 }
                 </section>
