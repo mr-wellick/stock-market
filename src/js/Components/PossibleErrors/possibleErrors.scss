@@ -1,0 +1,19 @@
+.dropped-stock
+{
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: 10px 0;
+    background-color: rgba(255, 0, 0, 0.5)
+}
+
+.dropped-stock__message--hide
+{
+    height: 0;
+    overflow-y: hidden;
+}
+
+.dropped-stock__toggler
+{
+    padding: 5px;
+}

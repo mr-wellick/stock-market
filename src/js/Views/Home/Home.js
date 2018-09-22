@@ -1,14 +1,15 @@
-import React         from "react";
-import { Component } from "react";
-import { Fragment }  from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
-import { userInput } from "../../Redux";
-import { fetchData } from "../../Redux";
-import { Input }     from "../../Components";
-import { Select }    from "../../Components";
-import { Loading }   from "../../Components";
-import { Table }     from "../../Components";
+import React              from "react";
+import { Component }      from "react";
+import { Fragment }       from "react";
+import PropTypes          from "prop-types";
+import { connect }        from "react-redux";
+import { userInput }      from "../../Redux";
+import { fetchData }      from "../../Redux";
+import { Input }          from "../../Components";
+import { Select }         from "../../Components";
+import { Loading }        from "../../Components";
+import { Table }          from "../../Components";
+import { PossibleErrors } from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -45,6 +46,7 @@ class Home extends Component{
                     <Input onSubmit={ this.onSubmit } placeholder="Enter ticker(s)"/>
                 </section>
                 <section className="section-data">
+                    <PossibleErrors/>
                     {/*
                     // Alert user to possible errors
                     (() => {
