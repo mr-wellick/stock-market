@@ -13,9 +13,6 @@ import "./home.scss";
 
 class Home extends Component{
     render(){
-        let { requestingData } = this.props.isFetchingData;
-        let { successData }    = this.props.receivedData;
-
         return(
             <Fragment>
                 <section className="section-forms">
@@ -24,35 +21,26 @@ class Home extends Component{
                 </section>
                 <section className="section-data">
                     <PossibleErrors/>
-                    {
-                        // Render succesful data
-                        (() => {
-                            if(requestingData)
-                                return (<Loading/>);
-                            else if(successData.length > 0)
-                                return(<Table/>);
-                        })()
-                    }
+                    <Loading/>
+                    <Table/>
                 </section>
             </Fragment>
         );
     }
 
     //componentDidMount(){
-    //    let { assetsName } = this.props.userInteraction;
+    //    let { assetsName } = this.props;
     //    this.props.fetchData(assetsName);
     //}
 
 }
 
-// Map state to props
 let mapState = (state) => {
     return {
-        ...state
+        ...state.userInteraction
     };
 };
 
-// Map dispatch to props
 let mapDispatch = (dispatch) => {
     return {
         fetchData: (assetNames) => {
@@ -61,13 +49,10 @@ let mapDispatch = (dispatch) => {
     };
 };
 
-// PropType checking
 Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    isFetchingData: PropTypes.object,
-    receivedData: PropTypes.object,
-    userInteraction: PropTypes.object
+    assetsName: PropTypes.array
 };
 
 export default connect(mapState, mapDispatch)(Home);
