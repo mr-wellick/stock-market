@@ -8,9 +8,6 @@ class Table extends Component{
     render(){
         let { successData } = this.props;
 
-        if(successData.length === 0)
-            return null;
-
         return(
             <div className="stocks-table__container">
                 <table className="stocks-table">

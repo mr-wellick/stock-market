@@ -13,6 +13,9 @@ import "./home.scss";
 
 class Home extends Component{
     render(){
+        let { successData }    = this.props.receivedData;
+        let { requestingData } = this.props.isFetchingData;
+
         return(
             <Fragment>
                 <section className="section-forms">
@@ -21,15 +24,19 @@ class Home extends Component{
                 </section>
                 <section className="section-data">
                     <PossibleErrors/>
-                    <Loading/>
-                    <Table/>
+                    {
+                        // Show loader when requesting data
+                        requestingData ? <Loading/> :
+                            // Otherwise render table
+                            successData.length > 0 ? <Table/> : null
+                    }
                 </section>
             </Fragment>
         );
     }
 
     //componentDidMount(){
-    //    let { assetsName } = this.props;
+    //    let { assetsName } = this.props.userInteraction;
     //    this.props.fetchData(assetsName);
     //}
 
@@ -37,7 +44,7 @@ class Home extends Component{
 
 let mapState = (state) => {
     return {
-        ...state.userInteraction
+        ...state
     };
 };
 
@@ -52,7 +59,9 @@ let mapDispatch = (dispatch) => {
 Home.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    assetsName: PropTypes.array
+    receivedData: PropTypes.object,
+    isFetchingData: PropTypes.object,
+    userInteraction: PropTypes.object
 };
 
 export default connect(mapState, mapDispatch)(Home);
