@@ -3,11 +3,11 @@ import PropTypes            from "prop-types";
 import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
+import  uniq                from "lodash.uniq";
 import "./input.scss";
 
 class Input extends Component{
     onSubmit = (event) => {
-        // Get assetNames and turn into array
         let assetNames = document.querySelector("#user-input").value.toUpperCase().trim();
         let singleWord = /([A-Z]+)/;
 
@@ -15,6 +15,7 @@ class Input extends Component{
         {
             assetNames = assetNames.split(",");
             assetNames = assetNames.map(item => item.match(singleWord)[0]); // match() returns an array.
+            assetNames = uniq(assetNames); // get unique entries only
 
             this.props.userInput(assetNames);
             this.props.fetchData(assetNames);

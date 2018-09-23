@@ -42,6 +42,7 @@
     },
     "dependencies": {
         "d3": "^5.7.0",
+        "lodash.uniq": "^4.5.0",
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
         "react-redux": "^5.0.7",
