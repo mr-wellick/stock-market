@@ -9,6 +9,7 @@ import { Select }         from "../../Components";
 import { Loading }        from "../../Components";
 import { Table }          from "../../Components";
 import { PossibleErrors } from "../../Components";
+import { LineChart }      from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -30,6 +31,7 @@ class Home extends Component{
                             // Otherwise render table
                             successData.length > 0 ? <Table/> : null
                     }
+                    <LineChart/>
                 </section>
             </Fragment>
         );

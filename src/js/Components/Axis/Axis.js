@@ -47,6 +47,10 @@ class Axis extends Component{
     componentDidMount(){
         this.findScale();
     }
+
+    componentDidUpdate(){
+        this.findScale();
+    }
 }
 
 Axis.propTypes = {

@@ -48,6 +48,10 @@ class Line extends Component{
     componentDidMount(){
         this.calculateLine();
     }
+
+    componentDidUpdate(){
+        this.calculateLine();
+    }
 }
 
 Line.propTypes = {
