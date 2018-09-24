@@ -1,16 +1,12 @@
-import React              from "react";
-import { Component }      from "react";
-import PropTypes          from "prop-types";
-import { select }         from "d3-selection";
-import { axisLeft }       from "d3-axis";
-import { axisBottom }     from "d3-axis";
-import { WithDimensions } from "../../HOC"; // Used to add width, height, padding
+import React          from "react";
+import { Component }  from "react";
+import PropTypes      from "prop-types";
+import { select }     from "d3-selection";
+import { axisLeft }   from "d3-axis";
+import { axisBottom } from "d3-axis";
 import "./axis.scss";
 
-
-
-class __Axis__ extends Component{
-
+class Axis extends Component{
     findScale(){
         let { scale }         = this.props;
         let { width, height } = this.props;
@@ -53,15 +49,12 @@ class __Axis__ extends Component{
     }
 }
 
-__Axis__.propTypes = {
+Axis.propTypes = {
     scale: PropTypes.func,
     width: PropTypes.number,
     height: PropTypes.number,
     padding: PropTypes.number,
     axis: PropTypes.string
 };
-
-// Add width, height, padding
-let Axis = WithDimensions(__Axis__);
 
 export default Axis;

@@ -1,12 +1,11 @@
-import React              from "react";
-import { Component }      from "react";
-import PropTypes          from "prop-types";
-import { line }           from "d3-shape";
-import { select }         from "d3-selection";
-import { WithDimensions } from "../../HOC"; // Used to add width, height, padding
+import React         from "react";
+import { Component } from "react";
+import PropTypes     from "prop-types";
+import { line }      from "d3-shape";
+import { select }    from "d3-selection";
 import "./line.scss";
 
-class __Line__ extends Component{
+class Line extends Component{
 
     calculateLine(){
         let { x, y }           = this.props;
@@ -51,7 +50,7 @@ class __Line__ extends Component{
     }
 }
 
-__Line__.propTypes = {
+Line.propTypes = {
     x: PropTypes.array,
     xScale: PropTypes.func,
     y: PropTypes.array,
@@ -61,8 +60,5 @@ __Line__.propTypes = {
     padding: PropTypes.number,
     color: PropTypes.string
 };
-
-// Add width, height, and padding
-let Line = WithDimensions(__Line__);
 
 export default Line;

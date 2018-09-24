@@ -5,24 +5,26 @@ import PropTypes           from "prop-types";
 //import { Line }            from "../Line";
 //import { findLinearScale } from "../../Utilities";
 //import { findTimeScale }   from "../../Utilities";
-import { WithDimensions }  from "../../HOC"; // Used to add width, height, and padding
 import "./lineChart.scss";
 
-class __LineChart__ extends Component{
+class LineChart extends Component{
+
+    state = {
+        width: window.innerWidth,
+        height: window.innerHeight/2
+    }
+
     render(){
         return(
-            <svg width={ this.props.width } height={ this.props.height }>
+            <svg width={ this.state.width } height={ this.state.height }>
             </svg>
         );
     }
 }
 
-__LineChart__.propTypes = {
+LineChart.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number
 };
-
-// Adding width, height, and padding
-let LineChart = WithDimensions(__LineChart__);
 
 export default LineChart;
