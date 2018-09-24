@@ -36,8 +36,8 @@ class Home extends Component{
     }
 
     //componentDidMount(){
-    //    let { assetsName } = this.props.userInteraction;
-    //    this.props.fetchData(assetsName);
+    //    let { assetNames } = this.props.userInteraction;
+    //    this.props.fetchData(assetNames);
     //}
 
 }

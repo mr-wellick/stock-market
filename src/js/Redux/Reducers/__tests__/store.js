@@ -1,15 +1,15 @@
 import store from "../store";
 
 test("make sure default asset names is [TSLA, KO, IBM, AAPL, NFLX]", () => {
-    let defaultAssetsName   = ["TSLA", "KO", "IBM", "AAPL", "NFLX"];
+    let defaultAssetNames   = ["TSLA", "KO", "IBM", "AAPL", "NFLX"];
     let { userInteraction } = store.getState();
-    let{ assetsName }       = userInteraction;
+    let{ assetNames }       = userInteraction;
 
-    expect(assetsName).toContain(defaultAssetsName[0]);
-    expect(assetsName).toContain(defaultAssetsName[1]);
-    expect(assetsName).toContain(defaultAssetsName[2]);
-    expect(assetsName).toContain(defaultAssetsName[3]);
-    expect(assetsName).toContain(defaultAssetsName[4]);
+    expect(assetNames).toContain(defaultAssetNames[0]);
+    expect(assetNames).toContain(defaultAssetNames[1]);
+    expect(assetNames).toContain(defaultAssetNames[2]);
+    expect(assetNames).toContain(defaultAssetNames[3]);
+    expect(assetNames).toContain(defaultAssetNames[4]);
 });
 
 test("make sure default asset type is time series monthly adjusted", () => {

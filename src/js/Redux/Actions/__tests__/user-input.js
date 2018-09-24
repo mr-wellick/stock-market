@@ -11,12 +11,12 @@ test("Check correct action type is returned by userInput action-creator", () => 
 test("Check correct asset names is returned by userInput action-creator", () => {
     let names           = ["TSLA", "KO", "IBM", "AAPL", "NFLX"];
     let userInputAction = userInput(names);
-    let { assetsName }   = userInputAction;
+    let { assetNames }   = userInputAction;
 
-    expect(assetsName).toContain(names[0]);
-    expect(assetsName).toContain(names[1]);
-    expect(assetsName).toContain(names[2]);
-    expect(assetsName).toContain(names[3]);
-    expect(assetsName).toContain(names[4]);
+    expect(assetNames).toContain(names[0]);
+    expect(assetNames).toContain(names[1]);
+    expect(assetNames).toContain(names[2]);
+    expect(assetNames).toContain(names[3]);
+    expect(assetNames).toContain(names[4]);
 });
 

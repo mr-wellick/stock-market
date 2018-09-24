@@ -1,10 +1,10 @@
 import { USER_INPUT } from "../Constants";
 
-function userInput(assetsName)
+function userInput(assetNames)
 {
     return {
         type: USER_INPUT,
-        assetsName
+        assetNames
     };
 }
 
