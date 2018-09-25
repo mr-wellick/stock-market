@@ -3,14 +3,15 @@
 ![alt text](mobile-2.png)
 
 # Visit the site
-1. This site is a previous iteration of the app: https://ll2nz.github.io/securities-app/
-2. I'm hoping to release the new iteration soon.
++ This site is a previous iteration of the app: https://ll2nz.github.io/securities-app/
++ I'm hoping to release the new iteration soon.
 
-# A stock market web app
-1. Query single/multiple stock(s).
-2. Each query will show you a table with the latest monthly/daily adjusted price for each stock.
-3. Invalid stock entries will be removed by default and only valid entries will shown.
+# App functionality 
++ Query single/multiple stock(s).
++ Each query will show you a table with the latest monthly/daily adjusted price and percent change for each stock.
++ Invalid stock entries will be removed and an error will be thrown.
++ If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
 
 # Using the app
-1. Supply a single stock ticker: TSLA.
-2. Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO, ....
++ Supply a single stock ticker: TSLA.
++ Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
