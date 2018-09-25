@@ -9,13 +9,13 @@ import "./input.scss";
 class Input extends Component{
     onSubmit = (event) => {
         let assetNames = document.querySelector("#user-input").value.toUpperCase().trim();
-        let singleWord = /([A-Z]+)/;
+        let singleStock = /([A-Z]+)/;
 
         if(assetNames !== "")
         {
             assetNames = assetNames.split(",");
-            assetNames = assetNames.map(item => item.match(singleWord)[0]); // match() returns an array.
-            assetNames = uniq(assetNames); // get unique entries only
+            assetNames = assetNames.map(item => item.match(singleStock)[0]); // match() returns an array.
+            assetNames = uniq(assetNames);
 
             this.props.userInput(assetNames);
             this.props.fetchData(assetNames);
