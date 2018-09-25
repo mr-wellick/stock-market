@@ -14,7 +14,6 @@ import "./home.scss";
 
 class Home extends Component{
     render(){
-        console.log(this.props);
         return(
             <Fragment>
                 <section className="section-forms">
