@@ -41,13 +41,4 @@ Select.propTypes = {
     userSelection: PropTypes.func
 };
 
-// Map dispatch
-let mapDispatch = (dispatch) => {
-    return {
-        userSelection: (assetType) => {
-            dispatch(userSelection(assetType));
-        }
-    };
-};
-
-export default connect(null, mapDispatch)(Select);
+export default connect(null, { userSelection })(Select);

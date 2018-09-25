@@ -15,5 +15,4 @@ class DroppedStock extends Component{
     }
 }
 
-
 export default DroppedStock;

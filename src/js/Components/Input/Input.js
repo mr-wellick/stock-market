@@ -42,15 +42,4 @@ Input.propTypes = {
     fetchData: PropTypes.func
 };
 
-let mapProps = (dispatch) => {
-     return {
-        userInput: (assetNames) => {
-            dispatch(userInput(assetNames));
-        },
-        fetchData: (assetNames) => {
-            dispatch(fetchData(assetNames));
-        }
-    };
-};
-
-export default connect(null, mapProps)(Input);
+export default connect(null, { userInput, fetchData })(Input);
