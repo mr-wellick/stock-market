@@ -10,6 +10,7 @@ import { Loading }        from "../../Components";
 import { PossibleErrors } from "../../Components";
 import { Table }          from "../../Components";
 import { LineChart }      from "../../Components";
+import { ActiveStock }    from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -25,6 +26,7 @@ class Home extends Component{
                     <PossibleErrors/>
                     <Table/>
                     <LineChart/>
+                    <ActiveStock/>
                 </section>
             </Fragment>
         );
