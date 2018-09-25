@@ -14,8 +14,7 @@ import "./home.scss";
 
 class Home extends Component{
     render(){
-        let { successData }    = this.props.receivedData;
-        let { requestingData } = this.props.isFetchingData;
+        let { requestingData } = this.props;
 
         return(
             <Fragment>
@@ -24,13 +23,8 @@ class Home extends Component{
                     <Input/>
                 </section>
                 <section className="section-data">
-                    <PossibleErrors/>
-                    {
-                        // Show loader when requesting data
-                        requestingData ? <Loading/> :
-                            // Otherwise render table
-                            successData.length > 0 ? <Table/> : null
-                    }
+                    { requestingData ? <Loading/> : <PossibleErrors/> }
+                    <Table/>
                     <LineChart/>
                 </section>
             </Fragment>
@@ -46,24 +40,13 @@ class Home extends Component{
 
 let mapState = (state) => {
     return {
-        ...state
-    };
-};
-
-let mapDispatch = (dispatch) => {
-    return {
-        fetchData: (assetNames) => {
-            dispatch(fetchData(assetNames));
-        }
+        ...state.isFetchingData
     };
 };
 
 Home.propTypes = {
-    userInput: PropTypes.func,
     fetchData: PropTypes.func,
-    receivedData: PropTypes.object,
-    isFetchingData: PropTypes.object,
-    userInteraction: PropTypes.object
+    requestingData: PropTypes.bool
 };
 
-export default connect(mapState, mapDispatch)(Home);
+export default connect(mapState, { fetchData })(Home);
