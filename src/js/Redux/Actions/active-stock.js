@@ -1,7 +1,8 @@
 import { ACTIVE_STOCK } from "../Constants";
 import { store }        from "../Reducers";
 
-function activeStock(id){
+function activeStock(id)
+{
     let { successData } = store.getState().receivedData;
     let activeStockData = successData[id];
 
