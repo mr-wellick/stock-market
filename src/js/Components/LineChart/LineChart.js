@@ -11,7 +11,8 @@ import "./lineChart.scss";
 class LineChart extends Component{
     state = {
         width: window.innerWidth,
-        height: window.innerHeight/1.5
+        height: window.innerHeight/1.5,
+        padding: 40
     }
 
     handleResize = () => {
@@ -22,7 +23,9 @@ class LineChart extends Component{
     }
 
     render(){
-        let { successData } = this.props;
+        let { successData }   = this.props;
+        let { width, height } = this.state;
+        let { padding }       = this.state;
         let dates;
         let price;
 
@@ -35,29 +38,29 @@ class LineChart extends Component{
             return null;
 
         return(
-            <svg width={ this.state.width } height={ this.state.height }>
+            <svg width={ width } height={ height }>
                 <Axis
                     scale={ findTimeScale(dates) }
                     axis={ "x-axis" }
-                    width={ this.state.width }
-                    height={ this.state.height }
-                    padding={ 40 }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
                 />
                 <Axis
                     scale={ findLinearScale(price) }
                     axis={ "y-axis" }
-                    width={ this.state.width }
-                    height={ this.state.height }
-                    padding={ 40 }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
                 />
                 <Line
                     xScale={ findTimeScale(dates) }
                     yScale={ findLinearScale(price) }
                     x={ dates }
                     y={ price }
-                    width={ this.state.width }
-                    height={ this.state.height }
-                    padding={ 40 }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
                     color={ "orange" }
                 />
             </svg>
