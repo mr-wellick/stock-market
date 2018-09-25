@@ -4,11 +4,11 @@ import { Fragment }       from "react";
 import PropTypes          from "prop-types";
 import { connect }        from "react-redux";
 import { fetchData }      from "../../Redux";
-import { Input }          from "../../Components";
 import { Select }         from "../../Components";
+import { Input }          from "../../Components";
 import { Loading }        from "../../Components";
-import { Table }          from "../../Components";
 import { PossibleErrors } from "../../Components";
+import { Table }          from "../../Components";
 import { LineChart }      from "../../Components";
 import "./home.scss";
 
