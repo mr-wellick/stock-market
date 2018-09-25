@@ -1,6 +1,7 @@
 import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
+import { connect }         from "react-redux";
 import { Axis }            from "../Axis";
 import { Line }            from "../Line";
 import { findLinearScale } from "../../Utilities";
@@ -8,7 +9,6 @@ import { findTimeScale }   from "../../Utilities";
 import "./lineChart.scss";
 
 class LineChart extends Component{
-
     state = {
         width: window.innerWidth,
         height: window.innerHeight/1.5
@@ -22,27 +22,39 @@ class LineChart extends Component{
     }
 
     render(){
+        let { successData } = this.props;
+        let dates;
+        let price;
+
+        if(successData.length > 0){
+            dates = successData[0]["processedData"]["dates"];
+            price = successData[0]["processedData"]["adjustedClose"];
+        }
+
+        if(successData.length === 0)
+            return null;
+
         return(
             <svg width={ this.state.width } height={ this.state.height }>
                 <Axis
-                    scale={ findTimeScale(["2010-01-01", "2015-01-01"]) }
+                    scale={ findTimeScale(dates) }
                     axis={ "x-axis" }
                     width={ this.state.width }
                     height={ this.state.height }
                     padding={ 40 }
                 />
                 <Axis
-                    scale={ findLinearScale([0, 100]) }
+                    scale={ findLinearScale(price) }
                     axis={ "y-axis" }
                     width={ this.state.width }
                     height={ this.state.height }
                     padding={ 40 }
                 />
                 <Line
-                    xScale={ findTimeScale(["2010-01-01", "2015-01-01"]) }
-                    yScale={ findLinearScale([0, 100]) }
-                    x={ ["2010-01-01", "2015-01-01"] }
-                    y={ [5, 75] }
+                    xScale={ findTimeScale(dates) }
+                    yScale={ findLinearScale(price) }
+                    x={ dates }
+                    y={ price }
                     width={ this.state.width }
                     height={ this.state.height }
                     padding={ 40 }
@@ -64,7 +76,14 @@ class LineChart extends Component{
 
 LineChart.propTypes = {
     width: PropTypes.number,
-    height: PropTypes.number
+    height: PropTypes.number,
+    successData: PropTypes.array
 };
 
-export default LineChart;
+let mapState = (state) => {
+    return {
+        ...state.receivedData
+    };
+};
+
+export default connect(mapState, null)(LineChart);
