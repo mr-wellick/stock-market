@@ -4,6 +4,8 @@
     display: grid;
     grid-template-columns: 1fr;
     background-color: white;
+    border-bottom: 1px solid #343a40;
+    z-index: 1;
     position: fixed;
     width: 100%;
     top: 0;
@@ -19,6 +21,7 @@
 .main-nav
 {
     padding: 20px;
+    padding-top: 30px;
 }
 
 .main-nav__items
@@ -29,7 +32,7 @@
 
 .main-nav__item a
 {
-    color: black;
+    color: #343a40;
 }
 
 .main-nav__item a:hover

@@ -25,8 +25,8 @@ class Home extends Component{
                     <Loading/>
                     <PossibleErrors/>
                     <Table/>
-                    <LineChart/>
                     <ActiveStock/>
+                    <LineChart/>
                 </section>
             </Fragment>
         );
@@ -46,7 +46,8 @@ let mapState = (state) => {
 };
 
 Home.propTypes = {
-    fetchData: PropTypes.func
+    fetchData: PropTypes.func,
+    assetNames: PropTypes.array
 };
 
 export default connect(mapState, { fetchData })(Home);

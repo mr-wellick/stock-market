@@ -12,7 +12,7 @@ class LineChart extends Component{
     state = {
         width: window.innerWidth,
         height: window.innerHeight/1.5,
-        padding: 40
+        padding: 40,
     }
 
     handleResize = () => {
@@ -23,18 +23,19 @@ class LineChart extends Component{
     }
 
     render(){
-        let { successData }   = this.props;
-        let { width, height } = this.state;
-        let { padding }       = this.state;
+        let { activeStockData } = this.props;
+        let { successData }     = this.props;
+        let { width, height }   = this.state;
+        let { padding }         = this.state;
         let dates;
         let price;
 
-        if(successData.length > 0){
-            dates = successData[0]["processedData"]["dates"];
-            price = successData[0]["processedData"]["adjustedClose"];
+        if(successData.length > 0)
+        {
+            dates = activeStockData["processedData"]["dates"];
+            price = activeStockData["processedData"]["adjustedClose"];
         }
-
-        if(successData.length === 0)
+        else if(successData.length === 0)
             return null;
 
         return(
@@ -80,11 +81,13 @@ class LineChart extends Component{
 LineChart.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
+    activeStockData: PropTypes.object,
     successData: PropTypes.array
 };
 
 let mapState = (state) => {
     return {
+        ...state.userInteraction,
         ...state.receivedData
     };
 };

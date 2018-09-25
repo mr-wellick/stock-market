@@ -19,7 +19,7 @@ class Table extends Component{
                             <th className="stocks-table__col">Stocks</th>
                             <th className="stocks-table__col">Price</th>
                             <th className="stocks-table__col">% Change</th>
-                            <th className="stocks-table__col--hide">Date</th>
+                            <th className="stocks-table__col--hide">Dates</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,9 @@ class Table extends Component{
                                 <td>{ item["processedData"]["symbol"] }</td>
                                 <td>{ item["processedData"]["adjustedClose"][0] }</td>
                                 <td>{ item["processedData"]["percentChange"][0] }</td>
-                                <td className="stocks-table__col--hide">{ item["processedData"]["dates"][0] }</td>
+                                <td className="stocks-table__col--hide">
+                                    { item["processedData"]["dates"][0] }
+                                </td>
                             </tr>
                         )
                     }

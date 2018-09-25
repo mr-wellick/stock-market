@@ -4,6 +4,12 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.form-select label:hover
+{
+    cursor: pointer;
+    background-color: rgba(221, 164, 167, 0.3);
+}
+
 .form-monthly__container-option label
 {
     border-right: 1px solid black;

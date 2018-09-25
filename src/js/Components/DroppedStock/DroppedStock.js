@@ -6,10 +6,10 @@ class DroppedStock extends Component{
     render(){
         return(
             <div className="dropped-stock">
-                <div>
+                <div className="dropped-stock__message">
                     <strong>Error!</strong> Entered incorrect stock.
                 </div>
-                <a className="dropped-stock__message--toggler">X</a>
+                <a className="dropped-stock__message--toggler" onClick={ this.onClick }>X</a>
             </div>
         );
     }
