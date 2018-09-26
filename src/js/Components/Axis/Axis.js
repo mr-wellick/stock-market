@@ -1,12 +1,11 @@
 import React          from "react";
 import { Component }  from "react";
 import PropTypes      from "prop-types";
-import { connect }    from "react-redux";
 import { select }     from "d3-selection";
 import { axisLeft }   from "d3-axis";
 import { axisBottom } from "d3-axis";
 import { transition } from "d3-transition";
-import { timeFormat } from "d3-time-format";
+//import { timeFormat } from "d3-time-format";
 import "./axis.scss";
 
 class Axis extends Component{
@@ -69,14 +68,7 @@ Axis.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     padding: PropTypes.number,
-    axis: PropTypes.string,
-    assetType: PropTypes.string
+    axis: PropTypes.string
 };
 
-let mapState = (state) => {
-    return {
-        ...state.userInteraction
-    };
-};
-
-export default connect(mapState, null)(Axis);
+export default Axis;
