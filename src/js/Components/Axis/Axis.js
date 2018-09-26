@@ -4,6 +4,8 @@ import PropTypes      from "prop-types";
 import { select }     from "d3-selection";
 import { axisLeft }   from "d3-axis";
 import { axisBottom } from "d3-axis";
+import { transition } from "d3-transition";
+import { timeFormat } from "d3-time-format";
 import "./axis.scss";
 
 class Axis extends Component{
@@ -22,8 +24,12 @@ class Axis extends Component{
 
             // append x-axis
             select(".x-axis")
+                .transition()
+                .duration(1200)
                 .attr("transform", axisLocation)
-                .call(axisBottom(scale));
+                .call(
+                    axisBottom(scale).tickFormat(timeFormat("%y"))
+                );
         }
         else if(axis === "y-axis")
         {
@@ -33,6 +39,9 @@ class Axis extends Component{
 
             // Append y-axis
             select(".y-axis")
+                .transition()
+                .delay(1000)
+                .duration(1200)
                 .attr("transform", axisLocation)
                 .call(axisLeft(scale));
         }

@@ -1,8 +1,9 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { line }      from "d3-shape";
-import { select }    from "d3-selection";
+import React          from "react";
+import { Component }  from "react";
+import PropTypes      from "prop-types";
+import { line }       from "d3-shape";
+import { select }     from "d3-selection";
+import { transition } from "d3-transition";
 import "./line.scss";
 
 class Line extends Component{
@@ -31,6 +32,9 @@ class Line extends Component{
         let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
         select(".line-data")
             .datum(dataToRender)
+            .transition()
+            .delay(2400)
+            .duration(500)
             .attr("fill", "none")
             .attr("stroke", color)
             .attr("stroke-width", 1.5)
