@@ -23,16 +23,13 @@ class Axis extends Component{
             axisLocation = "translate(0," + (height - padding) + ")";
             scale.range([padding, width - padding]).nice();
 
-            // append x-axis
-            select(".x-axis")
-                .transition()
-                .duration(1000)
-                .attr("transform", axisLocation);
-
-            // Format ticks based on daily or monthly data
+            // Format ticks based on daily or monthly data and append x-axis
             if(this.props.assetType === "function=TIME_SERIES_MONTHLY_ADJUSTED&")
             {
                 select(".x-axis")
+                    .transition()
+                    .duration(1000)
+                    .attr("transform", axisLocation)
                     .call(
                         axisBottom(scale).tickFormat(timeFormat("%y"))
                     );
@@ -40,6 +37,9 @@ class Axis extends Component{
             else if(this.props.assetType === "function=TIME_SERIES_DAILY_ADJUSTED&")
             {
                 select(".x-axis")
+                    .transition()
+                    .duration(1000)
+                    .attr("transform", axisLocation)
                     .call(
                         axisBottom(scale).tickFormat(timeFormat("%b"))
                     );
