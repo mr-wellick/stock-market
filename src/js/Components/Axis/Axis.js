@@ -24,26 +24,14 @@ class Axis extends Component{
             scale.range([padding, width - padding]).nice();
 
             // Format ticks based on daily or monthly data and append x-axis
-            if(this.props.assetType === "function=TIME_SERIES_MONTHLY_ADJUSTED&")
-            {
-                select(".x-axis")
-                    .transition()
-                    .duration(1000)
-                    .attr("transform", axisLocation)
-                    .call(
-                        axisBottom(scale).tickFormat(timeFormat("%y"))
-                    );
-            }
-            else if(this.props.assetType === "function=TIME_SERIES_DAILY_ADJUSTED&")
-            {
-                select(".x-axis")
-                    .transition()
-                    .duration(1000)
-                    .attr("transform", axisLocation)
-                    .call(
-                        axisBottom(scale).tickFormat(timeFormat("%b"))
-                    );
-            }
+            select(".x-axis")
+                .transition()
+                .duration(1000)
+                .attr("transform", axisLocation)
+                .call(
+                    axisBottom(scale)
+                    /*.tickFormat(timeFormat("%y"))*/ // Slight issues with this line of code
+                );
         }
         else if(axis === "y-axis")
         {
