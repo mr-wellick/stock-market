@@ -1,6 +1,7 @@
 import React          from "react";
 import { Component }  from "react";
 import PropTypes      from "prop-types";
+import { connect }    from "react-redux";
 import { select }     from "d3-selection";
 import { axisLeft }   from "d3-axis";
 import { axisBottom } from "d3-axis";
@@ -25,11 +26,24 @@ class Axis extends Component{
             // append x-axis
             select(".x-axis")
                 .transition()
-                .duration(1200)
-                .attr("transform", axisLocation)
-                .call(
-                    axisBottom(scale).tickFormat(timeFormat("%y"))
-                );
+                .duration(1000)
+                .attr("transform", axisLocation);
+
+            // Format ticks based on daily or monthly data
+            if(this.props.assetType === "function=TIME_SERIES_MONTHLY_ADJUSTED&")
+            {
+                select(".x-axis")
+                    .call(
+                        axisBottom(scale).tickFormat(timeFormat("%y"))
+                    );
+            }
+            else if(this.props.assetType === "function=TIME_SERIES_DAILY_ADJUSTED&")
+            {
+                select(".x-axis")
+                    .call(
+                        axisBottom(scale).tickFormat(timeFormat("%b"))
+                    );
+            }
         }
         else if(axis === "y-axis")
         {
@@ -40,8 +54,8 @@ class Axis extends Component{
             // Append y-axis
             select(".y-axis")
                 .transition()
-                .delay(1000)
-                .duration(1200)
+                .delay(800)
+                .duration(1000)
                 .attr("transform", axisLocation)
                 .call(axisLeft(scale));
         }
@@ -67,7 +81,14 @@ Axis.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     padding: PropTypes.number,
-    axis: PropTypes.string
+    axis: PropTypes.string,
+    assetType: PropTypes.string
 };
 
-export default Axis;
+let mapState = (state) => {
+    return {
+        ...state.userInteraction
+    };
+};
+
+export default connect(mapState, null)(Axis);
