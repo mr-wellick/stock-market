@@ -6,7 +6,7 @@ import isFetchingData    from "./is-fetching-data";
 import fetchComplete     from "./fetch-complete.js";
 
 // Make api request
-function fetchData(assetsName)
+function fetchData(assetNames)
 {
     // Get assetType to be requested: monthly or daily
     let { assetType } = store.getState().userInteraction;
@@ -16,27 +16,27 @@ function fetchData(assetsName)
         dispatch(isFetchingData(true));
         return Promise.all(
             // Iterate through each asset and request
-            assetsName.map(name =>
+            assetNames.map(name =>
                 fetch(`https://www.alphavantage.co/query?${assetType}symbol=${name}&apikey=${process.env.API_KEY}`)
                     .then(res => res.json())
             )
         )
-        .then( allDataSets => {
+        .then(responseData => {
             // Will use to store final data
-            let checkedData = [];
+            let processedData = [];
 
             // Checks data and process accordingly
-            allDataSets.map( item => {
+            responseData.map( item => {
                 if(item["Error Message"])
-                    checkedData.push( fetchError(item) );
+                    processedData.push( fetchError(item) );
                 else if(item["Meta Data"])
-                    checkedData.push( fetchSuccess(item) );
+                    processedData.push( fetchSuccess(item) );
                 else if(item["Information"])
-                    checkedData.push( fetchTooManyCalls(item) );
+                    processedData.push( fetchTooManyCalls(item) );
             });
 
             // End request
-            dispatch(fetchComplete(checkedData));
+            dispatch(fetchComplete(processedData));
             dispatch(isFetchingData(false));
         });
     };
