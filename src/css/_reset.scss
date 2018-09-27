@@ -1,12 +1,13 @@
-/* Border box declaration 
+/* Border box declaration
 https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html
 {
     box-sizing: border-box;
+    font-size: 1em;
 }
 /* inherit border-box on all elements in the universe and before and after */
-*, 
-*:before, 
+*,
+*:before,
 *:after
 {
   box-sizing: inherit;
@@ -16,7 +17,7 @@ html
 body
 {
     margin: 0;
-    
+
     h1,h2,h3,h4,h5,h6
     {
         margin: 0;
