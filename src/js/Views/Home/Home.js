@@ -25,8 +25,8 @@ class Home extends Component{
                     <Loading/>
                     <PossibleErrors/>
                     <Table/>
-                    <LineChart/>
                     <ActiveStock/>
+                    <LineChart/>
                 </section>
             </Fragment>
         );
