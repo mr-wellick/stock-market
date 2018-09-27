@@ -44,3 +44,18 @@ $light-black: #343a40;
     margin-top: 10px;
     padding: 8px 0;
 }
+
+@media (min-width: 500px)
+{
+    .form-input
+    {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .form-input__text,
+    .form-input__btn
+    {
+        margin: 5px;
+    }
+}

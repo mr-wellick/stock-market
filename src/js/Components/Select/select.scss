@@ -2,6 +2,15 @@
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 90px;
+}
+
+.form-daily__container-option,
+.form-monthly__container-option
+{
+    padding: 5px;
 }
 
 .form-select label:hover
@@ -19,7 +28,8 @@
 .form-daily__container-option label
 {
     display: block;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    border-radius: 0.25rem;
     width: 100%;
     text-align: center;
     padding: 10px;
