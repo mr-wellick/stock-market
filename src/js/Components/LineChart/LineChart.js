@@ -69,7 +69,6 @@ class LineChart extends Component{
     }
 
     componentDidMount() {
-        this.handleResize();
         window.addEventListener("resize", this.handleResize);
     }
 
