@@ -16,10 +16,18 @@ class LineChart extends Component{
     }
 
     handleResize = () => {
-        this.setState({
-            width: window.innerWidth,
-            height: window.innerHeight/1.5
-        });
+        if(window.innerWidth < 500)
+        {
+            this.setState({
+                width: window.innerWidth
+            });
+        }
+        if(window.innerHeight < 300)
+        {
+            this.setState({
+                height: window.innerHeight/1.5
+            });
+        }
     }
 
     render(){

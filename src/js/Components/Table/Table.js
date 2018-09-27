@@ -18,6 +18,9 @@ class Table extends Component{
                         <tr>
                             <th className="stocks-table__col">Stocks</th>
                             <th className="stocks-table__col">Price</th>
+                            <th className="stocks-table__col--hide">Open</th>
+                            <th className="stocks-table__col--hide">Low</th>
+                            <th className="stocks-table__col--hide">High</th>
                             <th className="stocks-table__col">% Change</th>
                             <th className="stocks-table__col--hide">Dates</th>
                         </tr>
@@ -28,6 +31,15 @@ class Table extends Component{
                             <tr key={ index }>
                                 <td>{ item["processedData"]["symbol"] }</td>
                                 <td>{ item["processedData"]["adjustedClose"][0] }</td>
+                                <td className="stocks-table__col--hide">
+                                    { item["processedData"]["open"][0] }
+                                </td>
+                                <td className="stocks-table__col--hide">
+                                    { item["processedData"]["low"][0] }
+                                </td>
+                                <td className="stocks-table__col--hide">
+                                    { item["processedData"]["high"][0] }
+                                </td>
                                 <td>{ item["processedData"]["percentChange"][0] }</td>
                                 <td className="stocks-table__col--hide">
                                     { item["processedData"]["dates"][0] }
