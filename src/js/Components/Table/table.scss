@@ -2,7 +2,6 @@
 {
     border-collapse: collapse;
     text-align: center;
-    border: 1px solid black;
     border-right: 0;
     border-bottom: 0;
 }
@@ -10,13 +9,15 @@
 .stocks-table thead
 {
     display: block;
-    border-bottom: 1px solid black;
+    border: 1px solid #495057;
+    border-left: 0;
+    border-right: 0;
 }
 
 .stocks-table th
 {
     min-width: 100px;
-    border-right: 1px solid black;
+    color: #495057;
     padding: 3px;
 }
 
@@ -25,11 +26,15 @@
     display: block;
 }
 
+.stocks-table tbody tr:nth-of-type(odd)
+{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 .stocks-table td
 {
     min-width: 100px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #e9ecef;
     padding: 5px;
 }
 
