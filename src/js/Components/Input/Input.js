@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import PropTypes            from "prop-types";
-import { connect }          from "react-redux";
-import { userInput }        from "../../Redux";
-import { fetchData }        from "../../Redux";
-import uniq                 from "lodash.uniq";
-import includes             from "lodash.includes";
+import React, { Component }       from "react";
+import PropTypes                  from "prop-types";
+import { connect }                from "react-redux";
+import { userInput }              from "../../Redux";
+import { fetchData }              from "../../Redux";
+import { enteredDuplicateStocks } from "../../Redux";
+import uniq                       from "lodash.uniq";
+import includes                   from "lodash.includes";
 import "./input.scss";
 
 class Input extends Component{
@@ -48,7 +49,7 @@ class Input extends Component{
             // Let the user know duplicate entries will not be fetched
             if(duplicateStockNames.length > 0)
             {
-                alert("You have entered a duplicate stock(s). Please try again.");
+                this.props.enteredDuplicateStocks(duplicateStockNames);
             }
 
         }
@@ -74,7 +75,7 @@ class Input extends Component{
         // When component mounts, we have no data so fetch
         if(successData.length === 0)
         {
-            this.props.fetchData(assetNames);
+            //this.props.fetchData(assetNames);
         }
 
     }
@@ -94,4 +95,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, { userInput, fetchData })(Input);
+export default connect(mapState, { userInput, fetchData, enteredDuplicateStocks })(Input);
