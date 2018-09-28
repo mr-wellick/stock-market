@@ -45,7 +45,7 @@ class Input extends Component{
                 this.props.userInput(filteredStockNames);
                 this.props.fetchData(filteredStockNames);
 
-                // Reset entered duplicate stocks
+                // Reset duplicate stocks stored in Redux state
                 this.props.enteredDuplicateStocks([]);
             }
 
@@ -78,7 +78,7 @@ class Input extends Component{
         // When component mounts, we have no data so fetch
         if(successData.length === 0)
         {
-            this.props.fetchData(assetNames);
+            //this.props.fetchData(assetNames);
         }
 
     }
