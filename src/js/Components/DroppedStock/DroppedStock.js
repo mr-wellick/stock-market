@@ -9,7 +9,7 @@ class DroppedStock extends Component{
                 <div className="dropped-stock__message">
                     <strong>Error!</strong> Entered incorrect stock.
                 </div>
-                <a className="dropped-stock__message--toggler" onClick={ this.onClick }>X</a>
+                <a className="dropped-stock__message--toggler">X</a>
             </div>
         );
     }

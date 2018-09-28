@@ -1,0 +1,23 @@
+.duplicate-stock
+{
+    display: flex;
+    justify-content: space-between;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin-bottom: 18px;
+    width: 90%;
+}
+
+.duplicate-stock__message--toggler
+{
+    opacity: 0.5;
+}
+
+.duplicate-stock__message--toggler:hover
+{
+    color: black;
+    cursor: pointer;
+}

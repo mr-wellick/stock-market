@@ -44,6 +44,9 @@ class Input extends Component{
             {
                 this.props.userInput(filteredStockNames);
                 this.props.fetchData(filteredStockNames);
+
+                // Reset entered duplicate stocks
+                this.props.enteredDuplicateStocks([]);
             }
 
             // Let the user know duplicate entries will not be fetched
@@ -75,7 +78,7 @@ class Input extends Component{
         // When component mounts, we have no data so fetch
         if(successData.length === 0)
         {
-            //this.props.fetchData(assetNames);
+            this.props.fetchData(assetNames);
         }
 
     }
@@ -84,8 +87,9 @@ class Input extends Component{
 Input.propTypes = {
     userInput: PropTypes.func,
     fetchData: PropTypes.func,
+    enteredDuplicateStocks: PropTypes.func,
     assetNames: PropTypes.array,
-    successData: PropTypes.array
+    successData: PropTypes.array,
 };
 
 let mapState = (state) => {
