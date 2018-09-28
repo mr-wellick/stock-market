@@ -1,9 +1,6 @@
 import React              from "react";
 import { Component }      from "react";
 import { Fragment }       from "react";
-import PropTypes          from "prop-types";
-import { connect }        from "react-redux";
-import { fetchData }      from "../../Redux";
 import { Select }         from "../../Components";
 import { Input }          from "../../Components";
 import { Loading }        from "../../Components";
@@ -33,23 +30,6 @@ class Home extends Component{
             </Fragment>
         );
     }
-
-    //componentDidMount(){
-    //    let { assetNames } = this.props;
-    //    this.props.fetchData(assetNames);
-    //}
-
 }
 
-let mapState = (state) => {
-    return {
-        ...state.userInteraction
-    };
-};
-
-Home.propTypes = {
-    fetchData: PropTypes.func,
-    assetNames: PropTypes.array
-};
-
-export default connect(mapState, { fetchData })(Home);
+export default Home;

@@ -3,7 +3,8 @@ import PropTypes            from "prop-types";
 import { connect }          from "react-redux";
 import { userInput }        from "../../Redux";
 import { fetchData }        from "../../Redux";
-import  uniq                from "lodash.uniq";
+import uniq                 from "lodash.uniq";
+import includes             from "lodash.includes";
 import "./input.scss";
 
 class Input extends Component{
@@ -13,16 +14,46 @@ class Input extends Component{
 
         if(assetNames !== "")
         {
+            // Turn user input into array
             assetNames = assetNames.split(",");
-            assetNames = assetNames.map(item => item.match(singleStock)[0]); // match() returns an array.
+            assetNames = assetNames.map(item => item.match(singleStock)[0]); // match() returns an array
             assetNames = uniq(assetNames);
 
-            this.props.userInput(assetNames);
-            this.props.fetchData(assetNames);
-            document.querySelector("#user-input").value = "";
+            // Get current stock names in Redux state
+            let currentStocks       = this.props.successData.map( item => item["processedData"]["symbol"] );
+            let filteredStockNames  = [];
+            let duplicateStockNames = [];
+
+            // Retrieve stock names that are not included in Redux state
+            assetNames.forEach( stock => {
+                let includedStock = includes(currentStocks, stock);
+
+                if(includedStock === false)
+                {
+                    filteredStockNames.push(stock);
+                }
+                else if(includedStock === true)
+                {
+                    duplicateStockNames.push(stock);
+                }
+            });
+
+            // Only fetch new entries
+            if(filteredStockNames.length > 0)
+            {
+                this.props.userInput(filteredStockNames);
+                this.props.fetchData(filteredStockNames);
+            }
+
+            // Let the user know duplicate entries will not be fetched
+            if(duplicateStockNames.length > 0)
+            {
+                alert("You have entered a duplicate stock(s). Please try again.");
+            }
+
         }
 
-        // If user only enters spaces, clear form only
+        // Clear form
         document.querySelector("#user-input").value = "";
         event.preventDefault();
     }
@@ -35,11 +66,32 @@ class Input extends Component{
             </form>
         );
     }
+
+    componentDidMount(){
+        let { assetNames }  = this.props;
+        let { successData } = this.props;
+
+        // When component mounts, we have no data so fetch
+        if(successData.length === 0)
+        {
+            this.props.fetchData(assetNames);
+        }
+
+    }
 }
 
 Input.propTypes = {
     userInput: PropTypes.func,
-    fetchData: PropTypes.func
+    fetchData: PropTypes.func,
+    assetNames: PropTypes.array,
+    successData: PropTypes.array
 };
 
-export default connect(null, { userInput, fetchData })(Input);
+let mapState = (state) => {
+    return {
+        ...state.receivedData,
+        ...state.userInteraction
+    };
+};
+
+export default connect(mapState, { userInput, fetchData })(Input);
