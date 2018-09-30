@@ -44,9 +44,6 @@ class Input extends Component{
             {
                 this.props.userInput(filteredStockNames);
                 this.props.fetchData(filteredStockNames);
-
-                // Reset duplicate stocks stored in Redux state
-                this.props.enteredDuplicateStocks([]);
             }
 
             // Let the user know duplicate entries will not be fetched
