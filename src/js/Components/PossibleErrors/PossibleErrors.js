@@ -18,7 +18,7 @@ class PossibleErrors extends Component{
                 (() => {
                     if(errorData.length > 0 && tooManyCallsData.length === 0)
                         return <DroppedStock/>;
-                    if(tooManyCallsData.length > 0 && errorData.length === 0)
+                    else if(tooManyCallsData.length > 0 && errorData.length === 0)
                         return <ExceededCallLimit/>;
                     else if(errorData.length > 0 && tooManyCallsData.length > 0)
                         return(
