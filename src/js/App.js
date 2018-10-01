@@ -1,8 +1,8 @@
-import "./app.scss";
 import React, { Component, Fragment }      from "react";
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
 import { Home }                            from "./Views";
 import { Footer }                          from "./Components";
+import "./app.scss";
 
 class App extends Component{
     render(){
