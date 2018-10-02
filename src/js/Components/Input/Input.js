@@ -96,4 +96,10 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, { userInput, fetchData, enteredDuplicateStocks })(Input);
+let actionCreators = {
+    userInput,
+    fetchData,
+    enteredDuplicateStocks
+};
+
+export default connect(mapState, { ...actionCreators })(Input);

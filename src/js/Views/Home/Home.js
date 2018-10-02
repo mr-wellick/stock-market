@@ -24,15 +24,9 @@ class Home extends Component{
                 <section className="section-data">
                     <Loading/>
                     <Dialog>
-                        <Dialog.Error>
-                            <DroppedStock/>
-                        </Dialog.Error>
-                        <Dialog.Warning>
-                            <ExceededCallLimit/>
-                        </Dialog.Warning>
-                        <Dialog.Duplicate>
-                          <DuplicateStockEntries/> 
-                        </Dialog.Duplicate>
+                        <Dialog.Error><DroppedStock/></Dialog.Error>
+                        <Dialog.Warning><ExceededCallLimit/></Dialog.Warning>
+                        <Dialog.Duplicate><DuplicateStockEntries/></Dialog.Duplicate>
                     </Dialog>
                     <Table/>
                     <div className="section-data__active-stock">
