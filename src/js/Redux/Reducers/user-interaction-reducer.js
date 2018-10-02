@@ -4,7 +4,7 @@ import { ACTIVE_STOCK }             from "../Constants";
 import { ENTERED_DUPLICATE_STOCKS } from "../Constants";
 
 let initialState = {
-    assetNames: ["TSLA", "KO", "IBM", "AAPL", "NFLX"],
+    assetNames: ["TSLA", "KO", "AAPL", "NFLX"],
     assetType: "function=TIME_SERIES_MONTHLY_ADJUSTED&",
     activeStockData: {},
     duplicateStocks: []

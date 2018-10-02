@@ -7,7 +7,7 @@ class ExceededCallLimit extends Component{
         return(
             <div className="too-many-calls">
                 <div>
-                    <strong>Warning!</strong> Exceeded api call limit.
+                    <strong>Warning!</strong> Exceeded api call limit. Please wait a few seconds and try again.
                 </div>
                 <a className="too-many-calls__message--toggler">X</a>
             </div>
