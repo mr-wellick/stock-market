@@ -25,7 +25,7 @@ class Axis extends Component{
             // Format ticks based on daily or monthly data and append x-axis
             select(".x-axis")
                 .transition()
-                .duration(1000)
+                .duration(200)
                 .attr("transform", axisLocation)
                 .call(
                     axisBottom(scale)
@@ -41,8 +41,8 @@ class Axis extends Component{
             // Append y-axis
             select(".y-axis")
                 .transition()
-                .delay(800)
-                .duration(1000)
+                .delay(200)
+                .duration(300)
                 .attr("transform", axisLocation)
                 .call(axisLeft(scale));
         }
