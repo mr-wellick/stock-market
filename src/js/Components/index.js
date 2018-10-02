@@ -7,3 +7,6 @@ export { DuplicateStockEntries } from "./DuplicateStockEntries";
 export { LineChart }             from "./LineChart";
 export { ActiveStock }           from "./ActiveStock";
 export { Footer }                from "./Footer";
+
+
+export { Dialog } from "./Dialog";
