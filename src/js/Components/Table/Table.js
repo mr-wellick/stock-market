@@ -22,7 +22,7 @@ class Table extends Component{
                             <th className="stocks-table__col--hide">Low</th>
                             <th className="stocks-table__col--hide">High</th>
                             <th className="stocks-table__col">% Change</th>
-                            <th className="stocks-table__col--hide">Dates</th>
+                            <th className="stocks-table__col--hide">Current Date</th>
                         </tr>
                     </thead>
                     <tbody>
