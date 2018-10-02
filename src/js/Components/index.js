@@ -1,12 +1,11 @@
 export { Input }                 from "./Input";
 export { Select }                from "./Select";
 export { Table }                 from "./Table";
-export { Loading  }              from "./Loading";
-export { PossibleErrors }        from "./PossibleErrors";
+export { Loading }               from "./Loading";
+export { DroppedStock }          from "./DroppedStock";
+export { ExceededCallLimit }     from "./ExceededCallLimit";
 export { DuplicateStockEntries } from "./DuplicateStockEntries";
+export { Dialog }                from "./Dialog";
 export { LineChart }             from "./LineChart";
 export { ActiveStock }           from "./ActiveStock";
 export { Footer }                from "./Footer";
-
-
-export { Dialog } from "./Dialog";

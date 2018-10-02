@@ -8,13 +8,10 @@ class DuplicateStockEntries extends Component{
     render(){
         let { duplicateStocks } = this.props;
 
-        if(duplicateStocks.length === 0)
-            return null;
-
         return(
             <div className="duplicate-stock">
                 <div className="duplicate-stock__message">
-                    <strong>Sorry!</strong> Entered duplicate stock(s):
+                    <strong>Sorry!</strong> Entered duplicate stock(s) and will not retrieve the following:
                     {
                         duplicateStocks.map( (item, index) =>
                             <p key={ index }>

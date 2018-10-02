@@ -4,11 +4,12 @@ import { Fragment }              from "react";
 import { Select }                from "../../Components";
 import { Input }                 from "../../Components";
 import { Loading }               from "../../Components";
-//import { PossibleErrors }        from "../../Components";
-//import { DuplicateStockEntries } from "../../Components";
-//import { Table }                 from "../../Components";
-//import { LineChart }             from "../../Components";
-//import { ActiveStock }           from "../../Components";
+import { DroppedStock }          from "../../Components";
+import { ExceededCallLimit }     from "../../Components";
+import { DuplicateStockEntries } from "../../Components";
+import { Table }                 from "../../Components";
+import { LineChart }             from "../../Components";
+import { ActiveStock }           from "../../Components";
 import { Dialog }                from "../../Components";
 import "./home.scss";
 
@@ -24,21 +25,20 @@ class Home extends Component{
                     <Loading/>
                     <Dialog>
                         <Dialog.Error>
-                            Error! Entered incorrect stock.
+                            <DroppedStock/>
                         </Dialog.Error>
                         <Dialog.Warning>
-                            Warning! Can only call 5 stocks per minute. Please wait and try again.
+                            <ExceededCallLimit/>
                         </Dialog.Warning>
+                        <Dialog.Duplicate>
+                          <DuplicateStockEntries/> 
+                        </Dialog.Duplicate>
                     </Dialog>
-                    {/*
-                    <PossibleErrors/>
-                    <DuplicateStockEntries/>
                     <Table/>
                     <div className="section-data__active-stock">
                         <ActiveStock/>
                         <LineChart/>
                     </div>
-                    */}
                 </section>
             </Fragment>
         );
