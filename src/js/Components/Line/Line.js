@@ -34,7 +34,7 @@ class Line extends Component{
             .datum(dataToRender)
             .transition()
             .delay(200)
-            .duration(300)
+            .duration(200)
             .attr("fill", "none")
             .attr("stroke", color)
             .attr("stroke-width", 1.5)
