@@ -1,7 +1,4 @@
 // Reducers
-import userInteractionReducer from "./user-interaction-reducer";
-import receivedDataReducer    from "./received-data-reducer";
-import isFetchingDataReducer  from "./is-fetching-data-reducer";
 
 // Redux imports
 import { combineReducers } from "redux";
@@ -12,9 +9,6 @@ import thunkMiddleware     from "redux-thunk";
 
 // Gather reducers
 let rootReducer = combineReducers({
-    userInteraction: userInteractionReducer,
-    receivedData: receivedDataReducer,
-    isFetchingData: isFetchingDataReducer
 });
 
 // Create action logger for development
