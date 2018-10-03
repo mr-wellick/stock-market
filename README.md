@@ -1,8 +1,8 @@
 # Screenshots (mobile view)
-![alt text](mobile-1.png)
-![alt text](mobile-2.png)
-![alt text](mobile-3.png)
-![alt text](mobile-4.png)
+![nothing to show](./screenshots/mobile-1.png)
+![nothing to show](./screenshots/mobile-2.png)
+![nothing to show](./screenshots/mobile-3.png)
+![nothing to show](./screenshots/mobile-4.png)
 
 # Visit the site
 + This site is a previous iteration of the app: https://ll2nz.github.io/securities-app/
