@@ -3,6 +3,12 @@ $nav-background-color: #f8f9fa;
 $nav-item-color: rgba(0,0,0,.9);
 $hover-color: #dda4a7;
 
+.main-header-container
+{
+    // colors
+    background-color: $nav-background-color;
+}
+
 .main-header
 {
     // displays
@@ -10,14 +16,8 @@ $hover-color: #dda4a7;
     grid-template-columns: 1fr 1fr;
     align-items: center;
 
-    // colors
-    background-color: $nav-background-color;
-
     // box model
     padding: 20px;
-
-    // position
-    //position: fixed;
 }
 
 .main-header__logo
@@ -56,5 +56,15 @@ $hover-color: #dda4a7;
     .main-header__logo
     {
         display: none;
+    }
+}
+
+// Large displays
+@media (min-width: 1100px)
+{
+    .main-header
+    {
+        width: 70%;
+        margin: 0 auto;
     }
 }
