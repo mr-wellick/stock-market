@@ -4,7 +4,6 @@ import uniq          from "lodash.uniq";
 import "./input.scss";
 
 class Input extends Component{
-
     onSubmit = (event) => {
         // get user input
         let userInput = document.querySelector("#user-input").value.toUpperCase().trim();
@@ -31,13 +30,19 @@ class Input extends Component{
 
     render(){
         return(
-            <form onSubmit={ this.onSubmit }>
+            <form onSubmit={ this.onSubmit } className="main-form">
                 <input
                     type="text"
                     placeholder="Enter Stock(s): TSLA, IBM, ..."
                     id="user-input"
+                    className="main-form__input"
                 />
-                <button type="submit">ADD</button>
+                <button
+                    type="submit"
+                    className="main-form__btn"
+                >
+                ADD
+                </button>
             </form>
         );
     }
