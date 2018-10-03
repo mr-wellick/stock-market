@@ -7,7 +7,7 @@ class Home extends Component{
     render(){
         return(
             <Fragment>
-                <h1>hello</h1>
+                <h1>This is a test to make sure the component works.</h1>
             </Fragment>
         );
     }

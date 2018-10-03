@@ -20,6 +20,12 @@ class App extends Component{
                                 <li className="main-nav__item">
                                     <Link to="/">Home</Link>
                                 </li>
+                                <li>
+                                    <p>Basics</p>
+                                </li>
+                                <li>
+                                    <p>Portfolio</p>
+                                </li>
                             </ul>
                         </nav>
                     </header>

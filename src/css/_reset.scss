@@ -1,11 +1,9 @@
-/* Border box declaration
-https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html
 {
     box-sizing: border-box;
     font-size: 1em;
 }
-/* inherit border-box on all elements in the universe and before and after */
+
 *,
 *:before,
 *:after
@@ -13,7 +11,6 @@ html
   box-sizing: inherit;
 }
 
-// Set my preferred defaults
 body
 {
     margin: 0;
@@ -31,6 +28,7 @@ body
         text-transform: uppercase;
     }
 
-    // Set default styling for anchor tags
     a { text-decoration: none; }
+
+    p { margin: 0; }
 }
