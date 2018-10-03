@@ -33,7 +33,7 @@ class Input extends Component{
             <form onSubmit={ this.onSubmit } className="main-form">
                 <input
                     type="text"
-                    placeholder="Enter Stock(s): TSLA, IBM, ..."
+                    placeholder="Enter Stock(s)"
                     id="user-input"
                     className="main-form__input"
                 />

@@ -8,7 +8,11 @@ class Home extends Component{
     render(){
         return(
             <Fragment>
-                <Input/>
+                <section className="section-container">
+                    <div className="section-container__form">
+                        <Input/>
+                    </div>
+                </section>
             </Fragment>
         );
     }
