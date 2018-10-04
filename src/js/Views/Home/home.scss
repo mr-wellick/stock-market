@@ -3,10 +3,25 @@
     position: fixed;
     width: 30%;
     height: 100vh;
-    
+    border-right: 1px solid #ced4da;
 }    
 
 .section-container__form
 {
-    margin: 20px;
+    margin: 10px;
+}
+
+.section-container__messages
+{
+    //height: 50vh;
+    //overflow-y: scroll;
+}
+
+@media (max-width: 600px)
+{
+    .section-container
+    {
+        width: 100%;
+        display: initial;
+    }
 }
