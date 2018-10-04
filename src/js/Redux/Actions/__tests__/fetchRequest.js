@@ -7,4 +7,5 @@ test("make sure fetchRequest returns correct object", () => {
 
     // check correct object properties are produced
     expect(requesting).toHaveProperty("type", FETCH_DATA_REQUEST);
+    expect(requesting).toHaveProperty("isFetching", true);
 });
