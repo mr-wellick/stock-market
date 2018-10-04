@@ -4,31 +4,57 @@ import PropTypes     from "prop-types";
 import "./dialog.scss";
 
 class Dialog extends Component{
-
     // handle error messages
     static Error = (props) => props.error ?
         <div className="dialog-error">
-            <div className="dialog-error__keyword">Error!</div>
-            Entered incorrect stock.
+            <p>
+                <strong>Error! </strong>
+                Entered incorrect stock(s).
+            </p>
         </div> : null;
     
     // handle warnings
-    static Warning = (props) => props.warning ? props.children : null;
+    static Warning = (props) => props.warning ?
+        <div className="dialog-warning">
+            <p>
+                <strong>Warning! </strong>
+                Can only retrieve a maximum of 4 stocks per minute.
+                Please wait.
+            </p>
+        </div> : null;
 
     // handle duplicate stock entries 
-    static Duplicate = (props) => props.duplicate ? props.children : null;
+    static Duplicate = (props) => props.duplicate ? 
+        <div className="dialog-duplicate">
+            <p>
+                <strong>Sorry! </strong>
+                Entered duplicate stock(s) and will not retrieve the following:
+            </p>
+            <ul>
+                <li>TSLA</li>
+            </ul>
+        </div> : null;
 
     // handle success retrievals
-    static Success = (props) => props.success ? props.children : null;
+    static Success = (props) => props.success ?
+        <div className="dialog-success">
+            <p>
+                <strong>Success! </strong>
+                Entered duplicate stock(s) and will not retrieve the following:
+            </p>
+            <ul>
+                <li>TSLA</li>
+            </ul>
+        </div> : null;
 
     render(){
         let { children } = this.props;
         return React.Children.map(children, childElemnt => {
             return React.cloneElement(childElemnt, {
                 error: true,
-                warning: false,
-                duplicate: false,
-                success: false
+                warning: true,
+                duplicate: true,
+                success: true 
             });
         });
     }
