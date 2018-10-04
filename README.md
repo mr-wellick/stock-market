@@ -1,14 +1,8 @@
-# Screenshots (mobile view)
-![nothing to show](./screenshots/mobile-1.png)
-![nothing to show](./screenshots/mobile-2.png)
-![nothing to show](./screenshots/mobile-3.png)
-![nothing to show](./screenshots/mobile-4.png)
+# Refactoring entire application
++ Currently refactoring entire application.
++ You can still visit the previous iteration of the app: https://ll2nz.github.io/securities-app/
 
-# Visit the site
-+ This site is a previous iteration of the app: https://ll2nz.github.io/securities-app/
-+ I'm hoping to release the new iteration soon.
-
-# App functionality 
+# App functionality
 + Query single/multiple stock(s).
 + Each query will show you a table with the latest monthly/daily adjusted price and percent change for each stock.
 + Invalid stock entries will be removed and an error will be thrown.
