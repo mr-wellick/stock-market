@@ -12,7 +12,7 @@ $hover-color: #dda4a7;
 .main-header
 {
     // displays
-    display: grid; 
+    display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
 
@@ -60,7 +60,7 @@ $hover-color: #dda4a7;
 }
 
 // Large displays
-@media (min-width: 1100px)
+@media (min-width: 1300px)
 {
     .main-header
     {
