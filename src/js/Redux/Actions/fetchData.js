@@ -2,6 +2,7 @@ import fetchComplete  from "./fetchComplete.js";
 import fetchError     from "./fetchError.js";
 import fetchSuccess   from "./fetchSuccess.js";
 import fetchManyCalls from "./fetchManyCalls.js";
+import fetchRequest   from "./fetchRequest.js";
 
 function fetchData(stockNames)
 {
@@ -10,6 +11,7 @@ function fetchData(stockNames)
 
     return function(dispatch){
         // begin request
+        dispatch(fetchRequest(true));
         return(
             // iterate through each stock and request
             Promise.all(
@@ -35,6 +37,7 @@ function fetchData(stockNames)
 
                 // end request
                 dispatch(fetchComplete(processedData));
+                dispatch(fetchRequest(false));
             })
         );
     };
