@@ -1,5 +1,7 @@
+# Desktop display
+![nothing to show](./screenshots/desktop-display.png)
+
 # Refactoring entire application
-+ Currently refactoring entire application.
 + You can still visit the previous iteration of the app: https://ll2nz.github.io/securities-app/
 
 # App functionality
