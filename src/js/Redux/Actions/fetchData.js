@@ -5,12 +5,13 @@ function fetchData(stockNames)
 
     return function(dispatch){
         // begin request
+        dispatch();
         return(
             // iterate through each stock and request
             Promise.all(
                 stockNames.map(stock =>
                     fetch(`https://www.alphavantage.co/query?${assetType}symbol=${stock}&apikey=${process.env.API_KEY}`)
-                    .then(res => res.json())
+                        .then(res => res.json())
                 )
             )
             // process data accordingly
