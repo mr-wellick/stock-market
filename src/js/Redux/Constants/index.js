@@ -3,6 +3,7 @@ export const FETCH_DATA_REQUEST        = "FETCH_DATA_REQUEST";
 export const FETCH_DATA_SUCCESS        = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_ERROR          = "FETCH_DATA_ERROR";
 export const FETCH_DATA_TOO_MANY_CALLS = "FETCH_DATA_TOO_MANY_CALLS";
+export const FETCH_DATA_COMPLETE       = "FETCH_DATA_COMPLETE";
 
 // user interaction actions
 export const USER_INPUT_STOCKS             = "USER_INPUT_STOCKS";

@@ -1,5 +1,8 @@
 import React         from "react";
 import { Component } from "react";
+import PropTypes     from "prop-types";
+import { connect }   from "react-redux";
+import { fetchData } from "../../Redux/";
 import uniq          from "lodash.uniq";
 import "./input.scss";
 
@@ -20,7 +23,7 @@ class Input extends Component{
 
             // get unique entries only
             let uniqueEntries = uniq(filterInputs);
-            console.log(uniqueEntries);
+            this.props.fetchData(uniqueEntries);
         }
 
         // clear form
@@ -48,4 +51,8 @@ class Input extends Component{
     }
 }
 
-export default Input;
+Input.propTypes = {
+    fetchData: PropTypes.func
+};
+
+export default connect(null, { fetchData })(Input);
