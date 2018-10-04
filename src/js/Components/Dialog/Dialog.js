@@ -40,7 +40,7 @@ class Dialog extends Component{
         <div className="dialog-success">
             <p>
                 <strong>Success! </strong>
-                Entered duplicate stock(s) and will not retrieve the following:
+                The following stocks were retrieved successfully:
             </p>
             <ul>
                 <li>TSLA</li>

@@ -1,0 +1,40 @@
+.selection-form
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding: 10px 0;
+}
+
+.selection-form__monthly,
+.selection-form__daily
+{
+    width: 80%;
+    text-align: center;
+}
+
+.selection-form__monthly label,
+.selection-form__daily label
+{
+    display: block;
+    padding: 7px;
+    border: 1px solid rgba(221, 164, 167, 1);
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.selection-form input
+{
+    display: none;
+}
+
+.selection-form [type=radio]:checked ~ label
+{
+    background-color: rgba(221, 164, 167, 1);
+    color: white;
+}
+
+.selection-form label:hover
+{
+    cursor: pointer;
+}
