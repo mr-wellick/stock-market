@@ -53,6 +53,10 @@ class Input extends Component{
             </form>
         );
     }
+
+    componentDidMount(){
+        this.props.fetchData(["TSLA"]);
+    }
 }
 
 export default connect(null, { fetchData })(Input);

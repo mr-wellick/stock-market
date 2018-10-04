@@ -11,7 +11,7 @@ class Toggler extends Component{
     }
 
     state = {
-        activeData: []
+        activeData: {}
     }
 
     onChange = (event) => {

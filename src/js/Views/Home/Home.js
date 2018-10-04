@@ -8,6 +8,7 @@ import { Select }      from "../../Components/";
 import { Table }       from "../../Components/";
 import { Toggler }     from "../../Components/";
 import { ActiveStock } from "../../Components/";
+import { LineChart }   from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -36,10 +37,13 @@ class Home extends Component{
                 <section className="section-container__table">
                     <Table/>
                 </section>
-                <section>
+                <section section="section-container__data">
                     <Toggler>
                         {(data, onChange, activeData) => (
-                            <ActiveStock successData={ data } onChange={ onChange }/>
+                            <Fragment>
+                                <ActiveStock successData={ data } onChange={ onChange }/>
+                                <LineChart activeData={ activeData }/>
+                            </Fragment>
                         )}
                     </Toggler>
                 </section>

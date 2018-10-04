@@ -5,3 +5,4 @@ export { Loader }      from "./Loader/";
 export { Table }       from "./Table/";
 export { Toggler }     from "./Toggler/";
 export { ActiveStock } from "./ActiveStock/";
+export { LineChart }   from "./LineChart/";
