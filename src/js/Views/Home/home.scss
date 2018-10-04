@@ -28,6 +28,16 @@
     //overflow-y: scroll;
 }
 
+.section-container__table
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-top: 50px;
+}
+
 @media (max-width: 600px)
 {
     .section-container

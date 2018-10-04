@@ -1,10 +1,11 @@
 import React         from "react";
 import { Component } from "react";
 import { Fragment }  from "react";
-import { Input }     from "../../Components";
-import { Dialog }    from "../../Components";
-import { Select }    from "../../Components";
-//import { Loader }    from "../../Components";
+import { Input }     from "../../Components/";
+import { Dialog }    from "../../Components/";
+import { Select }    from "../../Components/";
+//import { Loader }    from "../../Components/";
+import { Table }     from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -29,6 +30,9 @@ class Home extends Component{
                             <Dialog.Success/>
                         </Dialog>
                     </div>
+                </section>
+                <section className="section-container__table">
+                    <Table/>
                 </section>
             </Fragment>
         );
