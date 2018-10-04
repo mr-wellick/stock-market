@@ -3,9 +3,13 @@ import { Component } from "react";
 import "./select.scss";
 
 class Select extends Component{
+    onChange = (event) => {
+        console.log(event.target.value);
+    }
+
     render(){
         return(
-            <form className="selection-form">
+            <form onChange={ this.onChange } className="selection-form">
                 <div className="selection-form__monthly">
                     <input
                         type="radio"

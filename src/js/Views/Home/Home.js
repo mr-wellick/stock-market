@@ -4,6 +4,7 @@ import { Fragment }  from "react";
 import { Input }     from "../../Components";
 import { Dialog }    from "../../Components";
 import { Select }    from "../../Components";
+//import { Loader }    from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
