@@ -13,11 +13,11 @@ class Input extends Component{
         {
             // turn user input into array
             let arrayOfInputs = userInput.split(",");
-    
+
             // filter user input
             let singleWord   = /([A-Z]+)/;
             let filterInputs = arrayOfInputs.map(stock => stock.match(singleWord)[0]);
-    
+
             // get unique entries only
             let uniqueEntries = uniq(filterInputs);
             console.log(uniqueEntries);

@@ -17,7 +17,7 @@ class App extends Component{
                         <header className="main-header">
                             <h1 className="main-header__logo">Stocks</h1>
                             <nav className="main-nav">
-                                <ul className="main-nav__items"> 
+                                <ul className="main-nav__items">
                                     <li className="main-nav__item">
                                         <Link to="/">Home</Link>
                                     </li>

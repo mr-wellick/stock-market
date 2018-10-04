@@ -12,7 +12,7 @@ class Dialog extends Component{
                 Entered incorrect stock(s).
             </p>
         </div> : null;
-    
+
     // handle warnings
     static Warning = (props) => props.warning ?
         <div className="dialog-warning">
@@ -23,8 +23,8 @@ class Dialog extends Component{
             </p>
         </div> : null;
 
-    // handle duplicate stock entries 
-    static Duplicate = (props) => props.duplicate ? 
+    // handle duplicate stock entries
+    static Duplicate = (props) => props.duplicate ?
         <div className="dialog-duplicate">
             <p>
                 <strong>Sorry! </strong>
@@ -54,7 +54,7 @@ class Dialog extends Component{
                 error: true,
                 warning: true,
                 duplicate: true,
-                success: true 
+                success: true
             });
         });
     }
