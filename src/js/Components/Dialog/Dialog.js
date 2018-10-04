@@ -5,6 +5,12 @@ import { connect }   from "react-redux";
 import "./dialog.scss";
 
 class Dialog extends Component{
+    static propTypes = {
+        children: PropTypes.array,
+        errorData: PropTypes.array,
+        manyCallsData: PropTypes.array
+    }
+
     // handle error messages
     static Error = (props) => props.error ?
         <div className="dialog-error">
@@ -63,12 +69,6 @@ class Dialog extends Component{
         });
     }
 }
-
-Dialog.propTypes = {
-    children: PropTypes.array,
-    errorData: PropTypes.array,
-    manyCallsData: PropTypes.array
-};
 
 let mapState = (state) => {
     return {

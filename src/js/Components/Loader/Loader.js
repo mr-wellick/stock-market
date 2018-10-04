@@ -5,6 +5,10 @@ import { connect }   from "react-redux";
 import "./loader.scss";
 
 class Loader extends Component{
+    static propTypes = {
+        isFetching: PropTypes.bool
+    }
+
     render(){
         if(this.props.isFetching === false)
             return null;
@@ -14,10 +18,6 @@ class Loader extends Component{
         );
     }
 }
-
-Loader.propTypes = {
-    isFetching: PropTypes.bool
-};
 
 let mapState = (state) => {
     return {

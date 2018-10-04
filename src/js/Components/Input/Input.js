@@ -7,6 +7,10 @@ import uniq          from "lodash.uniq";
 import "./input.scss";
 
 class Input extends Component{
+    static propTypes = {
+        fetchData: PropTypes.func
+    }
+
     onSubmit = (event) => {
         // get user input
         let userInput = document.querySelector("#user-input").value.toUpperCase().trim();
@@ -50,9 +54,5 @@ class Input extends Component{
         );
     }
 }
-
-Input.propTypes = {
-    fetchData: PropTypes.func
-};
 
 export default connect(null, { fetchData })(Input);

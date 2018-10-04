@@ -5,6 +5,11 @@ import { connect }   from "react-redux";
 import "./table.scss";
 
 class Table extends Component{
+
+    static propTypes = {
+        successData: PropTypes.array
+    }
+
     render(){
         let { successData } = this.props;
 
@@ -53,10 +58,6 @@ class Table extends Component{
         );
     }
 }
-
-Table.propTypes = {
-    successData: PropTypes.array
-};
 
 let mapState = (state) => {
     return {
