@@ -1,6 +1,7 @@
 import React         from "react";
 import { Component } from "react";
 import PropTypes     from "prop-types";
+import { connect }   from "react-redux";
 import "./dialog.scss";
 
 class Dialog extends Component{
@@ -48,20 +49,31 @@ class Dialog extends Component{
         </div> : null;
 
     render(){
-        let { children } = this.props;
+        let { children }      = this.props;
+        let { errorData }     = this.props;
+        let { manyCallsData } = this.props;
+
         return React.Children.map(children, childElemnt => {
             return React.cloneElement(childElemnt, {
-                error: true,
-                warning: true,
-                duplicate: true,
-                success: true
+                error: errorData.length > 0 ? true : false,
+                warning: manyCallsData.length > 0 ? true : false,
+                duplicate: false,
+                success: false
             });
         });
     }
 }
 
 Dialog.propTypes = {
-    children: PropTypes.array
+    children: PropTypes.array,
+    errorData: PropTypes.array,
+    manyCallsData: PropTypes.array
 };
 
-export default Dialog;
+let mapState = (state) => {
+    return {
+        ...state.fetchData
+    };
+};
+
+export default connect(mapState, null)(Dialog);
