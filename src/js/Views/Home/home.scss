@@ -38,6 +38,14 @@
     margin-top: 50px;
 }
 
+.section-container__data
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin-left: auto;
+}
+
 @media (max-width: 600px)
 {
     .section-container

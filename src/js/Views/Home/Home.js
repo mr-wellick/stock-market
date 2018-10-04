@@ -37,7 +37,7 @@ class Home extends Component{
                 <section className="section-container__table">
                     <Table/>
                 </section>
-                <section section="section-container__data">
+                <section className="section-container__data">
                     <Toggler>
                         {(data, onChange, activeData) => (
                             <Fragment>
