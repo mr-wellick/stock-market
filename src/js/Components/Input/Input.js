@@ -55,7 +55,7 @@ class Input extends Component{
     }
 
     componentDidMount(){
-        this.props.fetchData(["TSLA"]);
+        //this.props.fetchData(["TSLA"]);
     }
 }
 

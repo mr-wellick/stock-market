@@ -5,43 +5,38 @@ $hover-color: #dda4a7;
 
 .main-header-container
 {
-    // colors
     background-color: $nav-background-color;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .main-header
 {
-    // displays
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-
-    // box model
     padding: 20px;
 }
 
 .main-header__logo
 {
-    // colors
     color: $nav-item-color;
 }
 
 .main-nav__items
 {
-    // displays
     display: flex;
     justify-content: space-around;
 }
 
 .main-nav__items a
 {
-    // colors
     color: $nav-item-color;
 }
 
 .main-nav__items a:hover
 {
-    // colors
     color: $hover-color;
 }
 
@@ -56,15 +51,5 @@ $hover-color: #dda4a7;
     .main-header__logo
     {
         display: none;
-    }
-}
-
-// Large displays
-@media (min-width: 1300px)
-{
-    .main-header
-    {
-        width: 70%;
-        margin: 0 auto;
     }
 }

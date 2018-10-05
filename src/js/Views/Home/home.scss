@@ -1,56 +1,5 @@
-.section-container
+.main-sidebar
 {
-    position: fixed;
-    width: 30%;
-    height: 100vh;
-    border-right: 1px solid #ced4da;
+    margin-top: 80px;
 }
 
-.section-container__selection
-{
-    margin: 10px;
-}
-
-.section-container__selection-info
-{
-    text-align: center;
-    padding: 10px;
-}
-
-.section-container__form
-{
-    margin: 10px;
-}
-
-.section-container__messages
-{
-    //height: 50vh;
-    //overflow-y: scroll;
-}
-
-.section-container__table
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    width: 70%;
-    margin-left: auto;
-    margin-top: 50px;
-}
-
-.section-container__data
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 70%;
-    margin-left: auto;
-}
-
-@media (max-width: 600px)
-{
-    .section-container
-    {
-        width: 100%;
-        display: initial;
-    }
-}
