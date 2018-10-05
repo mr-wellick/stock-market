@@ -1,6 +1,10 @@
 # Desktop display
 ![nothing to show](./screenshots/desktop-display.png)
 
+# Mobile display
+![nothing to show](./screenshots/mobile-1.png)
+![nothing to show](./screenshots/mobile-2.png)
+
 # Refactoring entire application
 + You can still visit the previous iteration of the app: https://ll2nz.github.io/securities-app/
 
