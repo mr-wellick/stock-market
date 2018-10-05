@@ -25,16 +25,17 @@ class Home extends Component{
                         <Dialog.Success/>
                     </Dialog>
                 </section>
-
-                <Table/>
-                <Toggler>
-                    {(data, onChange, activeData) => (
-                        <Fragment>
-                            <ActiveStock successData={ data } onChange={ onChange }/>
-                            <LineChart activeData={ activeData }/>
-                        </Fragment>
-                    )}
-                </Toggler>
+                <section className="main-content">
+                    <Table/>
+                    <Toggler>
+                        {(data, onChange, activeData) => (
+                            <Fragment>
+                                <ActiveStock successData={ data } onChange={ onChange }/>
+                                <LineChart activeData={ activeData }/>
+                            </Fragment>
+                        )}
+                    </Toggler>
+                </section>
             </Fragment>
         );
     }
