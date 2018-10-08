@@ -1,7 +1,9 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
+import React           from "react";
+import { Component }   from "react";
+import PropTypes       from "prop-types";
+import { connect }     from "react-redux";
+import { Errors }      from "../Errors/";
+import { Warnings }    from "../Warnings/";
 import "./dialog.scss";
 
 class Dialog extends Component{
@@ -11,24 +13,9 @@ class Dialog extends Component{
         manyCallsData: PropTypes.array
     }
 
-    // handle error messages
-    static Error = (props) => props.error ?
-        <div className="dialog-error">
-            <p>
-                <strong>Error! </strong>
-                Entered incorrect stock(s).
-            </p>
-        </div> : null;
-
-    // handle warnings
-    static Warning = (props) => props.warning ?
-        <div className="dialog-warning">
-            <p>
-                <strong>Warning! </strong>
-                Can only retrieve a maximum of 4 stocks per minute.
-                Please wait.
-            </p>
-        </div> : null;
+    // Main application errors
+    static Errors   = (props) => props.errors ? <Errors/> : null;
+    static Warnings = (props) => props.warnings ? <Warnings/> : null;
 
     // handle duplicate stock entries
     static Duplicate = (props) => props.duplicate ?
@@ -42,18 +29,6 @@ class Dialog extends Component{
             </ul>
         </div> : null;
 
-    // handle success retrievals
-    static Success = (props) => props.success ?
-        <div className="dialog-success">
-            <p>
-                <strong>Success! </strong>
-                The following stocks were retrieved successfully:
-            </p>
-            <ul>
-                <li>TSLA</li>
-            </ul>
-        </div> : null;
-
     render(){
         let { children }      = this.props;
         let { errorData }     = this.props;
@@ -61,10 +36,9 @@ class Dialog extends Component{
 
         return React.Children.map(children, childElemnt => {
             return React.cloneElement(childElemnt, {
-                error: errorData.length > 0 ? true : false,
-                warning: manyCallsData.length > 0 ? true : false,
-                duplicate: false,
-                success: false
+                errors: errorData.length > 0 ? true : false,
+                warnings: manyCallsData.length > 0 ? true : false,
+                duplicate: false
             });
         });
     }

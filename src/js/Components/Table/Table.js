@@ -19,7 +19,7 @@ class Table extends Component{
         return(
             <div className="stocks-table__container">
                 <table className="stocks-table">
-                    <thead>
+                    <thead className="stocks-table__thead">
                         <tr>
                             <th className="stocks-table__col">Stocks</th>
                             <th className="stocks-table__col">Price</th>
@@ -30,7 +30,7 @@ class Table extends Component{
                             <th className="stocks-table__col--hide">Current Date</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="stocks-table__tbody">
                     {
                         successData.map( (item, index) =>
                             <tr key={ index }>

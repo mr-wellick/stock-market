@@ -1,48 +1,12 @@
-// error colors
-$err-border-color: #eed3d7;
-$err-background-color: #f2dede;
-$err-text-color: #b94a48;
-
-// warning colors
-$warn-border-color: #fbeed5;
-$warn-background-color: #fcf8e3;
-$warn-text-color: #c09853;
-
 // duplicate entries colors
 $duplicate-border-color: #b8daff;
 $duplicate-background-color: #cce5ff;
 $duplicate-text-color: #004085;
 
-// duplicate entries colors
-$success-border-color: #c3e6cb;
-$success-background-color: #d4edda;
-$success-text-color: #155724;
-
-.dialog-error,
-.dialog-warning,
-.dialog-duplicate,
-.dialog-success
+.dialog-duplicate
 {
     margin: 10px;
     padding: 10px;
-}
-
-.dialog-error
-{
-    //margin: 20px;
-    //padding: 10px;
-    border: 1px solid $err-border-color;
-    color: $err-text-color;
-    background-color: $err-background-color;
-    border-radius: 0.25rem;
-}
-
-.dialog-warning
-{
-    border: 1px solid $warn-border-color;
-    color: $warn-text-color;
-    background-color: $warn-background-color;
-    border-radius: 0.25rem;
 }
 
 .dialog-duplicate
@@ -50,13 +14,5 @@ $success-text-color: #155724;
     border: 1px solid $duplicate-border-color;
     color: $duplicate-text-color;
     background-color: $duplicate-background-color;
-    border-radius: 0.25rem;
-}
-
-.dialog-success
-{
-    border: 1px solid $success-border-color;
-    color: $success-text-color;
-    background-color: $success-background-color;
     border-radius: 0.25rem;
 }

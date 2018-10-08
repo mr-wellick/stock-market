@@ -1,0 +1,21 @@
+// warning colors
+$warn-border-color: #fbeed5;
+$warn-background-color: #fcf8e3;
+$warn-text-color: #c09853;
+
+.dialog-warning
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid $warn-border-color;
+    color: $warn-text-color;
+    background-color: $warn-background-color;
+    border-radius: 0.25rem;
+}
+
+.dialog-warning:hover
+{
+    cursor: pointer;
+}
