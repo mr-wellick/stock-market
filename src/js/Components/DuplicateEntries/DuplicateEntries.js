@@ -19,12 +19,12 @@ class DuplicateEntries extends Component{
         let { duplicateEntries } = this.props;
         return(
             <div className="dialog-duplicate">
-                <div>
+                <div className="dialog-duplicate__message">
                     <p>
                         <strong>Sorry! </strong>
                         Entered duplicate stock(s) and will not retrieve the following:
                     </p>
-                    <a onClick={ this.onClick }>x</a>
+                    <a onClick={ this.onClick } className="dialog-duplicate__toggler">x</a>
                 </div>
                 <ul>
                 {

@@ -16,3 +16,14 @@ $duplicate-text-color: #004085;
     background-color: $duplicate-background-color;
     border-radius: 0.25rem;
 }
+
+.dialog-duplicate__message
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialog-duplicate__toggler:hover
+{
+    cursor: pointer;
+}
