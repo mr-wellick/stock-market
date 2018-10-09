@@ -1,9 +1,10 @@
-import React           from "react";
-import { Component }   from "react";
-import PropTypes       from "prop-types";
-import { connect }     from "react-redux";
-import { Errors }      from "../Errors/";
-import { Warnings }    from "../Warnings/";
+import React                from "react";
+import { Component }        from "react";
+import PropTypes            from "prop-types";
+import { connect }          from "react-redux";
+import { Errors }           from "../Errors/";
+import { Warnings }         from "../Warnings/";
+import { DuplicateEntries } from "../DuplicateEntries/";
 import "./dialog.scss";
 
 class Dialog extends Component{
@@ -14,20 +15,9 @@ class Dialog extends Component{
     }
 
     // Main application errors
-    static Errors   = (props) => props.errors ? <Errors/> : null;
-    static Warnings = (props) => props.warnings ? <Warnings/> : null;
-
-    // handle duplicate stock entries
-    static Duplicate = (props) => props.duplicate ?
-        <div className="dialog-duplicate">
-            <p>
-                <strong>Sorry! </strong>
-                Entered duplicate stock(s) and will not retrieve the following:
-            </p>
-            <ul>
-                <li>TSLA</li>
-            </ul>
-        </div> : null;
+    static Errors    = (props) => props.errors ? <Errors/> : null;
+    static Warnings  = (props) => props.warnings ? <Warnings/> : null;
+    static Duplicate = (props) => props.duplicate ? <DuplicateEntries/> : null;
 
     render(){
         let { children }      = this.props;
