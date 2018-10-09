@@ -9,7 +9,7 @@ import "./lineChart.scss";
 
 class LineChart extends Component{
     static propTypes = {
-        activeData: PropTypes.object
+        successData: PropTypes.object
     }
 
     state = {
@@ -26,16 +26,18 @@ class LineChart extends Component{
     }
 
     render(){
-        let { activeData }    = this.props;
+        let { successData }   = this.props;
         let { width, height } = this.state;
         let { padding }       = this.state;
         let dates;
         let price;
 
-        if(activeData["data"])
+        // empty array gets coerced into a falsy value.
+        // won't run when successData is an empty array.
+        if(successData)
         {
-            dates = activeData["data"]["dates"];
-            price = activeData["data"]["adjustedClose"];
+            dates = successData["data"]["dates"];
+            price = successData["data"]["adjustedClose"];
         }
         else
             return null;

@@ -28,10 +28,10 @@ class Home extends Component{
                     <Loader/>
                     <Table/>
                     <Toggler>
-                        {(data, onChange, activeData) => (
+                        {({successData, onChange, activeIndex}) => (
                             <Fragment>
-                                <ActiveStock successData={ data } onChange={ onChange }/>
-                                <LineChart activeData={ activeData }/>
+                                <ActiveStock successData={ successData } onChange={ onChange }/>
+                                <LineChart successData={ successData[activeIndex] }/>
                             </Fragment>
                         )}
                     </Toggler>

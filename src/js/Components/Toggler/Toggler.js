@@ -11,20 +11,27 @@ class Toggler extends Component{
     }
 
     state = {
-        activeData: {}
+        activeIndex: 0
     }
 
     onChange = (event) => {
         // use props to select a single data set
-        let activeIndex = event.target.value;
         this.setState({
-            activeData: this.props.successData[activeIndex]
+            activeIndex: event.target.value
         });
+    }
+
+    propCollection(){
+        return {
+            successData: this.props.successData,
+            onChange: this.onChange,
+            activeIndex: this.state.activeIndex
+        };
     }
 
     render(){
         return(
-            this.props.children(this.props.successData, this.onChange, this.state.activeData)
+            this.props.children(this.propCollection())
         );
     }
 }
