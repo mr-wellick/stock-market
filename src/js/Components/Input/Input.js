@@ -3,12 +3,16 @@ import { Component } from "react";
 import PropTypes     from "prop-types";
 import { connect }   from "react-redux";
 import { fetchData } from "../../Redux/";
+import { userInput } from "../../Redux/";
 import uniq          from "lodash.uniq";
+import includes      from "lodash.includes";
 import "./input.scss";
 
 class Input extends Component{
     static propTypes = {
-        fetchData: PropTypes.func
+        fetchData: PropTypes.func,
+        userInput: PropTypes.func,
+        successData: PropTypes.array
     }
 
     onSubmit = (event) => {
@@ -22,12 +26,38 @@ class Input extends Component{
             let arrayOfInputs = userInput.split(",");
 
             // filter user input
-            let singleWord   = /([A-Z]+)/;
-            let filterInputs = arrayOfInputs.map(stock => stock.match(singleWord)[0]);
-
-            // get unique entries only
+            let singleWord    = /([A-Z]+)/;
+            let filterInputs  = arrayOfInputs.map(stock => stock.match(singleWord)[0]);
             let uniqueEntries = uniq(filterInputs);
-            this.props.fetchData(uniqueEntries);
+
+            // Get current stock names in Redux state
+            let currentStocks       = this.props.successData.map( item => item["data"]["symbol"] );
+            let filteredStockNames  = [];
+            let duplicateStockNames = [];
+
+            // Retrieve stock names that are not included in Redux state
+            uniqueEntries.forEach( stock => {
+                let includedStock = includes(currentStocks, stock);
+                 if(includedStock === false)
+                {
+                    filteredStockNames.push(stock);
+                }
+                else if(includedStock === true)
+                {
+                    duplicateStockNames.push(stock);
+                }
+            });
+
+            // Only fetch new entries
+            if(filteredStockNames.length > 0)
+            {
+                this.props.fetchData(filteredStockNames);
+            }
+             // Let the user know duplicate entries will not be fetched
+            if(duplicateStockNames.length > 0)
+            {
+                this.props.userInput(duplicateStockNames);
+            }
         }
 
         // clear form
@@ -59,4 +89,10 @@ class Input extends Component{
     }
 }
 
-export default connect(null, { fetchData })(Input);
+let mapState = (state) => {
+    return {
+        ...state.fetchData
+    };
+};
+
+export default connect(mapState, { fetchData, userInput })(Input);

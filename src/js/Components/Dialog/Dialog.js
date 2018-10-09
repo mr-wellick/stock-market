@@ -11,7 +11,8 @@ class Dialog extends Component{
     static propTypes = {
         children: PropTypes.array,
         errorData: PropTypes.array,
-        manyCallsData: PropTypes.array
+        manyCallsData: PropTypes.array,
+        duplicateEntries: PropTypes.array
     }
 
     // Main application errors
@@ -20,15 +21,16 @@ class Dialog extends Component{
     static Duplicate = (props) => props.duplicate ? <DuplicateEntries/> : null;
 
     render(){
-        let { children }      = this.props;
-        let { errorData }     = this.props;
-        let { manyCallsData } = this.props;
+        let { children }         = this.props;
+        let { errorData }        = this.props;
+        let { manyCallsData }    = this.props;
+        let { duplicateEntries } = this.props;
 
         return React.Children.map(children, childElemnt => {
             return React.cloneElement(childElemnt, {
                 errors: errorData.length > 0 ? true : false,
                 warnings: manyCallsData.length > 0 ? true : false,
-                duplicate: false
+                duplicate: duplicateEntries.length > 0 ? true : false
             });
         });
     }

@@ -1,13 +1,16 @@
-import { FETCH_DATA_COMPLETE } from "../Constants/";
-import { FETCH_DATA_REQUEST }  from "../Constants/";
-import { RESET_DATA_ERRORS }   from "../Constants/";
-import { RESET_DATA_WARNINGS } from "../Constants/";
+import { FETCH_DATA_COMPLETE }           from "../Constants/";
+import { FETCH_DATA_REQUEST }            from "../Constants/";
+import { RESET_DATA_ERRORS }             from "../Constants/";
+import { RESET_DATA_WARNINGS }           from "../Constants/";
+import { USER_ENTERED_DUPLICATE_STOCKS } from "../Constants/";
+import { RESET_DUPLICATE_ENTRIES }       from "../Constants/";
 
 let initialState = {
     successData: [],
     errorData: [],
     manyCallsData: [],
-    isFetching: false
+    isFetching: false,
+    duplicateEntries: []
 };
 
 function fetchDataReducer(state = initialState, action)
@@ -35,6 +38,16 @@ function fetchDataReducer(state = initialState, action)
             return {
                 ...state,
                 manyCallsData: action.manyCallsData
+            };
+        case RESET_DUPLICATE_ENTRIES:
+            return {
+                ...state,
+                duplicateEntries: action.duplicateEntries
+            };
+        case USER_ENTERED_DUPLICATE_STOCKS:
+            return {
+                ...state,
+                duplicateEntries: action.duplicateEntries
             };
         default:
             return state;

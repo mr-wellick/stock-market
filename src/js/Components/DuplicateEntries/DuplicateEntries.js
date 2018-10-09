@@ -1,21 +1,47 @@
-import React         from "react";
-import { Component } from "react";
+import React                     from "react";
+import { Component }             from "react";
+import PropTypes                 from "prop-types";
+import { connect }               from "react-redux";
+import { resetDuplicateEntries } from "../../Redux/";
 import "./duplicateEntries.scss";
 
 class DuplicateEntries extends Component{
+    static propTypes = {
+        duplicateEntries: PropTypes.array,
+        resetDuplicateEntries: PropTypes.func
+    }
+
+    onClick = () => {
+        this.props.resetDuplicateEntries();
+    }
+
     render(){
+        let { duplicateEntries } = this.props;
         return(
             <div className="dialog-duplicate">
-                <p>
-                    <strong>Sorry! </strong>
-                    Entered duplicate stock(s) and will not retrieve the following:
-                </p>
+                <div>
+                    <p>
+                        <strong>Sorry! </strong>
+                        Entered duplicate stock(s) and will not retrieve the following:
+                    </p>
+                    <a onClick={ this.onClick }>x</a>
+                </div>
                 <ul>
-                    <li>TSLA</li>
+                {
+                    duplicateEntries.map( (item, index) =>
+                        <li key={ index }>{ item }</li>
+                    )
+                }
                 </ul>
             </div>
         );
     }
 }
 
-export default DuplicateEntries;
+let mapState = (state) => {
+    return {
+        ...state.fetchData
+    };
+};
+
+export default connect(mapState, { resetDuplicateEntries })(DuplicateEntries);

@@ -1,8 +1,9 @@
-import fetchComplete  from "./fetchComplete.js";
-import fetchError     from "./fetchError.js";
-import fetchSuccess   from "./fetchSuccess.js";
-import fetchManyCalls from "./fetchManyCalls.js";
-import fetchRequest   from "./fetchRequest.js";
+import fetchComplete         from "./fetchComplete.js";
+import fetchError            from "./fetchError.js";
+import fetchSuccess          from "./fetchSuccess.js";
+import fetchManyCalls        from "./fetchManyCalls.js";
+import fetchRequest          from "./fetchRequest.js";
+import resetDuplicateEntries from "./resetDuplicateEntries.js";
 
 function fetchData(stockNames)
 {
@@ -12,6 +13,7 @@ function fetchData(stockNames)
     return function(dispatch){
         // begin request
         dispatch(fetchRequest(true));
+        dispatch(resetDuplicateEntries()); // to keep the ui consistent
         return(
             // iterate through each stock and request
             Promise.all(
