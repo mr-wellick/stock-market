@@ -23,11 +23,11 @@ class Table extends Component{
                         <tr>
                             <th className="stocks-table__col">Stocks</th>
                             <th className="stocks-table__col">Price</th>
-                            <th className="stocks-table__col--hide">Open</th>
-                            <th className="stocks-table__col--hide">Low</th>
-                            <th className="stocks-table__col--hide">High</th>
+                            <th className="stocks-table__col">Open</th>
+                            <th className="stocks-table__col">Low</th>
+                            <th className="stocks-table__col">High</th>
                             <th className="stocks-table__col">% Change</th>
-                            <th className="stocks-table__col--hide">Current Date</th>
+                            <th className="stocks-table__col">Current Date</th>
                         </tr>
                     </thead>
                     <tbody className="stocks-table__tbody">
@@ -36,11 +36,11 @@ class Table extends Component{
                             <tr key={ index }>
                                 <td>{ item["data"]["symbol"] }</td>
                                 <td>{ item["data"]["adjustedClose"][0] }</td>
-                                <td className="stocks-table__col--hide">{ item["data"]["open"][0] }</td>
-                                <td className="stocks-table__col--hide">{ item["data"]["low"][0] }</td>
-                                <td className="stocks-table__col--hide">{ item["data"]["high"][0] }</td>
+                                <td className="stocks-table__col">{ item["data"]["open"][0] }</td>
+                                <td className="stocks-table__col">{ item["data"]["low"][0] }</td>
+                                <td className="stocks-table__col">{ item["data"]["high"][0] }</td>
                                 <td>{ item["data"]["percentChange"][0] }</td>
-                                <td className="stocks-table__col--hide">{ item["data"]["dates"][0] }</td>
+                                <td className="stocks-table__col">{ item["data"]["dates"][0] }</td>
                             </tr>
                         )
                     }
