@@ -1,4 +1,5 @@
-import findPercentChange from "./find-percent-change.js";
+import MonthlyStockPrices from "./MonthlyStockPrices.js";
+
 
 function processData(assetData){
 
@@ -30,7 +31,8 @@ function processData(assetData){
     let high          = rawData.map( high => high[1]["2. high"] );
     let low           = rawData.map( low => low[1]["3. low"] );
     let adjustedClose = rawData.map( price => price[1]["5. adjusted close"] ).reverse();
-    let percentChange = findPercentChange(adjustedClose);
+    let prices        = new MonthlyStockPrices(adjustedClose);
+    let percentChange = prices.findPercentChange();
 
     // Store all data in new object
     let newData = {
