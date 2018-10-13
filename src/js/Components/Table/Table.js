@@ -34,7 +34,7 @@ class Table extends Component{
                     {
                         successData.map( (item, index) =>
                             <tr key={ index }>
-                                <td>{ item["data"]["symbol"] }</td>
+                                <td>{ item["data"]["stockName"] }</td>
                                 <td>{ item["data"]["adjustedClose"][0] }</td>
                                 <td className="stocks-table__col">{ item["data"]["open"][0] }</td>
                                 <td className="stocks-table__col">{ item["data"]["low"][0] }</td>

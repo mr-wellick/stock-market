@@ -21,13 +21,13 @@ class ActiveStock extends Component{
                     <div>
                         <input
                             type="radio"
-                            id={ successData[0]["data"]["symbol"] }
+                            id={ successData[0]["data"]["stockName"] }
                             name="active-stock"
                             value={ 0 }
                             defaultChecked
                         />
-                        <label htmlFor={ successData[0]["data"]["symbol"] }>
-                            { successData[0]["data"]["symbol"] }
+                        <label htmlFor={ successData[0]["data"]["stockName"] }>
+                            { successData[0]["data"]["stockName"] }
                         </label>
                     </div>
                     {
@@ -35,15 +35,15 @@ class ActiveStock extends Component{
                         successData.length > 1 ?
                             // Remove first entry and bump indices + 1
                             successData.slice(1).map( (item, index) =>
-                                <div key={ index }>
+                                <div key={ index + 1 } /* index bump */>
                                     <input
                                         type="radio"
-                                        id={ item["data"]["symbol"] }
+                                        id={ item["data"]["stockName"] }
                                         name="active-stock"
-                                        value={ index + 1 } // index bump
+                                        value={ index + 1 } /* index bump */
                                     />
-                                    <label htmlFor={ item["data"]["symbol"] }>
-                                        { item["data"]["symbol"] }
+                                    <label htmlFor={ item["data"]["stockName"] }>
+                                        { item["data"]["stockName"] }
                                     </label>
                                 </div>
                             ) : null

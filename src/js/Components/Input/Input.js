@@ -31,7 +31,7 @@ class Input extends Component{
             let uniqueEntries = uniq(filterInputs);
 
             // Get current stock names in Redux state
-            let currentStocks       = this.props.successData.map( item => item["data"]["symbol"] );
+            let currentStocks       = this.props.successData.map( item => item["data"]["stockName"] );
             let filteredStockNames  = [];
             let duplicateStockNames = [];
 

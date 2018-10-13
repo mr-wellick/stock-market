@@ -1,1 +1,1 @@
-export { default as processData } from "./process-data";
+export { default as StockInformation } from "./StockInformation";
