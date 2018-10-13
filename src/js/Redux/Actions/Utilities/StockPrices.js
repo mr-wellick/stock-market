@@ -4,8 +4,6 @@ class StockPrices{
         this.newLength    = this.prices.length - 1;
         this.rmFirstEntry = this.prices.slice(1);
         this.rmLastEntry  = this.prices.slice(0, this.newLength);
-
-        // set numerator and denominator
         this.setNumerator();
         this.setDenominator();
     }
