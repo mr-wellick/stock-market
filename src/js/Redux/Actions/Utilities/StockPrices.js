@@ -1,4 +1,4 @@
-class MonthlyStockPrices{
+class StockPrices{
     constructor(prices){
         this.prices       = prices.reverse();
         this.newLength    = this.prices.length - 1;
@@ -34,4 +34,4 @@ class MonthlyStockPrices{
     }
 }
 
-export default MonthlyStockPrices;
+export default StockPrices;
