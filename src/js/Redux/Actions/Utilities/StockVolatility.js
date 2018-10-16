@@ -20,7 +20,7 @@ class StockVolatility{
         this.denominator = this.rmLastEntry;
     }
 
-    getPercentChange(){
+    getVolatility(){
         let percentChange = [];
         for(let i = 0; i < this.newLength; i++)
             percentChange.push( (this.numerator[i] / this.denominator[i]).toFixed(3) );

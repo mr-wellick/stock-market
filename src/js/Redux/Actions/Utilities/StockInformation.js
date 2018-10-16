@@ -22,7 +22,7 @@ class StockInformation{
     getPercentChange(){
         let adjustedClose = this.getRawData("5. adjusted close").reverse();
         adjustedClose     = new StockVolatility(adjustedClose);
-        return adjustedClose.getPercentChange();
+        return adjustedClose.getVolatility();
     }
 
     getProcessedStockData(){
