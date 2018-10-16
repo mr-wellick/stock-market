@@ -11,8 +11,7 @@ class ActiveStock extends Component{
 
     render(){
         let { successData } = this.props;
-
-        if(successData.length === 0)
+        if(this.props.successData.length === 0)
             return null;
 
         return(

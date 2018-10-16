@@ -26,8 +26,8 @@ class Dialog extends Component{
         let { manyCallsData }    = this.props;
         let { duplicateEntries } = this.props;
 
-        return React.Children.map(children, childElemnt => {
-            return React.cloneElement(childElemnt, {
+        return React.Children.map(children, childElement => {
+            return React.cloneElement(childElement, {
                 errors: errorData.length > 0 ? true : false,
                 warnings: manyCallsData.length > 0 ? true : false,
                 duplicate: duplicateEntries.length > 0 ? true : false
