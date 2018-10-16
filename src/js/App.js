@@ -5,7 +5,9 @@ import { HashRouter } from "react-router-dom";
 import { Route }      from "react-router-dom";
 import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-import { Home }       from "./Views";
+import { Home }       from "./Views/";
+import { Basics }     from "./Views/";
+import { Portfolio }  from "./Views/";
 import "./app.scss";
 
 class App extends Component{
@@ -22,10 +24,10 @@ class App extends Component{
                                         <Link to="/">Home</Link>
                                     </li>
                                     <li>
-                                        <p>Basics</p>
+                                        <Link to="/Basics">Basics</Link>
                                     </li>
                                     <li>
-                                        <p>Portfolio</p>
+                                        <Link to="/Portfolio">Portfolio</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -33,6 +35,8 @@ class App extends Component{
                     </div>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>
+                        <Route exact path="/Basics" component={ Basics }></Route>
+                        <Route exact path="/Portfolio" component={ Portfolio }></Route>
                     </Switch>
                 </Fragment>
             </HashRouter>
