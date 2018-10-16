@@ -1,4 +1,4 @@
-import StockPrices from "./StockPrices.js";
+import StockVolatility from "./StockVolatility.js";
 
 class StockInformation{
     constructor(data){
@@ -7,51 +7,33 @@ class StockInformation{
         this.rawData  = Object.entries(this.baseData[1][1]);
     }
 
-    setStockName(){
-        this.stockName = this.metaData["2. Symbol"];
-        return this.stockName;
+    getMetaData(objectKey){
+        return this.metaData[objectKey];
     }
 
-    setStockDates(){
-        this.dates = this.rawData.map( date => date[0] );
-        return this.dates;
+    getDates(){
+        return this.rawData.map( date => date[0] );
     }
 
-    setStockOpenPrice(){
-        this.open = this.rawData.map( open => open[1]["1. open"] );
-        return this.open;
+    getRawData(objectKey){
+        return this.rawData.map( item => item[1][objectKey] );
     }
 
-    setStockHighPrice(){
-        this.high = this.rawData.map( high => high[1]["2. high"] );
-        return this.high;
-    }
-
-    setStockLowPrice(){
-        this.low = this.rawData.map( low => low[1]["3. low"] );
-        return this.low;
-    }
-
-    setStockAdjustedPrice(){
-        this.adjustedClose = this.rawData.map( price => price[1]["5. adjusted close"] ).reverse();
-        return this.adjustedClose;
-    }
-
-    setStockPercentChange(){
-        let prices         = new StockPrices(this.adjustedClose);
-        this.percentChange = prices.findPercentChange();
-        return this.percentChange;
+    getPercentChange(){
+        let adjustedClose = this.getRawData("5. adjusted close").reverse();
+        adjustedClose     = new StockVolatility(adjustedClose);
+        return adjustedClose.getPercentChange();
     }
 
     getProcessedStockData(){
         return {
-            stockName:     this.setStockName(),
-            dates:         this.setStockDates(),
-            adjustedClose: this.setStockAdjustedPrice(),
-            percentChange: this.setStockPercentChange(),
-            open:          this.setStockOpenPrice(),
-            high:          this.setStockHighPrice(),
-            low:           this.setStockLowPrice()
+            stockName:     this.getMetaData("2. Symbol"),
+            dates:         this.getDates(),
+            adjustedClose: this.getRawData("5. adjusted close"),
+            percentChange: this.getPercentChange(),
+            open:          this.getRawData("1. open"),
+            high:          this.getRawData("2. high"),
+            low:           this.getRawData("3. low")
         };
     }
 }

@@ -1,4 +1,4 @@
-class StockPrices{
+class StockVolatility{
     constructor(prices){
         this.prices       = prices.reverse();
         this.newLength    = this.prices.length - 1;
@@ -20,7 +20,7 @@ class StockPrices{
         this.denominator = this.rmLastEntry;
     }
 
-    findPercentChange(){
+    getPercentChange(){
         let percentChange = [];
         for(let i = 0; i < this.newLength; i++)
             percentChange.push( (this.numerator[i] / this.denominator[i]).toFixed(3) );
@@ -32,4 +32,4 @@ class StockPrices{
     }
 }
 
-export default StockPrices;
+export default StockVolatility;
