@@ -8,6 +8,7 @@ import { Link }       from "react-router-dom";
 import { Home }       from "./Views/";
 import { Basics }     from "./Views/";
 import { Portfolio }  from "./Views/";
+import { hot } from "react-hot-loader";
 import "./app.scss";
 
 class App extends Component{
@@ -44,4 +45,10 @@ class App extends Component{
     }
 }
 
-export default App;
+let Application;
+if(process.env.NODE_ENV === "development")
+    Application = hot(module)(App);
+else
+    Application = App;
+
+export default hot(module)(Application);

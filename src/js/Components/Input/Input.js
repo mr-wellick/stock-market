@@ -30,7 +30,7 @@ class Input extends Component{
     getNewStockEntries(userStockEntries){
         let stocksInState   = this.getCurrentStockNamesInState();
         let newStockEntries = [];
-        
+
         userStockEntries.forEach(userEntry => {
             let stockIsIncluded = includes(stocksInState, userEntry);
             if(stockIsIncluded === false)
