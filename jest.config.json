@@ -14,19 +14,5 @@
             "functions": 50,
             "lines": 100
         }
-    },
-    "transform":
-    {
-        "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-    "moduleFileExtensions":
-    [
-        "ts",
-        "tsx",
-        "js",
-        "jsx",
-        "json",
-        "node"
-    ]
+    }
 }

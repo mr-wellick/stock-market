@@ -1,5 +1,5 @@
-import { FETCH_DATA_SUCCESS } from "../Constants/";
-import { StockInformationExtractor }   from "./Utilities/";
+import { FETCH_DATA_SUCCESS }        from "../Constants/";
+import { StockInformationExtractor } from "./Utilities/";
 
 function fetchSuccess(data)
 {
