@@ -15,6 +15,46 @@ class Input extends Component{
         successData: PropTypes.array
     }
 
+    extractStockNames(stockNames){
+        let singleWord          = /([A-Z]+)/;
+        let extractedStockNames = stockNames.map(stock => stock.match(singleWord)[0]);
+        return extractedStockNames;
+    }
+
+    getCurrentStockNamesInState(){
+        let { successData } = this.props;
+        let currentStocks   = successData.map( dataset => dataset["data"]["stockName"] );
+        return currentStocks;
+    }
+
+    getNewStockEntries(userStockEntries){
+        let stocksInState   = this.getCurrentStockNamesInState();
+        let newStockEntries = [];
+        
+        userStockEntries.forEach(userEntry => {
+            let stockIsIncluded = includes(stocksInState, userEntry);
+            if(stockIsIncluded === false)
+                newStockEntries.push(userEntry);
+        });
+
+        if(newStockEntries.length > 0)
+            this.props.fetchData(newStockEntries);
+    }
+
+    getDuplicateStockEntries(userStockEntries){
+        let stocksInState         = this.getCurrentStockNamesInState();
+        let duplicateStockEntries = [];
+
+        userStockEntries.forEach(userEntry => {
+            let stockIsIncluded = includes(stocksInState, userEntry);
+            if(stockIsIncluded === true)
+                duplicateStockEntries.push(userEntry);
+        });
+
+        if(duplicateStockEntries.length > 0)
+            this.props.userInput(duplicateStockEntries);
+    }
+
     onSubmit = (event) => {
         // get user input
         let userInput = document.querySelector("#user-input").value.toUpperCase().trim();
@@ -22,42 +62,12 @@ class Input extends Component{
         // check user input
         if(userInput !== "")
         {
-            // turn user input into array
-            let arrayOfInputs = userInput.split(",");
+            let arrayOfInputs       = userInput.split(",");
+            let extractedStockNames = this.extractStockNames(arrayOfInputs);
+            let uniqueEntries       = uniq(extractedStockNames);
 
-            // filter user input
-            let singleWord    = /([A-Z]+)/;
-            let filterInputs  = arrayOfInputs.map(stock => stock.match(singleWord)[0]);
-            let uniqueEntries = uniq(filterInputs);
-
-            // Get current stock names in Redux state
-            let currentStocks       = this.props.successData.map( item => item["data"]["stockName"] );
-            let filteredStockNames  = [];
-            let duplicateStockNames = [];
-
-            // Retrieve stock names that are not included in Redux state
-            uniqueEntries.forEach( stock => {
-                let includedStock = includes(currentStocks, stock);
-                 if(includedStock === false)
-                {
-                    filteredStockNames.push(stock);
-                }
-                else if(includedStock === true)
-                {
-                    duplicateStockNames.push(stock);
-                }
-            });
-
-            // Only fetch new entries
-            if(filteredStockNames.length > 0)
-            {
-                this.props.fetchData(filteredStockNames);
-            }
-             // Let the user know duplicate entries will not be fetched
-            if(duplicateStockNames.length > 0)
-            {
-                this.props.userInput(duplicateStockNames);
-            }
+            this.getNewStockEntries(uniqueEntries);
+            this.getDuplicateStockEntries(uniqueEntries);
         }
 
         // clear form
