@@ -1,6 +1,6 @@
 import StockVolatility from "./StockVolatility.ts";
 
-class StockInformation{
+class StockInformationExtractor{
     constructor(data){
         this.baseData = Object.entries(data);
         this.metaData = this.baseData[0][1];
@@ -38,4 +38,4 @@ class StockInformation{
     }
 }
 
-export default StockInformation;
+export default StockInformationExtractor;

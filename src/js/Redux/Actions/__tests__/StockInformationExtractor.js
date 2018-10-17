@@ -1,8 +1,8 @@
-import StockInformation from "../Utilities/StockInformation.js";
-import { msftData }     from "../Testing-Data/";
+import StockInformationExtractor from "../Utilities/StockInformationExtractor.js";
+import { msftData }              from "../Testing-Data";
 
 test("StockInformation constructor initializes correct member variables", () => {
-    let processedData = new StockInformation(msftData);
+    let processedData = new StockInformationExtractor(msftData);
 
     expect(processedData).toHaveProperty("baseData");
     expect(processedData).toHaveProperty("metaData");
@@ -10,7 +10,7 @@ test("StockInformation constructor initializes correct member variables", () => 
 });
 
 test("StockInformation getProcessedStockData() method returns correct object properties", () => {
-    let data          = new StockInformation(msftData);
+    let data          = new StockInformationExtractor(msftData);
     let processedData = data.getProcessedStockData();
 
     expect(processedData).toHaveProperty("adjustedClose");

@@ -1,1 +1,1 @@
-export { default as StockInformation } from "./StockInformation";
+export { default as StockInformationExtractor } from "./StockInformationExtractor.js";
