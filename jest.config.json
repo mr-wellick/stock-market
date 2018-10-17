@@ -1,21 +1,32 @@
 {
-    "jest":
+    "testEnvironment": "jest-environment-node",
+    "collectCoverageFrom":
+    [
+        "**/src/js/Redux/Actions/**",
+        "**/src/js/Redux/Reducers/**"
+    ],
+    "coverageThreshold":
     {
-        "testEnvironment": "jest-environment-node",
-        "collectCoverageFrom":
-        [
-            "**/src/js/Redux/Actions/**",
-            "**/src/js/Redux/Reducers/**"
-        ],
-        "coverageThreshold":
+        "global":
         {
-            "global":
-            {
-                "statements": 50,
-                "branches": 50,
-                "functions": 50,
-                "lines": 100
-            }
+            "statements": 50,
+            "branches": 50,
+            "functions": 50,
+            "lines": 100
         }
-    }
+    },
+    "transform":
+    {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions":
+    [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ]
 }

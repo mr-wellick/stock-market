@@ -1,4 +1,4 @@
-import StockVolatility  from "../Utilities/StockVolatility.js";
+import StockVolatility  from "../Utilities/StockVolatility.ts";
 import StockInformation from "../Utilities/StockInformation.js";
 import { msftData }     from "../Testing-Data/";
 

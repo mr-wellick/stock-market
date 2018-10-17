@@ -1,4 +1,4 @@
-import StockVolatility from "./StockVolatility.js";
+import StockVolatility from "./StockVolatility.ts";
 
 class StockInformation{
     constructor(data){
