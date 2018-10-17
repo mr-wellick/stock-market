@@ -6,7 +6,7 @@ class Portfolio extends Component{
     render(){
         return(
             <section className="portfolio">
-                <h1>Comming Soon</h1>
+                <h1>I will also be Comming Soon</h1>
             </section>
         );
     }

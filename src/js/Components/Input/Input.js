@@ -95,7 +95,8 @@ class Input extends Component{
     }
 
     componentDidMount(){
-        //this.props.fetchData(["TSLA"]);
+        if(this.props.successData.length === 0)
+            this.props.fetchData(["TSLA", "KO", "AAPL"]);
     }
 }
 
