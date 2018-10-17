@@ -9,6 +9,7 @@ import { Home }       from "./Views/";
 import { Basics }     from "./Views/";
 import { Portfolio }  from "./Views/";
 import { hot }        from "react-hot-loader";
+//import Loadable       from "react-loadable";
 import "./app.scss";
 
 class App extends Component{
