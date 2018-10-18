@@ -1,3 +1,10 @@
+.main-content
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
 .main-sidebar
 {
     margin-top: 100px;
@@ -8,5 +15,28 @@
     .main-sidebar
     {
         margin-top: 80px;
+    }
+}
+
+@media (min-width: 1000px)
+{
+    .main-sidebar
+    {
+        position: fixed;
+        width: 25%;
+        margin-top:0;
+    }
+
+    .main-content
+    {
+        width: 75%;
+        position: relative;
+        margin-left: auto;
+        margin-top: 100px;
+    }
+
+    .main-content table
+    {
+        margin-top: 0;
     }
 }
