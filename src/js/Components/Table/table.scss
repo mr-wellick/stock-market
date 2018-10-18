@@ -42,6 +42,36 @@
     padding: 5px;
 }
 
-@media (max-width: 1050px)
+
+@media (max-width: 500px)
 {
+    .stocks-table__col--mbl-landscape
+    {
+        display: none;
+    }
 }
+
+@media (max-width: 600px)
+{
+    .stocks-table__col--tablet
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 700px)
+{
+    .stocks-table__col--tablet-landscape
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .stocks-table__col--hide
+    {
+        display: none;
+    }
+}
+
