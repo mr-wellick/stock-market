@@ -1,7 +1,6 @@
 # Desktop display
 ![nothing to show](./screenshots/desktop-1.png)
 ![nothing to show](./screenshots/desktop-2.png)
-![nothing to show](./screenshots/desktop-3.png)
 
 # Mobile display
 ![nothing to show](./screenshots/mobile-1.png)
