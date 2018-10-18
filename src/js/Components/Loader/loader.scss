@@ -1,1 +1,55 @@
+$animation-time: 1s;
 
+.loader
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.loader__block1,
+.loader__block2,
+.loader__block3,
+.loader__block4,
+{
+    animation: load $animation-time linear infinite;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.loader__block1
+{
+    background-color: rgb(34, 178, 199);
+}
+
+.loader__block2
+{
+    background-color: rgb(221, 164, 167);
+    animation-delay: -( $animation-time / 4 );
+}
+
+.loader__block3
+{
+    background-color: rgb(162, 173, 102);
+    animation-delay: -( $animation-time / 4 ) * 2;
+}
+
+.loader__block4
+{
+    background-color: rgb(0, 0, 0);
+    animation-delay: -( $animation-time / 4 ) * 3;
+}
+
+@keyframes load
+{
+    0%  { opacity: 0; }
+    30% { opacity: 0; }
+    90% { opacity: 1; }
+    100%{ opacity: 0; }
+}

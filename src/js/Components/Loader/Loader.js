@@ -14,7 +14,12 @@ class Loader extends Component{
             return null;
 
         return(
-            <div>I am a loader</div>
+            <div className="loader">
+                <div className="loader__block1"></div>
+                <div className="loader__block2"></div>
+                <div className="loader__block3"></div>
+                <div className="loader__block4"></div>
+            </div>
         );
     }
 }
