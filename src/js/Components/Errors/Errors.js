@@ -21,7 +21,10 @@ class Errors extends Component{
                     <strong>Error! </strong>
                     Entered incorrect stock(s).
                 </p>
-                <a onClick={ this.onClick }>x</a>
+                <a
+                    onClick={ this.onClick }
+                    className="dialog-error__toggler"
+                >X</a>
             </div>
         );
     }

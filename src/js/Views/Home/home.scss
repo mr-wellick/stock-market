@@ -20,6 +20,12 @@
 
 @media (min-width: 1000px)
 {
+    .sidebar-container
+    {
+        max-height: 80vh;
+        overflow-y: scroll;
+    }
+
     .main-sidebar
     {
         position: fixed;

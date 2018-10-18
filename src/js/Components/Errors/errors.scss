@@ -6,7 +6,10 @@ $err-text-color: #b94a48;
 {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid $err-border-color;
     color: $err-text-color;
@@ -14,7 +17,7 @@ $err-text-color: #b94a48;
     border-radius: 0.25rem;
 }
 
-.dialog-error:hover
+.dialog-error__toggler:hover
 {
     cursor: pointer;
 }

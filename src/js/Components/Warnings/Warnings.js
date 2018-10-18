@@ -22,7 +22,10 @@ class Warnings extends Component{
                     Can only retrieve a maximum of 4 stocks per minute.
                     Please wait.
                 </p>
-                <a onClick={ this.onClick }>x</a>
+                <a
+                    onClick={ this.onClick }
+                    className="dialog-warning__toggler"
+                >X</a>
             </div>
         );
     }

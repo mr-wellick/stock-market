@@ -24,12 +24,17 @@ class DuplicateEntries extends Component{
                         <strong>Sorry! </strong>
                         Entered duplicate stock(s) and will not retrieve the following:
                     </p>
-                    <a onClick={ this.onClick } className="dialog-duplicate__toggler">x</a>
+                    <a onClick={ this.onClick } className="dialog-duplicate__toggler">X</a>
                 </div>
-                <ul>
+                <ul className="duplicate-items">
                 {
                     duplicateEntries.map( (item, index) =>
-                        <li key={ index }>{ item }</li>
+                        <li
+                            key={ index }
+                            className="duplicate-item"
+                        >
+                            { item }
+                        </li>
                     )
                 }
                 </ul>

@@ -7,7 +7,9 @@ $warn-text-color: #c09853;
 {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid $warn-border-color;
     color: $warn-text-color;
@@ -15,7 +17,7 @@ $warn-text-color: #c09853;
     border-radius: 0.25rem;
 }
 
-.dialog-warning:hover
+.dialog-warning__toggler:hover
 {
     cursor: pointer;
 }

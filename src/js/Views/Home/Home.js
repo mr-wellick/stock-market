@@ -16,13 +16,15 @@ class Home extends Component{
         return(
             <Fragment>
                 <section className="main-sidebar">
-                    <Select/>
-                    <Input/>
-                    <Dialog>
-                        <Dialog.Errors/>
-                        <Dialog.Warnings/>
-                        <Dialog.Duplicate/>
-                    </Dialog>
+                    <div className="sidebar-container">
+                        <Select/>
+                        <Input/>
+                        <Dialog>
+                            <Dialog.Errors/>
+                            <Dialog.Warnings/>
+                            <Dialog.Duplicate/>
+                        </Dialog>
+                    </div>
                 </section>
                 <section className="main-content">
                     <Loader/>

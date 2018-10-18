@@ -5,12 +5,10 @@ $duplicate-text-color: #004085;
 
 .dialog-duplicate
 {
-    margin: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
     padding: 10px;
-}
-
-.dialog-duplicate
-{
     border: 1px solid $duplicate-border-color;
     color: $duplicate-text-color;
     background-color: $duplicate-background-color;
@@ -26,4 +24,14 @@ $duplicate-text-color: #004085;
 .dialog-duplicate__toggler:hover
 {
     cursor: pointer;
+}
+
+.duplicate-items
+{
+    margin: 10px;
+}
+
+.duplicate-item
+{
+    padding: 10px;
 }
