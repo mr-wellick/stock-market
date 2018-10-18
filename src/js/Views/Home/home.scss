@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
+    height: 100vh;
 }
 
 .main-sidebar
@@ -46,5 +47,11 @@
     .main-content table
     {
         margin-top: 0;
+    }
+
+    footer
+    {
+        width: 75%;
+        margin-left: auto;
     }
 }

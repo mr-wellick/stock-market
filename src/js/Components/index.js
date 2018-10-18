@@ -6,3 +6,4 @@ export { Table }       from "./Table/";
 export { Toggler }     from "./Toggler/";
 export { ActiveStock } from "./ActiveStock/";
 export { LineChart }   from "./LineChart/";
+export { Footer }      from "./Footer/";

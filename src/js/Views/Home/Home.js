@@ -9,6 +9,7 @@ import { Table }       from "../../Components/";
 import { Toggler }     from "../../Components/";
 import { ActiveStock } from "../../Components/";
 import { LineChart }   from "../../Components/";
+import { Footer }      from "../../Components";
 import "./home.scss";
 
 class Home extends Component{
@@ -38,6 +39,7 @@ class Home extends Component{
                         )}
                     </Toggler>
                 </section>
+                <Footer/>
             </Fragment>
         );
     }
