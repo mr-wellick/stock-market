@@ -1,18 +1,20 @@
 {
-    "testEnvironment": "jest-environment-node",
-    "collectCoverageFrom":
-    [
-        "**/src/js/Redux/Actions/**",
-        "**/src/js/Redux/Reducers/**"
-    ],
-    "coverageThreshold":
-    {
-        "global":
+    "jest": {
+        "testEnvironment": "jest-environment-node",
+        "collectCoverageFrom":
+        [
+            "**/src/js/Redux/Actions/**",
+            "**/src/js/Redux/Reducers/**"
+        ],
+        "coverageThreshold":
         {
-            "statements": 50,
-            "branches": 50,
-            "functions": 50,
-            "lines": 100
+            "global":
+            {
+                "statements": 50,
+                "branches": 50,
+                "functions": 50,
+                "lines": 100
+            }
         }
     }
 }
