@@ -1,9 +1,12 @@
 # Desktop display
-![nothing to show](./screenshots/desktop-display.png)
+![nothing to show](./screenshots/desktop-1.png)
+![nothing to show](./screenshots/desktop-2.png)
+![nothing to show](./screenshots/desktop-3.png)
 
 # Mobile display
 ![nothing to show](./screenshots/mobile-1.png)
 ![nothing to show](./screenshots/mobile-2.png)
+![nothing to show](./screenshots/mobile-3.png)
 
 # App functionality
 + Query single/multiple stock(s).
@@ -14,3 +17,9 @@
 # Using the app
 + Supply a single stock ticker: TSLA.
 + Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
+
+# Reminders (so i don't forget)
++ Fix auto generated width/heigth for chart. Currently, works correctly but it needs small tweaks
++ Desktop display sidebar border-right doesn't reach the top. Small gap between sidebar and navbar.
++ On large displays, active stock selector top & bottom padding are uneven.
++ Landscape view for mobile devices generates a height that is too small to correctly render the graph. Consider removing graph for landscape view.
