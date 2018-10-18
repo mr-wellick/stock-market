@@ -13,14 +13,14 @@ class LineChart extends Component{
     }
 
     state = {
-        width: window.innerWidth/1.2,
+        width: window.innerWidth/1.4,
         height: window.innerHeight/1.6,
         padding: 40,
     }
 
     handleResize = () => {
         this.setState({
-            width: window.innerWidth/1.2,
+            width: window.innerWidth/1.4,
             height: window.innerHeight/1.6
         });
     }
