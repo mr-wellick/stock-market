@@ -8,7 +8,7 @@ import "./line.scss";
 
 class Line extends Component{
     formatData(){
-        let { x, y } = this.props;
+        let { x, y }     = this.props;
         let dataToRender = [];
 
         // Convert data to proper format
@@ -18,7 +18,7 @@ class Line extends Component{
         // Need to store data in this format
         for( let i = 0; i < x.length; i++ )
             dataToRender.push([ x[i], y[i] ]);
-        
+
         return dataToRender;
     }
 
@@ -35,7 +35,7 @@ class Line extends Component{
     appendLineToChart(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
+        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
 
         select(".line-data")
             .datum(data)
