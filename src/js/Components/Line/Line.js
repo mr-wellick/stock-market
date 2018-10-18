@@ -7,6 +7,17 @@ import { transition } from "d3-transition";
 import "./line.scss";
 
 class Line extends Component{
+    static propTypes = {
+        x: PropTypes.array,
+        y: PropTypes.array,
+        xScale: PropTypes.func,
+        yScale: PropTypes.func,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number,
+        color: PropTypes.string
+    }
+
     formatData(){
         let { x, y }     = this.props;
         let dataToRender = [];
@@ -68,16 +79,5 @@ class Line extends Component{
         this.appendLineToChart(dataToRender);
     }
 }
-
-Line.propTypes = {
-    x: PropTypes.array,
-    xScale: PropTypes.func,
-    y: PropTypes.array,
-    yScale: PropTypes.func,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    padding: PropTypes.number,
-    color: PropTypes.string
-};
 
 export default Line;

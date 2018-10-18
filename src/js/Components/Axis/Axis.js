@@ -9,6 +9,14 @@ import { transition } from "d3-transition";
 import "./axis.scss";
 
 class Axis extends Component{
+    static propTypes = {
+        scale: PropTypes.func,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number,
+        axis: PropTypes.string
+    }
+
     findXAxis(){
         let { scale }         = this.props;
         let { width, height } = this.props;
@@ -70,13 +78,5 @@ class Axis extends Component{
             this.findYAxis();
     }
 }
-
-Axis.propTypes = {
-    scale: PropTypes.func,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    padding: PropTypes.number,
-    axis: PropTypes.string
-};
 
 export default Axis;
