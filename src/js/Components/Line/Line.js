@@ -7,31 +7,38 @@ import { transition } from "d3-transition";
 import "./line.scss";
 
 class Line extends Component{
-
-    calculateLine(){
-        let { x, y }           = this.props;
-        let { xScale, yScale } = this.props;
-        let { width, height }  = this.props;
-        let { padding }        = this.props;
-        let { color }          = this.props;
-        let dataToRender       = [];
+    formatData(){
+        let { x, y } = this.props;
+        let dataToRender = [];
 
         // Convert data to proper format
         x = x.map(date => new Date(date));
         y = y.map(percentChange => Number(percentChange));
 
-        // Set scale ranges so data is visible
-        xScale.range([padding, width - padding]).nice();
-        yScale.range([(height - padding), padding]).nice();
-
         // Need to store data in this format
         for( let i = 0; i < x.length; i++ )
             dataToRender.push([ x[i], y[i] ]);
+        
+        return dataToRender;
+    }
 
-        // Create line
+    setScaleRanges(){
+        let { xScale, yScale } = this.props;
+        let { width, height }  = this.props;
+        let { padding }        = this.props;
+
+        // Set scale ranges so data is visible
+        xScale.range([padding, width - padding]).nice();
+        yScale.range([(height - padding), padding]).nice();
+    }
+
+    appendLineToChart(data){
+        let { xScale, yScale } = this.props;
+        let { color }          = this.props;
         let lineForChart = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
+
         select(".line-data")
-            .datum(dataToRender)
+            .datum(data)
             .transition()
             .delay(200)
             .duration(200)
@@ -50,11 +57,15 @@ class Line extends Component{
     }
 
     componentDidMount(){
-        this.calculateLine();
+        let dataToRender = this.formatData();
+        this.setScaleRanges();
+        this.appendLineToChart(dataToRender);
     }
 
     componentDidUpdate(){
-        this.calculateLine();
+        let dataToRender = this.formatData();
+        this.setScaleRanges();
+        this.appendLineToChart(dataToRender);
     }
 }
 
