@@ -12,3 +12,11 @@
 {
     padding: 10px;
 }
+
+@media (max-width: 400px)
+{
+    .main-footer a
+    {
+        display: none;
+    }
+}
