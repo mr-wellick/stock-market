@@ -3,13 +3,12 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    padding: 20px 0;
-    margin-top: 100px;
     background-color: rgb(162, 173, 102);
+    padding: 20px 0;
 }
 
 .main-footer__cta,
 .main-footer__disclaimer
 {
-    padding: 15px;
+    padding: 10px;
 }

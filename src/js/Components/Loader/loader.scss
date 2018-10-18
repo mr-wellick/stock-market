@@ -53,3 +53,11 @@ $animation-time: 1s;
     90% { opacity: 1; }
     100%{ opacity: 0; }
 }
+
+@media(max-width: 1000px)
+{
+    .loader
+    {
+        width: 100vw;
+    }
+}

@@ -10,8 +10,8 @@ class Loader extends Component{
     }
 
     render(){
-        if(this.props.isFetching === false)
-            return null;
+        //if(this.props.isFetching === false)
+        //    return null;
 
         return(
             <div className="loader">
