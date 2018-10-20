@@ -1,10 +1,10 @@
-import React          from "react";
-import { Component }  from "react";
-import PropTypes      from "prop-types";
-import { line }       from "d3-shape";
+import React               from "react";
+import { Component }       from "react";
+import PropTypes           from "prop-types";
+import { line }            from "d3-shape";
 import { curveCatmullRom } from "d3-shape";
-import { select }     from "d3-selection";
-import { transition } from "d3-transition";
+import { select }          from "d3-selection";
+import { transition }      from "d3-transition";
 import "./line.scss";
 
 class Line extends Component{

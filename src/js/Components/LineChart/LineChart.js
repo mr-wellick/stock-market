@@ -1,7 +1,6 @@
 import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
-//import { Axis }            from "../Axis";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line";
