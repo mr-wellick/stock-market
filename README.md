@@ -22,3 +22,4 @@
 + Rewrite css for ActiveStock.js selector: top & bottom padding are uneven.
 + Landscape view for mobile devices generates a height that is too small to correctly render the graph. Consider removing graph for landscape view.
 + Implement monthly/daily toggler functionality
++ Adjust for Table.js. Added new value to table. Design breaks at 700px

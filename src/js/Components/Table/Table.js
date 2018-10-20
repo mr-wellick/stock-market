@@ -22,11 +22,12 @@ class Table extends Component{
                     <thead className="stocks-table__thead">
                         <tr>
                             <th className="stocks-table__col">Stocks</th>
+                            <th className="stocks-table__col">Frequency</th>
                             <th className="stocks-table__col">Price</th>
                             <th className="stocks-table__col--tablet">Open</th>
                             <th className="stocks-table__col--tablet-landscape">Low</th>
                             <th className="stocks-table__col--hide">High</th>
-                            <th className="stocks-table__col">% Change</th>
+                            <th className="stocks-table__col--tablet-landscape">% Change</th>
                             <th className="stocks-table__col--mbl-landscape">Current Date</th>
                         </tr>
                     </thead>
@@ -35,11 +36,12 @@ class Table extends Component{
                         successData.map( (item, index) =>
                             <tr key={ index }>
                                 <td>{ item["data"]["stockName"] }</td>
+                                <td>{ item["data"]["frequency"] }</td>
                                 <td>{ item["data"]["adjustedClose"][0] }</td>
                                 <td className="stocks-table__col--tablet">{ item["data"]["open"][0] }</td>
                                 <td className="stocks-table__col--tablet-landscape">{ item["data"]["low"][0] }</td>
                                 <td className="stocks-table__col--hide">{ item["data"]["high"][0] }</td>
-                                <td>{ item["data"]["percentChange"][0] }</td>
+                                <td className="stocks-table__col--tablet-landscape" >{ item["data"]["percentChange"][0] }</td>
                                 <td className="stocks-table__col--mbl-landscape">{ item["data"]["dates"][0] }</td>
                             </tr>
                         )
