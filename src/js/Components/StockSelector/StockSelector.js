@@ -1,9 +1,9 @@
 import React         from "react";
 import { Component } from "react";
 import PropTypes     from "prop-types";
-import "./activeStock.scss";
+import "./stockSelector.scss";
 
-class ActiveStock extends Component{
+class StockSelector extends Component{
     static propTypes = {
         successData: PropTypes.array,
         onChange: PropTypes.func
@@ -53,4 +53,4 @@ class ActiveStock extends Component{
     }
 }
 
-export default ActiveStock;
+export default StockSelector;
