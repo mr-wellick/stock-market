@@ -3,9 +3,9 @@ import { Component }       from "react";
 import PropTypes           from "prop-types";
 import { selectFrequency } from "../../Redux/";
 import { connect }         from "react-redux";
-import "./select.scss";
+import "./selectFrequency.scss";
 
-class Select extends Component{
+class SelectFrequency extends Component{
     static propTypes = {
         selectFrequency: PropTypes.func
     }
@@ -41,4 +41,4 @@ class Select extends Component{
     }
 }
 
-export default connect(null, { selectFrequency })(Select);
+export default connect(null, { selectFrequency })(SelectFrequency);
