@@ -2,6 +2,7 @@ import React          from "react";
 import { Component }  from "react";
 import PropTypes      from "prop-types";
 import { line }       from "d3-shape";
+import { curveCatmullRom } from "d3-shape";
 import { select }     from "d3-selection";
 import { transition } from "d3-transition";
 import "./line.scss";
@@ -46,7 +47,7 @@ class Line extends Component{
     appendLineToChart(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1]));
+        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(curveCatmullRom.alpha(0.5));
 
         select(".line-data")
             .datum(data)
@@ -55,7 +56,7 @@ class Line extends Component{
             .duration(200)
             .attr("fill", "none")
             .attr("stroke", color)
-            .attr("stroke-width", 1.5)
+            .attr("stroke-width", 2)
             .attr("d", lineForChart);
     }
 
