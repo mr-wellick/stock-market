@@ -28,6 +28,7 @@ class StockInformationExtractor{
     getProcessedStockData(){
         return {
             stockName:     this.getMetaData("2. Symbol"),
+            frequency:     this.getMetaData("1. Information").match(/\w+/)[0],
             dates:         this.getDates(),
             adjustedClose: this.getRawData("5. adjusted close"),
             percentChange: this.getPercentChange(),
