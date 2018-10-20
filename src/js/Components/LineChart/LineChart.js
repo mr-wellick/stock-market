@@ -1,7 +1,9 @@
 import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
-import { Axis }            from "../Axis";
+//import { Axis }            from "../Axis";
+import { XAxis }           from "../XAxis/";
+import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line";
 import { findLinearScale } from "../../Utilities";
 import { findTimeScale }   from "../../Utilities";
@@ -44,17 +46,14 @@ class LineChart extends Component{
 
         return(
             <svg width={ width } height={ height }>
-                <Axis
+                <XAxis
                     scale={ findTimeScale(dates) }
-                    axis={ "x-axis" }
                     width={ width }
                     height={ height }
                     padding={ padding }
                 />
-                <Axis
+                <YAxis
                     scale={ findLinearScale(price) }
-                    axis={ "y-axis" }
-                    width={ width }
                     height={ height }
                     padding={ padding }
                 />
