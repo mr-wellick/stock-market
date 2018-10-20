@@ -49,7 +49,7 @@ class Line extends Component{
         let { color }          = this.props;
         let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(curveCatmullRom.alpha(0.5));
 
-        select(".line-data")
+        select(this.node)
             .datum(data)
             .transition()
             .delay(200)
@@ -63,7 +63,7 @@ class Line extends Component{
     render(){
         return(
             <g>
-                <path className="line-data"/>
+                <path ref={ node => this.node = node }/>
             </g>
         );
     }

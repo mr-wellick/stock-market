@@ -1,10 +1,17 @@
-import React         from "react";
-import { Component } from "react";
+import React               from "react";
+import { Component }       from "react";
+import PropTypes           from "prop-types";
+import { selectFrequency } from "../../Redux/";
+import { connect }         from "react-redux";
 import "./select.scss";
 
 class Select extends Component{
+    static propTypes = {
+        selectFrequency: PropTypes.func
+    }
+
     onChange = (event) => {
-        console.log(event.target.value);
+        this.props.selectFrequency(event.target.value);
     }
 
     render(){
@@ -34,4 +41,4 @@ class Select extends Component{
     }
 }
 
-export default Select;
+export default connect(null, { selectFrequency })(Select);

@@ -4,11 +4,12 @@ import fetchSuccess          from "./fetchSuccess.js";
 import fetchManyCalls        from "./fetchManyCalls.js";
 import fetchRequest          from "./fetchRequest.js";
 import resetDuplicateEntries from "./resetDuplicateEntries.js";
+import { store }             from "../Reducers/";
 
 function fetchData(stockNames)
 {
     // get asset type to request: monthly or daily
-    let assetType = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
+    let { frequency } = store.getState().fetchData;
 
     return function(dispatch){
         // begin request
@@ -18,7 +19,7 @@ function fetchData(stockNames)
             // iterate through each stock and request
             Promise.all(
                 stockNames.map(stock =>
-                    fetch(`https://www.alphavantage.co/query?${assetType}symbol=${stock}&apikey=${process.env.API_KEY}`)
+                    fetch(`https://www.alphavantage.co/query?${frequency}symbol=${stock}&apikey=${process.env.API_KEY}`)
                         .then(res => res.json())
                 )
             )
