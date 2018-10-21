@@ -7,10 +7,10 @@ let cleanBuildDir = require("clean-webpack-plugin");
 
 // Development, production, and presets
 let configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
-//let configPreset =          require("./build-utils/loadPresets.js");
+let configPreset =          require("./build-utils/loadPresets.js");
 
 // Final webpack configuration
-module.exports = ( { mode, presets } = { mode: "production", presets: [] } ) => {
+module.exports = ( { mode, presets } = { mode: "production", presets: null } ) => {
     return merge(
         {
             mode,
@@ -53,6 +53,6 @@ module.exports = ( { mode, presets } = { mode: "production", presets: [] } ) => 
             ]
         },
         configType(mode),
-        //configPreset({ mode, presets })
+        presets !== null ? configPreset({ mode, presets }) : null
     );
 };
