@@ -19,7 +19,7 @@
 # Reminders (so i don't forget)
 + Fix auto generated width/heigth for chart. Currently, works correctly but it needs small tweaks
 + Sidebar on desktop display (border-right) doesn't reach the top. Small gap between sidebar and navbar.
-+ Rewrite css for ActiveStock.js selector: top & bottom padding are uneven.
-+ Landscape view for mobile devices generates a height that is too small to correctly render the graph. Consider removing graph for landscape view.
-+ Added new media query to table. Design breaks at 700px
++ Rewrite css for StockSelector.js: top & bottom padding are uneven.
++ Landscape view for mobile devices generates a height that is too small to correctly render the graph. Remove graph for landscape view on mobile devices.
++ Add new media query to table. Design breaks at 700px
 + Start bundle splitting.
