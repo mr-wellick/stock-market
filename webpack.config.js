@@ -1,4 +1,3 @@
-// Base webpack config
 let path          = require("path");
 let webpack       = require("webpack");
 let merge         = require("webpack-merge");
