@@ -9,8 +9,8 @@ let cleanBuildDir = require("clean-webpack-plugin");
 let configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
 let configPreset =          require("./build-utils/loadPresets.js");
 
-// Final webpack configuration
-module.exports = ( { mode, presets } = { mode: "production", presets: null } ) => {
+// common webpack configuration
+module.exports = ( { mode, presets } = { mode: "production", presets: undefined } ) => {
     return merge(
         {
             mode,
@@ -20,31 +20,6 @@ module.exports = ( { mode, presets } = { mode: "production", presets: null } ) =
                 path: path.join(__dirname, "build"),
                 filename: "[name].js"
             },
-            module:
-            {
-                rules:
-                [
-                    {
-                        test: /\.(png|jpg|svg)$/,
-                        use:
-                        {
-                            loader: "url-loader",
-                            options: { limit: 500 }
-                        }
-                    },
-                    {
-                        test: /\.ts$/, use: [ "ts-loader" ]
-                    },
-                    {
-                        test: /\.js$/,
-                        loader: "babel-loader",
-                        query:
-                        {
-                            presets: [ "@babel/preset-react", "@babel/preset-env" ]
-                        }
-                    }
-                ]
-            },
             plugins:
             [
                 new template({ template: "src/index.html" }),
@@ -53,6 +28,6 @@ module.exports = ( { mode, presets } = { mode: "production", presets: null } ) =
             ]
         },
         configType(mode),
-        presets !== null ? configPreset({ mode, presets }) : null
+        presets !== undefined ? configPreset({ mode, presets }) : null
     );
 };

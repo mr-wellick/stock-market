@@ -13,7 +13,29 @@ module.exports = () => ({
     {
         rules:
         [
-            { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] }
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"] 
+            },
+            {
+                test: /\.(png|jpg|svg)$/,
+                use:
+                {
+                    loader: "url-loader",
+                    options: { limit: 500 }
+                }
+            },
+            {
+                test: /\.ts$/, use: [ "ts-loader" ]
+            },
+            {
+                test: /\.js$/,
+                loader: "babel-loader",
+                query:
+                {
+                    presets: [ "@babel/preset-react", "@babel/preset-env" ]
+                }
+            }
         ]
     }
 });
