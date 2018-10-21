@@ -4,26 +4,38 @@ import PropTypes           from "prop-types";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line";
+//import { Grids }           from "../Grids/";
 import { findLinearScale } from "../../Utilities";
 import { findTimeScale }   from "../../Utilities";
 import "./lineChart.scss";
 
 class LineChart extends Component{
     static propTypes = {
-        successData: PropTypes.object
+        successData: PropTypes.object,
+        frequency: PropTypes.string
     }
 
     state = {
-        width: window.innerWidth/1.4,
+        width: window.innerWidth <= 1000 ? window.innerWidth : window.innerWidth/1.4,
         height: window.innerHeight/1.6,
         padding: 40,
     }
 
     handleResize = () => {
-        this.setState({
-            width: window.innerWidth/1.4,
-            height: window.innerHeight/1.6
-        });
+        if(window.innerWidth <= 1000)
+        {
+            this.setState({
+                width: window.innerWidth,
+                height: window.innerHeight/1.6
+            });
+        }
+        else if(window.innerWidth > 1000)
+        {
+            this.setState({
+                width: window.innerWidth/1.4,
+                height: window.innerHeight/1.6
+            });
+        }
     }
 
     render(){
@@ -32,13 +44,15 @@ class LineChart extends Component{
         let { padding }       = this.state;
         let dates;
         let price;
+        let frequency;
 
         // empty array gets coerced into a falsy value.
         // won't run when successData is an empty array.
         if(successData)
         {
-            dates = successData["data"]["dates"];
-            price = successData["data"]["adjustedClose"];
+            dates     = successData["data"]["dates"];
+            price     = successData["data"]["adjustedClose"];
+            frequency = successData["data"]["frequency"];
         }
         else
             return null;
@@ -50,6 +64,7 @@ class LineChart extends Component{
                     width={ width }
                     height={ height }
                     padding={ padding }
+                    frequency={ frequency }
                 />
                 <YAxis
                     scale={ findLinearScale(price) }

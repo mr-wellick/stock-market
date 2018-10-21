@@ -17,12 +17,15 @@
 + Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
 
 # Reminders (so i don't forget)
-+ Fix auto generated width/heigth for chart. Currently, works correctly but it needs small tweaks
 + Sidebar on desktop display (border-right) doesn't reach the top. Small gap between sidebar and navbar.
 + Rewrite css for StockSelector.js: top & bottom padding are uneven.
 + Landscape view for mobile devices generates a height that is too small to correctly render the graph. Remove graph for landscape view on mobile devices.
-+ Add new media query to table. Design breaks at 700px
++ Add new media query to table. Design breaks around 800px
 + Start bundle splitting.
++ Add axis labels graph
++ Add grids graph
++ Add d3 tool-tips to graph
+
 
 # Disclaimer
 + Not intended to replace a financial advisor
