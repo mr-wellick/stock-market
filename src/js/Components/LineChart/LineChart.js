@@ -4,7 +4,6 @@ import PropTypes           from "prop-types";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line";
-//import { Grids }           from "../Grids/";
 import { findLinearScale } from "../../Utilities";
 import { findTimeScale }   from "../../Utilities";
 import "./lineChart.scss";
