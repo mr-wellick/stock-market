@@ -6,7 +6,7 @@ import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line";
 import { findLinearScale } from "../../Utilities";
 import { findTimeScale }   from "../../Utilities";
-//import { Grids }           from "../Grids";
+import { Grids }           from "../Grids";
 import "./lineChart.scss";
 
 class LineChart extends Component{
@@ -59,11 +59,12 @@ class LineChart extends Component{
 
         return(
             <svg width={ width } height={ height }>
-                {/*<Grids
+                <Grids
                     scale={ findLinearScale(price)}
                     padding={ padding }
                     width={ width }
-                />*/}
+                    height={ height }
+                />
                 <XAxis
                     scale={ findTimeScale(dates) }
                     width={ width }

@@ -3,16 +3,22 @@ import PropTypes     from "prop-types";
 import { Component } from "react";
 import { select }    from "d3-selection";
 import { axisLeft }  from "d3-axis";
+import "./grids.scss";
 
 class Grids extends Component{
     static propTypes = {
         scale: PropTypes.func,
         padding: PropTypes.number,
-        width: PropTypes.number
+        width: PropTypes.number,
+        height: PropTypes.number
     }
 
     createYGridLines(){
-        let { scale } = this.props;
+        let { scale }           = this.props;
+        let { height, padding } = this.props;
+        // set scale range
+        scale.range([height - padding, padding]).nice();
+
         return axisLeft(scale).ticks(5);
     }
 

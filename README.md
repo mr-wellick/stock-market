@@ -24,8 +24,6 @@
 + Start bundle splitting.
 + Add axis labels graph
 + Add d3 tool-tips to graph
-+ Added grids to graph from prototype (where grids are working fine) but aren't working in current app
-
 
 # Disclaimer
 + Not intended to replace a financial advisor
