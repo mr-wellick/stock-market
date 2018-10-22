@@ -8,7 +8,7 @@ import { Loader }          from "../../Components/";
 import { Table }           from "../../Components/";
 import { Toggler }         from "../../Components/";
 import { StockSelector }   from "../../Components/";
-import { LineChart }       from "../../Components/";
+import { Chart }           from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -33,7 +33,7 @@ class Home extends Component{
                         {({successData, onChange, activeIndex}) => (
                             <Fragment>
                                 <StockSelector successData={ successData } onChange={ onChange }/>
-                                <LineChart successData={ successData[activeIndex] }/>
+                                <Chart successData={ successData[activeIndex] }/>
                             </Fragment>
                         )}
                     </Toggler>

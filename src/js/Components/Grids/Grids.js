@@ -28,7 +28,7 @@ class Grids extends Component{
         select(this.node)
             .attr("class", "grid")
             .attr("transform", "translate(" + padding + ",0)")
-            .call(this.createYGridLines().tickSize(-(width - 100)).tickFormat(""));
+            .call(this.createYGridLines().tickSize(-(width - padding*2)).tickFormat(""));
     }
 
     render(){

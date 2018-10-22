@@ -8,9 +8,10 @@ import { findLinearScale } from "../../Utilities/";
 import { findTimeScale }   from "../../Utilities/";
 import { Grids }           from "../Grids/";
 import { Points }          from "../Points/";
-import "./lineChart.scss";
+import { Labels }          from "../Labels/";
+import "./chart.scss";
 
-class LineChart extends Component{
+class Chart extends Component{
     static propTypes = {
         successData: PropTypes.object,
         frequency: PropTypes.string
@@ -66,6 +67,11 @@ class LineChart extends Component{
                     width={ width }
                     height={ height }
                 />
+                <Labels
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                />
                 <XAxis
                     scale={ findTimeScale(dates) }
                     width={ width }
@@ -111,4 +117,4 @@ class LineChart extends Component{
     }
 }
 
-export default LineChart;
+export default Chart;

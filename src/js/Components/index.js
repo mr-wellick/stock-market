@@ -5,5 +5,5 @@ export { Loader }          from "./Loader/";
 export { Table }           from "./Table/";
 export { Toggler }         from "./Toggler/";
 export { StockSelector }   from "./StockSelector/";
-export { LineChart }       from "./LineChart/";
+export { Chart }           from "./Chart/";
 export { Footer }          from "./Footer/";

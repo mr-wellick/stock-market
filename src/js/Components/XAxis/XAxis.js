@@ -33,7 +33,8 @@ class XAxis extends Component{
         // select node return by component and appends x-axis
         select(this.node)
             .attr("transform", axisLocation)
-            .call(axisBottom(scale).tickFormat(this.determineAxisLabel()));
+            .call(axisBottom(scale)
+            .tickFormat(this.determineAxisLabel()));
     }
 
     render(){
