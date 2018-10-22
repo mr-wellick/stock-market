@@ -23,7 +23,6 @@
 + Add new media query to table. Design breaks around 800px
 + Start bundle splitting.
 + Add axis labels graph
-+ Add d3 tool-tips to graph
 
 # Disclaimer
 + Not intended to replace a financial advisor
