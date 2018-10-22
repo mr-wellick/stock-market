@@ -60,7 +60,7 @@ class Chart extends Component{
             return null;
 
         return(
-            <svg width={ width } height={ height } ref={ node => this.node = node }>
+            <svg width={ width } height={ height }>
                 <Grids
                     scale={ findLinearScale(price)}
                     padding={ padding }
@@ -102,7 +102,6 @@ class Chart extends Component{
                     width={ width }
                     height={ height }
                     padding={ padding }
-                    chartRef={ this.node }
                 />
             </svg>
         );
