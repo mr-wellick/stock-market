@@ -22,6 +22,7 @@
 + Rewrite css for StockSelector.js: top & bottom padding are uneven.
 + Remove graph for landscape view on mobile devices. (working correctly. height is just too small for graph)
 + Add new media query to table. Design breaks around 800px
++ Fix css for dialog messages: Warning & Duplicate entries
 + Start bundle splitting.
 
 # Disclaimer
