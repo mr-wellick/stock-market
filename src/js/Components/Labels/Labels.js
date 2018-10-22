@@ -16,7 +16,6 @@ class Labels extends Component{
         let { padding }      = this.props;
 
         select(this.node)
-            .append("g")
             .attr("class", "x-label")
             .append("text")
             .attr("x", (width - padding*2))
@@ -28,7 +27,6 @@ class Labels extends Component{
         let { padding } = this.props;
 
         select(this.node)
-            .append("g")
             .attr("class", "y-label")
             .append("text")
             .attr("x", padding*1.5)
@@ -43,6 +41,16 @@ class Labels extends Component{
     }
 
     componentDidMount(){
+        this.addXLabel();
+        this.addYLabel();
+    }
+
+    componentDidUpdate(){
+        // remove old text nodes before updating
+        if(this.node.children.length > 0)
+            select(this.node).selectAll("text").remove();
+
+        // add new text nodes
         this.addXLabel();
         this.addYLabel();
     }
