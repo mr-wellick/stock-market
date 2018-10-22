@@ -3,10 +3,11 @@ import { Component }       from "react";
 import PropTypes           from "prop-types";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
-import { Line }            from "../Line";
-import { findLinearScale } from "../../Utilities";
-import { findTimeScale }   from "../../Utilities";
-import { Grids }           from "../Grids";
+//import { Line }            from "../Line/";
+import { findLinearScale } from "../../Utilities/";
+import { findTimeScale }   from "../../Utilities/";
+import { Grids }           from "../Grids/";
+import { Points }          from "../Points/";
 import "./lineChart.scss";
 
 class LineChart extends Component{
@@ -58,7 +59,7 @@ class LineChart extends Component{
             return null;
 
         return(
-            <svg width={ width } height={ height }>
+            <svg width={ width } height={ height } ref={ node => this.node = node }>
                 <Grids
                     scale={ findLinearScale(price)}
                     padding={ padding }
@@ -77,7 +78,7 @@ class LineChart extends Component{
                     height={ height }
                     padding={ padding }
                 />
-                <Line
+                {/*<Line
                     xScale={ findTimeScale(dates) }
                     yScale={ findLinearScale(price) }
                     x={ dates }
@@ -86,6 +87,16 @@ class LineChart extends Component{
                     height={ height }
                     padding={ padding }
                     color={ "orange" }
+                />*/}
+                <Points
+                    xScale={ findTimeScale(dates) }
+                    yScale={ findLinearScale(price) }
+                    x={ dates }
+                    y={ price }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                    chartRef={ this.node }
                 />
             </svg>
         );

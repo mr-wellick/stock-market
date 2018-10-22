@@ -51,6 +51,7 @@
     "dependencies": {
         "@types/d3": "^5.0.1",
         "d3": "^5.7.0",
+        "d3-tip": "^0.9.1",
         "lodash.includes": "^4.3.0",
         "lodash.uniq": "^4.5.0",
         "react": "^16.4.2",

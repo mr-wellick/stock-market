@@ -5,7 +5,7 @@ import { line }            from "d3-shape";
 import { curveCatmullRom } from "d3-shape";
 import { select }          from "d3-selection";
 import { transition }      from "d3-transition";
-import tip                 from "d3-tip";
+//import tip                 from "d3-tip";
 import "./line.scss";
 
 class Line extends Component{
@@ -61,14 +61,14 @@ class Line extends Component{
             .attr("d", lineForChart);
     }
 
-    addToolTips(){
-        let toolTip = tip().html(d => console.log(d[0]));
+    //addToolTips(){
+    //    let toolTip = tip().html(d => console.log(d[0]));
 
-        select(this.node)
-            .call(toolTip)
-            .on("mouseover", toolTip.show)
-            .on("mouseout", toolTip.hide);
-    }
+    //    select(this.node)
+    //        .call(toolTip)
+    //        .on("mouseover", toolTip.show)
+    //        .on("mouseout", toolTip.hide);
+    //}
 
     render(){
         return(
@@ -88,7 +88,7 @@ class Line extends Component{
         let dataToRender = this.formatData();
         this.setScaleRanges();
         this.appendLineToChart(dataToRender);
-        this.addToolTips();
+        //this.addToolTips();
     }
 }
 
