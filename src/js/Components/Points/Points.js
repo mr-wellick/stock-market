@@ -80,7 +80,7 @@ class Points extends Component{
 
     render(){
         return(
-            <g ref={ node => this.node = node }></g>
+            <g ref={ node => this.node = node } className="points-container"></g>
         );
     }
 
