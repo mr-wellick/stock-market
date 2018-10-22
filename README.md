@@ -22,7 +22,6 @@
 + Landscape view for mobile devices generates a height that is too small to correctly render the graph. Remove graph for landscape view on mobile devices.
 + Add new media query to table. Design breaks around 800px
 + Start bundle splitting.
-+ Add axis labels graph
 
 # Disclaimer
 + Not intended to replace a financial advisor
