@@ -71,6 +71,9 @@ class Chart extends Component{
                     width={ width }
                     height={ height }
                     padding={ padding }
+                    xLabel={ "Year" }
+                    yLabel={ "Price" }
+                    frequency={ frequency }
                 />
                 <XAxis
                     scale={ findTimeScale(dates) }

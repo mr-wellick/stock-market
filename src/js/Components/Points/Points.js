@@ -74,6 +74,7 @@ class Points extends Component{
             .attr("cy", d => yScale(d[1]))
             .attr("r", 3.5)
             .attr("fill", "orange")
+            //.attr("opacity", "0")
             .on("mouseover", toolTip.show)
             .on("mouseout", toolTip.hide);
     }

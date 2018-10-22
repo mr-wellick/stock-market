@@ -8,30 +8,39 @@ class Labels extends Component{
     static propTypes = {
         width: PropTypes.number,
         height: PropTypes.number,
-        padding: PropTypes.number
+        padding: PropTypes.number,
+        xLabel: PropTypes.string,
+        yLabel: PropTypes.string,
+        frequency: PropTypes.string
     }
 
     addXLabel(){
         let { width,height } = this.props;
         let { padding }      = this.props;
+        let { xLabel }       = this.props;
+        let { frequency }    = this.props;
+
+        if(frequency === "Daily")
+            xLabel = "Month";
 
         select(this.node)
             .attr("class", "x-label")
             .append("text")
             .attr("x", (width - padding*2))
             .attr("y", (height - padding*1.5))
-            .text("Time");
+            .text(xLabel);
     }
 
     addYLabel(){
         let { padding } = this.props;
+        let { yLabel }  = this.props;
 
         select(this.node)
             .attr("class", "y-label")
             .append("text")
             .attr("x", padding*1.5)
             .attr("y", padding*1.5)
-            .text("Price");
+            .text(yLabel);
     }
 
     render(){
