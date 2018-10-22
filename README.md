@@ -19,7 +19,7 @@
 # Reminders (so i don't forget)
 + Sidebar on desktop display (border-right) doesn't reach the top. Small gap between sidebar and navbar.
 + Rewrite css for StockSelector.js: top & bottom padding are uneven.
-+ Landscape view for mobile devices generates a height that is too small to correctly render the graph. Remove graph for landscape view on mobile devices.
++ Remove graph for landscape view on mobile devices. (working correctly. height is just too small for graph)
 + Add new media query to table. Design breaks around 800px
 + Start bundle splitting.
 
