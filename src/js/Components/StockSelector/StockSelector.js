@@ -11,7 +11,7 @@ class StockSelector extends Component{
 
     render(){
         let { successData } = this.props;
-        if(this.props.successData.length === 0)
+        if(successData.length === 0)
             return null;
 
         return(

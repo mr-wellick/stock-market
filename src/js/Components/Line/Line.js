@@ -5,7 +5,6 @@ import { line }            from "d3-shape";
 import { curveCatmullRom } from "d3-shape";
 import { select }          from "d3-selection";
 import { transition }      from "d3-transition";
-//import tip                 from "d3-tip";
 import "./line.scss";
 
 class Line extends Component{
@@ -23,10 +22,6 @@ class Line extends Component{
     formatData(){
         let { x, y }     = this.props;
         let dataToRender = [];
-
-        // Convert data to proper format
-        x = x.map(date => new Date(date));
-        y = y.map(percentChange => Number(percentChange));
 
         // Need to store data in this format
         for( let i = 0; i < x.length; i++ )
@@ -48,7 +43,7 @@ class Line extends Component{
     appendLineToChart(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(curveCatmullRom.alpha(0.5));
+        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(curveCatmullRom);
 
         select(this.node)
             .datum(data)
@@ -57,18 +52,9 @@ class Line extends Component{
             .duration(200)
             .attr("fill", "none")
             .attr("stroke", color)
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 3)
             .attr("d", lineForChart);
     }
-
-    //addToolTips(){
-    //    let toolTip = tip().html(d => console.log(d[0]));
-
-    //    select(this.node)
-    //        .call(toolTip)
-    //        .on("mouseover", toolTip.show)
-    //        .on("mouseout", toolTip.hide);
-    //}
 
     render(){
         return(
@@ -88,7 +74,6 @@ class Line extends Component{
         let dataToRender = this.formatData();
         this.setScaleRanges();
         this.appendLineToChart(dataToRender);
-        //this.addToolTips();
     }
 }
 

@@ -40,6 +40,7 @@ class StockVolatility{
         // but all of our original stock data has length n.
         // Thus, we add an empty entry, "0," to match our original length n.
         percentChange = ["0"].concat(percentChange);
+        percentChange = percentChange.map(item => Number(item));
 
         // finally, we need to reverse our data once more to line up with
         // our original data.

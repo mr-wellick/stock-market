@@ -15,8 +15,12 @@ class StockInformationExtractor{
         return this.rawData.map( date => date[0] );
     }
 
+    getDateObjects(){
+        return this.rawData.map( date => new Date(date[0]) );
+    }
+
     getRawData(objectKey){
-        return this.rawData.map( item => item[1][objectKey] );
+        return this.rawData.map( item => Number(item[1][objectKey]) );
     }
 
     getPercentChange(){
@@ -27,14 +31,15 @@ class StockInformationExtractor{
 
     getProcessedStockData(){
         return {
-            stockName:     this.getMetaData("2. Symbol"),
             frequency:     this.getMetaData("1. Information").match(/\w+/)[0],
+            stockName:     this.getMetaData("2. Symbol"),
             dates:         this.getDates(),
-            adjustedClose: this.getRawData("5. adjusted close"),
+            dateObjects:   this.getDateObjects(),
             percentChange: this.getPercentChange(),
             open:          this.getRawData("1. open"),
             high:          this.getRawData("2. high"),
-            low:           this.getRawData("3. low")
+            low:           this.getRawData("3. low"),
+            adjustedClose: this.getRawData("5. adjusted close")
         };
     }
 }

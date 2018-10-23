@@ -3,7 +3,7 @@ import { Component }       from "react";
 import PropTypes           from "prop-types";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
-//import { Line }            from "../Line/";
+import { Line }            from "../Line/";
 import { findLinearScale } from "../../Utilities/";
 import { findTimeScale }   from "../../Utilities/";
 import { Grids }           from "../Grids/";
@@ -52,7 +52,7 @@ class Chart extends Component{
         // won't run when successData is an empty array.
         if(successData)
         {
-            dates     = successData["data"]["dates"];
+            dates     = successData["data"]["dateObjects"];
             price     = successData["data"]["adjustedClose"];
             frequency = successData["data"]["frequency"];
         }
@@ -87,7 +87,7 @@ class Chart extends Component{
                     height={ height }
                     padding={ padding }
                 />
-                {/*<Line
+                <Line
                     xScale={ findTimeScale(dates) }
                     yScale={ findLinearScale(price) }
                     x={ dates }
@@ -96,7 +96,7 @@ class Chart extends Component{
                     height={ height }
                     padding={ padding }
                     color={ "orange" }
-                />*/}
+                />
                 <Points
                     xScale={ findTimeScale(dates) }
                     yScale={ findLinearScale(price) }
