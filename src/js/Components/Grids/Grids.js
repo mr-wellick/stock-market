@@ -9,16 +9,11 @@ class Grids extends Component{
     static propTypes = {
         scale: PropTypes.func,
         padding: PropTypes.number,
-        width: PropTypes.number,
-        height: PropTypes.number
+        width: PropTypes.number
     }
 
     createYGridLines(){
-        let { scale }           = this.props;
-        let { height, padding } = this.props;
-        // set scale range
-        scale.range([height - padding, padding]).nice();
-
+        let { scale } = this.props;
         return axisLeft(scale).ticks(5);
     }
 
