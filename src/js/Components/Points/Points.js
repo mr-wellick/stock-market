@@ -40,13 +40,10 @@ class Points extends Component{
         let toolTip = tip().html(data => {
             let USPriceFormat = data[1].toLocaleString("en-US", { style: "currency", currency: "USD" });
             return (
-                "<div class=\"tooltips\">"
-                +
-                    "<div class=\"tooltips-date\">" + data[0].toDateString() + "</div>"
-                +
-                    "<div class=\"tooltips-price\">" + USPriceFormat + "</div>"
-                +
-                "</div>"
+                `<div class="tooltips">
+                    <div class="tooltips-date">${data[0].toDateString()}</div>
+                    <div class="tooltips-price">${USPriceFormat}</div>
+                </div>`
             );
         });
         return toolTip;
