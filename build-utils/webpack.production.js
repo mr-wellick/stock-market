@@ -19,7 +19,7 @@ module.exports = () => ({
         [
             {
                 test: /\.scss$/,
-                use: [ extractCSS.loader, "css-loader", "sass-loader" ]
+                use: [ extractCSS.loader, "css-loader","postcss-loader", "sass-loader" ]
             },
             {
                 test: /\.(png|jpg|svg)$/,
