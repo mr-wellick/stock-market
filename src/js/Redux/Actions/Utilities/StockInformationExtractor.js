@@ -1,4 +1,7 @@
 import StockVolatility from "./StockVolatility.ts";
+import ScaleFinder     from "./scaleFinder";
+import { scaleLinear } from "d3-scale";
+import { scaleTime }   from "d3-scale";
 
 class StockInformationExtractor{
     constructor(data){
@@ -29,6 +32,20 @@ class StockInformationExtractor{
         return adjustedClose.getVolatility();
     }
 
+    findXScale(){
+        let dateObjects = this.getDateObjects();
+        let scaleObj    = new ScaleFinder(dateObjects, null);
+        let xScale      = scaleObj.getXScale(scaleTime);
+        return xScale;
+    }
+
+    findYScale(){
+        let prices   = this.getRawData("5. adjusted close");
+        let scaleObj = new ScaleFinder(null, prices);
+        let yScale   = scaleObj.getYScale(scaleLinear);
+        return yScale;
+    }
+
     getProcessedStockData(){
         return {
             frequency:     this.getMetaData("1. Information").match(/\w+/)[0],
@@ -39,7 +56,9 @@ class StockInformationExtractor{
             open:          this.getRawData("1. open"),
             high:          this.getRawData("2. high"),
             low:           this.getRawData("3. low"),
-            adjustedClose: this.getRawData("5. adjusted close")
+            adjustedClose: this.getRawData("5. adjusted close"),
+            xScale:        this.findXScale(),
+            yScale:        this.findYScale()
         };
     }
 }

@@ -7,8 +7,8 @@ class ScaleFinder{
     }
 
     getMinAndMaxOfData(data){
-        let Max        = max(data, d => d);
-        let Min        = min(data, d => d);
+        let Max        = data === null ? null : max(data, d => d);
+        let Min        = data === null ? null : min(data, d => d);
         let scaleRange = [Min, Max];
 
         return scaleRange;

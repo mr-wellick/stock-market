@@ -7,9 +7,6 @@ import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line/";
 import { Points }          from "../Points/";
-import { ScaleFinder }     from "../../Utilities/";
-import { scaleLinear }     from "d3-scale";
-import { scaleTime }       from "d3-scale";
 import "./chart.scss";
 
 class Chart extends Component{
@@ -41,35 +38,20 @@ class Chart extends Component{
         }
     }
 
-    setXAndYValues(){
-        let { dateObjects }   = this.props.successData["data"];
-        let { adjustedClose } = this.props.successData["data"];
-        let scalesObj         = new ScaleFinder(dateObjects, adjustedClose);
-
-        return scalesObj;
-    }
-
-    setXScale(){
+    setXScaleRange(){
         let { padding, width } = this.state;
-        let scaleObj           = this.setXAndYValues();
-        let xScale             = scaleObj.getXScale(scaleTime);
+        let { xScale }         = this.props.successData["data"];
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
     }
 
-    setYScale(){
+    setYScaleRange(){
         let { height, padding } = this.state;
-        let scaleObj            = this.setXAndYValues();
-        let yScale              = scaleObj.getYScale(scaleLinear);
+        let { yScale }          = this.props.successData["data"];
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
-    }
-
-    getFrequency(){
-        let { frequency } = this.props.successData["data"];
-        return frequency;
     }
 
     render(){
@@ -82,7 +64,7 @@ class Chart extends Component{
         return(
             <svg width={ width } height={ height }>
                 <Grids
-                    scale={ this.setYScale()}
+                    scale={ this.setYScaleRange()}
                     padding={ padding }
                     width={ width }
                 />
@@ -92,30 +74,30 @@ class Chart extends Component{
                     padding={ padding }
                     xLabel={ "Year" }
                     yLabel={ "Price" }
-                    frequency={ this.getFrequency() }
+                    frequency={ this.props.successData["data"]["frequency"] }
                 />
                 <XAxis
-                    scale={ this.setXScale() }
+                    scale={ this.setXScaleRange() }
                     height={ height }
                     padding={ padding }
-                    frequency={ this.getFrequency() }
+                    frequency={ this.props.successData["data"]["frequency"] }
                 />
                 <YAxis
-                    scale={ this.setYScale() }
+                    scale={ this.setYScaleRange() }
                     padding={ padding }
                 />
                 <Line
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
-                    x={ this.setXAndYValues().xValues }
-                    y={ this.setXAndYValues().yValues }
+                    xScale={ this.setXScaleRange() }
+                    yScale={ this.setYScaleRange() }
+                    x={ this.props.successData["data"]["dateObjects"] }
+                    y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
                 />
                 <Points
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
-                    x={ this.setXAndYValues().xValues }
-                    y={ this.setXAndYValues().yValues }
+                    xScale={ this.setXScaleRange() }
+                    yScale={ this.setYScaleRange() }
+                    x={ this.props.successData["data"]["dateObjects"] }
+                    y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
                 />
             </svg>
