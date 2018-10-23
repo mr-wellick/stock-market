@@ -109,13 +109,11 @@ class Chart extends Component{
                     color={ "orange" }
                 />
                 <Points
-                    xScale={ findTimeScale(dates) }
-                    yScale={ findLinearScale(price) }
+                    xScale={ this.setXScale(dates) }
+                    yScale={ this.setYScale(price) }
                     x={ dates }
                     y={ price }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
+                    color={ "orange" }
                 />
             </svg>
         );

@@ -11,9 +11,7 @@ class Points extends Component{
         yScale: PropTypes.func,
         x: PropTypes.array,
         y: PropTypes.array,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number,
+        color: PropTypes.string
     }
 
     formatData(){
@@ -24,16 +22,6 @@ class Points extends Component{
             dataToRender.push([ x[i], y[i] ]);
 
         return dataToRender;
-    }
-
-    setScaleRanges(){
-        let { xScale, yScale } = this.props;
-        let { width, height }  = this.props;
-        let { padding }        = this.props;
-
-        // Set scale ranges so data is visible
-        xScale.range([padding, width - padding]).nice();
-        yScale.range([(height - padding), padding]).nice();
     }
 
     setToolTip(){
@@ -51,6 +39,7 @@ class Points extends Component{
 
     appendCircles(data){
         let { xScale, yScale } = this.props;
+        let { color }          = this.props;
         let toolTip            = this.setToolTip();
 
         // clear graph for next set of data points if we have data
@@ -67,7 +56,7 @@ class Points extends Component{
             .attr("cx", d => xScale(d[0]))
             .attr("cy", d => yScale(d[1]))
             .attr("r", 5)
-            .attr("fill", "orange")
+            .attr("fill", color)
             .attr("opacity", "0")
             .on("mouseover", toolTip.show)
             .on("mouseout", toolTip.hide);
@@ -81,13 +70,11 @@ class Points extends Component{
 
     componentDidMount(){
         let dataToRender = this.formatData();
-        this.setScaleRanges();
         this.appendCircles(dataToRender);
     }
 
     componentDidUpdate(){
         let dataToRender = this.formatData();
-        this.setScaleRanges();
         this.appendCircles(dataToRender);
     }
 }
