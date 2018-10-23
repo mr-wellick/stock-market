@@ -38,7 +38,7 @@ class Chart extends Component{
         }
     }
 
-    setXScaleRange(){
+    setXScale(){
         let { padding, width } = this.state;
         let { xScale }         = this.props.successData["data"];
         xScale.range([padding, width - padding]).nice();
@@ -46,7 +46,7 @@ class Chart extends Component{
         return xScale;
     }
 
-    setYScaleRange(){
+    setYScale(){
         let { height, padding } = this.state;
         let { yScale }          = this.props.successData["data"];
         yScale.range([(height - padding), padding]).nice();
@@ -64,7 +64,7 @@ class Chart extends Component{
         return(
             <svg width={ width } height={ height }>
                 <Grids
-                    scale={ this.setYScaleRange()}
+                    scale={ this.setYScale()}
                     padding={ padding }
                     width={ width }
                 />
@@ -77,25 +77,25 @@ class Chart extends Component{
                     frequency={ this.props.successData["data"]["frequency"] }
                 />
                 <XAxis
-                    scale={ this.setXScaleRange() }
+                    scale={ this.setXScale() }
                     height={ height }
                     padding={ padding }
                     frequency={ this.props.successData["data"]["frequency"] }
                 />
                 <YAxis
-                    scale={ this.setYScaleRange() }
+                    scale={ this.setYScale() }
                     padding={ padding }
                 />
                 <Line
-                    xScale={ this.setXScaleRange() }
-                    yScale={ this.setYScaleRange() }
+                    xScale={ this.setXScale() }
+                    yScale={ this.setYScale() }
                     x={ this.props.successData["data"]["dateObjects"] }
                     y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
                 />
                 <Points
-                    xScale={ this.setXScaleRange() }
-                    yScale={ this.setYScaleRange() }
+                    xScale={ this.setXScale() }
+                    yScale={ this.setYScale() }
                     x={ this.props.successData["data"]["dateObjects"] }
                     y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
