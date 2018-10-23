@@ -32,14 +32,14 @@ class StockInformationExtractor{
         return adjustedClose.getVolatility();
     }
 
-    findXScale(){
+    getXScale(){
         let dateObjects = this.getDateObjects();
         let scaleObj    = new ScaleFinder(dateObjects, null);
         let xScale      = scaleObj.getXScale(scaleTime);
         return xScale;
     }
 
-    findYScale(){
+    getYScale(){
         let prices   = this.getRawData("5. adjusted close");
         let scaleObj = new ScaleFinder(null, prices);
         let yScale   = scaleObj.getYScale(scaleLinear);
@@ -57,8 +57,8 @@ class StockInformationExtractor{
             high:          this.getRawData("2. high"),
             low:           this.getRawData("3. low"),
             adjustedClose: this.getRawData("5. adjusted close"),
-            xScale:        this.findXScale(),
-            yScale:        this.findYScale()
+            xScale:        this.getXScale(),
+            yScale:        this.getYScale()
         };
     }
 }
