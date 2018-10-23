@@ -1,14 +1,15 @@
 import React               from "react";
 import { Component }       from "react";
 import PropTypes           from "prop-types";
+import { Grids }           from "../Grids/";
+import { Labels }          from "../Labels/";
 import { XAxis }           from "../XAxis/";
 import { YAxis }           from "../YAxis/";
 import { Line }            from "../Line/";
-import { findLinearScale } from "../../Utilities/";
-import { findTimeScale }   from "../../Utilities/";
-import { Grids }           from "../Grids/";
 import { Points }          from "../Points/";
-import { Labels }          from "../Labels/";
+import { ScaleFinder }     from "../../Utilities/";
+import { scaleLinear }     from "d3-scale";
+import { scaleTime }       from "d3-scale";
 import "./chart.scss";
 
 class Chart extends Component{
@@ -40,30 +41,25 @@ class Chart extends Component{
         }
     }
 
-    getXValues(){
-        let { dateObjects } = this.props.successData["data"];
-        return dateObjects;
+    setXAndYValues(){
+        let { dateObjects, adjustedClose } = this.props.successData["data"];
+        let scales                         = new ScaleFinder(dateObjects, adjustedClose);
+        return scales;
     }
 
     setXScale(){
         let { padding, width } = this.state;
-        let dates              = this.getXValues();
-        let xScale             = findTimeScale(dates);
+        let scaleObj           = this._setXAndYValues();
+        let xScale             = scaleObj.getXScale(scaleTime);
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
     }
 
-    getYValues(){
-        let { adjustedClose } = this.props.successData["data"];
-        return adjustedClose;
-    }
-
     setYScale(){
-        let { height }  = this.state;
-        let { padding } = this.state;
-        let prices      = this.getYValues();
-        let yScale      = findLinearScale(prices);
+        let { height, padding } = this.state;
+        let scaleObj            = this._setXAndYValues();
+        let yScale              = scaleObj.getYScale(scaleLinear);
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
@@ -109,15 +105,15 @@ class Chart extends Component{
                 <Line
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.getXValues() }
-                    y={ this.getYValues() }
+                    x={ this.setXAndYValues().xValues }
+                    y={ this.setXAndYValues().yValues }
                     color={ "orange" }
                 />
                 <Points
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.getXValues() }
-                    y={ this.getYValues() }
+                    x={ this.setXAndYValues().xValues }
+                    y={ this.setXAndYValues().yValues }
                     color={ "orange" }
                 />
             </svg>
