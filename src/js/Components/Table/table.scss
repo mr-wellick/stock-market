@@ -65,7 +65,7 @@
     }
 }
 
-@media (max-width: 700px)
+@media (max-width: 740px)
 {
     .stocks-table__col--tablet-landscape
     {
@@ -73,7 +73,11 @@
     }
 }
 
-@media (max-width: 800px)
+@media (max-width: 850px)
+{
+}
+
+@media (max-width: 900px)
 {
     .stocks-table__col--hide
     {
@@ -81,3 +85,18 @@
     }
 }
 
+@media (max-width: 1000px)
+{
+    .stocks-table__col--hide--lrg
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 1150px)
+{
+    .stocks-table__col--hide
+    {
+        display: none;
+    }
+}
