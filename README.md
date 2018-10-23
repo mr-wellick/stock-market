@@ -18,8 +18,6 @@
 + Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
 
 # Reminders (so i don't forget)
-+ Sidebar on desktop display (border-right) doesn't reach the top. Small gap between sidebar and navbar.
-+ Rewrite css for StockSelector.js: top & bottom padding are uneven.
 + Remove graph for landscape view on mobile devices. (working correctly. height is just too small for graph)
 + Add new media query to table. Design breaks around 800px
 + Fix css for dialog messages: Warning & Duplicate entries
