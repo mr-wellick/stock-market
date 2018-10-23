@@ -1,12 +1,12 @@
-import React               from "react";
-import { Component }       from "react";
-import PropTypes           from "prop-types";
-import { Grids }           from "../Grids/";
-import { Labels }          from "../Labels/";
-import { XAxis }           from "../XAxis/";
-import { YAxis }           from "../YAxis/";
-import { Line }            from "../Line/";
-import { Points }          from "../Points/";
+import React         from "react";
+import { Component } from "react";
+import PropTypes     from "prop-types";
+import { Grids }     from "../Grids/";
+import { Labels }    from "../Labels/";
+import { XAxis }     from "../XAxis/";
+import { YAxis }     from "../YAxis/";
+import { Line }      from "../Line/";
+import { Points }    from "../Points/";
 import "./chart.scss";
 
 class Chart extends Component{
