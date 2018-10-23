@@ -96,8 +96,7 @@ class Chart extends Component{
                     frequency={ frequency }
                 />
                 <YAxis
-                    scale={ findLinearScale(price) }
-                    height={ height }
+                    scale={ this.setYScale(price) }
                     padding={ padding }
                 />
                 <Line
