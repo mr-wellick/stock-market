@@ -42,14 +42,16 @@ class Chart extends Component{
     }
 
     setXAndYValues(){
-        let { dateObjects, adjustedClose } = this.props.successData["data"];
-        let scales                         = new ScaleFinder(dateObjects, adjustedClose);
-        return scales;
+        let { dateObjects }   = this.props.successData["data"];
+        let { adjustedClose } = this.props.successData["data"];
+        let scalesObj         = new ScaleFinder(dateObjects, adjustedClose);
+
+        return scalesObj;
     }
 
     setXScale(){
         let { padding, width } = this.state;
-        let scaleObj           = this._setXAndYValues();
+        let scaleObj           = this.setXAndYValues();
         let xScale             = scaleObj.getXScale(scaleTime);
         xScale.range([padding, width - padding]).nice();
 
@@ -58,7 +60,7 @@ class Chart extends Component{
 
     setYScale(){
         let { height, padding } = this.state;
-        let scaleObj            = this._setXAndYValues();
+        let scaleObj            = this.setXAndYValues();
         let yScale              = scaleObj.getYScale(scaleLinear);
         yScale.range([(height - padding), padding]).nice();
 
