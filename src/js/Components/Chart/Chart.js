@@ -90,8 +90,7 @@ class Chart extends Component{
                     frequency={ frequency }
                 />
                 <XAxis
-                    scale={ findTimeScale(dates) }
-                    width={ width }
+                    scale={ this.setXScale(dates) }
                     height={ height }
                     padding={ padding }
                     frequency={ frequency }
