@@ -42,16 +42,18 @@ class Chart extends Component{
 
     setXScale(data){
         let { padding, width } = this.state;
-        let xScale = findTimeScale(data);
+        let xScale             = findTimeScale(data);
         xScale.range([padding, width - padding]).nice();
+
         return xScale;
     }
 
     setYScale(data){
         let { height }  = this.state;
         let { padding } = this.state;
-        let yScale = findLinearScale(data);
+        let yScale      = findLinearScale(data);
         yScale.range([(height - padding), padding]).nice();
+
         return yScale;
     }
 
@@ -100,13 +102,10 @@ class Chart extends Component{
                     padding={ padding }
                 />
                 <Line
-                    xScale={ findTimeScale(dates) }
-                    yScale={ findLinearScale(price) }
+                    xScale={ this.setXScale(dates) }
+                    yScale={ this.setYScale(price) }
                     x={ dates }
                     y={ price }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
                     color={ "orange" }
                 />
                 <Points

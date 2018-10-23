@@ -13,9 +13,6 @@ class Line extends Component{
         y: PropTypes.array,
         xScale: PropTypes.func,
         yScale: PropTypes.func,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number,
         color: PropTypes.string
     }
 
@@ -28,16 +25,6 @@ class Line extends Component{
             dataToRender.push([ x[i], y[i] ]);
 
         return dataToRender;
-    }
-
-    setScaleRanges(){
-        let { xScale, yScale } = this.props;
-        let { width, height }  = this.props;
-        let { padding }        = this.props;
-
-        // Set scale ranges so data is visible
-        xScale.range([padding, width - padding]).nice();
-        yScale.range([(height - padding), padding]).nice();
     }
 
     appendLineToChart(data){
@@ -66,13 +53,11 @@ class Line extends Component{
 
     componentDidMount(){
         let dataToRender = this.formatData();
-        this.setScaleRanges();
         this.appendLineToChart(dataToRender);
     }
 
     componentDidUpdate(){
         let dataToRender = this.formatData();
-        this.setScaleRanges();
         this.appendLineToChart(dataToRender);
     }
 }
