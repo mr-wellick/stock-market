@@ -40,46 +40,52 @@ class Chart extends Component{
         }
     }
 
-    setXScale(data){
+    getXValues(){
+        let { dateObjects } = this.props.successData["data"];
+        return dateObjects;
+    }
+
+    setXScale(){
         let { padding, width } = this.state;
-        let xScale             = findTimeScale(data);
+        let dates              = this.getXValues();
+        let xScale             = findTimeScale(dates);
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
     }
 
-    setYScale(data){
+    getYValues(){
+        let { adjustedClose } = this.props.successData["data"];
+        return adjustedClose;
+    }
+
+    setYScale(){
         let { height }  = this.state;
         let { padding } = this.state;
-        let yScale      = findLinearScale(data);
+        let prices      = this.getYValues();
+        let yScale      = findLinearScale(prices);
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
     }
 
+    getFrequency(){
+        let { frequency } = this.props.successData["data"];
+        return frequency;
+    }
+
     render(){
-        let { successData }   = this.props;
         let { width, height } = this.state;
         let { padding }       = this.state;
-        let dates;
-        let price;
-        let frequency;
 
         // empty array gets coerced into a falsy value.
-        // won't run when successData is an empty array.
-        if(successData)
-        {
-            dates     = successData["data"]["dateObjects"];
-            price     = successData["data"]["adjustedClose"];
-            frequency = successData["data"]["frequency"];
-        }
-        else
+        if(!this.props.successData)
             return null;
 
         return(
             <svg width={ width } height={ height }>
                 <Grids
-                    scale={ this.setYScale(price)}
+                    scale={ this.setYScale()}
                     padding={ padding }
                     width={ width }
                 />
@@ -89,30 +95,30 @@ class Chart extends Component{
                     padding={ padding }
                     xLabel={ "Year" }
                     yLabel={ "Price" }
-                    frequency={ frequency }
+                    frequency={ this.getFrequency() }
                 />
                 <XAxis
-                    scale={ this.setXScale(dates) }
+                    scale={ this.setXScale() }
                     height={ height }
                     padding={ padding }
-                    frequency={ frequency }
+                    frequency={ this.getFrequency() }
                 />
                 <YAxis
-                    scale={ this.setYScale(price) }
+                    scale={ this.setYScale() }
                     padding={ padding }
                 />
                 <Line
-                    xScale={ this.setXScale(dates) }
-                    yScale={ this.setYScale(price) }
-                    x={ dates }
-                    y={ price }
+                    xScale={ this.setXScale() }
+                    yScale={ this.setYScale() }
+                    x={ this.getXValues() }
+                    y={ this.getYValues() }
                     color={ "orange" }
                 />
                 <Points
-                    xScale={ this.setXScale(dates) }
-                    yScale={ this.setYScale(price) }
-                    x={ dates }
-                    y={ price }
+                    xScale={ this.setXScale() }
+                    yScale={ this.setYScale() }
+                    x={ this.getXValues() }
+                    y={ this.getYValues() }
                     color={ "orange" }
                 />
             </svg>
