@@ -75,8 +75,7 @@ class Chart extends Component{
     }
 
     render(){
-        let { width, height } = this.state;
-        let { padding }       = this.state;
+        let { width, height, padding } = this.state;
 
         // empty array gets coerced into a falsy value.
         if(!this.props.successData)
