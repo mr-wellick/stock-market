@@ -17,7 +17,7 @@
 + Supply a single stock ticker: TSLA.
 + Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
 
-# Reminders (so i don't forget)
+# Reminders
 + Remove graph for landscape view on mobile devices. (working correctly. height is just too small for graph)
 + Fix css for dialog messages: Warning & Duplicate entries
 + Start bundle splitting.
