@@ -1,33 +1,22 @@
 import { max, min } from "d3-array";
 
 class ScaleFinder{
-    constructor(xValues, yValues){
-        this.xValues = xValues;
-        this.yValues = yValues;
+    constructor(data){
+        this.data = data;
     }
 
-    getMinAndMaxOfData(data){
-        let Max        = data === null ? null : max(data, d => d);
-        let Min        = data === null ? null : min(data, d => d);
-        let scaleRange = [Min, Max];
-
-        return scaleRange;
+    getInterval(data){
+        let MAX      = max(data, d => d);
+        let MIN      = min(data, d => d);
+        let interval = [MIN, MAX];
+        return interval;
     }
 
-    getXScale(scaleType){
-        let range = this.getMinAndMaxOfData(this.xValues);
-        let scale = scaleType().domain(range);
-
+    getScale(scaleType){
+        let interval = this.getInterval(this.data);
+        let scale    = scaleType().domain(interval);
         return scale;
     }
-
-    getYScale(scaleType){
-        let range = this.getMinAndMaxOfData(this.yValues);
-        let scale = scaleType().domain(range);
-
-        return scale;
-    }
-
 }
 
 export default ScaleFinder;

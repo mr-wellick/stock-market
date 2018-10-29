@@ -1,5 +1,5 @@
 import StockVolatility from "./StockVolatility.ts";
-import ScaleFinder     from "./scaleFinder";
+import ScaleFinder     from "./ScaleFinder";
 import { scaleLinear } from "d3-scale";
 import { scaleTime }   from "d3-scale";
 
@@ -34,15 +34,15 @@ class StockInformationExtractor{
 
     getXScale(){
         let dateObjects = this.getDateObjects();
-        let scaleObj    = new ScaleFinder(dateObjects, null);
-        let xScale      = scaleObj.getXScale(scaleTime);
+        let scaleObj    = new ScaleFinder(dateObjects);
+        let xScale      = scaleObj.getScale(scaleTime);
         return xScale;
     }
 
     getYScale(){
         let prices   = this.getRawData("5. adjusted close");
-        let scaleObj = new ScaleFinder(null, prices);
-        let yScale   = scaleObj.getYScale(scaleLinear);
+        let scaleObj = new ScaleFinder(prices);
+        let yScale   = scaleObj.getScale(scaleLinear);
         return yScale;
     }
 
