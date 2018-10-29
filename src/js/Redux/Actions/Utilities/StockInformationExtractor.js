@@ -28,8 +28,9 @@ class StockInformationExtractor{
 
     getPercentChange(){
         let adjustedClose = this.getRawData("5. adjusted close").reverse();
-        adjustedClose     = new StockVolatility(adjustedClose);
-        return adjustedClose.getVolatility();
+        let stockObj      = new StockVolatility(adjustedClose);
+        let percentChange = stockObj.getVolatility();
+        return percentChange;
     }
 
     getXScale(){
