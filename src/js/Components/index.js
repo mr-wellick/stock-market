@@ -6,4 +6,5 @@ export { Table }           from "./Table/";
 export { Toggler }         from "./Toggler/";
 export { StockSelector }   from "./StockSelector/";
 export { Chart }           from "./Chart/";
+export { MinRisk }         from "./MinRisk/";
 export { Footer }          from "./Footer/";
