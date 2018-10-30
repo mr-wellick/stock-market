@@ -7,6 +7,7 @@ import { XAxis }     from "../XAxis/";
 import { YAxis }     from "../YAxis/";
 import { Line }      from "../Line/";
 import { Points }    from "../Points/";
+import tip           from "d3-tip";
 import "./chart.scss";
 
 class Chart extends Component{
@@ -54,6 +55,20 @@ class Chart extends Component{
         return yScale;
     }
 
+    setToolTip(){
+        let toolTip = tip().html(data => {
+            let date          = data[0].toDateString();
+            let USPriceFormat = data[1].toLocaleString("en-US", { style: "currency", currency: "USD" });
+            return (
+                `<div class="tooltips">
+                    <div class="tooltips-date">${date}</div>
+                    <div class="tooltips-price">${USPriceFormat}</div>
+                </div>`
+            );
+        });
+        return toolTip;
+    }
+
     render(){
         let { width, height, padding } = this.state;
 
@@ -99,6 +114,7 @@ class Chart extends Component{
                     x={ this.props.successData["data"]["dateObjects"] }
                     y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
+                    toolTip={ this.setToolTip() }
                 />
             </svg>
         );

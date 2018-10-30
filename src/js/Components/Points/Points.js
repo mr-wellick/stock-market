@@ -2,7 +2,6 @@ import React          from "react";
 import { Component }  from "react";
 import PropTypes      from "prop-types";
 import { select }     from "d3-selection";
-import tip            from "d3-tip";
 import "./points.scss";
 
 class Points extends Component{
@@ -11,7 +10,8 @@ class Points extends Component{
         yScale: PropTypes.func,
         x: PropTypes.array,
         y: PropTypes.array,
-        color: PropTypes.string
+        color: PropTypes.string,
+        toolTip: PropTypes.func
     }
 
     formatData(){
@@ -24,23 +24,10 @@ class Points extends Component{
         return dataToRender;
     }
 
-    setToolTip(){
-        let toolTip = tip().html(data => {
-            let USPriceFormat = data[1].toLocaleString("en-US", { style: "currency", currency: "USD" });
-            return (
-                `<div class="tooltips">
-                    <div class="tooltips-date">${data[0].toDateString()}</div>
-                    <div class="tooltips-price">${USPriceFormat}</div>
-                </div>`
-            );
-        });
-        return toolTip;
-    }
-
     appendCircles(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let toolTip            = this.setToolTip();
+        let { toolTip }        = this.props;
 
         // clear graph for next set of data points if we have data
         if(this.node.children.length > 0)

@@ -10,13 +10,8 @@ class MinRisk extends Component{
 
     render(){
         return(
-                <h1>hello</h1>
+            <h1>Here we&apos;ll have the risk-return space plotted.</h1>
         );
-    }
-
-    componentDidMount(){
-        if(this.props.successData)
-            console.log(this.props.successData);
     }
 }
 
