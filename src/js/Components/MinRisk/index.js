@@ -1,1 +1,0 @@
-export { default as MinRisk } from "./MinRisk.js";

@@ -2,8 +2,9 @@ import React         from "react";
 import PropTypes     from "prop-types";
 import { Component } from "react";
 import { connect }   from "react-redux";
+import "./riskReturnChart.scss";
 
-class MinRisk extends Component{
+class RiskReturnChart extends Component{
     static propTypes = {
         successData: PropTypes.array
     }
@@ -21,4 +22,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, null)(MinRisk);
+export default connect(mapState, null)(RiskReturnChart);
