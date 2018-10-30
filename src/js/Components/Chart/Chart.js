@@ -55,6 +55,8 @@ class Chart extends Component{
         return yScale;
     }
 
+    // Originally part of <Points/> component. Bringing this method here allows
+    // <Points/> to be reusable.
     setToolTip(){
         let toolTip = tip().html(data => {
             let date          = data[0].toDateString();
