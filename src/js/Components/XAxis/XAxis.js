@@ -3,7 +3,7 @@ import { Component }  from "react";
 import PropTypes      from "prop-types";
 import { select }     from "d3-selection";
 import { axisBottom } from "d3-axis";
-import { timeFormat } from "d3-time-format";
+//import { timeFormat } from "d3-time-format";
 
 class XAxis extends Component{
     static propTypes = {
@@ -13,13 +13,13 @@ class XAxis extends Component{
         frequency: PropTypes.string
     }
 
-    determineAxisLabel(){
-        let { frequency } = this.props;
-        if(frequency === "Monthly")
-            return timeFormat("%y");
-        else
-            return timeFormat("%B");
-    }
+    //determineAxisLabel(){
+    //    let { frequency } = this.props;
+    //    if(frequency === "Monthly")
+    //        return timeFormat("%y");
+    //    else
+    //        return timeFormat("%B");
+    //}
 
     findXAxis(){
         let { scale, padding } = this.props;
@@ -30,7 +30,7 @@ class XAxis extends Component{
         select(this.node)
             .attr("transform", axisLocation)
             .call(axisBottom(scale)
-            .tickFormat(this.determineAxisLabel()));
+                /*.tickFormat(this.determineAxisLabel())*/);
     }
 
     render(){
