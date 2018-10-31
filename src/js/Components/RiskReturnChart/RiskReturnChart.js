@@ -149,26 +149,49 @@ class RiskReturnChart extends Component{
 
     render(){
         return(
-            <svg width={ this.state.width } height={ this.state.height }>
-                <XAxis
-                    scale={ this.setXScale() }
-                    height={ this.state.height }
-                    padding={ this.state.padding }
-                />
-                <YAxis
-                    scale= { this.setYScale() }
-                    padding={ this.state.padding }
-                />
-                <Points
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
-                    x={ this.getSD() }
-                    y={ this.getMean() }
-                    color={ "crimson" }
-                    toolTip={ this.setToolTip() }
-                    className={ "risk-return" }
-                />
-            </svg>
+            <>
+                <table>
+                    <caption>Risk-Return Space</caption>
+                    <thead>
+                        <tr>
+                            <th>Stocks</th>
+                            <th>Returns</th>
+                            <th>Standard Deviation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.composeNewData().map( (item, index) =>
+                                <tr key={ index }>
+                                    <td>{ item["stockName"] }</td>
+                                    <td>{ Number(item["mean"]).toFixed(2) }</td>
+                                    <td>{ Number(item["sd"]).toFixed(2) }</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+                <svg width={ this.state.width } height={ this.state.height }>
+                    <XAxis
+                        scale={ this.setXScale() }
+                        height={ this.state.height }
+                        padding={ this.state.padding }
+                    />
+                    <YAxis
+                        scale= { this.setYScale() }
+                        padding={ this.state.padding }
+                    />
+                    <Points
+                        xScale={ this.setXScale() }
+                        yScale={ this.setYScale() }
+                        x={ this.getSD() }
+                        y={ this.getMean() }
+                        color={ "crimson" }
+                        toolTip={ this.setToolTip() }
+                        className={ "risk-return" }
+                    />
+                </svg>
+            </>
         );
     }
 
