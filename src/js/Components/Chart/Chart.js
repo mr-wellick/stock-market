@@ -91,13 +91,13 @@ class Chart extends Component{
                     padding={ padding }
                     xLabel={ "Year" }
                     yLabel={ "Price" }
-                    frequency={ this.props.successData["data"]["frequency"] }
+                    /*frequency={ this.props.successData["data"]["frequency"] }*/
                 />
                 <XAxis
                     scale={ this.setXScale() }
                     height={ height }
                     padding={ padding }
-                    frequency={ this.props.successData["data"]["frequency"] }
+                    /*frequency={ this.props.successData["data"]["frequency"] }*/
                 />
                 <YAxis
                     scale={ this.setYScale() }

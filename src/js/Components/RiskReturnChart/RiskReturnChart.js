@@ -6,6 +6,7 @@ import ScaleFinder     from "../../Redux/Actions/Utilities/ScaleFinder.js";
 import { XAxis }       from "../XAxis/";
 import { YAxis }       from "../YAxis/";
 import { Points }      from "../Points/";
+import { Labels }      from "../Labels/";
 import { scaleLinear } from "d3-scale";
 import tip             from "d3-tip";
 import mean            from "lodash.mean";
@@ -20,7 +21,7 @@ class RiskReturnChart extends Component{
     state = {
         width: window.innerWidth <= 1000 ? window.innerWidth : window.innerWidth/1.4,
         height: window.innerHeight/1.6,
-        padding: 60
+        padding: 50
     }
 
     handleResize = () => {
@@ -180,6 +181,13 @@ class RiskReturnChart extends Component{
                     <YAxis
                         scale= { this.setYScale() }
                         padding={ this.state.padding }
+                    />
+                    <Labels
+                        width={ this.state.width }
+                        height={ this.state.height }
+                        padding={ this.state.padding }
+                        xLabel={ "SD" }
+                        yLabel={ "Returns" }
                     />
                     <Points
                         xScale={ this.setXScale() }
