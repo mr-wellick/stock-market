@@ -11,7 +11,8 @@ class Points extends Component{
         x: PropTypes.array,
         y: PropTypes.array,
         color: PropTypes.string,
-        toolTip: PropTypes.func
+        toolTip: PropTypes.func,
+        className: PropTypes.string
     }
 
     formatData(){
@@ -51,7 +52,7 @@ class Points extends Component{
 
     render(){
         return(
-            <g ref={ node => this.node = node } className="points-container"></g>
+            <g ref={ node => this.node = node } className={ this.props.className }></g>
         );
     }
 

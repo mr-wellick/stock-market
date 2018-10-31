@@ -166,6 +166,7 @@ class RiskReturnChart extends Component{
                     y={ this.getMean() }
                     color={ "crimson" }
                     toolTip={ this.setToolTip() }
+                    className={ "risk-return" }
                 />
             </svg>
         );

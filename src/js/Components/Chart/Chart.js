@@ -117,6 +117,7 @@ class Chart extends Component{
                     y={ this.props.successData["data"]["adjustedClose"] }
                     color={ "orange" }
                     toolTip={ this.setToolTip() }
+                    className={ "line-chart" }
                 />
             </svg>
         );
