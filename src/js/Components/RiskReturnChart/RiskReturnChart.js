@@ -7,6 +7,7 @@ import { XAxis }       from "../XAxis/";
 import { YAxis }       from "../YAxis/";
 import { Points }      from "../Points/";
 import { Labels }      from "../Labels/";
+import { Grids }       from "../Grids/";
 import { scaleLinear } from "d3-scale";
 import tip             from "d3-tip";
 import mean            from "lodash.mean";
@@ -140,7 +141,7 @@ class RiskReturnChart extends Component{
             let mean = data[1];
             return (
                 `<div class="tooltips">
-                    <div class="tooltips-sd">Standard Deviation: ${sd.toFixed(2)}</div>
+                    <div class="tooltips-sd">SD: ${sd.toFixed(2)}</div>
                     <div class="tooltips-mean">Returns: ${mean.toFixed(2)}</div>
                 </div>`
             );
@@ -173,6 +174,11 @@ class RiskReturnChart extends Component{
                     </tbody>
                 </table>
                 <svg width={ this.state.width } height={ this.state.height }>
+                    <Grids
+                        scale={ this.setYScale()}
+                        padding={ this.state.padding }
+                        width={ this.state.width }
+                    />
                     <XAxis
                         scale={ this.setXScale() }
                         height={ this.state.height }
