@@ -11,7 +11,6 @@ import tip             from "d3-tip";
 import mean            from "lodash.mean";
 import sum             from "lodash.sum";
 import "./riskReturnChart.scss";
-import { svg } from "d3";
 
 class RiskReturnChart extends Component{
     static propTypes = {
