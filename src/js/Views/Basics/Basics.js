@@ -6,16 +6,18 @@ class Basics extends Component{
     render(){
         return(
             <section className="basics">
-                <h2>7 key things to look for in any stock</h2>
-                <ol>
-                    <li>Stock Price</li>
-                    <li>Shares Outstanding</li>
-                    <li>Market Cap</li>
-                    <li>Cash</li>
-                    <li>Debt</li>
-                    <li>Net Cast</li>
-                    <li>Enterprise Value</li>
-                </ol>
+                <div>
+                    <h2>7 key things to look for in any stock</h2>
+                    <ol>
+                        <li>Stock Price</li>
+                        <li>Shares Outstanding</li>
+                        <li>Market Cap</li>
+                        <li>Cash</li>
+                        <li>Debt</li>
+                        <li>Net Cast</li>
+                        <li>Enterprise Value</li>
+                    </ol>
+                </div>
                 <div>
                     <h3>Stock Price</h3>
                     <p>The price of 1 share. Price fluctuates based on traders.</p>
