@@ -7,14 +7,13 @@ class Basics extends Component{
         return(
             <section className="basics">
                 <div>
-                    <h2>7 key things to look for in any stock</h2>
+                    <h2>6 key things to look for in any stock</h2>
                     <ol>
                         <li>Stock Price</li>
                         <li>Shares Outstanding</li>
                         <li>Market Cap</li>
                         <li>Cash</li>
                         <li>Debt</li>
-                        <li>Net Cast</li>
                         <li>Enterprise Value</li>
                     </ol>
                 </div>
@@ -43,11 +42,6 @@ class Basics extends Component{
                         To find how much debt a company has we need to look at the financial statement known as
                         the balance sheet, one of three key financial statements.
                     </p>
-                </div>
-                <div>
-                    <h3>Net Cash</h3>
-                    <p>Net Cash = Cash - Debt.</p>
-                    <p>Note: when buying a share of a company, we are buying &quot;Net Cash.&quot;</p>
                 </div>
                 <div>
                     <h3>Enterprise Value</h3>
