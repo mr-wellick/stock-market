@@ -7,6 +7,10 @@
 ![nothing to show](./screenshots/mobile-2.png)
 ![nothing to show](./screenshots/mobile-3.png)
 
+# NOTE
++ If you clone the repo, you must claim your [FREE API KEY](https://www.alphavantage.co/support/#api-key).
++ I am not affiliated with alphavantage.
+
 # App functionality
 + Query single/multiple stock(s).
 + Each query will show you a table with the latest monthly/daily adjusted price and percent change for each stock.
