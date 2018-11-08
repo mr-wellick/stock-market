@@ -1,6 +1,5 @@
 import React               from "react";
 import { Component }       from "react";
-import { Fragment }        from "react";
 import { Input }           from "../../Components/";
 import { Dialog }          from "../../Components/";
 import { SelectFrequency } from "../../Components/";
@@ -14,7 +13,7 @@ import "./home.scss";
 class Home extends Component{
     render(){
         return(
-            <Fragment>
+            <>
                 <section className="main-sidebar">
                     <div className="sidebar-container">
                         <SelectFrequency/>
@@ -31,14 +30,14 @@ class Home extends Component{
                     <Table/>
                     <Toggler>
                         {({successData, onChange, activeIndex}) => (
-                            <Fragment>
+                            <>
                                 <StockSelector successData={ successData } onChange={ onChange }/>
                                 <Chart successData={ successData[activeIndex] }/>
-                            </Fragment>
+                            </>
                         )}
                     </Toggler>
                 </section>
-            </Fragment>
+            </>
         );
     }
 }
