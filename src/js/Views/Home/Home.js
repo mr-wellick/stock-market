@@ -22,7 +22,10 @@ class Home extends Component{
                 <Toggler>
                     {({successData, robinhoodData, onChange, activeIndex}) => (
                         <>
-                            <StockInfo successData={ successData[activeIndex] }/>
+                            <StockInfo
+                                successData={ successData[activeIndex] }
+                                robinhoodData={ robinhoodData[activeIndex] }
+                            />
                             <div className="chart-data-container">
                                 <Chart successData={ successData[activeIndex] }/>
                                 <StockSelector successData={ successData } onChange={ onChange }/>

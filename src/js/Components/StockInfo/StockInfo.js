@@ -5,11 +5,12 @@ import "./stockInfo.scss";
 
 class StockInfo extends Component {
     static propTypes = {
-        successData: PropTypes.object
+        successData: PropTypes.object,
+        robinhoodData: PropTypes.object
     }
 
     render(){
-        if(!this.props.successData)
+        if(!this.props.successData || !this.props.robinhoodData)
             return null;
 
         return(
@@ -21,10 +22,9 @@ class StockInfo extends Component {
                     <thead>
                         <tr>
                             <th>Adjusted Close</th>
+                            <th>S/O</th>
+                            <th>MC</th>
                             <th>Percent Change</th>
-                            <th>Open</th>
-                            <th>Low</th>
-                            <th>High</th>
                             <th>Frequency</th>
                             <th>Current Date</th>
                         </tr>
@@ -32,10 +32,19 @@ class StockInfo extends Component {
                     <tbody>
                         <tr>
                             <td>{ `$${this.props.successData["data"]["adjustedClose"][0]}` }</td>
+                            <td>
+                                {
+                                    Number(this.props.robinhoodData["shares_outstanding"])
+                                        .toLocaleString("en-US")
+                                }
+                            </td>
+                            <td>
+                                {
+                                    Number(this.props.robinhoodData["market_cap"])
+                                        .toLocaleString("en-US", { style: "currency", currency: "USD" })
+                                }
+                            </td>
                             <td>{ `${this.props.successData["data"]["percentChange"][0]}%` }</td>
-                            <td>{ `$${this.props.successData["data"]["open"][0]}` }</td>
-                            <td>{ `$${this.props.successData["data"]["low"][0]}` }</td>
-                            <td>{ `$${this.props.successData["data"]["high"][0]}` }</td>
                             <td>{ this.props.successData["data"]["frequency"] }</td>
                             <td>{ this.props.successData["data"]["dates"][0] }</td>
                         </tr>
