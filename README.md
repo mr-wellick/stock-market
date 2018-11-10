@@ -10,6 +10,10 @@
 # NOTE
 + If you clone the repo, you must claim your [FREE API KEY](https://www.alphavantage.co/support/#api-key).
 + I am not affiliated with alphavantage.
++ Go to the file: `src/js/Redux/Actions/fetchData.js`. In there, you'll find the following line of code:
+`fetch(https://www.alphavantage.co/query?${frequency}symbol=${stock}&apikey=${process.env.API_KEY})`.
+    + Replace `&apikey=${process.env.API_KEY}` with `&apikey=YOUR_FREE_API_KEY`
++ Or just create a new environment variable named `API_KEY`, which stores your free api key details.
 
 # App functionality
 + Query single/multiple stock(s).
