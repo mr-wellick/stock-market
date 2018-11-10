@@ -1,0 +1,28 @@
+.main-header
+{
+    display: flex;
+    padding: 10px;
+    align-items: center; // cross-axis (vertical alignment)
+    justify-content: space-between; // main-axis (horizontal alignment)
+
+    background-color: rgb(52, 58, 64);
+}
+
+.main-header__logo
+{
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.main-nav__item a
+{
+    color: #fff;
+}
+
+.main-header__container
+{
+    display: flex;
+    width: 15%;
+    align-items: center;
+    justify-content: space-between;
+}
