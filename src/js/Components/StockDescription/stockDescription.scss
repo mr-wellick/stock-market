@@ -1,0 +1,32 @@
+.description-container
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    max-width: 50rem;
+    border-radius: 0.25rem;
+    line-height: 1.5;
+}
+
+.stock-founded
+{
+    background-color: rgba(0,0,0,.03);
+    border: 1px solid rgb(52, 58, 64);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem 0.25rem 0 0;
+    padding: .75rem 1.25rem;
+
+}
+
+.main-info-container
+{
+    border: 1px solid rgb(52, 58, 64);
+    border-radius: 0 0 0.25rem 0.25rem;
+    border-top: 0;
+    padding: 1.25rem;
+}
+
+.stock-ceo
+{
+    margin-bottom: .75rem;
+}
