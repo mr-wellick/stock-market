@@ -19,7 +19,7 @@ class Home extends Component{
                 </Dialog>
                 <Toggler>
                     {({successData, onChange, activeIndex}) => (
-                        <div>
+                        <div className="chart-data-container">
                             <Chart successData={ successData[activeIndex] }/>
                             <StockSelector successData={ successData } onChange={ onChange }/>
                         </div>

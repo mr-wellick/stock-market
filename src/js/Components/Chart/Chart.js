@@ -101,6 +101,7 @@ class Chart extends Component{
                 />
                 <YAxis
                     scale={ this.setYScale() }
+                    width={ width }
                     padding={ padding }
                 />
                 <Line
