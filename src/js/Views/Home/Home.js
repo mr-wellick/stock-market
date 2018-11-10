@@ -2,7 +2,6 @@ import React               from "react";
 import { Component }       from "react";
 import { Input }           from "../../Components/";
 import { Dialog }          from "../../Components/";
-import { SelectFrequency } from "../../Components/";
 import { Loader }          from "../../Components/";
 import { Table }           from "../../Components/";
 import { Toggler }         from "../../Components/";
@@ -16,7 +15,6 @@ class Home extends Component{
             <>
                 <section className="main-sidebar">
                     <div className="sidebar-container">
-                        <SelectFrequency/>
                         <Input/>
                         <Dialog>
                             <Dialog.Errors/>
