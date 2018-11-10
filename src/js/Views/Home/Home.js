@@ -1,11 +1,12 @@
-import React               from "react";
-import { Component }       from "react";
-import { Dialog }          from "../../Components/";
-import { Loader }          from "../../Components/";
-import { StockInfo }       from "../../Components/";
-import { Toggler }         from "../../Components/";
-import { StockSelector }   from "../../Components/";
-import { Chart }           from "../../Components/";
+import React                from "react";
+import { Component }        from "react";
+import { Dialog }           from "../../Components/";
+import { Loader }           from "../../Components/";
+import { StockInfo }        from "../../Components/";
+import { Toggler }          from "../../Components/";
+import { StockSelector }    from "../../Components/";
+import { StockDescription } from "../../Components/";
+import { Chart }            from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -26,6 +27,7 @@ class Home extends Component{
                                 <Chart successData={ successData[activeIndex] }/>
                                 <StockSelector successData={ successData } onChange={ onChange }/>
                             </div>
+                            <StockDescription successData={ successData[activeIndex] }/>
                         </>
                     )}
                 </Toggler>
