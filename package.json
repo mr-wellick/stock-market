@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "dev": "yarn run webpack-dev-server --env.mode development --open --hot --host 0.0.0.0",
+        "dev": "yarn run webpack-dev-server --env.mode development --open --hot",
         "prod": "yarn run webpack --env.mode production",
         "prod:analyze": "yarn prod --env.presets analyze",
         "prod:compress": "yarn prod --env.presets compress",
