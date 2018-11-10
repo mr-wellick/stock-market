@@ -1,10 +1,9 @@
 .main-header
 {
     display: flex;
-    padding: 10px;
+    padding: 12px;
     align-items: center; // cross-axis (vertical alignment)
     justify-content: space-between; // main-axis (horizontal alignment)
-
     background-color: rgb(36, 41, 46);
 }
 

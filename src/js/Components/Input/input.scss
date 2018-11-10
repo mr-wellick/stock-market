@@ -5,8 +5,11 @@ $hover-color: rgba(35, 39, 43, 0.8);
 
 .main-form
 {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 5px;
     margin-bottom: 5px;
+    width: 30%;
 }
 
 .main-form__input,
@@ -17,6 +20,7 @@ $hover-color: rgba(35, 39, 43, 0.8);
 
 .main-form__input,
 {
+    width: 70%;
     border: 1px solid $input-color;
     border-right: 0;
     border-radius: 0.25rem 0 0 0.25rem;
