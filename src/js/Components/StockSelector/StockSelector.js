@@ -34,12 +34,12 @@ class StockSelector extends Component{
                         successData.length > 1 ?
                             // Remove first entry and bump indices + 1
                             successData.slice(1).map( (item, index) =>
-                                <div key={ index + 1 } /* index bump */>
+                                <div key={ index + 1 }>
                                     <input
                                         type="radio"
                                         id={ item["data"]["stockName"] }
                                         name="active-stock"
-                                        value={ index + 1 } /* index bump */
+                                        value={ index + 1 }
                                     />
                                     <label htmlFor={ item["data"]["stockName"] }>
                                         { item["data"]["stockName"] }

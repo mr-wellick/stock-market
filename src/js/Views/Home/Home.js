@@ -1,6 +1,5 @@
 import React               from "react";
 import { Component }       from "react";
-import { Input }           from "../../Components/";
 import { Dialog }          from "../../Components/";
 //import { Loader }          from "../../Components/";
 //import { Table }           from "../../Components/";
@@ -13,7 +12,6 @@ class Home extends Component{
     render(){
         return(
             <>
-                <Input/>
                 <Dialog>
                     <Dialog.Errors/>
                     <Dialog.Warnings/>
@@ -22,8 +20,8 @@ class Home extends Component{
                 <Toggler>
                     {({successData, onChange, activeIndex}) => (
                         <>
-                            <StockSelector successData={ successData } onChange={ onChange }/>
                             <Chart successData={ successData[activeIndex] }/>
+                            <StockSelector successData={ successData } onChange={ onChange }/>
                         </>
                     )}
                 </Toggler>
