@@ -20,14 +20,17 @@ class Home extends Component{
                 </Dialog>
                 <Loader/>
                 <Toggler>
-                    {({successData, onChange, activeIndex}) => (
+                    {({successData, robinhoodData, onChange, activeIndex}) => (
                         <>
                             <StockInfo successData={ successData[activeIndex] }/>
                             <div className="chart-data-container">
                                 <Chart successData={ successData[activeIndex] }/>
                                 <StockSelector successData={ successData } onChange={ onChange }/>
                             </div>
-                            <StockDescription successData={ successData[activeIndex] }/>
+                            <StockDescription
+                                successData={ successData[activeIndex] }
+                                robinhoodData={ robinhoodData[activeIndex] }
+                            />
                         </>
                     )}
                 </Toggler>

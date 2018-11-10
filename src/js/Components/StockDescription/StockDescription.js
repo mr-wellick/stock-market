@@ -4,23 +4,21 @@ import { Component } from "react";
 
 class StockDescription extends Component{
     static propTypes = {
-        successData: PropTypes.object
-    }
-
-    state = {
-        stockName: "",
-        robinHoodData: {}
+        successData: PropTypes.object,
+        robinhoodData: PropTypes.object
     }
 
     render(){
-        if(!this.props.successData)
+        if(!this.props.successData || !this.props.robinhoodData)
             return null;
 
         return(
             <div>
                 <h2>
-                    { this.props.successData["data"]["stockName"] }
+                    { `${this.props.successData["data"]["stockName"]} founded in ${this.props.robinhoodData["year_founded"]}` }
                 </h2>
+                <h5>{ this.props.robinhoodData["ceo"] }</h5>
+                <p>{ this.props.robinhoodData["description"] }</p>
             </div>
         );
     }

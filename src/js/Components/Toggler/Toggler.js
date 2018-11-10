@@ -7,7 +7,8 @@ import "./toggler.scss";
 class Toggler extends Component{
     static propTypes = {
         children: PropTypes.func,
-        successData: PropTypes.array
+        successData: PropTypes.array,
+        robinhoodData: PropTypes.array
     }
 
     state = {
@@ -24,6 +25,7 @@ class Toggler extends Component{
     propCollection(){
         return {
             successData: this.props.successData,
+            robinhoodData: this.props.robinhoodData,
             onChange: this.onChange,
             activeIndex: this.state.activeIndex
         };

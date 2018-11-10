@@ -35,18 +35,21 @@ function fetchData(stockNames)
                         processedData.push(fetchManyCalls(data));
                 });
 
-                // get all successful api calls
-                let stockNames = processedData.map( item => item["data"]["stockName"]);
-                fetch(`https://api.robinhood.com/fundamentals/?symbols=${stockNames}`)
-                    .then(res => res.json())
-                    .then(data => {
-                
-                        // end request
-                        dispatch(robinhoodComplete(data.results));
-                        dispatch(fetchComplete(processedData));
-                        dispatch(fetchRequest(false));
-                    }); 
-
+                    // get all successful api calls
+                    let successfulCalls = processedData.filter(item => item["type"] === "FETCH_DATA_SUCCESS");
+                    let stockNames      = successfulCalls.map( item => item["data"]["stockName"]);
+                    if(stockNames.length > 0)
+                    {
+                        fetch(`https://api.robinhood.com/fundamentals/?symbols=${stockNames}`)
+                            .then(res => res.json())
+                            .then(data => {
+                                // get robinhood data
+                                dispatch(robinhoodComplete(data.results));
+                            }); 
+                    }
+                    // end request
+                    dispatch(fetchComplete(processedData));
+                    dispatch(fetchRequest(false));
             })
         );
     };
