@@ -88,7 +88,7 @@ class Input extends Component{
                     type="submit"
                     className="main-form__btn"
                 >
-                ADD
+                Add Stock
                 </button>
             </form>
         );
