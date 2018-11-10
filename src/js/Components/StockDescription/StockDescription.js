@@ -17,7 +17,7 @@ class StockDescription extends Component{
                 <h2>
                     { `${this.props.successData["data"]["stockName"]} founded in ${this.props.robinhoodData["year_founded"]}` }
                 </h2>
-                <h5>{ this.props.robinhoodData["ceo"] }</h5>
+                <h4>{ `CEO: ${this.props.robinhoodData["ceo"]}` }</h4>
                 <p>{ this.props.robinhoodData["description"] }</p>
             </div>
         );

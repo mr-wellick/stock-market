@@ -38,12 +38,14 @@ function fetchData(stockNames)
                     // get all successful api calls
                     let successfulCalls = processedData.filter(item => item["type"] === "FETCH_DATA_SUCCESS");
                     let stockNames      = successfulCalls.map( item => item["data"]["stockName"]);
+
+                    // only call if we have correct stock entries
                     if(stockNames.length > 0)
                     {
+                        // get robinhood data
                         fetch(`https://api.robinhood.com/fundamentals/?symbols=${stockNames}`)
                             .then(res => res.json())
                             .then(data => {
-                                // get robinhood data
                                 dispatch(robinhoodComplete(data.results));
                             }); 
                     }
