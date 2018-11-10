@@ -4,6 +4,7 @@ import fetchSuccess          from "./fetchSuccess.js";
 import fetchManyCalls        from "./fetchManyCalls.js";
 import fetchRequest          from "./fetchRequest.js";
 import resetDuplicateEntries from "./resetDuplicateEntries.js";
+import robinhoodComplete     from "./robinhoodComplete.js";
 
 function fetchData(stockNames)
 {
@@ -34,9 +35,18 @@ function fetchData(stockNames)
                         processedData.push(fetchManyCalls(data));
                 });
 
-                // end request
-                dispatch(fetchComplete(processedData));
-                dispatch(fetchRequest(false));
+                // get all successful api calls
+                let stockNames = processedData.map( item => item["data"]["stockName"]);
+                fetch(`https://api.robinhood.com/fundamentals/?symbols=${stockNames}`)
+                    .then(res => res.json())
+                    .then(data => {
+                
+                        // end request
+                        dispatch(robinhoodComplete(data.results));
+                        dispatch(fetchComplete(processedData));
+                        dispatch(fetchRequest(false));
+                    }); 
+
             })
         );
     };
