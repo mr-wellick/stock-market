@@ -1,7 +1,7 @@
 import React               from "react";
 import { Component }       from "react";
 import { Dialog }          from "../../Components/";
-//import { Loader }          from "../../Components/";
+import { Loader }          from "../../Components/";
 //import { Table }           from "../../Components/";
 import { Toggler }         from "../../Components/";
 import { StockSelector }   from "../../Components/";
@@ -17,6 +17,7 @@ class Home extends Component{
                     <Dialog.Warnings/>
                     <Dialog.Duplicate/>
                 </Dialog>
+                <Loader/>
                 <Toggler>
                     {({successData, onChange, activeIndex}) => (
                         <div className="chart-data-container">
