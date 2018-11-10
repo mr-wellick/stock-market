@@ -17,7 +17,7 @@ class App extends Component{
                 <Fragment>
                     <header className="main-header">
                         <div className="main-header__container">
-                            <a className="main-header__logo">CSUP</a>
+                            <a className="main-header__logo">Stocks</a>
                             <nav className="main-nav">
                                 <ul className="main-nav__items">
                                     <li className="main-nav__item">

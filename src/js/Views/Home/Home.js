@@ -2,7 +2,7 @@ import React               from "react";
 import { Component }       from "react";
 import { Dialog }          from "../../Components/";
 import { Loader }          from "../../Components/";
-//import { Table }           from "../../Components/";
+import { StockInfo }       from "../../Components/";
 import { Toggler }         from "../../Components/";
 import { StockSelector }   from "../../Components/";
 import { Chart }           from "../../Components/";
@@ -20,10 +20,13 @@ class Home extends Component{
                 <Loader/>
                 <Toggler>
                     {({successData, onChange, activeIndex}) => (
-                        <div className="chart-data-container">
-                            <Chart successData={ successData[activeIndex] }/>
-                            <StockSelector successData={ successData } onChange={ onChange }/>
-                        </div>
+                        <>
+                            <StockInfo successData={ successData[activeIndex] }/>
+                            <div className="chart-data-container">
+                                <Chart successData={ successData[activeIndex] }/>
+                                <StockSelector successData={ successData } onChange={ onChange }/>
+                            </div>
+                        </>
                     )}
                 </Toggler>
             </>
