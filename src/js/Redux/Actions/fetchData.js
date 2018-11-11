@@ -31,7 +31,7 @@ function fetchData(stockNames)
                         processedData.push(fetchSuccess(data));
                     if(data["Error Message"])
                         processedData.push(fetchError(data));
-                    if(data["Information"])
+                    if(data["Note"])
                         processedData.push(fetchManyCalls(data));
                 });
 

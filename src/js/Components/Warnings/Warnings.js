@@ -19,7 +19,7 @@ class Warnings extends Component{
             <div className="dialog-warning">
                 <p>
                     <strong>Warning! </strong>
-                    Can only retrieve a maximum of 4 stocks per minute.
+                    Can only retrieve a maximum of 5 stocks per minute.
                     Please wait.
                 </p>
                 <a
