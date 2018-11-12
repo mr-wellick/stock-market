@@ -4,7 +4,6 @@ import PropTypes     from "prop-types";
 import { connect }   from "react-redux";
 import { fetchData } from "../../Redux/";
 import { userInput } from "../../Redux/";
-import uniq          from "lodash.uniq";
 import includes      from "lodash.includes";
 import "./input.scss";
 
@@ -15,60 +14,31 @@ class Input extends Component{
         successData: PropTypes.array
     }
 
-    extractStockNames(stockNames){
-        let singleWord          = /([A-Z]+)/;
-        let extractedStockNames = stockNames.map(stock => stock.match(singleWord)[0]);
-        return extractedStockNames;
-    }
-
     getCurrentStockNamesInState(){
         let { successData } = this.props;
         let currentStocks   = successData.map( dataset => dataset["data"]["stockName"] );
+
         return currentStocks;
     }
 
-    getNewStockEntries(userStockEntries){
-        let stocksInState   = this.getCurrentStockNamesInState();
-        let newStockEntries = [];
+    getNewStockEntry(stock){
+        let stocksInState = this.getCurrentStockNamesInState();
+        let isNewEntry    = includes(stocksInState, stock); // returns false if stock is not in array
 
-        userStockEntries.forEach(userEntry => {
-            let stockIsIncluded = includes(stocksInState, userEntry);
-            if(stockIsIncluded === false)
-                newStockEntries.push(userEntry);
-        });
-
-        if(newStockEntries.length > 0)
-            this.props.fetchData(newStockEntries);
-    }
-
-    getDuplicateStockEntries(userStockEntries){
-        let stocksInState         = this.getCurrentStockNamesInState();
-        let duplicateStockEntries = [];
-
-        userStockEntries.forEach(userEntry => {
-            let stockIsIncluded = includes(stocksInState, userEntry);
-            if(stockIsIncluded === true)
-                duplicateStockEntries.push(userEntry);
-        });
-
-        if(duplicateStockEntries.length > 0)
-            this.props.userInput(duplicateStockEntries);
+        if(!isNewEntry)
+            this.props.fetchData([stock]); // fetch all new entries
+        else
+            this.props.userInput([stock]); // tell user we can't fetch entries already in state
     }
 
     onSubmit = (event) => {
         // get user input
-        let userInput = document.querySelector("#user-input").value.toUpperCase().trim();
+        let userInput     = document.querySelector("#user-input").value;
+        let filteredInput = userInput.match(/([A-Za-z]+)/)[0].trim().toUpperCase();
 
         // check user input
         if(userInput !== "")
-        {
-            let arrayOfInputs       = userInput.split(",");
-            let extractedStockNames = this.extractStockNames(arrayOfInputs);
-            let uniqueEntries       = uniq(extractedStockNames);
-
-            this.getNewStockEntries(uniqueEntries);
-            this.getDuplicateStockEntries(uniqueEntries);
-        }
+            this.getNewStockEntry(filteredInput);
 
         // clear form
         event.preventDefault();
@@ -80,7 +50,7 @@ class Input extends Component{
             <form onSubmit={ this.onSubmit } className="main-form">
                 <input
                     type="text"
-                    placeholder="Enter Stock(s)"
+                    placeholder="Enter Stock"
                     id="user-input"
                     className="main-form__input"
                 />
@@ -96,7 +66,7 @@ class Input extends Component{
 
     componentDidMount(){
         if(this.props.successData.length === 0)
-            this.props.fetchData(["TSLA", "KO", "AAPL"]);
+            this.props.fetchData(["TSLA"]);
     }
 }
 
