@@ -17,26 +17,16 @@ class Chart extends Component{
     }
 
     state = {
-        width: window.innerWidth <= 1000 ? window.innerWidth : window.innerWidth/1.4,
+        width: window.innerWidth/1.4,
         height: window.innerHeight/1.6,
         padding: 40,
     }
 
     handleResize = () => {
-        if(window.innerWidth <= 1000)
-        {
-            this.setState({
-                width: window.innerWidth,
-                height: window.innerHeight/1.6
-            });
-        }
-        else if(window.innerWidth > 1000)
-        {
-            this.setState({
-                width: window.innerWidth/1.4,
-                height: window.innerHeight/1.6
-            });
-        }
+        this.setState({
+            width: window.innerWidth/1.4,
+            height: window.innerHeight/1.6
+        });
     }
 
     setXScale(){
