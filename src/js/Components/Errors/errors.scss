@@ -4,13 +4,13 @@ $err-text-color: #b94a48;
 
 .dialog-error
 {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
+    //display: flex;
+    //justify-content: space-between;
+    //width: 90%;
+    //margin: 0 auto;
+    //margin-top: 10px;
+    //margin-bottom: 10px;
+    //padding: 10px;
     border: 1px solid $err-border-color;
     color: $err-text-color;
     background-color: $err-background-color;
