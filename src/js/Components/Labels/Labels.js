@@ -11,17 +11,12 @@ class Labels extends Component{
         padding: PropTypes.number,
         xLabel: PropTypes.string,
         yLabel: PropTypes.string,
-        //frequency: PropTypes.string
     }
 
     addXLabel(){
         let { width,height } = this.props;
         let { padding }      = this.props;
         let { xLabel }       = this.props;
-        //let { frequency }    = this.props;
-
-        //if(frequency === "Daily")
-        //    xLabel = "Month";
 
         select(this.node)
             .attr("class", "x-label")

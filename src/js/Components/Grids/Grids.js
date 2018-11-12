@@ -19,10 +19,11 @@ class Grids extends Component{
 
     appendGrids(){
         let { padding, width } = this.props;
+        let axisPosition       = `translate(${padding}, 0)`;
 
         select(this.node)
             .attr("class", "grid")
-            .attr("transform", "translate(" + padding + ",0)")
+            .attr("transform", axisPosition)
             .call(this.createYGridLines().tickSize(-(width - padding*2)).tickFormat(""));
     }
 
