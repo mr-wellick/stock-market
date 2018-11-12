@@ -12,8 +12,7 @@ import "./chart.scss";
 
 class Chart extends Component{
     static propTypes = {
-        successData: PropTypes.object,
-        frequency: PropTypes.string
+        successData: PropTypes.object
     }
 
     state = {
@@ -51,6 +50,7 @@ class Chart extends Component{
         let toolTip = tip().html(data => {
             let date          = data[0].toDateString();
             let USPriceFormat = data[1].toLocaleString("en-US", { style: "currency", currency: "USD" });
+
             return (
                 `<div class="tooltips">
                     <div class="tooltips-date">${date}</div>
@@ -58,6 +58,7 @@ class Chart extends Component{
                 </div>`
             );
         });
+
         return toolTip;
     }
 
