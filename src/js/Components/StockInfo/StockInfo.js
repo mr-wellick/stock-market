@@ -17,7 +17,7 @@ class StockInfo extends Component {
             <div className="table-container">
                 <table>
                     <caption>
-                            { this.props.successData["data"]["stockName"] }
+                            { this.props.successData["stockName"] }
                     </caption>
                     <thead>
                         <tr>
@@ -31,7 +31,7 @@ class StockInfo extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{ `$${this.props.successData["data"]["adjustedClose"][0]}` }</td>
+                            <td>{ `$${this.props.successData["adjustedClose"][0]}` }</td>
                             <td>
                                 {
                                     Number(this.props.robinhoodData["shares_outstanding"])
@@ -44,9 +44,9 @@ class StockInfo extends Component {
                                         .toLocaleString("en-US", { style: "currency", currency: "USD" })
                                 }
                             </td>
-                            <td>{ `${this.props.successData["data"]["percentChange"][0]}%` }</td>
-                            <td>{ this.props.successData["data"]["frequency"] }</td>
-                            <td>{ this.props.successData["data"]["dates"][0] }</td>
+                            <td>{ this.props.successData["percentChange"][0] }</td>
+                            <td>{ this.props.successData["frequency"] }</td>
+                            <td>{ this.props.successData["dates"][0] }</td>
                         </tr>
                     </tbody>
                 </table>

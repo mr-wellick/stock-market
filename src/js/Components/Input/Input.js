@@ -16,7 +16,7 @@ class Input extends Component{
 
     getCurrentStockNamesInState(){
         let { successData } = this.props;
-        let currentStocks   = successData.map( dataset => dataset["data"]["stockName"] );
+        let currentStocks   = successData.map( dataset => dataset["stockName"] );
 
         return currentStocks;
     }
@@ -26,9 +26,9 @@ class Input extends Component{
         let isNewEntry    = includes(stocksInState, stock); // returns false if stock is not in array
 
         if(!isNewEntry)
-            this.props.fetchData([stock]); // fetch all new entries
+            this.props.fetchData(stock); // fetch all new entries
         else
-            this.props.userInput([stock]); // tell user we can't fetch entries already in state
+            this.props.userInput(stock); // tell user we can't fetch entries already in state
     }
 
     onSubmit = (event) => {
@@ -66,7 +66,7 @@ class Input extends Component{
 
     componentDidMount(){
         if(this.props.successData.length === 0)
-            this.props.fetchData(["TSLA"]);
+            this.props.fetchData("TSLA");
     }
 }
 

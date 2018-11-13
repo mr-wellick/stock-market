@@ -4,8 +4,7 @@ function fetchError(data)
 {
     return {
         type: FETCH_DATA_ERROR,
-        data,
-        message: "You have entered an invalid stock ticker."
+        data
     };
 }
 

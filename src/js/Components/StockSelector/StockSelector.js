@@ -20,13 +20,13 @@ class StockSelector extends Component{
                     <div>
                         <input
                             type="radio"
-                            id={ successData[0]["data"]["stockName"] }
+                            id={ successData[0]["stockName"] }
                             name="active-stock"
                             value={ 0 }
                             defaultChecked
                         />
-                        <label htmlFor={ successData[0]["data"]["stockName"] }>
-                            { successData[0]["data"]["stockName"] }
+                        <label htmlFor={ successData[0]["stockName"] }>
+                            { successData[0]["stockName"] }
                         </label>
                     </div>
                     {
@@ -37,12 +37,12 @@ class StockSelector extends Component{
                                 <div key={ index + 1 }>
                                     <input
                                         type="radio"
-                                        id={ item["data"]["stockName"] }
+                                        id={ item["stockName"] }
                                         name="active-stock"
                                         value={ index + 1 }
                                     />
-                                    <label htmlFor={ item["data"]["stockName"] }>
-                                        { item["data"]["stockName"] }
+                                    <label htmlFor={ item["stockName"] }>
+                                        { item["stockName"] }
                                     </label>
                                 </div>
                             ) : null

@@ -16,7 +16,7 @@ class StockDescription extends Component{
         return(
             <div className="description-container">
                 <h2 className="stock-founded">
-                    {`${this.props.successData["data"]["stockName"]} founded in ${this.props.robinhoodData["year_founded"]}`}
+                    {`${this.props.successData["stockName"]} founded in ${this.props.robinhoodData["year_founded"]}`}
                 </h2>
                 <div className="main-info-container">
                     <h4 className="stock-ceo">{ `CEO: ${this.props.robinhoodData["ceo"]}` }</h4>

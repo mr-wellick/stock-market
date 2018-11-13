@@ -1,4 +1,6 @@
-import { FETCH_DATA_COMPLETE }           from "../Constants/";
+import { FETCH_DATA_SUCCESS }            from "../Constants/";
+import { FETCH_DATA_ERROR }              from "../Constants/";
+import { FETCH_DATA_TOO_MANY_CALLS }     from "../Constants/";
 import { FETCH_DATA_REQUEST }            from "../Constants/";
 import { RESET_DATA_ERRORS }             from "../Constants/";
 import { RESET_DATA_WARNINGS }           from "../Constants/";
@@ -24,12 +26,20 @@ function fetchDataReducer(state = initialState, action)
                 ...state,
                 robinhoodData: [...state.robinhoodData, ...action.robinhoodData]
             };
-        case FETCH_DATA_COMPLETE:
+        case FETCH_DATA_SUCCESS:
             return {
                 ...state,
-                successData: [...state.successData, ...action.successData],
-                errorData: action.errorData,
-                manyCallsData: action.manyCallsData
+                successData: [...state.successData, action.data]
+            };
+        case FETCH_DATA_ERROR:
+            return {
+                ...state,
+                errorData: action,
+            };
+        case FETCH_DATA_TOO_MANY_CALLS:
+            return {
+                ...state,
+                manyCallsData: action
             };
         case FETCH_DATA_REQUEST:
             return {

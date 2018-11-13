@@ -30,7 +30,7 @@ class Chart extends Component{
 
     setXScale(){
         let { padding, width } = this.state;
-        let { xScale }         = this.props.successData["data"];
+        let { xScale }         = this.props.successData;
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
@@ -38,7 +38,7 @@ class Chart extends Component{
 
     setYScale(){
         let { height, padding } = this.state;
-        let { yScale }          = this.props.successData["data"];
+        let { yScale }          = this.props.successData;
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
@@ -96,15 +96,15 @@ class Chart extends Component{
                 <Line
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.props.successData["data"]["dateObjects"] }
-                    y={ this.props.successData["data"]["adjustedClose"] }
+                    x={ this.props.successData["dateObjects"] }
+                    y={ this.props.successData["adjustedClose"] }
                     color={ "orange" }
                 />
                 <Points
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.props.successData["data"]["dateObjects"] }
-                    y={ this.props.successData["data"]["adjustedClose"] }
+                    x={ this.props.successData["dateObjects"] }
+                    y={ this.props.successData["adjustedClose"] }
                     color={ "orange" }
                     toolTip={ this.setToolTip() }
                     className={ "line-chart" }

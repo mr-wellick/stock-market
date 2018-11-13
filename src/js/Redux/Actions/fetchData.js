@@ -1,4 +1,3 @@
-import fetchComplete         from "./fetchComplete.js";
 import fetchError            from "./fetchError.js";
 import fetchSuccess          from "./fetchSuccess.js";
 import fetchManyCalls        from "./fetchManyCalls.js";
@@ -6,63 +5,48 @@ import fetchRequest          from "./fetchRequest.js";
 import resetDuplicateEntries from "./resetDuplicateEntries.js";
 import robinhoodComplete     from "./robinhoodComplete.js";
 
-function fetchData(stockNames) {
+function fetchAlphaVantageData(stockName)
+{
+    return fetch(
+        `https://www.alphavantage.co/query?function=time_series_monthly_adjusted&symbol=${stockName}&apikey=${
+            process.env.api_key
+        }`
+    ).then(res => res.json());
+}
+
+function fetchRobinHoodData(stockName)
+{
+    return fetch(
+        `https://api.robinhood.com/fundamentals/?symbols=${stockName}`
+    ).then(res => res.json());
+}
+
+function fetchData(stockName)
+{
     return function(dispatch) {
         // begin request
         dispatch(fetchRequest(true));
         dispatch(resetDuplicateEntries()); // to keep the ui consistent
-        return (
-            // iterate through each stock and request
-            Promise.all(
-                stockNames.map(stock =>
-                    fetch(
-                        `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${stock}&apikey=${
-                            process.env.API_KEY
-                        }`
-                    ).then(res => res.json())
-                )
-            )
-                // process data accordingly
-                .then(allStockData => {
-                    // will store data in new array
-                    let processedData = [];
-
-                    // check data
-                    allStockData.map(data => {
-                        if (data["Meta Data"])
-                            processedData.push(fetchSuccess(data));
-                        if (data["Error Message"])
-                            processedData.push(fetchError(data));
-                        if (data["Note"])
-                            processedData.push(fetchManyCalls(data));
-                    });
-
-                    // get all successful api calls
-                    let successfulCalls = processedData.filter(
-                        item => item["type"] === "FETCH_DATA_SUCCESS"
-                    );
-                    let stockNames = successfulCalls.map(
-                        item => item["data"]["stockName"]
-                    );
-
-                    // only call if we have correct stock entries
-                    if (stockNames.length > 0) {
-                        // get robinhood data
-                        fetch(
-                            `https://api.robinhood.com/fundamentals/?symbols=${stockNames}`
-                        )
-                            .then(res => res.json())
+        // 1. Fetch data from Alpha Vantange
+        return fetchAlphaVantageData(stockName)
+                    .then(data => {
+                        if(data["Meta Data"])
+                            dispatch(fetchSuccess(data));
+                        if(data["Error Message"])
+                            dispatch(fetchError(data));
+                        if(data["Note"])
+                            dispatch(fetchManyCalls(data));
+                    })
+                    .then(() => {
+                        // 2. Fetch data from Robinhood
+                        fetchRobinHoodData(stockName)
                             .then(data => {
-                                dispatch(
-                                    robinhoodComplete(data.results)
-                                );
-                            });
-                    }
-                    // end request
-                    dispatch(fetchComplete(processedData));
-                    dispatch(fetchRequest(false));
-                })
-        );
+                                if(data.results)
+                                    dispatch(robinhoodComplete(data.results));
+                            })
+                            // end request
+                            .then(() => dispatch(fetchRequest(false)));
+                    });
     };
 }
 
