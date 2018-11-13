@@ -29,9 +29,9 @@
 + Each result will be stored, and you'll be able to toggle between all stocks you queried.
 
 # App Errors/Warnings/Duplicate-Entries
-+ If you enter a stock already in state, that stock won't be retrieved.
-+ Invalid stock entries will be removed and an error will be thrown.
-+ If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
++ __Duplicate-Entries__: If you enter a stock already in state, that stock won't be retrieved.
++ __Errors__: Invalid stock entries will be removed and an error will be thrown.
++ __Warnings__: If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
 
 # Reminders
 + Implement error action creator for Robinhood retrievals resulting in errors.
