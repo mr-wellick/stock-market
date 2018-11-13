@@ -1,11 +1,17 @@
-# Desktop display (Previous Iteration of app)
-![nothing to show](./screenshots/desktop-1.png)
-![nothing to show](./screenshots/desktop-2.png)
+# Previous iteration of app
 
-# Mobile display (Previous Iteration of app)
+## Desktop display
+![nothing to show](./screenshots/desktop-1.png)
+
+## Mobile display
 ![nothing to show](./screenshots/mobile-1.png)
-![nothing to show](./screenshots/mobile-2.png)
 ![nothing to show](./screenshots/mobile-3.png)
+
+# Current version of application
+
+## Desktop Display
+![nothing to show](./screenshots/desktop-new-1.png)
+![nothing to show](./screenshots/desktop-new-2.png)
 
 # NOTE
 + If you clone the repo, you must claim your [FREE API KEY](https://www.alphavantage.co/support/#api-key).
@@ -23,9 +29,9 @@
 + Each result will be stored, and you'll be able to toggle between all stocks you queried.
 
 # App Errors/Warnings/Duplicate-Entries
-+ __Duplicate Entries__: If you enter a stock already in state, that stock won't be retrieved.
-+ __Errors__: Invalid stock entries will be removed and an error will be thrown.
-+ __Warnings__: If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
++ If you enter a stock already in state, that stock won't be retrieved.
++ Invalid stock entries will be removed and an error will be thrown.
++ If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
 
 # Reminders
 + Implement error action creator for Robinhood retrievals resulting in errors.
