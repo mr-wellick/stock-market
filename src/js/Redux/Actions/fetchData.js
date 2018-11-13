@@ -42,7 +42,7 @@ function fetchData(stockName)
                                 if(data.results)
                                     dispatch(robinhoodComplete(data.results));
                             })
-                            .catch(() => dispatch(robinhoodComplete([])))
+                            .catch(() => dispatch(robinhoodComplete([]))) // temporary fixed for errors
                             // end request
                             .then(() => dispatch(fetchRequest(false)));
                     });
