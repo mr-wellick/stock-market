@@ -26,12 +26,17 @@ class StockInfo extends Component {
                             <th>MC</th>
                             <th>Percent Change</th>
                             <th>Frequency</th>
-                            <th>Current Date</th>
+                            <th>Current Month</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{ `$${this.props.successData["adjustedClose"][0]}` }</td>
+                            <td>
+                                {
+                                    Number(this.props.successData["adjustedClose"][0])
+                                        .toLocaleString("en-US", { style: "currency", currency: "USD" })
+                                }
+                            </td>
                             <td>
                                 {
                                     Number(this.props.robinhoodData["shares_outstanding"])
