@@ -5,7 +5,7 @@
 
 ## Mobile display
 ![nothing to show](./screenshots/mobile-1.png)
-![nothing to show](./screenshots/mobile-3.png)
+![nothing to show](./screenshots/mobile-2.png)
 
 # Current version of application
 
