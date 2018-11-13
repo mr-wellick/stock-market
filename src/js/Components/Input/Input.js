@@ -37,7 +37,7 @@ class Input extends Component{
         let filteredInput = userInput.match(/([A-Za-z]+)/)[0].trim().toUpperCase();
 
         // check user input
-        if(userInput !== "")
+        if(filteredInput !== "")
             this.getNewStockEntry(filteredInput);
 
         // clear form

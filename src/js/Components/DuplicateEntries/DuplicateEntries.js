@@ -22,22 +22,10 @@ class DuplicateEntries extends Component{
                 <div className="dialog-duplicate__message">
                     <p>
                         <strong>Sorry! </strong>
-                        Entered duplicate stock(s) and will not retrieve the following:
+                        Entered duplicate stock <strong>{ duplicateEntries[0] }</strong>!
                     </p>
                     <a onClick={ this.onClick } className="dialog-duplicate__toggler">X</a>
                 </div>
-                <ul className="duplicate-items">
-                {
-                    duplicateEntries.map( (item, index) =>
-                        <li
-                            key={ index }
-                            className="duplicate-item"
-                        >
-                            { item }
-                        </li>
-                    )
-                }
-                </ul>
             </div>
         );
     }
