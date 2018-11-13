@@ -7,7 +7,7 @@ import "./duplicateEntries.scss";
 
 class DuplicateEntries extends Component{
     static propTypes = {
-        duplicateEntries: PropTypes.array,
+        duplicateEntries: PropTypes.string,
         resetDuplicateEntries: PropTypes.func
     }
 

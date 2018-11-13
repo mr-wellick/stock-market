@@ -4,7 +4,7 @@ function resetDuplicateEntries()
 {
     return {
         type: RESET_DUPLICATE_ENTRIES,
-        duplicateEntries: []
+        duplicateEntries: ""
     };
 }
 

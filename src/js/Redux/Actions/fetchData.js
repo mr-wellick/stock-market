@@ -2,7 +2,6 @@ import fetchError            from "./fetchError.js";
 import fetchSuccess          from "./fetchSuccess.js";
 import fetchManyCalls        from "./fetchManyCalls.js";
 import fetchRequest          from "./fetchRequest.js";
-import resetDuplicateEntries from "./resetDuplicateEntries.js";
 import robinhoodComplete     from "./robinhoodComplete.js";
 
 function fetchAlphaVantageData(stockName)
@@ -26,7 +25,6 @@ function fetchData(stockName)
     return function(dispatch) {
         // begin request
         dispatch(fetchRequest(true));
-        dispatch(resetDuplicateEntries()); // to keep the ui consistent
         // 1. Fetch data from Alpha Vantange
         return fetchAlphaVantageData(stockName)
                     .then(data => {
@@ -44,6 +42,7 @@ function fetchData(stockName)
                                 if(data.results)
                                     dispatch(robinhoodComplete(data.results));
                             })
+                            .catch(() => dispatch(robinhoodComplete([])))
                             // end request
                             .then(() => dispatch(fetchRequest(false)));
                     });

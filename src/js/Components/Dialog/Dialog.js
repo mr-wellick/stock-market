@@ -12,7 +12,7 @@ class Dialog extends Component{
         children: PropTypes.array,
         errorData: PropTypes.array,
         manyCallsData: PropTypes.array,
-        duplicateEntries: PropTypes.array
+        duplicateEntries: PropTypes.string
     }
 
     // Main application errors

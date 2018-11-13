@@ -13,7 +13,7 @@ let initialState = {
     errorData: [],
     manyCallsData: [],
     isFetching: false,
-    duplicateEntries: [],
+    duplicateEntries: "",
     robinhoodData: []
 };
 
@@ -34,12 +34,12 @@ function fetchDataReducer(state = initialState, action)
         case FETCH_DATA_ERROR:
             return {
                 ...state,
-                errorData: action,
+                errorData: [action],
             };
         case FETCH_DATA_TOO_MANY_CALLS:
             return {
                 ...state,
-                manyCallsData: action
+                manyCallsData: [action]
             };
         case FETCH_DATA_REQUEST:
             return {
