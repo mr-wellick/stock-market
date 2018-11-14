@@ -60,6 +60,8 @@ class Input extends Component{
                     placeholder="Enter Stock"
                     id="user-input"
                     className="main-form__input"
+                    required
+                    pattern="([A-Za-z]+)"
                 />
                 <button
                     type="submit"
