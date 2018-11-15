@@ -7,6 +7,7 @@ import { RESET_DATA_WARNINGS }           from "../Constants/";
 import { USER_ENTERED_DUPLICATE_STOCKS } from "../Constants/";
 import { RESET_DUPLICATE_ENTRIES }       from "../Constants/";
 import { FETCH_ROBINHOOD_DATA }          from "../Constants/";
+import { FETCH_NEWS }                    from "../Constants/";
 
 let initialState = {
     successData: [],
@@ -14,13 +15,19 @@ let initialState = {
     manyCallsData: [],
     isFetching: false,
     duplicateEntries: "",
-    robinhoodData: []
+    robinhoodData: [],
+    stockNews: []
 };
 
 function fetchDataReducer(state = initialState, action)
 {
     switch(action.type)
     {
+        case FETCH_NEWS:
+            return {
+                ...state,
+                stockNews: [...state.stockNews, action.stockNews]
+            };
         case FETCH_ROBINHOOD_DATA:
             return {
                 ...state,

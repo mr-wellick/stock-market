@@ -8,7 +8,8 @@ class Toggler extends Component{
     static propTypes = {
         children: PropTypes.func,
         successData: PropTypes.array,
-        robinhoodData: PropTypes.array
+        robinhoodData: PropTypes.array,
+        stockNews: PropTypes.array
     }
 
     state = {
@@ -26,6 +27,7 @@ class Toggler extends Component{
         return {
             successData: this.props.successData,
             robinhoodData: this.props.robinhoodData,
+            stockNews: this.props.stockNews,
             onChange: this.onChange,
             activeIndex: this.state.activeIndex
         };

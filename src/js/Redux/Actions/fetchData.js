@@ -2,6 +2,7 @@ import fetchError            from "./fetchError.js";
 import fetchSuccess          from "./fetchSuccess.js";
 import fetchManyCalls        from "./fetchManyCalls.js";
 import fetchRequest          from "./fetchRequest.js";
+import fetchStockNews        from "./fetchStockNews.js";
 import robinhoodComplete     from "./robinhoodComplete.js";
 
 function fetchAlphaVantageData(stockName)
@@ -18,6 +19,12 @@ function fetchRobinHoodData(stockName)
     return fetch(
         `https://api.robinhood.com/fundamentals/?symbols=${stockName}`
     ).then(res => res.json());
+}
+
+function fetchIEXData(stockName)
+{
+    return fetch(`https://api.iextrading.com/1.0/stock/${stockName}/news`)
+        .then(res => res.json());
 }
 
 function fetchData(stockName)
@@ -42,9 +49,18 @@ function fetchData(stockName)
                                 if(data.results)
                                     dispatch(robinhoodComplete(data.results));
                             })
-                            .catch(() => dispatch(robinhoodComplete([])))
-                            // end request
-                            .then(() => dispatch(fetchRequest(false)));
+                            .catch(() => {})// temp fix
+                            .then(() => {
+                                // 3. Fetch data from IEX
+                                fetchIEXData(stockName)
+                                    .then(data => {
+                                        if(data.length > 0)
+                                            dispatch(fetchStockNews(data));
+                                    })
+                                    .catch(() => {})// temp fix
+                                // end request
+                                    .then(() => dispatch(fetchRequest(false)));
+                            });
                     });
     };
 }

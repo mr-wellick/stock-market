@@ -7,6 +7,7 @@ import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
+import { StockNews }        from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -20,7 +21,7 @@ class Home extends Component{
                 </Dialog>
                 <Loader/>
                 <Toggler>
-                    {({successData, robinhoodData, onChange, activeIndex}) => (
+                    {({successData, robinhoodData, stockNews, onChange, activeIndex}) => (
                         <>
                             <StockInfo
                                 successData={ successData[activeIndex] }
@@ -33,6 +34,9 @@ class Home extends Component{
                             <StockDescription
                                 successData={ successData[activeIndex] }
                                 robinhoodData={ robinhoodData[activeIndex] }
+                            />
+                            <StockNews
+                                stockNews={ stockNews[activeIndex] }
                             />
                         </>
                     )}
