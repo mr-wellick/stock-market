@@ -6,6 +6,7 @@ import { Route }      from "react-router-dom";
 import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
 import { Home }       from "./Views/";
+import { Basics }     from "./Views/";
 import { Input }      from "./Components/";
 import { hot }        from "react-hot-loader";
 import "./app.scss";
@@ -23,13 +24,17 @@ class App extends Component{
                                     <li className="main-nav__item">
                                         <Link to="/">Home</Link>
                                     </li>
+                                    <li className="main-nav__item">
+                                        <Link to="/Basics">Basics</Link>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
-                        <Input/>
+                        <Route exact path="/" component={ Input }></Route>
                     </header>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>
+                        <Route exact path="/Basics" component={ Basics }></Route>
                     </Switch>
                 </Fragment>
             </HashRouter>

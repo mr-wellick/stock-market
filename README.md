@@ -1,11 +1,17 @@
-# Desktop display
-![nothing to show](./screenshots/desktop-1.png)
-![nothing to show](./screenshots/desktop-2.png)
+# Previous iteration of app
 
-# Mobile display
+## Desktop display
+![nothing to show](./screenshots/desktop-1.png)
+
+## Mobile display
 ![nothing to show](./screenshots/mobile-1.png)
 ![nothing to show](./screenshots/mobile-2.png)
-![nothing to show](./screenshots/mobile-3.png)
+
+# Current version of application
+
+## Desktop Display
+![nothing to show](./screenshots/desktop-new-1.png)
+![nothing to show](./screenshots/desktop-new-2.png)
 
 # NOTE
 + If you clone the repo, you must claim your [FREE API KEY](https://www.alphavantage.co/support/#api-key).
@@ -15,19 +21,22 @@
     + Replace `&apikey=${process.env.API_KEY}` with `&apikey=YOUR_FREE_API_KEY`
 + Or just create a new environment variable named `API_KEY`, which stores your free api key details.
 
-# App functionality
-+ Query single/multiple stock(s).
-+ Each query will show you a table with the latest monthly/daily adjusted price and percent change for each stock.
-+ Invalid stock entries will be removed and an error will be thrown.
-+ If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
-
 # Using the app
 + Supply a single stock ticker: TSLA.
-+ Or supply multiple valid stock tickers seperated by a comma: TSLA, AAPL, IBM, KO ....
++ Each query will show you a table with stock info: Price, Market Cap, etc...
++ Each query will give you a description of the company, when it was founded, and current CEO.
++ Each query will show you a graph of stock price over time.
++ Each result will be stored, and you'll be able to toggle between all stocks you queried.
+
+# App Errors/Warnings/Duplicate-Entries
++ __Duplicate-Entries__: If you enter a stock already in state, that stock won't be retrieved.
++ __Errors__: Invalid stock entries will be removed and an error will be thrown.
++ __Warnings__: If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
 
 # Reminders
-+ Remove graph for landscape view on mobile devices. (working correctly. height is just too small for graph)
-+ Fix css for dialog messages: Warning & Duplicate entries
++ Implement error action creator for Robinhood retrievals resulting in errors.
+    + Currently, errors offset results and causes data to be shown incorrectly.
++ Rework UI
 + Start bundle splitting.
 
 # Disclaimer

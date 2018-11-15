@@ -4,6 +4,7 @@
     padding: 12px;
     align-items: center; // cross-axis (vertical alignment)
     justify-content: space-between; // main-axis (horizontal alignment)
+    min-height: 65px;
     background-color: rgb(36, 41, 46);
 }
 
@@ -11,6 +12,17 @@
 {
     font-size: 1.25rem;
     color: #fff;
+}
+
+.main-nav
+{
+    width: 100%;
+}
+
+.main-nav__items
+{
+    display: flex;
+    justify-content: space-around;
 }
 
 .main-nav__item a
@@ -21,7 +33,7 @@
 .main-header__container
 {
     display: flex;
-    width: 15%;
+    width: 35%;
     align-items: center;
     justify-content: space-between;
 }

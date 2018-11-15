@@ -31,13 +31,20 @@ class Input extends Component{
             this.props.userInput(stock); // tell user we can't fetch entries already in state
     }
 
+    filter(userInput){
+        let filteredInput = userInput.match(/([A-Za-z]+)/);
+        let isValidInput  = filteredInput ? filteredInput[0].toUpperCase() : null;
+
+        return isValidInput;
+    }
+
     onSubmit = (event) => {
         // get user input
         let userInput     = document.querySelector("#user-input").value;
-        let filteredInput = userInput.match(/([A-Za-z]+)/)[0].trim().toUpperCase();
+        let filteredInput = this.filter(userInput) ;
 
         // check user input
-        if(filteredInput !== "")
+        if(filteredInput !== null)
             this.getNewStockEntry(filteredInput);
 
         // clear form
@@ -53,6 +60,8 @@ class Input extends Component{
                     placeholder="Enter Stock"
                     id="user-input"
                     className="main-form__input"
+                    required
+                    pattern="([A-Za-z]+)"
                 />
                 <button
                     type="submit"
