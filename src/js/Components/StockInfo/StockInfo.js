@@ -13,11 +13,13 @@ class StockInfo extends Component {
         if(!this.props.successData || !this.props.robinhoodData)
             return null;
 
+        let { successData, robinhoodData } = this.props;
+
         return(
             <div className="table-container">
                 <table>
                     <caption>
-                            { this.props.successData["stockName"] }
+                            { successData["stockName"] }
                     </caption>
                     <thead>
                         <tr>
@@ -33,25 +35,25 @@ class StockInfo extends Component {
                         <tr>
                             <td>
                                 {
-                                    Number(this.props.successData["adjustedClose"][0])
+                                    Number(successData["adjustedClose"][0])
                                         .toLocaleString("en-US", { style: "currency", currency: "USD" })
                                 }
                             </td>
                             <td>
                                 {
-                                    Number(this.props.robinhoodData["shares_outstanding"])
+                                    Number(robinhoodData["shares_outstanding"])
                                         .toLocaleString("en-US")
                                 }
                             </td>
                             <td>
                                 {
-                                    Number(this.props.robinhoodData["market_cap"])
+                                    Number(robinhoodData["market_cap"])
                                         .toLocaleString("en-US", { style: "currency", currency: "USD" })
                                 }
                             </td>
-                            <td>{ this.props.successData["percentChange"][0] }</td>
-                            <td>{ this.props.successData["frequency"] }</td>
-                            <td>{ this.props.successData["dates"][0] }</td>
+                            <td>{ successData["percentChange"][0] }</td>
+                            <td>{ successData["frequency"] }</td>
+                            <td>{ successData["dates"][0] }</td>
                         </tr>
                     </tbody>
                 </table>
