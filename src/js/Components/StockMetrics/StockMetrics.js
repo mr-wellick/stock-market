@@ -44,7 +44,7 @@ class StockMetrics extends Component {
                                     .toLocaleString("en-US", { style: "currency", currency: "USD" })
                             }
                             </td>
-                            <td>{ quote["changePercent"]*100 + "%" }</td>
+                            <td>{ quote["changePercent"] }</td>
                             <td>{ quote["latestTime"] }</td>
                         </tr>
                     </tbody>
