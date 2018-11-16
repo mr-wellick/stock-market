@@ -4,9 +4,9 @@ import PropTypes          from "prop-types";
 import { connect }        from "react-redux";
 import { fetchStockData } from "../../Redux/";
 import includes           from "lodash.includes";
-import "./input.scss";
+import "./inputStock.scss";
 
-class Input extends Component{
+class InputStock extends Component{
     static propTypes = {
         fetchStockData: PropTypes.func,
         stockData: PropTypes.array
@@ -83,4 +83,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, { fetchStockData })(Input);
+export default connect(mapState, { fetchStockData })(InputStock);

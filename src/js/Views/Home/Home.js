@@ -6,7 +6,7 @@ import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
-//import { StockNews }        from "../../Components/";
+import { StockNews }        from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -18,16 +18,14 @@ class Home extends Component{
                     {({stockData, onChange, activeIndex}) => (
                         <>
                             <StockMetrics stockData={ stockData[activeIndex] }/>
-                            <StockSelector stockData={ stockData } onChange={ onChange }/>
-                            <Chart stockData={ stockData[activeIndex] }/>
-                            <StockDescription stockData={ stockData[activeIndex] }/>
-                                {/*
                             <div className="chart-data-container">
+                                <Chart stockData={ stockData[activeIndex] }/>
+                                <StockSelector stockData={ stockData } onChange={ onChange }/>
                             </div>
+                            <StockDescription stockData={ stockData[activeIndex] }/>
                             <StockNews
-                                stockNews={ stockNews[activeIndex] }
+                                stockData={ stockData[activeIndex] }
                             />
-                        */}
                         </>
                     )}
                 </Toggler>

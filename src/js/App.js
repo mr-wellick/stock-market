@@ -7,7 +7,7 @@ import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
 import { Home }       from "./Views/";
 import { Basics }     from "./Views/";
-import { Input }      from "./Components/";
+import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
 import "./app.scss";
 
@@ -30,7 +30,7 @@ class App extends Component{
                                 </ul>
                             </nav>
                         </div>
-                        <Route exact path="/" component={ Input }></Route>
+                        <Route exact path="/" component={ InputStock }></Route>
                     </header>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>

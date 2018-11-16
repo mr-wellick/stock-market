@@ -5,19 +5,19 @@ import "./stockNews.scss";
 
 class StockNews extends Component{
     static propTypes = {
-        stockNews: PropTypes.array
+        stockData: PropTypes.object
     }
 
     render(){
-        if(!this.props.stockNews)
+        if(!this.props.stockData)
             return null;
 
-        let { stockNews } = this.props;
+        let { news } = this.props.stockData;
 
         return(
             <div>
                 {
-                    stockNews.map( (item, index) =>
+                    news.map( (item, index) =>
                         <div key={ index }>
                             <div>
                                 <a
