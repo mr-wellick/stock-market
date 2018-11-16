@@ -15,7 +15,7 @@ class StockNews extends Component{
         let { stockNews } = this.props;
 
         return(
-            <>
+            <div>
                 {
                     stockNews.map( (item, index) =>
                         <div key={ index }>
@@ -36,7 +36,7 @@ class StockNews extends Component{
                         </div>
                     )
                 }
-            </>
+            </div>
         );
     }
 }
