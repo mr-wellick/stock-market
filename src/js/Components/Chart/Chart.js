@@ -1,7 +1,8 @@
 import React         from "react";
 import { Component } from "react";
 import PropTypes     from "prop-types";
-import { Grids }     from "../Grids/";
+import { YGrid }     from "../YGrid/";
+import { XGrid }     from "../XGrid/";
 import { Labels }    from "../Labels/";
 import { XAxis }     from "../XAxis/";
 import { YAxis }     from "../YAxis/";
@@ -104,10 +105,15 @@ class Chart extends Component{
 
         return(
             <svg width={ width } height={ height }>
-                <Grids
-                    scale={ this.setYScale()}
+                <YGrid
+                    yScale={ this.setYScale()}
                     padding={ padding }
                     width={ width }
+                />
+                <XGrid
+                    xScale={ this.setXScale() }
+                    padding={ padding }
+                    height={ height }
                 />
                 <Labels
                     width={ width }

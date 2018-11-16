@@ -3,21 +3,21 @@ import PropTypes     from "prop-types";
 import { Component } from "react";
 import { select }    from "d3-selection";
 import { axisLeft }  from "d3-axis";
-import "./grids.scss";
+import "./yGrid.scss";
 
-class Grids extends Component{
+class YGrid extends Component {
     static propTypes = {
-        scale: PropTypes.func,
+        yScale: PropTypes.func,
         padding: PropTypes.number,
         width: PropTypes.number
     }
 
     createYGridLines(){
-        let { scale } = this.props;
-        return axisLeft(scale).ticks(5);
+        let { yScale } = this.props;
+        return axisLeft(yScale).ticks(5);
     }
 
-    appendGrids(){
+    appendYGrids(){
         let { padding, width } = this.props;
         let axisPosition       = `translate(${padding}, 0)`;
 
@@ -34,12 +34,12 @@ class Grids extends Component{
     }
 
     componentDidMount(){
-        this.appendGrids();
+        this.appendYGrids();
     }
 
     componentDidUpdate(){
-        this.appendGrids();
+        this.appendYGrids();
     }
 }
 
-export default Grids;
+export default YGrid;
