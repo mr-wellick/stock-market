@@ -3,7 +3,7 @@ import { Component }  from "react";
 import PropTypes      from "prop-types";
 import { select }     from "d3-selection";
 import { axisBottom } from "d3-axis";
-import { timeFormat } from "d3-time-format";
+//import { timeFormat } from "d3-time-format";
 
 class XAxis extends Component{
     static propTypes = {
@@ -22,8 +22,8 @@ class XAxis extends Component{
             .attr("transform", axisLocation)
             .call(
                 axisBottom(scale)
-                    .ticks(5)
-                    .tickFormat(timeFormat("%b %d"))
+                //.ticks(5)
+                //   .tickFormat(timeFormat("%b %d"))
             );
     }
 

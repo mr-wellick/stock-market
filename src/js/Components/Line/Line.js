@@ -39,7 +39,7 @@ class Line extends Component{
             .duration(200)
             .attr("fill", "none")
             .attr("stroke", color)
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 1.5)
             .attr("d", lineForChart);
     }
 

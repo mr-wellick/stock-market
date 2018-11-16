@@ -9,7 +9,9 @@ function fetchStockData(stockName)
         dispatch(initiatedFetchRequest(true));
 
         // 2. Fetch Data
-        const res  = await fetch(`https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,chart,company,stats`);
+        const res = await fetch(
+            `https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,company,stats,chart&range=5y`
+        );
         const data = await res.json();
 
         // 3. Handle Success/Errors
