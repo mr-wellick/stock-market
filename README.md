@@ -13,14 +13,6 @@
 ![nothing to show](./screenshots/desktop-new-1.png)
 ![nothing to show](./screenshots/desktop-new-2.png)
 
-# NOTE
-+ If you clone the repo, you must claim your [FREE API KEY](https://www.alphavantage.co/support/#api-key).
-+ I am not affiliated with alphavantage.
-+ Go to the file: `src/js/Redux/Actions/fetchData.js`. In there, you'll find the following line of code:
-`fetch(https://www.alphavantage.co/query?${frequency}symbol=${stock}&apikey=${process.env.API_KEY})`.
-    + Replace `&apikey=${process.env.API_KEY}` with `&apikey=YOUR_FREE_API_KEY`
-+ Or just create a new environment variable named `API_KEY`, which stores your free api key details.
-
 # Using the app
 + Supply a single stock ticker: TSLA.
 + Each query will show you a table with stock info: Price, Market Cap, etc...
@@ -35,6 +27,8 @@
 
 # Reminders
 + Implement error action creator: redux.
++ Implement DuplicateEntry catcher
++ Implement DeleteSingleStock from list
 + Rework UI
 + Start bundle splitting.
 
