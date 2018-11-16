@@ -5,13 +5,13 @@ import "./stockSelector.scss";
 
 class StockSelector extends Component{
     static propTypes = {
-        successData: PropTypes.array,
+        stockData: PropTypes.array,
         onChange: PropTypes.func
     }
 
     render(){
-        let { successData } = this.props;
-        if(successData.length === 0)
+        let { stockData } = this.props;
+        if(stockData.length === 0)
             return null;
 
         return(
@@ -20,29 +20,29 @@ class StockSelector extends Component{
                     <div>
                         <input
                             type="radio"
-                            id={ successData[0]["stockName"] }
+                            id={ stockData[0]["company"]["symbol"] }
                             name="active-stock"
                             value={ 0 }
                             defaultChecked
                         />
-                        <label htmlFor={ successData[0]["stockName"] }>
-                            { successData[0]["stockName"] }
+                        <label htmlFor={ stockData[0]["company"]["symbol"] }>
+                            { stockData[0]["company"]["symbol"] }
                         </label>
                     </div>
                     {
                         // If we only have one stock, no need to run this code.
-                        successData.length > 1 ?
+                        stockData.length > 1 ?
                             // Remove first entry and bump indices + 1
-                            successData.slice(1).map( (item, index) =>
+                            stockData.slice(1).map( (item, index) =>
                                 <div key={ index + 1 }>
                                     <input
                                         type="radio"
-                                        id={ item["stockName"] }
+                                        id={ item["company"]["symbol"] }
                                         name="active-stock"
                                         value={ index + 1 }
                                     />
-                                    <label htmlFor={ item["stockName"] }>
-                                        { item["stockName"] }
+                                    <label htmlFor={ item["company"]["symbol"] }>
+                                        { item["company"]["symbol"] }
                                     </label>
                                 </div>
                             ) : null

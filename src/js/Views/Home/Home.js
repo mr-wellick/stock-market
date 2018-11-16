@@ -3,7 +3,7 @@ import { Component }        from "react";
 import { Loader }           from "../../Components/";
 import { StockMetrics }     from "../../Components/";
 import { Toggler }          from "../../Components/";
-//import { StockSelector }    from "../../Components/";
+import { StockSelector }    from "../../Components/";
 //import { StockDescription } from "../../Components/";
 //import { Chart }            from "../../Components/";
 //import { StockNews }        from "../../Components/";
@@ -18,10 +18,10 @@ class Home extends Component{
                     {({stockData, onChange, activeIndex}) => (
                         <>
                             <StockMetrics stockData={ stockData[activeIndex] }/>
+                            <StockSelector stockData={ stockData } onChange={ onChange }/>
                                 {/*
                             <div className="chart-data-container">
                                 <Chart successData={ successData[activeIndex] }/>
-                                <StockSelector successData={ successData } onChange={ onChange }/>
                             </div>
                             <StockDescription
                                 successData={ successData[activeIndex] }
