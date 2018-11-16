@@ -9,9 +9,9 @@ function fetchStockData(stockName)
         dispatch(initiatedFetchRequest(true));
         return fetch(`https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,chart,company,stats`)
             .then(res => res.json())
-            .then(data => {
-                dispatch(successfulFetchRequest(data));
-            })
+            // 2. Successful request
+            .then(data => dispatch(successfulFetchRequest(data)))
+            // 3. End request
             .then(() => dispatch(initiatedFetchRequest(false)));
     };
 }
