@@ -31,7 +31,12 @@ class StockMetrics extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{ quote["close"] }</td>
+                            <td>
+                            {
+                                quote["close"]
+                                    .toLocaleString("en-US", { style: "currency", currency: "USD" })
+                            }
+                            </td>
                             <td>{ stats["sharesOutstanding"].toLocaleString("en-US") }</td>
                             <td>
                             {
@@ -39,7 +44,7 @@ class StockMetrics extends Component {
                                     .toLocaleString("en-US", { style: "currency", currency: "USD" })
                             }
                             </td>
-                            <td>{ quote["changePercent"] }</td>
+                            <td>{ quote["changePercent"]*100 + "%" }</td>
                             <td>{ quote["latestTime"] }</td>
                         </tr>
                     </tbody>

@@ -3,6 +3,7 @@ import { Component }  from "react";
 import PropTypes      from "prop-types";
 import { select }     from "d3-selection";
 import { axisBottom } from "d3-axis";
+import { timeFormat } from "d3-time-format";
 
 class XAxis extends Component{
     static propTypes = {
@@ -19,7 +20,11 @@ class XAxis extends Component{
         // select node return by component and appends x-axis
         select(this.node)
             .attr("transform", axisLocation)
-            .call(axisBottom(scale));
+            .call(
+                axisBottom(scale)
+                    .ticks(5)
+                    .tickFormat(timeFormat("%b %d"))
+            );
     }
 
     render(){
