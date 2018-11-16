@@ -1,17 +1,17 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { YGrid }     from "../YGrid/";
-import { XGrid }     from "../XGrid/";
-import { Labels }    from "../Labels/";
-import { XAxis }     from "../XAxis/";
-import { YAxis }     from "../YAxis/";
-import { Line }      from "../Line/";
-import { Points }    from "../Points/";
+import React           from "react";
+import PropTypes       from "prop-types";
+import { Component }   from "react";
+import { YGrid }       from "../YGrid/";
+import { XGrid }       from "../XGrid/";
+import { Labels }      from "../Labels/";
+import { XAxis }       from "../XAxis/";
+import { YAxis }       from "../YAxis/";
+import { Line }        from "../Line/";
+import { Points }      from "../Points/";
 import { scaleFinder } from "../../Utilities/";
 import { scaleTime }   from "d3-scale";
 import { scaleLinear } from "d3-scale";
-import tip           from "d3-tip";
+import tip             from "d3-tip";
 import "./chart.scss";
 
 class Chart extends Component{
@@ -58,7 +58,7 @@ class Chart extends Component{
     getYValues(){
         // get prices
         let { chart } = this.props.stockData;
-        let prices     = chart.map( item => Number(item["close"]));
+        let prices    = chart.map( item => Number(item["close"]));
 
         return prices;
     }
