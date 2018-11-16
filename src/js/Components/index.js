@@ -1,6 +1,5 @@
 export { Input }            from "./Input";
-//export { Dialog }           from "./Dialog";
-//export { Loader }           from "./Loader/";
+export { Loader }           from "./Loader/";
 //export { StockInfo }        from "./StockInfo/";
 //export { StockDescription } from "./StockDescription/";
 //export { Toggler }          from "./Toggler/";

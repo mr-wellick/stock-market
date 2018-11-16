@@ -6,11 +6,11 @@ import "./loader.scss";
 
 class Loader extends Component{
     static propTypes = {
-        isFetching: PropTypes.bool
+        isFetchingData: PropTypes.bool
     }
 
     render(){
-        if(this.props.isFetching === false)
+        if(this.props.isFetchingData === false)
             return null;
 
         return(
