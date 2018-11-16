@@ -4,15 +4,19 @@ import initiatedFetchRequest        from "./initiatedFetchRequest.js";
 
 function fetchStockData(stockName)
 {
-    return function(dispatch){
+    return async function(dispatch){
         // 1. Begin request
         dispatch(initiatedFetchRequest(true));
-        return fetch(`https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,chart,company,stats`)
-            .then(res => res.json())
-            // 2. Successful request
-            .then(data => dispatch(successfulFetchRequest(data)))
-            // 3. End request
-            .then(() => dispatch(initiatedFetchRequest(false)));
+
+        // 2. Fetch Data
+        const res  = await fetch(`https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,chart,company,stats`);
+        const data = await res.json();
+
+        // 3. Handle Success/Errors
+        dispatch(successfulFetchRequest(data));
+
+        // 4. End request
+        return dispatch(initiatedFetchRequest(false));
     };
 }
 
