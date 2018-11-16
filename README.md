@@ -34,8 +34,7 @@
 + __Warnings__: If you make too many consecutive calls, a warning will be thrown instructing you to: "wait a few seconds and try again."
 
 # Reminders
-+ Implement error action creator for Robinhood retrievals resulting in errors.
-    + Currently, errors offset results and causes data to be shown incorrectly.
++ Implement error action creator: redux.
 + Rework UI
 + Start bundle splitting.
 
