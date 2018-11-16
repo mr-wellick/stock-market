@@ -5,7 +5,7 @@ import { HashRouter } from "react-router-dom";
 import { Route }      from "react-router-dom";
 import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-import { Home }       from "./Views/";
+//import { Home }       from "./Views/";
 import { Basics }     from "./Views/";
 import { Input }      from "./Components/";
 import { hot }        from "react-hot-loader";
@@ -33,7 +33,9 @@ class App extends Component{
                         <Route exact path="/" component={ Input }></Route>
                     </header>
                     <Switch>
-                        <Route exact path="/" component={ Home }></Route>
+                        {/*
+                            <Route exact path="/" component={ Home }></Route>
+                        */}
                         <Route exact path="/Basics" component={ Basics }></Route>
                     </Switch>
                 </Fragment>

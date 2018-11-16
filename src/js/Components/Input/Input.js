@@ -1,51 +1,49 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
-import { fetchData } from "../../Redux/";
-import { userInput } from "../../Redux/";
-import includes      from "lodash.includes";
+import React              from "react";
+import { Component }      from "react";
+import PropTypes          from "prop-types";
+import { connect }        from "react-redux";
+import { fetchStockData } from "../../Redux/";
+import includes           from "lodash.includes";
 import "./input.scss";
 
 class Input extends Component{
     static propTypes = {
-        fetchData: PropTypes.func,
-        userInput: PropTypes.func,
-        successData: PropTypes.array
+        fetchStockData: PropTypes.func,
+        stockData: PropTypes.array
     }
 
-    getCurrentStockNamesInState(){
-        let { successData } = this.props;
-        let currentStocks   = successData.map( dataset => dataset["stockName"] );
+    getStocksInState(){
+        let { stockData } = this.props;
+        let stocksInState = stockData.map(stock => stock["company"]["symbol"]);
 
-        return currentStocks;
+        return stocksInState;
     }
 
-    getNewStockEntry(stock){
-        let stocksInState = this.getCurrentStockNamesInState();
-        let isNewEntry    = includes(stocksInState, stock); // returns false if stock is not in array
-
-        if(!isNewEntry)
-            this.props.fetchData(stock); // fetch all new entries
-        else
-            this.props.userInput(stock); // tell user we can't fetch entries already in state
-    }
-
-    filter(userInput){
-        let filteredInput = userInput.match(/([A-Za-z]+)/);
+    filterInput(newStockEntry){
+        let filteredInput = newStockEntry.match(/([A-Za-z]+)/);
         let isValidInput  = filteredInput ? filteredInput[0].toUpperCase() : null;
 
         return isValidInput;
     }
 
+    getNewStockEntry(newStockEntry){
+        let stocksInState   = this.getStocksInState();
+        let isNewStockEntry = includes(stocksInState, newStockEntry); // returns false if stock is not in state
+
+        if(!isNewStockEntry)
+            this.props.fetchStockData(newStockEntry); // fetch new entry
+        else
+            console.log(`${newStockEntry} is already in state`); // tell user we cant fetch stocks already in state
+    }
+
     onSubmit = (event) => {
         // get user input
-        let userInput     = document.querySelector("#user-input").value;
-        let filteredInput = this.filter(userInput) ;
+        let userInput          = document.querySelector("#user-input").value;
+        let filteredStockInput = this.filterInput(userInput);
 
         // check user input
-        if(filteredInput !== null)
-            this.getNewStockEntry(filteredInput);
+        if(filteredStockInput !== null)
+            this.getNewStockEntry(filteredStockInput);
 
         // clear form
         event.preventDefault();
@@ -74,8 +72,8 @@ class Input extends Component{
     }
 
     componentDidMount(){
-        if(this.props.successData.length === 0)
-            this.props.fetchData("TSLA");
+        if(this.props.stockData.length === 0)
+            this.props.fetchStockData("TSLA");
     }
 }
 
@@ -85,4 +83,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, { fetchData, userInput })(Input);
+export default connect(mapState, { fetchStockData })(Input);

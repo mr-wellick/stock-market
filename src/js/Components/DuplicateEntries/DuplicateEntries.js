@@ -2,7 +2,7 @@ import React                     from "react";
 import { Component }             from "react";
 import PropTypes                 from "prop-types";
 import { connect }               from "react-redux";
-import { resetDuplicateEntries } from "../../Redux/";
+//import { resetDuplicateEntries } from "../../Redux/";
 import "./duplicateEntries.scss";
 
 class DuplicateEntries extends Component{

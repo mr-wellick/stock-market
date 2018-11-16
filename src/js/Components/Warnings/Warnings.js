@@ -2,7 +2,7 @@ import React             from "react";
 import { Component }     from "react";
 import PropTypes         from "prop-types";
 import { connect }       from "react-redux";
-import { resetWarnings } from "../../Redux/";
+//import { resetWarnings } from "../../Redux/";
 import "./warnings.scss";
 
 class Warnings extends Component{

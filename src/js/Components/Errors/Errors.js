@@ -2,7 +2,7 @@ import React           from "react";
 import { Component }   from "react";
 import PropTypes       from "prop-types";
 import { connect }     from "react-redux";
-import { resetErrors } from "../../Redux/";
+//import { resetErrors } from "../../Redux/";
 import "./errors.scss";
 
 class Errors extends Component{
