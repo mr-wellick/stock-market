@@ -1,9 +1,9 @@
 export { Input }            from "./Input";
 export { Loader }           from "./Loader/";
 export { StockMetrics }     from "./StockMetrics/";
-//export { StockDescription } from "./StockDescription/";
 export { Toggler }          from "./Toggler/";
+export { Chart }            from "./Chart/";
 export { StockSelector }    from "./StockSelector/";
-//export { Chart }            from "./Chart/";
+export { StockDescription } from "./StockDescription/";
 //export { StockNews }        from "./StockNews/";
 //export { Footer }           from "./Footer/";

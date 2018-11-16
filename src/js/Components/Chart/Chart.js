@@ -7,12 +7,15 @@ import { XAxis }     from "../XAxis/";
 import { YAxis }     from "../YAxis/";
 import { Line }      from "../Line/";
 import { Points }    from "../Points/";
+import { scaleFinder } from "../../Utilities/";
+import { scaleTime }   from "d3-scale";
+import { scaleLinear } from "d3-scale";
 import tip           from "d3-tip";
 import "./chart.scss";
 
 class Chart extends Component{
     static propTypes = {
-        successData: PropTypes.object
+        stockData: PropTypes.object
     }
 
     state = {
@@ -28,17 +31,47 @@ class Chart extends Component{
         });
     }
 
+    getXValues(){
+        // get dates
+        let { chart } = this.props.stockData;
+        let dates     = chart.map( item => new Date(item["date"]));
+
+        return dates;
+    }
+
     setXScale(){
+        // get x-values
+        let dates = this.getXValues();
+
+        // create xScale
+        let scaleObj  = new scaleFinder(dates);
+        let xScale    = scaleObj.getScale(scaleTime);
+
+        // set scale range
         let { padding, width } = this.state;
-        let { xScale }         = this.props.successData;
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
     }
 
+    getYValues(){
+        // get prices
+        let { chart } = this.props.stockData;
+        let prices     = chart.map( item => Number(item["close"]));
+
+        return prices;
+    }
+
     setYScale(){
+        // get y-values
+        let prices = this.getYValues();
+
+        // create xScale
+        let scaleObj  = new scaleFinder(prices);
+        let yScale    = scaleObj.getScale(scaleLinear);
+
+        // set scale range
         let { height, padding } = this.state;
-        let { yScale }          = this.props.successData;
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
@@ -66,7 +99,7 @@ class Chart extends Component{
         let { width, height, padding } = this.state;
 
         // empty array gets coerced into a falsy value.
-        if(!this.props.successData)
+        if(!this.props.stockData)
             return null;
 
         return(
@@ -83,28 +116,28 @@ class Chart extends Component{
                     xLabel={ "Year" }
                     yLabel={ "Price" }
                 />
-                <XAxis
-                    scale={ this.setXScale() }
-                    height={ height }
-                    padding={ padding }
-                />
                 <YAxis
                     scale={ this.setYScale() }
                     width={ width }
                     padding={ padding }
                 />
+                <XAxis
+                    scale={ this.setXScale() }
+                    height={ height }
+                    padding={ padding }
+                />
                 <Line
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.props.successData["dateObjects"] }
-                    y={ this.props.successData["adjustedClose"] }
+                    x={ this.getXValues() }
+                    y={ this.getYValues() }
                     color={ "orange" }
                 />
                 <Points
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.props.successData["dateObjects"] }
-                    y={ this.props.successData["adjustedClose"] }
+                    x={ this.getXValues() }
+                    y={ this.getYValues() }
                     color={ "orange" }
                     toolTip={ this.setToolTip() }
                     className={ "line-chart" }

@@ -4,8 +4,8 @@ import { Loader }           from "../../Components/";
 import { StockMetrics }     from "../../Components/";
 import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
-//import { StockDescription } from "../../Components/";
-//import { Chart }            from "../../Components/";
+import { StockDescription } from "../../Components/";
+import { Chart }            from "../../Components/";
 //import { StockNews }        from "../../Components/";
 import "./home.scss";
 
@@ -19,14 +19,11 @@ class Home extends Component{
                         <>
                             <StockMetrics stockData={ stockData[activeIndex] }/>
                             <StockSelector stockData={ stockData } onChange={ onChange }/>
+                            <Chart stockData={ stockData[activeIndex] }/>
+                            <StockDescription stockData={ stockData[activeIndex] }/>
                                 {/*
                             <div className="chart-data-container">
-                                <Chart successData={ successData[activeIndex] }/>
                             </div>
-                            <StockDescription
-                                successData={ successData[activeIndex] }
-                                robinhoodData={ robinhoodData[activeIndex] }
-                            />
                             <StockNews
                                 stockNews={ stockNews[activeIndex] }
                             />

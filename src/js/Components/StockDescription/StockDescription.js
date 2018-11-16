@@ -5,26 +5,31 @@ import "./stockDescription.scss";
 
 class StockDescription extends Component{
     static propTypes = {
-        successData: PropTypes.object,
-        robinhoodData: PropTypes.object
+        stockData: PropTypes.object,
     }
 
     render(){
-        if(!this.props.successData || !this.props.robinhoodData)
+        if(!this.props.stockData)
             return null;
 
-        let { successData, robinhoodData } = this.props;
+        let { company } = this.props.stockData;
 
         return(
             <div className="description-container">
-                <h2 className="stock-founded">
-                    {`${successData["stockName"]} founded in ${robinhoodData["year_founded"]}`}
-                </h2>
+                <div className="stock-name">
+                    <a 
+                        href={ company["website"] }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {`${company["companyName"]}`} 
+                    </a>
+                </div>
                 <div className="main-info-container">
-                    <h4 className="stock-ceo">{ `CEO: ${robinhoodData["ceo"]}` }</h4>
-                    <h4 className="stock-sector">{ `Sector: ${robinhoodData["sector"] }` }</h4>
-                    <h4 className="stock-industry">{ `Industry: ${robinhoodData["industry"]}` }</h4>
-                    <p className="stock-description">{ robinhoodData["description"] }</p>
+                    <h4 className="stock-ceo">{ `CEO: ${company["CEO"]}` }</h4>
+                    <h4 className="stock-sector">{ `Sector: ${company["sector"] }` }</h4>
+                    <h4 className="stock-industry">{ `Industry: ${company["industry"]}` }</h4>
+                    <p className="stock-description">{ company["description"] }</p>
                 </div>
             </div>
         );
