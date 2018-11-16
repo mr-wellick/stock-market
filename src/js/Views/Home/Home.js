@@ -23,9 +23,7 @@ class Home extends Component{
                                 <StockSelector stockData={ stockData } onChange={ onChange }/>
                             </div>
                             <StockDescription stockData={ stockData[activeIndex] }/>
-                            <StockNews
-                                stockData={ stockData[activeIndex] }
-                            />
+                            <StockNews stockData={ stockData[activeIndex] }/>
                         </>
                     )}
                 </Toggler>
