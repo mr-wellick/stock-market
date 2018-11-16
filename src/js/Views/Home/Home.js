@@ -1,8 +1,8 @@
 import React                from "react";
 import { Component }        from "react";
 import { Loader }           from "../../Components/";
-//import { StockInfo }        from "../../Components/";
-//import { Toggler }          from "../../Components/";
+import { StockMetrics }     from "../../Components/";
+import { Toggler }          from "../../Components/";
 //import { StockSelector }    from "../../Components/";
 //import { StockDescription } from "../../Components/";
 //import { Chart }            from "../../Components/";
@@ -14,14 +14,11 @@ class Home extends Component{
         return(
             <>
                 <Loader/>
-                {/*
                 <Toggler>
-                    {({successData, robinhoodData, stockNews, onChange, activeIndex}) => (
+                    {({stockData, onChange, activeIndex}) => (
                         <>
-                            <StockInfo
-                                successData={ successData[activeIndex] }
-                                robinhoodData={ robinhoodData[activeIndex] }
-                            />
+                            <StockMetrics stockData={ stockData[activeIndex] }/>
+                                {/*
                             <div className="chart-data-container">
                                 <Chart successData={ successData[activeIndex] }/>
                                 <StockSelector successData={ successData } onChange={ onChange }/>
@@ -33,10 +30,10 @@ class Home extends Component{
                             <StockNews
                                 stockNews={ stockNews[activeIndex] }
                             />
+                        */}
                         </>
                     )}
                 </Toggler>
-                */}
             </>
         );
     }
