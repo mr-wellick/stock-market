@@ -1,10 +1,10 @@
 import { FAILED_FETCH_REQUEST } from "../Constants/";
 
-function failedFetchRequest(stockName)
+function failedFetchRequest(stockDataError)
 {
     return {
         type: FAILED_FETCH_REQUEST,
-        stockName
+        stockDataError
     };
 }
 

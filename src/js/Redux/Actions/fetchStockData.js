@@ -1,5 +1,5 @@
 import successfulFetchRequest from "./successfulFetchRequest.js";
-//import failedFetchRequest  from "./failedFetchRequest.js";
+import failedFetchRequest     from "./failedFetchRequest.js";
 import initiatedFetchRequest  from "./initiatedFetchRequest.js";
 
 function fetchStockData(stockName)
@@ -10,12 +10,21 @@ function fetchStockData(stockName)
 
         // 2. Fetch Data
         const res = await fetch(
-            `https://api.iextrading.com/1.0/stock/${stockName}/batch?types=quote,news,company,stats,financials,relevant,chart&range=5y`
+            `https://api.iextrading.com/1.0/stock/${
+                stockName
+            }/batch?types=quote,news,company,stats,financials,relevant,chart&range=5y`
         );
-        const data = await res.json();
 
         // 3. Handle Success/Errors
-        dispatch(successfulFetchRequest(data));
+        try
+        {
+            const data = await res.json();
+            dispatch(successfulFetchRequest(data));
+        }
+        catch(error)
+        {
+            dispatch(failedFetchRequest("You entered an incorrect stock. Please enter a valid stock ticker: TSLA, AAPL."));
+        }
 
         // 4. End request
         return dispatch(initiatedFetchRequest(false));
