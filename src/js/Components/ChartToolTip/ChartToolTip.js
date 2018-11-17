@@ -23,7 +23,7 @@ class ChartToolTip extends Component{
     getYValue = () => {
         let { data }     = this.props;
         let xValue       = this.getXValueFromXCoordinate();
-        let yPosition    = bisector(data => data.xValues).left(data, xValue);
+        let yPosition    = bisector(data => data.xValue).left(data, xValue);
         let filteredData = yPosition < (data.length - 1) ? data[yPosition] : data[data.length - 1];
         return filteredData;
     }
@@ -35,12 +35,12 @@ class ChartToolTip extends Component{
 
         select(this.node)
             .select("circle")
-            .attr("transform", "translate(" + xScale(filteredData.xValues) + "," + yScale(filteredData.yValues) + ")");
+            .attr("transform", "translate(" + xScale(filteredData.xValue) + "," + yScale(filteredData.yValue) + ")");
 
         select(this.node)
             .select("text")
             .text(filteredData[1])
-            .attr("transform", "translate(" + xScale(filteredData.xValues) + "," + yScale(filteredData.yValues) + ")");
+            .attr("transform", "translate(" + xScale(filteredData.xValue) + "," + yScale(filteredData.yValue) + ")");
     }
 
     render(){

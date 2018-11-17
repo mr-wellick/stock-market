@@ -31,17 +31,22 @@ class Chart extends Component{
         });
     }
 
-    getXValues(){
-        // get dates
-        let { chart } = this.props.stockData;
-        let dates     = chart.map( item => new Date(item["date"]));
+    formatData(){
+        let xValues = this.props.stockData.chart.map(item => new Date(item["date"]));
+        let yValues = this.props.stockData.chart.map(item => Number(item["close"]));
 
-        return dates;
+        let data = xValues.map((item, index) => ({
+            xValue: item,
+            yValue: yValues[index]
+        }));
+
+        return data;
     }
 
     setXScale(){
         // get x-values
-        let dates = this.getXValues();
+        let { chart } = this.props.stockData;
+        let dates     = chart.map(item => new Date(item["date"]));
 
         // create xScale
         let scaleObj  = new scaleFinder(dates);
@@ -54,17 +59,10 @@ class Chart extends Component{
         return xScale;
     }
 
-    getYValues(){
-        // get prices
-        let { chart } = this.props.stockData;
-        let prices    = chart.map( item => Number(item["close"]));
-
-        return prices;
-    }
-
     setYScale(){
         // get y-values
-        let prices = this.getYValues();
+        let { chart } = this.props.stockData;
+        let prices    = chart.map(item => Number(item["close"]));
 
         // create xScale
         let scaleObj  = new scaleFinder(prices);
@@ -75,18 +73,6 @@ class Chart extends Component{
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
-    }
-
-    formatData(){
-        let xValues = this.getXValues();
-        let yValues = this.getYValues();
-
-        let data = xValues.map((item, index) => ({
-            xValues: item,
-            yValues: yValues[index]
-        }));
-
-        return data;
     }
 
     render(){

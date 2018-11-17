@@ -18,7 +18,7 @@ class Line extends Component{
     appendLineToChart(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let lineForChart       = line().x(d => xScale(d.xValues)).y(d => yScale(d.yValues)).curve(curveCatmullRom);
+        let lineForChart       = line().x(d => xScale(d.xValue)).y(d => yScale(d.yValue)).curve(curveCatmullRom);
 
         select(this.node)
             .datum(data)
