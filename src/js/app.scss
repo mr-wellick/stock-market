@@ -26,7 +26,12 @@
 .main-nav__items
 {
     display: flex;
-    justify-content: space-around;
+    margin-left: 30px;
+}
+
+.main-nav__item
+{
+    margin-left: 10px;
 }
 
 .main-nav__item a
