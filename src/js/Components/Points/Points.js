@@ -8,27 +8,14 @@ class Points extends Component{
     static propTypes = {
         xScale: PropTypes.func,
         yScale: PropTypes.func,
-        x: PropTypes.array,
-        y: PropTypes.array,
-        color: PropTypes.string,
-        toolTip: PropTypes.func,
-        className: PropTypes.string
+        data: PropTypes.array,
+        color: PropTypes.string
     }
 
-    formatData(){
-        let { x, y }     = this.props;
-        let dataToRender = [];
-
-        for(let i = 0; i < x.length; i++)
-            dataToRender.push([ x[i], y[i] ]);
-
-        return dataToRender;
-    }
-
-    appendCircles(data){
+    appendCircles(){
         let { xScale, yScale } = this.props;
+        let { data }           = this.props;
         let { color }          = this.props;
-        let { toolTip }        = this.props;
 
         // clear graph for next set of data points if we have data
         if(this.node.children.length > 0)
@@ -40,34 +27,27 @@ class Points extends Component{
             .data(data)
             .enter()
             .append("circle")
-            .call(toolTip) // add toolTip
-            .attr("cx", d => xScale(d[0]))
-            .attr("cy", d => yScale(d[1]))
+            .attr("cx", d => xScale(d.xValue))
+            .attr("cy", d => yScale(d.yValue))
             .attr("r", 5)
-            .attr("fill", color)
-            .attr("opacity", "0")
-            .on("mouseover", toolTip.show)
-            .on("mouseout", toolTip.hide);
+            .attr("fill", color);
     }
 
     render(){
         return(
             <g
                 ref={ node => this.node = node }
-                className={ this.props.className }
             >
             </g>
         );
     }
 
     componentDidMount(){
-        let dataToRender = this.formatData();
-        this.appendCircles(dataToRender);
+        this.appendCircles();
     }
 
     componentDidUpdate(){
-        let dataToRender = this.formatData();
-        this.appendCircles(dataToRender);
+        this.appendCircles();
     }
 }
 
