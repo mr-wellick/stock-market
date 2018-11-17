@@ -22,7 +22,7 @@ class DuplicateEntry extends Component{
         let { stockName } = this.props;
 
         return(
-            <div>
+            <div className="duplicate-entry">
                 <p>
                     {
                         `Sorry! you have entered ${stockName}, a stock already in your list. Will not retrieve.`

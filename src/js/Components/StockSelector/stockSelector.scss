@@ -1,3 +1,26 @@
+.form-active
+{
+    border: 1px solid black;
+    margin: 35px 0;
+    margin-right: 10px;
+    width: 18%;
+}
+
+.form-active__container
+{
+    margin-left: 10px;
+}
+
+.form-active__container div
+{
+    margin-top: 20px;
+}
+
+.form-active label
+{
+    padding: 5px;
+}
+
 .form-active label:hover
 {
     cursor: pointer;

@@ -6,6 +6,10 @@
     justify-content: space-between; // main-axis (horizontal alignment)
     min-height: 65px;
     background-color: rgb(36, 41, 46);
+
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .main-header__logo

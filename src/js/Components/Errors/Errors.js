@@ -22,7 +22,7 @@ class Errors extends Component {
         let { stockDataError } = this.props;
 
         return(
-            <div>
+            <div className="app-error">
                 <p>{ stockDataError }</p>
                 <a onClick={ this.onClick }>X</a>
             </div>
