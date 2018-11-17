@@ -25,8 +25,8 @@ class Chart extends Component{
 
     handleChartResize = () => {
         this.setState({
-            width: window.innerWidth/1.4,
-            height: window.innerHeight/1.6
+            width: window.innerWidth*0.80,
+            height: window.innerHeight*0.79
         });
     }
 
