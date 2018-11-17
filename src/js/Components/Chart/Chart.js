@@ -1,17 +1,16 @@
-import React           from "react";
-import PropTypes       from "prop-types";
-import { Component }   from "react";
-import { YGrid }       from "../YGrid/";
-import { XGrid }       from "../XGrid/";
-import { Labels }      from "../Labels/";
-import { XAxis }       from "../XAxis/";
-import { YAxis }       from "../YAxis/";
-import { Line }        from "../Line/";
-import { Points }      from "../Points/";
-import { scaleFinder } from "../../Utilities/";
-import { scaleTime }   from "d3-scale";
-import { scaleLinear } from "d3-scale";
-import tip             from "d3-tip";
+import React            from "react";
+import PropTypes        from "prop-types";
+import { Component }    from "react";
+import { YGrid }        from "../YGrid/";
+import { XGrid }        from "../XGrid/";
+import { Labels }       from "../Labels/";
+import { XAxis }        from "../XAxis/";
+import { YAxis }        from "../YAxis/";
+import { Line }         from "../Line/";
+import { ChartToolTip } from "../ChartToolTip/";
+import { scaleFinder }  from "../../Utilities/";
+import { scaleTime }    from "d3-scale";
+import { scaleLinear }  from "d3-scale";
 import "./chart.scss";
 
 class Chart extends Component{
@@ -78,24 +77,6 @@ class Chart extends Component{
         return yScale;
     }
 
-    // Originally part of <Points/> component. Bringing this method here allows
-    // <Points/> to be reusable.
-    setToolTip(){
-        let toolTip = tip().html(data => {
-            let date          = data[0].toDateString();
-            let USPriceFormat = data[1].toLocaleString("en-US", { style: "currency", currency: "USD" });
-
-            return (
-                `<div class="tooltips">
-                    <div class="tooltips-date">${date}</div>
-                    <div class="tooltips-price">${USPriceFormat}</div>
-                </div>`
-            );
-        });
-
-        return toolTip;
-    }
-
     render(){
         let { width, height, padding } = this.state;
 
@@ -104,7 +85,7 @@ class Chart extends Component{
             return null;
 
         return(
-            <svg width={ width } height={ height }>
+            <svg width={ width } height={ height } className="stock-market-chart">
                 <YGrid
                     yScale={ this.setYScale()}
                     padding={ padding }
@@ -139,14 +120,11 @@ class Chart extends Component{
                     y={ this.getYValues() }
                     color={ "orange" }
                 />
-                <Points
+                <ChartToolTip
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
                     x={ this.getXValues() }
                     y={ this.getYValues() }
-                    color={ "orange" }
-                    toolTip={ this.setToolTip() }
-                    className={ "line-chart" }
                 />
             </svg>
         );

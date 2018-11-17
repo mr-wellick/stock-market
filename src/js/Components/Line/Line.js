@@ -45,7 +45,7 @@ class Line extends Component{
 
     render(){
         return(
-            <g>
+            <g className="line-data">
                 <path ref={ node => this.node = node }/>
             </g>
         );
