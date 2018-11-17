@@ -24,7 +24,7 @@ class Chart extends Component{
         padding: 40,
     }
 
-    handleResize = () => {
+    handleChartResize = () => {
         this.setState({
             width: window.innerWidth/1.4,
             height: window.innerHeight/1.6
@@ -32,8 +32,9 @@ class Chart extends Component{
     }
 
     formatData(){
-        let xValues = this.props.stockData.chart.map(item => new Date(item["date"]));
-        let yValues = this.props.stockData.chart.map(item => Number(item["close"]));
+        let { chart } = this.props.stockData;
+        let xValues   = chart.map(item => new Date(item["date"]));
+        let yValues   = chart.map(item => Number(item["close"]));
 
         let data = xValues.map((item, index) => ({
             xValue: item,
@@ -45,8 +46,7 @@ class Chart extends Component{
 
     setXScale(){
         // get x-values
-        let { chart } = this.props.stockData;
-        let dates     = chart.map(item => new Date(item["date"]));
+        let dates = this.formatData().map(item => item.xValue);
 
         // create xScale
         let scaleObj  = new scaleFinder(dates);
@@ -61,8 +61,7 @@ class Chart extends Component{
 
     setYScale(){
         // get y-values
-        let { chart } = this.props.stockData;
-        let prices    = chart.map(item => Number(item["close"]));
+        let prices = this.formatData().map(item => item.yValue);
 
         // create xScale
         let scaleObj  = new scaleFinder(prices);
@@ -127,11 +126,11 @@ class Chart extends Component{
     }
 
     componentDidMount() {
-        window.addEventListener("resize", this.handleResize);
+        window.addEventListener("resize", this.handleChartResize);
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.handleResize);
+        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 
