@@ -25,9 +25,6 @@
 + __Errors__: Invalid stock entries will be removed and an error will be thrown.
 
 # Reminders
-+ Implement error action creator: redux.
-+ Implement DuplicateEntry catcher
-+ Implement DeleteSingleStock from list
 + Rework UI
 + Start bundle splitting.
 
