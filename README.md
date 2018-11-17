@@ -1,3 +1,6 @@
+# Desktop Display (in progress)
+![nothing-to-show](./screenshots/desktop-1.png)
+
 # Using the app
 + Supply a single stock ticker such as: TSLA, AAPL, IBM, etc...
 + Each query will return a graph, common stock metrics, and current news related to each stock.
