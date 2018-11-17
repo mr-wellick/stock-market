@@ -3,7 +3,6 @@ import PropTypes        from "prop-types";
 import { Component }    from "react";
 import { YGrid }        from "../YGrid/";
 import { XGrid }        from "../XGrid/";
-//import { Labels }       from "../Labels/";
 import { XAxis }        from "../XAxis/";
 import { YAxis }        from "../YAxis/";
 import { Line }         from "../Line/";
@@ -20,7 +19,7 @@ class Chart extends Component{
 
     state = {
         width: window.innerWidth*0.80,
-        height: window.innerHeight*0.80,
+        height: window.innerHeight*0.79,
         padding: 40,
     }
 
@@ -93,15 +92,6 @@ class Chart extends Component{
                     padding={ padding }
                     height={ height }
                 />
-                {/*
-                <Labels
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    xLabel={ "Year" }
-                    yLabel={ "Price" }
-                />
-                */}
                 <YAxis
                     scale={ this.setYScale() }
                     width={ width }
