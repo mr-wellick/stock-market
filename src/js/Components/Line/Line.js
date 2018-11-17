@@ -9,28 +9,16 @@ import "./line.scss";
 
 class Line extends Component{
     static propTypes = {
-        x: PropTypes.array,
-        y: PropTypes.array,
+        data: PropTypes.array,
         xScale: PropTypes.func,
         yScale: PropTypes.func,
         color: PropTypes.string
     }
 
-    formatData(){
-        let { x, y }     = this.props;
-        let dataToRender = [];
-
-        // Need to store data in this format
-        for( let i = 0; i < x.length; i++ )
-            dataToRender.push([ x[i], y[i] ]);
-
-        return dataToRender;
-    }
-
     appendLineToChart(data){
         let { xScale, yScale } = this.props;
         let { color }          = this.props;
-        let lineForChart       = line().x(d => xScale(d[0])).y(d => yScale(d[1])).curve(curveCatmullRom);
+        let lineForChart       = line().x(d => xScale(d.xValues)).y(d => yScale(d.yValues)).curve(curveCatmullRom);
 
         select(this.node)
             .datum(data)
@@ -52,13 +40,11 @@ class Line extends Component{
     }
 
     componentDidMount(){
-        let dataToRender = this.formatData();
-        this.appendLineToChart(dataToRender);
+        this.appendLineToChart(this.props.data);
     }
 
     componentDidUpdate(){
-        let dataToRender = this.formatData();
-        this.appendLineToChart(dataToRender);
+        this.appendLineToChart(this.props.data);
     }
 }
 

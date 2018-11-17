@@ -77,6 +77,18 @@ class Chart extends Component{
         return yScale;
     }
 
+    formatData(){
+        let xValues = this.getXValues();
+        let yValues = this.getYValues();
+
+        let data = xValues.map((item, index) => ({
+            xValues: item,
+            yValues: yValues[index]
+        }));
+
+        return data;
+    }
+
     render(){
         let { width, height, padding } = this.state;
 
@@ -116,15 +128,13 @@ class Chart extends Component{
                 <Line
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.getXValues() }
-                    y={ this.getYValues() }
+                    data={ this.formatData() }
                     color={ "orange" }
                 />
                 <ChartToolTip
                     xScale={ this.setXScale() }
                     yScale={ this.setYScale() }
-                    x={ this.getXValues() }
-                    y={ this.getYValues() }
+                    data={ this.formatData() }
                 />
             </svg>
         );

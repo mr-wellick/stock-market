@@ -10,63 +10,37 @@ class ChartToolTip extends Component{
     static propTypes = {
         xScale: PropTypes.func,
         yScale: PropTypes.func,
-        x: PropTypes.array,
-        y: PropTypes.array
-    }
-
-    formatData = () => {
-        let { x, y }     = this.props;
-        let dataToRender = [];
-
-        // Need to store data in this format
-        for( let i = 0; i < x.length; i++ )
-            dataToRender.push([ x[i], y[i] ]);
-
-        return dataToRender;
-    }
-
-    getXScale = () => {
-        let { xScale } = this.props;
-        return xScale;
-    }
-
-    getYScale = () => {
-        let { yScale } = this.props;
-        return yScale;
-    }
-
-    getXCoordinate = () => {
-        let xCoordinate = mouse(this.node)[0];
-        return xCoordinate;
+        data: PropTypes.array
     }
 
     getXValueFromXCoordinate = () => {
-        let xScale      = this.getXScale();
-        let xCoordinate = this.getXCoordinate();
+        let { xScale }  = this.props;
+        let xCoordinate = mouse(this.node)[0];
         let xValue      = xScale.invert(xCoordinate);
         return xValue;
     }
 
-    mouseMove = () => {
-        let xScale    = this.getXScale();
-        let yScale    = this.getYScale();
-        let data      = this.formatData();
-        let xValue    = this.getXValueFromXCoordinate();
-        let bisect    = bisector(data => data[0]).left;
-        let yPosition = bisect(data, xValue);
+    getYValue = () => {
+        let { data }     = this.props;
+        let xValue       = this.getXValueFromXCoordinate();
+        let yPosition    = bisector(data => data.xValues).left(data, xValue);
+        let filteredData = yPosition < (data.length - 1) ? data[yPosition] : data[data.length - 1];
+        return filteredData;
+    }
 
-        let filteredData = yPosition < (data.length - 1) ?
-                data[yPosition] : data[data.length - 1];
+    mouseMove = () => {
+        let { xScale }   = this.props;
+        let { yScale }   = this.props;
+        let filteredData = this.getYValue();
 
         select(this.node)
             .select("circle")
-            .attr("transform", "translate(" + xScale(filteredData[0]) + "," + yScale(filteredData[1]) + ")");
+            .attr("transform", "translate(" + xScale(filteredData.xValues) + "," + yScale(filteredData.yValues) + ")");
 
         select(this.node)
             .select("text")
             .text(filteredData[1])
-            .attr("transform", "translate(" + xScale(filteredData[0]) + "," + yScale(filteredData[1]) + ")");
-
+            .attr("transform", "translate(" + xScale(filteredData.xValues) + "," + yScale(filteredData.yValues) + ")");
     }
 
     render(){
