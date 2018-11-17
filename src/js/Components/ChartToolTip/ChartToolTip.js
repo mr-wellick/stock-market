@@ -10,7 +10,10 @@ class ChartToolTip extends Component{
     static propTypes = {
         xScale: PropTypes.func,
         yScale: PropTypes.func,
-        data: PropTypes.array
+        data: PropTypes.array,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number
     }
 
     getXValueFromXCoordinate = () => {
@@ -33,29 +36,46 @@ class ChartToolTip extends Component{
         let { yScale }   = this.props;
         let filteredData = this.getYValue();
 
-        select(this.node)
-            .select("circle")
-            .attr("transform", "translate(" + xScale(filteredData.xValue) + "," + yScale(filteredData.yValue) + ")");
+        select(".price-position")
+            .attr("transform", `translate(${xScale(filteredData.xValue)}, ${yScale(filteredData.yValue)})`);
 
-        select(this.node)
-            .select("text")
-            .text(filteredData[1])
-            .attr("transform", "translate(" + xScale(filteredData.xValue) + "," + yScale(filteredData.yValue) + ")");
+        select(".stock-price")
+            .text(`Price: $${filteredData.yValue}`)
+            .attr("transform", "translate(50, 70)");
+
+        select(".stock-date")
+            .text(`Date: ${filteredData.xValue.toDateString()}`)
+            .attr("transform", `translate(${this.props.width - this.props.padding*5}, 70)`);
+
+        select(".x-line")
+            .attr("x1", xScale(filteredData.xValue))
+            .attr("y1", this.props.padding)
+            .attr("x2", xScale(filteredData.xValue))
+            .attr("y2", this.props.height - this.props.padding);
+
+        select(".y-line")
+            .attr("x1", this.props.padding)
+            .attr("y1", yScale(filteredData.yValue))
+            .attr("x2", this.props.width - this.props.padding)
+            .attr("y2", yScale(filteredData.yValue));
     }
 
     render(){
         return(
-            <g ref={ node => this.node = node } className="stock-price" style={{display: "none"}}>
-                <circle r="5"></circle>
-                <text></text>
+            <g ref={ node => this.node = node } className="stock-info" style={{display: "none"}}>
+                <circle className="price-position" r="5"></circle>
+                <text className="stock-price"></text>
+                <text className="stock-date"></text>
+                <line className="x-line" stroke="black" strokeDasharray="2"></line>
+                <line className="y-line" stroke="black" strokeDasharray="2"></line>
             </g>
         );
     }
 
     componentDidMount(){
         select(".stock-market-chart")
-            .on("mouseover", () => select(".stock-price").style("display", null))
-            .on("mouseout", () => select(".stock-price").style("display", "none"))
+            .on("mouseover", () => select(".stock-info").style("display", null))
+            .on("mouseout", () => select(".stock-info").style("display", "none"))
             .on("mousemove", this.mouseMove);
     }
 }
