@@ -25,6 +25,8 @@
 + __Errors__: Invalid stock entries will be removed and an error will be thrown.
 
 # Reminders
++ Clean up ChartToolTip component
++ Restructure data for Chart component
 + Rework UI
 + Start bundle splitting.
 
