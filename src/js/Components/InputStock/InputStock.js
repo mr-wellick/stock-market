@@ -1,14 +1,16 @@
-import React              from "react";
-import { Component }      from "react";
-import PropTypes          from "prop-types";
-import { connect }        from "react-redux";
-import { fetchStockData } from "../../Redux/";
-import includes           from "lodash.includes";
+import React                   from "react";
+import { Component }           from "react";
+import PropTypes               from "prop-types";
+import { connect }             from "react-redux";
+import { fetchStockData }      from "../../Redux/";
+import { duplicateStockEntry } from "../../Redux/";
+import includes                from "lodash.includes";
 import "./inputStock.scss";
 
 class InputStock extends Component{
     static propTypes = {
         fetchStockData: PropTypes.func,
+        duplicateStockEntry: PropTypes.func,
         stockData: PropTypes.array
     }
 
@@ -33,7 +35,7 @@ class InputStock extends Component{
         if(!isNewStockEntry)
             this.props.fetchStockData(newStockEntry); // fetch new entry
         else
-            console.log(`${newStockEntry} is already in state`); // tell user we cant fetch stocks already in state
+            this.props.duplicateStockEntry(newStockEntry); // tell user we cant fetch stocks already in state
     }
 
     onSubmit = (event) => {
@@ -83,4 +85,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, { fetchStockData })(InputStock);
+export default connect(mapState, { fetchStockData, duplicateStockEntry })(InputStock);

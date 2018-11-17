@@ -1,2 +1,3 @@
-export { fetchStockData } from "./Actions/";
-export { store }          from "./Reducers/";
+export { fetchStockData }      from "./Actions/";
+export { duplicateStockEntry } from "./Actions/";
+export { store }               from "./Reducers/";
