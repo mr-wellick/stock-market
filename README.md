@@ -8,8 +8,6 @@
 + __Errors__: Invalid stock entries will result in an error.
 
 # Reminders
-+ Clean up ChartToolTip component
-+ Restructure data for Chart component
 + Rework UI
 + Start bundle splitting.
 
