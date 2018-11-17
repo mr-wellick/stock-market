@@ -8,12 +8,14 @@ import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
 import { StockNews }        from "../../Components/";
 import { DuplicateEntry }   from "../../Components/";
+import { Errors }           from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
     render(){
         return(
             <>
+                <Errors/>
                 <DuplicateEntry/>
                 <Loader/>
                 <Toggler>

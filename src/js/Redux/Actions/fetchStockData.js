@@ -23,7 +23,7 @@ function fetchStockData(stockName)
         }
         catch(error)
         {
-            dispatch(failedFetchRequest(`You entered an incorrect, ${stockName}.`));
+            dispatch(failedFetchRequest(`You entered an incorrect stock, ${stockName}.`));
         }
 
         // 4. End request

@@ -7,4 +7,5 @@ export { StockSelector }    from "./StockSelector/";
 export { StockDescription } from "./StockDescription/";
 export { StockNews }        from "./StockNews/";
 export { DuplicateEntry }   from "./DuplicateEntry/";
+export { Errors }           from "./Errors/";
 //export { Footer }           from "./Footer/";

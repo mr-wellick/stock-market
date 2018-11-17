@@ -1,11 +1,12 @@
-import { INITIATED_FETCH_REQUEST }  from "../Constants/";
-import { SUCCESSFUL_FETCH_REQUEST } from "../Constants/";
-import { FAILED_FETCH_REQUEST }     from "../Constants/";
+import { INITIATED_FETCH_REQUEST }            from "../Constants/";
+import { SUCCESSFUL_FETCH_REQUEST }           from "../Constants/";
+import { FAILED_FETCH_REQUEST }               from "../Constants/";
+import { RESET_FAILED_FETCH_REQUEST_MESSAGE } from "../Constants/";
 
 let initialState = {
     isFetchingData: false,
     stockData: [],
-    stockDataError: []
+    stockDataError: ""
 };
 
 function fetchDataReducer(state = initialState, action)
@@ -23,6 +24,11 @@ function fetchDataReducer(state = initialState, action)
                 stockData: [ ...state.stockData, action.stockData]
             };
         case FAILED_FETCH_REQUEST:
+            return {
+                ...state,
+                stockDataError: action.stockDataError
+            };
+        case RESET_FAILED_FETCH_REQUEST_MESSAGE:
             return {
                 ...state,
                 stockDataError: action.stockDataError
