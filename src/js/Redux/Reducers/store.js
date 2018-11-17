@@ -1,5 +1,6 @@
 // Reducers
-import fetchDataReducer from "./fetchDataReducer.js";
+import fetchDataReducer           from "./fetchDataReducer.js";
+import duplicateStockEntryReducer from "./duplicateStockEntryReducer.js";
 
 // Redux imports
 import { combineReducers } from "redux";
@@ -10,7 +11,8 @@ import thunkMiddleware     from "redux-thunk";
 
 // Gather reducers
 let rootReducer = combineReducers({
-    fetchData: fetchDataReducer
+    fetchData: fetchDataReducer,
+    duplicateStockEntry: duplicateStockEntryReducer
 });
 
 // Create action logger for development
