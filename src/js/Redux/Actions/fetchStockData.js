@@ -23,7 +23,7 @@ function fetchStockData(stockName)
         }
         catch(error)
         {
-            dispatch(failedFetchRequest("You entered an incorrect stock. Please enter a valid stock ticker: TSLA, AAPL."));
+            dispatch(failedFetchRequest(`You entered an incorrect, ${stockName}.`));
         }
 
         // 4. End request

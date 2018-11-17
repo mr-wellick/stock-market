@@ -7,12 +7,14 @@ import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
 import { StockNews }        from "../../Components/";
+import { DuplicateEntry }   from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
     render(){
         return(
             <>
+                <DuplicateEntry/>
                 <Loader/>
                 <Toggler>
                     {({stockData, onChange, activeIndex}) => (
