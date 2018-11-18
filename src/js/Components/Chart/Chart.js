@@ -32,12 +32,9 @@ class Chart extends Component{
 
     formatData(){
         let { chart } = this.props.stockData;
-        let xValues   = chart.map(item => new Date(item["date"]));
-        let yValues   = chart.map(item => Number(item["close"]));
-
-        let data = xValues.map((item, index) => ({
-            xValue: item,
-            yValue: yValues[index]
+        let data      = chart.map(item => ({
+            xValue: new Date(item["date"]),
+            yValue: Number(item["close"])
         }));
 
         return data;
