@@ -7,7 +7,7 @@ import "./basics.scss";
 class Basics extends Component{
     render(){
         return(
-            <section className="basics">
+            <section>
                 <Intro/>
                 <Resources/>
             </section>

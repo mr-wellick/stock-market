@@ -21,13 +21,22 @@ class Home extends Component{
                 <Toggler>
                     {({stockData, onChange, activeIndex}) => (
                         <>
-                            <StockMetrics stockData={ stockData[activeIndex] }/>
-                            <div className="chart-data-container">
-                                <Chart stockData={ stockData[activeIndex] }/>
-                                <StockSelector stockData={ stockData } onChange={ onChange }/>
-                            </div>
-                            <StockDescription stockData={ stockData[activeIndex] }/>
-                            <StockNews stockData={ stockData[activeIndex] }/>
+                            <StockMetrics
+                                stockData={ stockData[activeIndex] }
+                            />
+                            <Chart
+                                stockData={ stockData[activeIndex] }
+                            />
+                            <StockSelector
+                                stockData={ stockData }
+                                onChange={ onChange }
+                            />
+                            <StockDescription
+                                stockData={ stockData[activeIndex] }
+                            />
+                            <StockNews
+                                stockData={ stockData[activeIndex] }
+                            />
                         </>
                     )}
                 </Toggler>
