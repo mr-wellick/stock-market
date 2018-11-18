@@ -6,21 +6,21 @@
     width: 18%;
 }
 
-.form-active__container
-{
-    margin-left: 10px;
-    margin-right: 10px;
-    max-height: 85%;
-    overflow-y: auto;
-}
+//.form-active__container
+//{
+//    margin-left: 10px;
+//    margin-right: 10px;
+//    max-height: 85%;
+//    overflow-y: auto;
+//}
 
 .form-active__stock
 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
-    border-bottom: 1px solid black;
+    margin: 20px;
+    //border-bottom: 1px solid black;
 }
 .form-active__stock div
 {

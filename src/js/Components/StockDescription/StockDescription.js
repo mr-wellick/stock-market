@@ -15,21 +15,21 @@ class StockDescription extends Component{
         let { company } = this.props.stockData;
 
         return(
-            <div className="description-container">
-                <div className="stock-name">
-                    <a 
+            <div>
+                <div>
+                    <a
                         href={ company["website"] }
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {`${company["companyName"]}`} 
+                        {`${company["companyName"]}`}
                     </a>
                 </div>
-                <div className="main-info-container">
-                    <h4 className="stock-ceo">{ `CEO: ${company["CEO"]}` }</h4>
-                    <h4 className="stock-sector">{ `Sector: ${company["sector"] }` }</h4>
-                    <h4 className="stock-industry">{ `Industry: ${company["industry"]}` }</h4>
-                    <p className="stock-description">{ company["description"] }</p>
+                <div>
+                    <h4>{ `CEO: ${company["CEO"]}` }</h4>
+                    <h4>{ `Sector: ${company["sector"] }` }</h4>
+                    <h4>{ `Industry: ${company["industry"]}` }</h4>
+                    <p>{ company["description"] }</p>
                 </div>
             </div>
         );
