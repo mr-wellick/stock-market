@@ -12,6 +12,7 @@
 
 # Reminders
 + Rework UI
++ Histogram rendering. Just need correctly align rects.
 + Start bundle splitting.
 
 # Disclaimer

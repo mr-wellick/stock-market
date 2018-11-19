@@ -6,6 +6,7 @@ import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
+import { Histogram }        from "../../Components/";
 import { StockNews }        from "../../Components/";
 import { DuplicateEntry }   from "../../Components/";
 import { Errors }           from "../../Components/";
@@ -26,6 +27,9 @@ class Home extends Component{
                             />
                             <Chart
                                 stockData={ stockData[activeIndex] }
+                            />
+                            <Histogram
+                                stockData={ stockData }
                             />
                             <StockSelector
                                 stockData={ stockData }
