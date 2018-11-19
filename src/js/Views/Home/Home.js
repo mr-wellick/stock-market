@@ -5,7 +5,7 @@ import { StockMetrics }     from "../../Components/";
 import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
-import { Chart }            from "../../Components/";
+import { HistoricalChart }  from "../../Components/";
 import { Histogram }        from "../../Components/";
 import { FinancialsChart }  from "../../Components/";
 import { StockNews }        from "../../Components/";
@@ -26,7 +26,7 @@ class Home extends Component{
                             <StockMetrics
                                 stockData={ stockData[activeIndex] }
                             />
-                            <Chart
+                            <HistoricalChart
                                 stockData={ stockData[activeIndex] }
                             />
                             <Histogram

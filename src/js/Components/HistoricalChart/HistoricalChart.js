@@ -9,9 +9,9 @@ import { ChartToolTip } from "../ChartToolTip/";
 import { scaleFinder }  from "../../Utilities/";
 import { scaleTime }    from "d3-scale";
 import { scaleLinear }  from "d3-scale";
-import "./chart.scss";
+import "./historicalChart.scss";
 
-class Chart extends Component{
+class HistoricalChart extends Component{
     static propTypes = {
         stockData: PropTypes.object
     }
@@ -121,4 +121,4 @@ class Chart extends Component{
     }
 }
 
-export default Chart;
+export default HistoricalChart;

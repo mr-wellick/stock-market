@@ -2,7 +2,7 @@ export { InputStock }       from "./InputStock";
 export { Loader }           from "./Loader/";
 export { StockMetrics }     from "./StockMetrics/";
 export { Toggler }          from "./Toggler/";
-export { Chart }            from "./Chart/";
+export { HistoricalChart }  from "./HistoricalChart/";
 export { Histogram }        from "./Histogram/";
 export { FinancialsChart }  from "./FinancialsChart/";
 export { StockSelector }    from "./StockSelector/";
