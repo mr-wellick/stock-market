@@ -8,18 +8,12 @@ class Rects extends Component{
         xScale: PropTypes.func,
         yScale: PropTypes.func,
         data: PropTypes.array,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number,
         color: PropTypes.string
     }
 
     appendRects(){
         let { xScale, yScale } = this.props;
         let { data }           = this.props;
-        let { height }         = this.props;
-        let { width }          = this.props;
-        let { padding }        = this.props;
         let { color }          = this.props;
 
         // clear graph for next set of data points if we have data

@@ -12,7 +12,8 @@ class StockDescription extends Component{
         if(!this.props.stockData)
             return null;
 
-        let { company } = this.props.stockData;
+        let { company }  = this.props.stockData;
+        let { relevant } = this.props.stockData;
 
         return(
             <div>
@@ -30,6 +31,16 @@ class StockDescription extends Component{
                     <h4>{ `Sector: ${company["sector"] }` }</h4>
                     <h4>{ `Industry: ${company["industry"]}` }</h4>
                     <p>{ company["description"] }</p>
+                </div>
+                <div>
+                    <h2>Relevant Peers</h2>
+                    {
+                        relevant["symbols"].map((item, index) =>
+                            <ul key={ index }>
+                                <li>{ item }</li>
+                            </ul>
+                        )
+                    }
                 </div>
             </div>
         );

@@ -2,7 +2,6 @@ import React            from "react";
 import PropTypes        from "prop-types";
 import { Component }    from "react";
 import { YGrid }        from "../YGrid/";
-import { XGrid }        from "../XGrid/";
 import { XAxis }        from "../XAxis/";
 import { YAxis }        from "../YAxis/";
 import { Line }         from "../Line/";
@@ -83,11 +82,6 @@ class Chart extends Component{
                     yScale={ this.setYScale()}
                     padding={ padding }
                     width={ width }
-                />
-                <XGrid
-                    xScale={ this.setXScale() }
-                    padding={ padding }
-                    height={ height }
                 />
                 <YAxis
                     scale={ this.setYScale() }
