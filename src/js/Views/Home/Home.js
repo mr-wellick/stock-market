@@ -31,18 +31,20 @@ class Home extends Component{
                             <ChartSelector
                                 onChangeChart={ onChangeChart }
                             />
-                            <ActiveChart
-                                width={ width }
-                                height={ height }
-                                padding={ padding }
-                                activeStockData={ stockData[activeIndex] }
-                                selectedChart={ selectedChart }
-                                stockData={ stockData }
-                            />
-                            <StockSelector
-                                stockData={ stockData }
-                                onChange={ onChange }
-                            />
+                            <div className="main-data-container">
+                                <ActiveChart
+                                    width={ width }
+                                    height={ height }
+                                    padding={ padding }
+                                    activeStockData={ stockData[activeIndex] }
+                                    selectedChart={ selectedChart }
+                                    stockData={ stockData }
+                                />
+                                <StockSelector
+                                    stockData={ stockData }
+                                    onChange={ onChange }
+                                />
+                            </div>
                             <StockDescription
                                 stockData={ stockData[activeIndex] }
                             />
