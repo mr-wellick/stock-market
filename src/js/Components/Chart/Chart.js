@@ -106,6 +106,7 @@ class Chart extends Component{
                     padding={ padding }
                     width={ width }
                     height={ height }
+                    className="stock-market-chart"
                 />
             </svg>
         );

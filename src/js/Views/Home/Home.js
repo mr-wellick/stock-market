@@ -7,6 +7,7 @@ import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { Chart }            from "../../Components/";
 import { Histogram }        from "../../Components/";
+import { FinancialsChart }  from "../../Components/";
 import { StockNews }        from "../../Components/";
 import { DuplicateEntry }   from "../../Components/";
 import { Errors }           from "../../Components/";
@@ -30,6 +31,9 @@ class Home extends Component{
                             />
                             <Histogram
                                 stockData={ stockData }
+                            />
+                            <FinancialsChart
+                                stockData={ stockData[activeIndex] }
                             />
                             <StockSelector
                                 stockData={ stockData }

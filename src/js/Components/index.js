@@ -4,6 +4,7 @@ export { StockMetrics }     from "./StockMetrics/";
 export { Toggler }          from "./Toggler/";
 export { Chart }            from "./Chart/";
 export { Histogram }        from "./Histogram/";
+export { FinancialsChart }  from "./FinancialsChart/";
 export { StockSelector }    from "./StockSelector/";
 export { StockDescription } from "./StockDescription/";
 export { StockNews }        from "./StockNews/";

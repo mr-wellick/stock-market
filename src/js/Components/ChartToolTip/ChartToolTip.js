@@ -13,7 +13,8 @@ class ChartToolTip extends Component{
         data: PropTypes.array,
         width: PropTypes.number,
         height: PropTypes.number,
-        padding: PropTypes.number
+        padding: PropTypes.number,
+        className: PropTypes.string
     }
 
     getXValueFromXCoordinate = () => {
@@ -73,7 +74,7 @@ class ChartToolTip extends Component{
     }
 
     componentDidMount(){
-        select(".stock-market-chart")
+        select("." + this.props.className)
             .on("mouseover", () => select(".stock-info").style("display", null))
             .on("mouseout", () => select(".stock-info").style("display", "none"))
             .on("mousemove", this.mouseMove);
