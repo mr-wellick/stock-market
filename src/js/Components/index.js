@@ -10,4 +10,6 @@ export { StockDescription } from "./StockDescription/";
 export { StockNews }        from "./StockNews/";
 export { DuplicateEntry }   from "./DuplicateEntry/";
 export { Errors }           from "./Errors/";
+export { ChartSelector }    from "./ChartSelector/";
+export { ActiveChart }      from "./ActiveChart/";
 //export { Footer }           from "./Footer/";

@@ -60,7 +60,25 @@ class Histogram extends Component{
     render(){
         let { width, height, padding } = this.props;
         if(this.props.stockData.length === 1)
-            return null;
+            return (
+                <svg width={ width } height={ height }>
+                    <rect
+                        x="40"
+                        width="100%"
+                        height="100%"
+                        fill="black"
+                        fillOpacity="0.2"
+                    >
+                    </rect>
+                    <text
+                        textAnchor="start"
+                        x={ width*.15 }
+                        y={ height/2 }
+                    >
+                        You need at least two stocks to view Market Caps.
+                    </text>
+                </svg>
+            );
 
         return(
             <svg width={ width } height={ height }>

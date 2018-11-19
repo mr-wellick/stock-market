@@ -5,12 +5,14 @@ import { StockMetrics }     from "../../Components/";
 import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
 import { StockDescription } from "../../Components/";
-import { HistoricalChart }  from "../../Components/";
-import { Histogram }        from "../../Components/";
-import { FinancialsChart }  from "../../Components/";
+//import { HistoricalChart }  from "../../Components/";
+//import { Histogram }        from "../../Components/";
+//import { FinancialsChart }  from "../../Components/";
 import { StockNews }        from "../../Components/";
 import { DuplicateEntry }   from "../../Components/";
 import { Errors }           from "../../Components/";
+import { ChartSelector }    from "../../Components/";
+import { ActiveChart }      from "../../Components/";
 import "./home.scss";
 
 class Home extends Component{
@@ -21,28 +23,21 @@ class Home extends Component{
                 <DuplicateEntry/>
                 <Loader/>
                 <Toggler>
-                    {({stockData, onChange, activeIndex, width, height, padding}) => (
+                    { ({ stockData, onChange, activeIndex, width, height, padding, onChangeChart, selectedChart }) => (
                         <>
                             <StockMetrics
                                 stockData={ stockData[activeIndex] }
                             />
-                            <HistoricalChart
-                                width={ width }
-                                height={ height }
-                                padding={ padding }
-                                stockData={ stockData[activeIndex] }
+                            <ChartSelector
+                                onChangeChart={ onChangeChart }
                             />
-                            <Histogram
+                            <ActiveChart
                                 width={ width }
                                 height={ height }
                                 padding={ padding }
+                                activeStockData={ stockData[activeIndex] }
+                                selectedChart={ selectedChart }
                                 stockData={ stockData }
-                            />
-                            <FinancialsChart
-                                width={ width }
-                                height={ height }
-                                padding={ padding }
-                                stockData={ stockData[activeIndex] }
                             />
                             <StockSelector
                                 stockData={ stockData }

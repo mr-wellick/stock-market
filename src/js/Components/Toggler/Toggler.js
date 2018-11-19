@@ -7,11 +7,12 @@ import "./toggler.scss";
 class Toggler extends Component{
     static propTypes = {
         children: PropTypes.func,
-        stockData: PropTypes.array
+        stockData: PropTypes.array,
     }
 
     state = {
         activeIndex: 0,
+        selectedChart: "HistoricalChart",
         width: window.innerWidth*0.80,
         height: window.innerHeight*0.79,
         padding: 40
@@ -21,6 +22,13 @@ class Toggler extends Component{
         this.setState({
             width: window.innerWidth*0.80,
             height: window.innerHeight*0.79
+        });
+    }
+
+    onChangeChart = (event) => {
+        // use props to select a single data set
+        this.setState({
+            selectedChart: event.target.value
         });
     }
 
@@ -38,7 +46,9 @@ class Toggler extends Component{
             activeIndex: this.state.activeIndex,
             width: this.state.width,
             height: this.state.height,
-            padding: this.state.padding
+            padding: this.state.padding,
+            onChangeChart: this.onChangeChart,
+            selectedChart: this.state.selectedChart
         };
     }
 
