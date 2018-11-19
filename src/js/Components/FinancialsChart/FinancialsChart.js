@@ -11,64 +11,54 @@ import { scaleLinear }  from "d3-scale";
 
 class FinancialsChart extends Component{
     static propTypes = {
-        stockData: PropTypes.object
+        stockData: PropTypes.object,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number
     }
 
-    state = {
-        width: window.innerWidth*0.80,
-        height: window.innerHeight*0.79,
-        padding: 40,
-    }
-
-    handleChartResize = () => {
-        this.setState({
-            width: window.innerWidth*0.80,
-            height: window.innerHeight*0.79
-        });
-    }
-
-    formatData(objectKeys){
+    formatData(objectKey){
         let { financials } = this.props.stockData.financials;
         let data           = financials.map(item => ({
-            xValue: new Date(item[objectKeys[0]]),
-            yValue: Number(item[objectKeys[1]])
+            xValue: new Date(item["reportDate"]),
+            yValue: Number(item[objectKey])
         }));
 
         return data;
     }
 
-    setXScale(objectKeys){
+    setXScale(objectKey){
         // get x-values
-        let dates = this.formatData(objectKeys).map(item => item.xValue);
+        let dates = this.formatData(objectKey).map(item => item.xValue);
 
         // create xScale
         let scaleObj  = new scaleFinder(dates);
         let xScale    = scaleObj.getScale(scaleTime);
 
         // set scale range
-        let { padding, width } = this.state;
+        let { padding, width } = this.props;
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
     }
 
-    setYScale(objectKeys){
+    setYScale(objectKey){
         // get y-values
-        let yValues = this.formatData(objectKeys).map(item => item.yValue);
+        let yValues = this.formatData(objectKey).map(item => item.yValue);
 
         // create xScale
         let scaleObj  = new scaleFinder(yValues);
         let yScale    = scaleObj.getScale(scaleLinear);
 
         // set scale range
-        let { height, padding } = this.state;
+        let { height, padding } = this.props;
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
     }
 
     render(){
-        let { width, height, padding } = this.state;
+        let { width, height, padding } = this.props;
 
         // empty array gets coerced into a falsy value.
         if(!this.props.stockData)
@@ -77,67 +67,59 @@ class FinancialsChart extends Component{
         return(
             <svg width={ width } height={ height } className="financials">
                 <YGrid
-                    yScale={ this.setYScale(["reportDate", "grossProfit"])}
+                    yScale={ this.setYScale("grossProfit") }
                     padding={ padding }
                     width={ width }
                 />
                 <YAxis
-                    scale={ this.setYScale(["reportDate", "grossProfit"]) }
+                    scale={ this.setYScale("grossProfit") }
                     width={ width }
                     padding={ padding }
                     formatType=".0s"
                 />
                 <XAxis
-                    scale={ this.setXScale(["reportDate", "grossProfit"]) }
+                    scale={ this.setXScale("grossProfit") }
                     height={ height }
                     padding={ padding }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "grossProfit"]) }
-                    yScale={ this.setYScale(["reportDate", "grossProfit"]) }
-                    data={ this.formatData(["reportDate", "grossProfit"]) }
+                    xScale={ this.setXScale("grossProfit") }
+                    yScale={ this.setYScale("grossProfit") }
+                    data={ this.formatData("grossProfit") }
                     color={ "orange" }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "totalRevenue"]) }
-                    yScale={ this.setYScale(["reportDate", "totalRevenue"]) }
-                    data={ this.formatData(["reportDate", "totalRevenue"]) }
+                    xScale={ this.setXScale("totalRevenue") }
+                    yScale={ this.setYScale("totalRevenue") }
+                    data={ this.formatData("totalRevenue") }
                     color={ "red" }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "researchAndDevelopment"]) }
-                    yScale={ this.setYScale(["reportDate", "researchAndDevelopment"]) }
-                    data={ this.formatData(["reportDate",  "researchAndDevelopment"]) }
+                    xScale={ this.setXScale("researchAndDevelopment") }
+                    yScale={ this.setYScale("researchAndDevelopment") }
+                    data={ this.formatData("researchAndDevelopment") }
                     color={ "black" }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "netIncome"]) }
-                    yScale={ this.setYScale(["reportDate", "netIncome"]) }
-                    data={ this.formatData(["reportDate",  "netIncome"]) }
+                    xScale={ this.setXScale("netIncome") }
+                    yScale={ this.setYScale("netIncome") }
+                    data={ this.formatData("netIncome") }
                     color={ "aqua" }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "totalCash"]) }
-                    yScale={ this.setYScale(["reportDate", "totalCash"]) }
-                    data={ this.formatData(["reportDate",  "totalCash"]) }
+                    xScale={ this.setXScale("totalCash") }
+                    yScale={ this.setYScale("totalCash") }
+                    data={ this.formatData("totalCash") }
                     color={ "pink" }
                 />
                 <Line
-                    xScale={ this.setXScale(["reportDate", "totalDebt"]) }
-                    yScale={ this.setYScale(["reportDate", "totalDebt"]) }
-                    data={ this.formatData(["reportDate",  "totalDebt"]) }
+                    xScale={ this.setXScale("totalDebt") }
+                    yScale={ this.setYScale("totalDebt") }
+                    data={ this.formatData("totalDebt") }
                     color={ "purple" }
                 />
             </svg>
         );
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.handleChartResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 

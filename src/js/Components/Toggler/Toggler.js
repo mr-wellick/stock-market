@@ -11,7 +11,17 @@ class Toggler extends Component{
     }
 
     state = {
-        activeIndex: 0
+        activeIndex: 0,
+        width: window.innerWidth*0.80,
+        height: window.innerHeight*0.79,
+        padding: 40
+    }
+
+    handleChartResize = () => {
+        this.setState({
+            width: window.innerWidth*0.80,
+            height: window.innerHeight*0.79
+        });
     }
 
     onChange = (event) => {
@@ -25,7 +35,10 @@ class Toggler extends Component{
         return {
             stockData: this.props.stockData,
             onChange: this.onChange,
-            activeIndex: this.state.activeIndex
+            activeIndex: this.state.activeIndex,
+            width: this.state.width,
+            height: this.state.height,
+            padding: this.state.padding
         };
     }
 
@@ -33,6 +46,14 @@ class Toggler extends Component{
         return(
             this.props.children(this.propCollection())
         );
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.handleChartResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 

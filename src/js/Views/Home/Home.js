@@ -21,18 +21,27 @@ class Home extends Component{
                 <DuplicateEntry/>
                 <Loader/>
                 <Toggler>
-                    {({stockData, onChange, activeIndex}) => (
+                    {({stockData, onChange, activeIndex, width, height, padding}) => (
                         <>
                             <StockMetrics
                                 stockData={ stockData[activeIndex] }
                             />
                             <HistoricalChart
+                                width={ width }
+                                height={ height }
+                                padding={ padding }
                                 stockData={ stockData[activeIndex] }
                             />
                             <Histogram
+                                width={ width }
+                                height={ height }
+                                padding={ padding }
                                 stockData={ stockData }
                             />
                             <FinancialsChart
+                                width={ width }
+                                height={ height }
+                                padding={ padding }
                                 stockData={ stockData[activeIndex] }
                             />
                             <StockSelector

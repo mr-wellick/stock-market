@@ -11,20 +11,10 @@ import { scaleBand }   from "d3-scale";
 
 class Histogram extends Component{
     static propTypes = {
-        stockData: PropTypes.array
-    }
-
-    state = {
-        width: window.innerWidth*0.80,
-        height: window.innerHeight*0.79,
-        padding: 40,
-    }
-
-    handleChartResize = () => {
-        this.setState({
-            width: window.innerWidth*0.80,
-            height: window.innerHeight*0.79
-        });
+        stockData: PropTypes.array,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number
     }
 
     formatData(){
@@ -45,7 +35,7 @@ class Histogram extends Component{
         let xScale = scaleBand().domain(symbols).padding([.5]);
 
         // set scale range
-        let { padding, width } = this.state;
+        let { padding, width } = this.props;
         xScale.range([padding, width - padding], 0.5);
 
         return xScale;
@@ -60,7 +50,7 @@ class Histogram extends Component{
         let yScale   = scaleObj.getScale(scaleLinear);
 
         // set scale range
-        let { height, padding } = this.state;
+        let { height, padding } = this.props;
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
@@ -68,7 +58,7 @@ class Histogram extends Component{
 
 
     render(){
-        let { width, height, padding } = this.state;
+        let { width, height, padding } = this.props;
         if(this.props.stockData.length === 1)
             return null;
 
@@ -98,14 +88,6 @@ class Histogram extends Component{
                 />
             </svg>
         );
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.handleChartResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 

@@ -13,20 +13,10 @@ import "./historicalChart.scss";
 
 class HistoricalChart extends Component{
     static propTypes = {
-        stockData: PropTypes.object
-    }
-
-    state = {
-        width: window.innerWidth*0.80,
-        height: window.innerHeight*0.79,
-        padding: 40,
-    }
-
-    handleChartResize = () => {
-        this.setState({
-            width: window.innerWidth*0.80,
-            height: window.innerHeight*0.79
-        });
+        stockData: PropTypes.object,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        padding: PropTypes.number
     }
 
     formatData(){
@@ -48,7 +38,7 @@ class HistoricalChart extends Component{
         let xScale    = scaleObj.getScale(scaleTime);
 
         // set scale range
-        let { padding, width } = this.state;
+        let { padding, width } = this.props;
         xScale.range([padding, width - padding]).nice();
 
         return xScale;
@@ -63,14 +53,14 @@ class HistoricalChart extends Component{
         let yScale    = scaleObj.getScale(scaleLinear);
 
         // set scale range
-        let { height, padding } = this.state;
+        let { height, padding } = this.props;
         yScale.range([(height - padding), padding]).nice();
 
         return yScale;
     }
 
     render(){
-        let { width, height, padding } = this.state;
+        let { width, height, padding } = this.props;
 
         // empty array gets coerced into a falsy value.
         if(!this.props.stockData)
@@ -110,14 +100,6 @@ class HistoricalChart extends Component{
                 />
             </svg>
         );
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.handleChartResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 
