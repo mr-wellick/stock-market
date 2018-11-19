@@ -18,7 +18,7 @@ class Histogram extends Component{
     state = {
         width: window.innerWidth*0.80,
         height: window.innerHeight*0.79,
-        padding: 70,
+        padding: 40,
     }
 
     handleChartResize = () => {
@@ -43,7 +43,7 @@ class Histogram extends Component{
         let symbols = this.formatData().map(item => item.xValue);
 
         // create xScale
-        let xScale = scaleBand().domain(symbols);
+        let xScale = scaleBand().domain(symbols).padding([.5]);
 
         // set scale range
         let { padding, width } = this.state;
@@ -96,6 +96,7 @@ class Histogram extends Component{
                     scale={ this.setYScale() }
                     width={ width }
                     padding={ padding }
+                    formatType=".0s"
                 />
                 <Rects
                     xScale={ this.setXScale() }

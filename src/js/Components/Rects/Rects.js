@@ -17,9 +17,9 @@ class Rects extends Component{
     appendRects(){
         let { xScale, yScale } = this.props;
         let { data }           = this.props;
-        //let { height }         = this.props;
-        //let { width }          = this.props;
-        //let { padding }        = this.props;
+        let { height }         = this.props;
+        let { width }          = this.props;
+        let { padding }        = this.props;
         let { color }          = this.props;
 
         // clear graph for next set of data points if we have data
@@ -32,10 +32,10 @@ class Rects extends Component{
             .data(data)
             .enter()
             .append("rect")
-            .attr("width", 20)
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => yScale.range()[0] - yScale(d.yValue))
             .attr("x", d => xScale(d.xValue))
             .attr("y", d => yScale(d.yValue))
-            .attr("height", d => yScale.range()[0] - yScale(d.yValue))
             .attr("fill", color);
     }
 
