@@ -2,12 +2,12 @@ import React          from "react";
 import PropTypes      from "prop-types";
 import { Component }  from "react";
 import { Route }      from "react-router-dom";
-import { HashRouter } from "react-router-dom";
-import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-import Intro          from "./Intro.js";
-import Resources      from "./Resources.js";
 import "./basics.scss";
+
+const Topic = () => (
+    <h1>Not working</h1>
+);
 
 class Basics extends Component{
     static propTypes = {
@@ -18,22 +18,19 @@ class Basics extends Component{
         let { match } = this.props;
 
         return(
-                <>
-                <section style={{ marginTop: "75px" }}>
-                    <header>
-                        <ul>
-                            <li>
-                                <Link to={ `${match.url}/Intro` }>Intro</Link>
-                            </li>
-                            <li>
-                                <Link to={ `${match.url}/Resources` }>Resources</Link>
-                            </li>
-                        </ul>
-                    </header>
-                </section>
-                <Route path={ `${match.path}` } component={ Intro }/>
-                <Route path={ `${match.path}` } component={ Resources }/>
-                </>
+            <section style={{ marginTop: "75px" }}>
+                <header>
+                    <ul>
+                        <li>
+                            <Link to={ `${match.url}/intro` }>Intro</Link>
+                        </li>
+                        <li>
+                            <Link to={ `${match.url}/resources` }>Resources</Link>
+                        </li>
+                    </ul>
+                </header>
+                <Route exact path={ `${match.path}` } component={ Topic }/>
+            </section>
         );
     }
 }

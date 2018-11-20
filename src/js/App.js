@@ -22,10 +22,10 @@ class App extends Component{
                             <nav className="main-nav">
                                 <ul className="main-nav__items">
                                     <li className="main-nav__item">
-                                        <Link to="/">Home</Link>
+                                        <Link to="/">home</Link>
                                     </li>
                                     <li className="main-nav__item">
-                                        <Link to="/Basics">Basics</Link>
+                                        <Link to="/basics">basics</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -34,7 +34,7 @@ class App extends Component{
                     </header>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>
-                        <Route exact path="/Basics" component={ Basics }></Route>
+                        <Route exact path="/basics" component={ Basics }></Route>
                     </Switch>
                 </Fragment>
             </HashRouter>
