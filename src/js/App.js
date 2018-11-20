@@ -3,10 +3,10 @@ import { Component }  from "react";
 import { Fragment }   from "react";
 import { HashRouter } from "react-router-dom";
 import { Route }      from "react-router-dom";
-import { Switch }     from "react-router-dom";
+//import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-import { Home }       from "./Views/";
-import { Basics }     from "./Views/";
+//import { Home }       from "./Views/";
+//import { Basics }     from "./Views/";
 import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
 import "./app.scss";
@@ -17,7 +17,7 @@ class App extends Component{
             <HashRouter>
                 <Fragment>
                     <header className="main-header">
-                        <div className="main-header__container">
+                        <div className="nav-container">
                             <a className="main-header__logo">Stocks</a>
                             <nav className="main-nav">
                                 <ul className="main-nav__items">
@@ -32,10 +32,12 @@ class App extends Component{
                         </div>
                         <Route exact path="/" component={ InputStock }></Route>
                     </header>
-                    <Switch>
-                        <Route exact path="/" component={ Home }></Route>
-                        <Route exact path="/basics" component={ Basics }></Route>
-                    </Switch>
+                    {/*
+                        <Switch>
+                            <Route exact path="/" component={ Home }></Route>
+                            <Route exact path="/basics" component={ Basics }></Route>
+                        </Switch>
+                    */}
                 </Fragment>
             </HashRouter>
         );
@@ -43,6 +45,7 @@ class App extends Component{
 }
 
 let Application;
+
 if(process.env.NODE_ENV === "development")
     Application = hot(module)(App);
 else

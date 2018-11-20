@@ -3,37 +3,37 @@ $btn-color: #343a40;
 $input-color: #ced4da;
 $hover-color: rgb(221, 164, 167);
 
-.main-form
-{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 30%;
-}
-
-.main-form__input,
-.main-form__btn
-{
-    padding: 8px;
-}
-
-.main-form__input,
-{
-    width: 70%;
-    border: 1px solid $input-color;
-    border-right: 0;
-    border-radius: 0.25rem 0 0 0.25rem;
-}
-
-.main-form__btn
-{
-    border: 1px solid $input-color;
-    border-radius: 0 0.25rem 0.25rem 0;
-}
-
-.main-form__btn:hover
-{
-    background-color: $hover-color;
-    cursor: pointer;
-}
+//.main-form
+//{
+//    display: flex;
+//    justify-content: flex-end;
+//    margin-top: 5px;
+//    margin-bottom: 5px;
+//    width: 30%;
+//}
+//
+//.main-form__input,
+//.main-form__btn
+//{
+//    padding: 8px;
+//}
+//
+//.main-form__input,
+//{
+//    width: 70%;
+//    border: 1px solid $input-color;
+//    border-right: 0;
+//    border-radius: 0.25rem 0 0 0.25rem;
+//}
+//
+//.main-form__btn
+//{
+//    border: 1px solid $input-color;
+//    border-radius: 0 0.25rem 0.25rem 0;
+//}
+//
+//.main-form__btn:hover
+//{
+//    background-color: $hover-color;
+//    cursor: pointer;
+//}
