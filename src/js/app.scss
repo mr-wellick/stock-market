@@ -4,7 +4,7 @@
     border: 1px solid black;
     display: flex;
     justify-content: space-between; // main-axis: horizontal alignment
-    align-items: stretch; // cross-axis: vertical alignment
+    //align-items: stretch; // cross-axis: vertical alignment
 
 
     // height of container
@@ -28,7 +28,7 @@
 .nav-container
 {
     display: flex;
-    align-items: stretch;
+    //align-items: stretch;
 }
 
 .main-nav__items

@@ -3,9 +3,9 @@ import { Component }  from "react";
 import { Fragment }   from "react";
 import { HashRouter } from "react-router-dom";
 import { Route }      from "react-router-dom";
-//import { Switch }     from "react-router-dom";
+import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-//import { Home }       from "./Views/";
+import { Home }       from "./Views/";
 //import { Basics }     from "./Views/";
 import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
@@ -32,11 +32,11 @@ class App extends Component{
                         </div>
                         <Route exact path="/" component={ InputStock }></Route>
                     </header>
+                    <Switch>
+                        <Route exact path="/" component={ Home }></Route>
+                    </Switch>
                     {/*
-                        <Switch>
-                            <Route exact path="/" component={ Home }></Route>
                             <Route exact path="/basics" component={ Basics }></Route>
-                        </Switch>
                     */}
                 </Fragment>
             </HashRouter>
