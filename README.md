@@ -12,6 +12,9 @@
 
 # Reminders
 + Format FinancialsChart & Histogram axes
++ When a stock is deleted from the data array, the activeIndex selecting the stock in the
+array isnt' update properly and can result in __undefined__ which renders nothing and we have to manually "activate"
+the stock by selecting it. Pull activeActive into redux state & either decrement or reset activeIndex to 0.
 + Rework UI
 + Start bundle splitting.
 
