@@ -1,22 +1,13 @@
-import React                 from "react";
-import PropTypes             from "prop-types";
-import { Component }         from "react";
-import { connect }           from "react-redux";
-import { deleteSingleStock } from "../../Redux/";
+import React         from "react";
+import PropTypes     from "prop-types";
+import { Component } from "react";
 import "./stockSelector.scss";
 
 class StockSelector extends Component{
     static propTypes = {
         stockData: PropTypes.array,
         onChange: PropTypes.func,
-        deleteSingleStock: PropTypes.func
-    }
-
-    deleteStock = (event) => {
-        let stockToDelete = event.target.className;
-
-        if(this.props.stockData.length > 1)
-            this.props.deleteSingleStock(stockToDelete);
+        deleteStock: PropTypes.func
     }
 
     render(){
@@ -29,7 +20,7 @@ class StockSelector extends Component{
                 <div className="form-active__container">
                     <div className="form-active__stock">
                         <span
-                            onClick={ this.deleteStock }
+                            onClick={ this.props.deleteStock }
                             className={ stockData[0]["company"]["symbol"] }
                         >
                             X
@@ -53,7 +44,7 @@ class StockSelector extends Component{
                             stockData.slice(1).map( (item, index) =>
                                 <div key={ index + 1 } className="form-active__stock">
                                     <span
-                                        onClick={ this.deleteStock }
+                                        onClick={ this.props.deleteStock }
                                         className={ item["company"]["symbol"] }
                                     >
                                         X
@@ -77,4 +68,4 @@ class StockSelector extends Component{
     }
 }
 
-export default connect(null, { deleteSingleStock })(StockSelector);
+export default StockSelector;

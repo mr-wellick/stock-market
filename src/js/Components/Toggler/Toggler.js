@@ -1,13 +1,15 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
+import React                 from "react";
+import PropTypes             from "prop-types";
+import { Component }         from "react";
+import { connect }           from "react-redux";
+import { deleteSingleStock } from "../../Redux/";
 import "./toggler.scss";
 
 class Toggler extends Component{
     static propTypes = {
         children: PropTypes.func,
         stockData: PropTypes.array,
+        deleteSingleStock: PropTypes.func
     }
 
     state = {
@@ -23,6 +25,18 @@ class Toggler extends Component{
             width: window.innerWidth*0.80,
             height: window.innerHeight*0.79
         });
+    }
+
+    deleteStock = (event) => {
+        let stockToDelete = event.target.className;
+
+        if(this.props.stockData.length > 1)
+        {
+            this.props.deleteSingleStock(stockToDelete);
+            this.setState({
+                activeIndex: 0
+            });
+        }
     }
 
     onChangeChart = (event) => {
@@ -48,7 +62,8 @@ class Toggler extends Component{
             height: this.state.height,
             padding: this.state.padding,
             onChangeChart: this.onChangeChart,
-            selectedChart: this.state.selectedChart
+            selectedChart: this.state.selectedChart,
+            deleteStock: this.deleteStock
         };
     }
 
@@ -73,4 +88,4 @@ let mapState = (state) => {
     };
 };
 
-export default connect(mapState, null)(Toggler);
+export default connect(mapState, { deleteSingleStock })(Toggler);

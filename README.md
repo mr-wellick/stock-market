@@ -12,9 +12,10 @@
 
 # Reminders
 + Format FinancialsChart & Histogram axes
-+ When a stock is deleted from the data array, the activeIndex selecting the stock in the
-array isnt' update properly and can result in __undefined__ which renders nothing and we have to manually "activate"
-the stock by selecting it. Pull activeIndex logic into redux state & either decrement activeIndex by 1 or reset activeIndex to 0.
++ HTML: StockSelector takes in an array of length n and renders a form with radio buttons .
+    + StockSelector let's you delete any of the items in the form by selecting its corresponding delete node (length of n - 1)
+    + However, If the 0th position in the form isn't selected and you delete a node, the component re-renders successfully but
+    doesn't "defaultCheck" our new 0th position.
 + Rework UI
 + Start bundle splitting.
 
