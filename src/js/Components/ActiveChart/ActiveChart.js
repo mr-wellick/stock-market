@@ -45,7 +45,7 @@ class ActiveChart extends Component{
                     />
                 );
             default:
-                return <h1>hello</h1>
+                return <h1>Something went horribly wrong!</h1>;
         }
     }
 }

@@ -11,6 +11,7 @@
 + __Errors__: Invalid stock entries will result in an error.
 
 # Reminders
++ Format FinancialsChart & Histogram axes
 + Rework UI
 + Start bundle splitting.
 
