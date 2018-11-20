@@ -63,7 +63,6 @@ class StockSelector extends Component{
                                         id={ item["company"]["symbol"] }
                                         name="active-stock"
                                         value={ index + 1 }
-                                        onClick={ this.deleteStock }
                                     />
                                     <label htmlFor={ item["company"]["symbol"] }>
                                         { item["company"]["symbol"] }

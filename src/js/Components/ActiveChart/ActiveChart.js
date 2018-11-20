@@ -11,7 +11,8 @@ class ActiveChart extends Component{
         height: PropTypes.number,
         padding: PropTypes.number,
         activeStockData: PropTypes.object,
-        selectedChart: PropTypes.string
+        selectedChart: PropTypes.string,
+        stockData: PropTypes.any
     }
 
     render(){

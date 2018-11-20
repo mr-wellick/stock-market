@@ -1,13 +1,14 @@
 import React            from "react";
 import PropTypes        from "prop-types";
 import { Component }    from "react";
-import { YGrid }        from "../YGrid/";
-import { XAxis }        from "../XAxis/";
-import { YAxis }        from "../YAxis/";
-import { Line }         from "../Line/";
-import { scaleFinder }  from "../../Utilities/";
-import { scaleTime }    from "d3-scale";
-import { scaleLinear }  from "d3-scale";
+import { YGrid }         from "../YGrid/";
+import { XAxis }         from "../XAxis/";
+import { YAxis }         from "../YAxis/";
+import { Line }          from "../Line/";
+import { NoChartToShow } from "../NoChartToShow/";
+import { scaleFinder }   from "../../Utilities/";
+import { scaleTime }     from "d3-scale";
+import { scaleLinear }   from "d3-scale";
 
 class FinancialsChart extends Component{
     static propTypes = {
@@ -63,6 +64,14 @@ class FinancialsChart extends Component{
         // empty array gets coerced into a falsy value.
         if(!this.props.stockData)
             return null;
+        else if(!this.props.stockData["financials"]["financials"]) // data formatted like this from api call
+            return (
+                <NoChartToShow
+                    width={ width }
+                    height={ height }
+                    message={ "Sorry! No financials available for this stock." }
+                />
+            );
 
         return(
             <svg width={ width } height={ height } className="financials">

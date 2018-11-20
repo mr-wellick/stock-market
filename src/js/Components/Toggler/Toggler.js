@@ -26,7 +26,7 @@ class Toggler extends Component{
     }
 
     onChangeChart = (event) => {
-        // use props to select a single data set
+        // use props to select a single chart
         this.setState({
             selectedChart: event.target.value
         });

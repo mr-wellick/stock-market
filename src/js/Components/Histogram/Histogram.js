@@ -1,13 +1,14 @@
-import React           from "react";
-import PropTypes       from "prop-types";
-import { Component }   from "react";
-import { YGrid }       from "../YGrid/";
-import { YAxis }       from "../YAxis/";
-import { XAxis }       from "../XAxis/";
-import { Rects }       from "../Rects/";
-import { scaleFinder } from "../../Utilities/";
-import { scaleLinear } from "d3-scale";
-import { scaleBand }   from "d3-scale";
+import React             from "react";
+import PropTypes         from "prop-types";
+import { Component }     from "react";
+import { YGrid }         from "../YGrid/";
+import { YAxis }         from "../YAxis/";
+import { XAxis }         from "../XAxis/";
+import { Rects }         from "../Rects/";
+import { NoChartToShow } from "../NoChartToShow/";
+import { scaleFinder }   from "../../Utilities/";
+import { scaleLinear }   from "d3-scale";
+import { scaleBand }     from "d3-scale";
 
 class Histogram extends Component{
     static propTypes = {
@@ -60,25 +61,14 @@ class Histogram extends Component{
     render(){
         let { width, height, padding } = this.props;
         if(this.props.stockData.length === 1)
-            return (
-                <svg width={ width } height={ height }>
-                    <rect
-                        x="40"
-                        width="100%"
-                        height="100%"
-                        fill="black"
-                        fillOpacity="0.2"
-                    >
-                    </rect>
-                    <text
-                        textAnchor="start"
-                        x={ width*.15 }
-                        y={ height/2 }
-                    >
-                        You need at least two stocks to view Market Caps.
-                    </text>
-                </svg>
+            return(
+                <NoChartToShow
+                    width={ width }
+                    height={ height }
+                    message={ "You need at least two stocks for comparisons." }
+                />
             );
+
 
         return(
             <svg width={ width } height={ height }>
