@@ -16,6 +16,7 @@
     + StockSelector let's you delete any of the items in the form by selecting its corresponding delete node (length of n - 1)
     + However, If the 0th position in the form isn't selected and you delete a node, the component re-renders successfully but
     doesn't "defaultCheck" our new 0th position.
++ Figure out how to add multiple lines to a FinancialsChart. 
 + Rework UI
 + Start bundle splitting.
 
