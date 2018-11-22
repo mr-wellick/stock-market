@@ -2,10 +2,10 @@ import React          from "react";
 import { Component }  from "react";
 import { Fragment }   from "react";
 import { HashRouter } from "react-router-dom";
-import { Route }      from "react-router-dom";
-import { Switch }     from "react-router-dom";
+//import { Route }      from "react-router-dom";
+//import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
-import { Home }       from "./Views/";
+//import { Home }       from "./Views/";
 //import { Basics }     from "./Views/";
 import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
@@ -17,26 +17,23 @@ class App extends Component{
             <HashRouter>
                 <Fragment>
                     <header className="main-header">
-                        <div className="nav-container">
-                            <a className="main-header__logo">Stocks</a>
-                            <nav className="main-nav">
-                                <ul className="main-nav__items">
-                                    <li className="main-nav__item">
-                                        <Link to="/">home</Link>
-                                    </li>
-                                    <li className="main-nav__item">
-                                        <Link to="/basics">basics</Link>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <Route exact path="/" component={ InputStock }></Route>
+                        <nav className="main-nav">
+                            <ul className="main-nav__items">
+                                <li className="main-nav__item main-nav__logo">
+                                    <Link to="/">Stocks</Link>
+                                </li>
+                                <li className="main-nav__item">
+                                    <Link to="/basics">basics</Link>
+                                </li>
+                            </ul>
+                        </nav>
+                        <InputStock/>
                     </header>
-                    <Switch>
-                        <Route exact path="/" component={ Home }></Route>
-                    </Switch>
                     {/*
-                            <Route exact path="/basics" component={ Basics }></Route>
+                        <Switch>
+                            <Route exact path="/" component={ Home }></Route>
+                                <Route exact path="/basics" component={ Basics }></Route>
+                        </Switch>
                     */}
                 </Fragment>
             </HashRouter>

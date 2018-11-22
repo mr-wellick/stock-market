@@ -1,98 +1,67 @@
+/* HEADER */
 .main-header
 {
     // display stuff
     border: 1px solid black;
     display: flex;
-    justify-content: space-between; // main-axis: horizontal alignment
-    //align-items: stretch; // cross-axis: vertical alignment
-
-
-    // height of container
-    height: 100px;
+    align-items: center; // cross-axis: vertical alignment
 
     // box positioning
     position: fixed;
-    width: 100%;
     top: 0;
 
-    // colors
-    background-color: rgb(36, 41, 46);
+    // height of container
+    height: 64px;
+    width: 100%;
 }
 
-.main-header__logo
+/* NAVIGATION CONTAINER */
+.main-nav
 {
-    // colors
-    color: white;
-}
+    // grow container by 10%
+    flex-grow: 0.1;
 
-.nav-container
-{
-    display: flex;
-    //align-items: stretch;
-}
-
-.main-nav__items
-{
-    display: flex;
-}
-
-//.main-nav__item
-//{
-//    flex-grow: 1;
-//}
-
-.nav-container,
-.main-form
-{
-    // idividual container length
-    flex-grow: 1;
+    // paddings & margins
+    padding: 10px 0;
 }
 
 .main-nav__items
 {
     // display stuff
-    //display: flex;
+    display: flex;
+    justify-content: space-around;
 }
 
-.main-nav__item a
+/* MAIN INPUT FORM CONTAINER */
+.main-form
 {
-    // colors
-    color: white;
+    // grow container by 90%
+    flex-grow: 0.9;
+
+    // paddings & margins
+    padding: 10px 0;
 }
 
+.main-form__input
+{
+    // box-model
+    width: 70%;
+    padding: 7px 0;
+    border-width: 1px;
+    border-right: 0;
 
+    // text alignment
+    text-align: center;
+}
 
-//.main-header__logo
-//{
-//    font-size: 1.25rem;
-//    color: #fff;
-//}
-//
-//.main-nav
-//{
-//    width: 100%;
-//}
-//
-//.main-nav__items
-//{
-//    display: flex;
-//    margin-left: 30px;
-//}
-//
-//.main-nav__item
-//{
-//    margin-left: 10px;
-//}
-//
-//.main-nav__item a
-//{
-//    color: #fff;
-//}
-//
-//.main-header__container
-//{
-//    display: flex;
-//    width: 35%;
-//    align-items: center;
-//    justify-content: space-between;
-//}
+.main-form__input:focus
+{
+    outline-color: #98d2e6;
+}
+
+.main-form__btn
+{
+    // box-model
+    padding: 7px 0;
+    width: 10%;
+}
