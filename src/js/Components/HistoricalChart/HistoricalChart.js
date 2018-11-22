@@ -1,12 +1,11 @@
 import React            from "react";
 import PropTypes        from "prop-types";
 import { Component }    from "react";
-import { YGrid }        from "../YGrid/";
+//import { YGrid }        from "../YGrid/";
 import { XAxis }        from "../XAxis/";
 import { YAxis }        from "../YAxis/";
 import { Line }         from "../Line/";
 import { ChartToolTip } from "../ChartToolTip/";
-import { scaleFinder }  from "../../Utilities/";
 import "./historicalChart.scss";
 
 class HistoricalChart extends Component{
@@ -27,36 +26,6 @@ class HistoricalChart extends Component{
         return data;
     }
 
-    setXScale(){
-        // get x-values
-        let dates = this.formatData().map(item => item.xValue);
-
-        // create xScale
-        let scaleObj = new scaleFinder(dates);
-        let xScale   = scaleObj.getTimeScale();
-
-        // set scale range
-        let { padding, width } = this.props;
-        xScale.range([padding, width - padding]).nice();
-
-        return xScale;
-    }
-
-    setYScale(){
-        // get y-values
-        let prices = this.formatData().map(item => item.yValue);
-
-        // create xScale
-        let scaleObj  = new scaleFinder(prices);
-        let yScale    = scaleObj.getLinearScale();
-
-        // set scale range
-        let { height, padding } = this.props;
-        yScale.range([(height - padding), padding]).nice();
-
-        return yScale;
-    }
-
     render(){
         let { width, height, padding } = this.props;
 
@@ -66,34 +35,43 @@ class HistoricalChart extends Component{
 
         return(
             <svg width={ width } height={ height } className="stock-market-chart">
+                { /*
                 <YGrid
                     yScale={ this.setYScale()}
                     padding={ padding }
                     width={ width }
                 />
+                    */ }
                 <YAxis
-                    scale={ this.setYScale() }
+                    data={ this.formatData() }
+                    scaleType={ "linear" }
                     width={ width }
+                    height={ height }
                     padding={ padding }
                 />
                 <XAxis
-                    scale={ this.setXScale() }
+                    data={ this.formatData() }
+                    scaleType={ "time" }
+                    width={ width }
                     height={ height }
                     padding={ padding }
                 />
                 <Line
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
                     data={ this.formatData() }
+                    xScaleType={ "time" }
+                    yScaleType={ "linear" }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
                     color={ "orange" }
                 />
                 <ChartToolTip
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
                     data={ this.formatData() }
-                    padding={ padding }
+                    xScaleType={ "time" }
+                    yScaleType={ "linear" }
                     width={ width }
                     height={ height }
+                    padding={ padding }
                     className="stock-market-chart"
                 />
             </svg>

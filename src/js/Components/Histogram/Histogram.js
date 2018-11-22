@@ -1,12 +1,11 @@
 import React             from "react";
 import PropTypes         from "prop-types";
 import { Component }     from "react";
-import { YGrid }         from "../YGrid/";
+//import { YGrid }         from "../YGrid/";
 import { YAxis }         from "../YAxis/";
 import { XAxis }         from "../XAxis/";
 import { Rects }         from "../Rects/";
 import { NoChartToShow } from "../NoChartToShow/";
-import { scaleFinder }   from "../../Utilities/";
 
 class Histogram extends Component{
     static propTypes = {
@@ -26,40 +25,9 @@ class Histogram extends Component{
         return data;
     }
 
-    setXScale(){
-        // get x-values
-        let symbols = this.formatData().map(item => item.xValue);
-
-        // create xScale
-        let scaleObj = new scaleFinder(symbols);
-        let xScale   = scaleObj.getOrdinalScale(0.5); // pass in binWidth
-
-        // set scale range
-        let { padding, width } = this.props;
-        xScale.range([padding, width - padding]);
-
-        return xScale;
-    }
-
-    setYScale(){
-        // get y-values
-        let marketCap = this.formatData().map(item => item.yValue);
-
-        // create xScale
-        let scaleObj = new scaleFinder(marketCap);
-        let yScale   = scaleObj.getLinearScale();
-
-        // set scale range
-        let { height, padding } = this.props;
-        yScale.range([(height - padding), padding]).nice();
-
-        return yScale;
-    }
-
-
     render(){
-        let { width, height, padding } = this.props;
-        if(this.props.stockData.length === 1)
+        let { width, height, padding, stockData } = this.props;
+        if(stockData.length === 1)
             return(
                 <NoChartToShow
                     width={ width }
@@ -68,30 +36,38 @@ class Histogram extends Component{
                 />
             );
 
-
         return(
             <svg width={ width } height={ height }>
-                <YGrid
-                    yScale={ this.setYScale()}
-                    padding={ padding }
-                    width={ width }
-                />
-                <XAxis
-                    scale={ this.setXScale() }
-                    height={ height }
-                    padding={ padding }
-                />
+                {/*
+                    <YGrid
+                        yScale={ this.setYScale()}
+                        padding={ padding }
+                        width={ width }
+                    />
+                */}
                 <YAxis
-                    scale={ this.setYScale() }
+                    data={ this.formatData() }
+                    scaleType={ "linear" }
                     width={ width }
+                    height={ height }
                     padding={ padding }
                     formatType=".0s"
                 />
-                <Rects
-                    xScale={ this.setXScale() }
-                    yScale={ this.setYScale() }
+                <XAxis
                     data={ this.formatData() }
-                    color="crimson"
+                    scaleType={ "ordinal" }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                />
+                <Rects
+                    data={ this.formatData() }
+                    xScaleType={ "ordinal" }
+                    yScaleType={ "linear" }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                    color={ "crimson" }
                 />
             </svg>
         );
