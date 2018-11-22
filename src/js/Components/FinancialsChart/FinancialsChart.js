@@ -7,8 +7,6 @@ import { YAxis }         from "../YAxis/";
 import { Line }          from "../Line/";
 import { NoChartToShow } from "../NoChartToShow/";
 import { scaleFinder }   from "../../Utilities/";
-import { scaleTime }     from "d3-scale";
-import { scaleLinear }   from "d3-scale";
 
 class FinancialsChart extends Component{
     static propTypes = {
@@ -34,7 +32,7 @@ class FinancialsChart extends Component{
 
         // create xScale
         let scaleObj  = new scaleFinder(dates);
-        let xScale    = scaleObj.getScale(scaleTime);
+        let xScale    = scaleObj.getTimeScale();
 
         // set scale range
         let { padding, width } = this.props;
@@ -49,7 +47,7 @@ class FinancialsChart extends Component{
 
         // create xScale
         let scaleObj  = new scaleFinder(yValues);
-        let yScale    = scaleObj.getScale(scaleLinear);
+        let yScale    = scaleObj.getLinearScale();
 
         // set scale range
         let { height, padding } = this.props;

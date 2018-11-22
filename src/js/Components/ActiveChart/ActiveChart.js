@@ -1,8 +1,8 @@
-import React         from "react";
-import PropTypes     from "prop-types";
-import { Component } from "react";
+import React               from "react";
+import PropTypes           from "prop-types";
+import { Component }       from "react";
 import { HistoricalChart } from "../HistoricalChart/";
-import { Histogram } from "../Histogram/";
+import { Histogram }       from "../Histogram/";
 import { FinancialsChart } from "../FinancialsChart/";
 
 class ActiveChart extends Component{

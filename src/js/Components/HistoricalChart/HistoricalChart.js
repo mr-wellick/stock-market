@@ -7,8 +7,6 @@ import { YAxis }        from "../YAxis/";
 import { Line }         from "../Line/";
 import { ChartToolTip } from "../ChartToolTip/";
 import { scaleFinder }  from "../../Utilities/";
-import { scaleTime }    from "d3-scale";
-import { scaleLinear }  from "d3-scale";
 import "./historicalChart.scss";
 
 class HistoricalChart extends Component{
@@ -34,8 +32,8 @@ class HistoricalChart extends Component{
         let dates = this.formatData().map(item => item.xValue);
 
         // create xScale
-        let scaleObj  = new scaleFinder(dates);
-        let xScale    = scaleObj.getScale(scaleTime);
+        let scaleObj = new scaleFinder(dates);
+        let xScale   = scaleObj.getTimeScale();
 
         // set scale range
         let { padding, width } = this.props;
@@ -50,7 +48,7 @@ class HistoricalChart extends Component{
 
         // create xScale
         let scaleObj  = new scaleFinder(prices);
-        let yScale    = scaleObj.getScale(scaleLinear);
+        let yScale    = scaleObj.getLinearScale();
 
         // set scale range
         let { height, padding } = this.props;

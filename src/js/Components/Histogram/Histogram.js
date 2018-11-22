@@ -7,8 +7,6 @@ import { XAxis }         from "../XAxis/";
 import { Rects }         from "../Rects/";
 import { NoChartToShow } from "../NoChartToShow/";
 import { scaleFinder }   from "../../Utilities/";
-import { scaleLinear }   from "d3-scale";
-import { scaleBand }     from "d3-scale";
 
 class Histogram extends Component{
     static propTypes = {
@@ -33,11 +31,12 @@ class Histogram extends Component{
         let symbols = this.formatData().map(item => item.xValue);
 
         // create xScale
-        let xScale = scaleBand().domain(symbols).padding([.5]);
+        let scaleObj = new scaleFinder(symbols);
+        let xScale   = scaleObj.getOrdinalScale(0.5); // pass in binWidth
 
         // set scale range
         let { padding, width } = this.props;
-        xScale.range([padding, width - padding], 0.5);
+        xScale.range([padding, width - padding]);
 
         return xScale;
     }
@@ -48,7 +47,7 @@ class Histogram extends Component{
 
         // create xScale
         let scaleObj = new scaleFinder(marketCap);
-        let yScale   = scaleObj.getScale(scaleLinear);
+        let yScale   = scaleObj.getLinearScale();
 
         // set scale range
         let { height, padding } = this.props;
