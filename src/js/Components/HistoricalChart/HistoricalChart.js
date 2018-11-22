@@ -1,7 +1,7 @@
 import React            from "react";
 import PropTypes        from "prop-types";
 import { Component }    from "react";
-//import { YGrid }        from "../YGrid/";
+import { YGrid }        from "../YGrid/";
 import { XAxis }        from "../XAxis/";
 import { YAxis }        from "../YAxis/";
 import { Line }         from "../Line/";
@@ -35,13 +35,13 @@ class HistoricalChart extends Component{
 
         return(
             <svg width={ width } height={ height } className="stock-market-chart">
-                { /*
                 <YGrid
-                    yScale={ this.setYScale()}
-                    padding={ padding }
+                    data={ this.formatData() }
+                    scaleType={ "linear" }
                     width={ width }
+                    height={ height }
+                    padding={ padding }
                 />
-                    */ }
                 <YAxis
                     data={ this.formatData() }
                     scaleType={ "linear" }

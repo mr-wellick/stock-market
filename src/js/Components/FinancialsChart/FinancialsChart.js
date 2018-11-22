@@ -1,11 +1,12 @@
-import React            from "react";
-import PropTypes        from "prop-types";
-import { Component }    from "react";
-//import { YGrid }         from "../YGrid/";
+import React             from "react";
+import PropTypes         from "prop-types";
+import { Component }     from "react";
+import { YGrid }         from "../YGrid/";
 import { XAxis }         from "../XAxis/";
 import { YAxis }         from "../YAxis/";
 import { Line }          from "../Line/";
 import { NoChartToShow } from "../NoChartToShow/";
+import { Labels }        from "../Labels/";
 
 class FinancialsChart extends Component{
     static propTypes = {
@@ -14,22 +15,6 @@ class FinancialsChart extends Component{
         height: PropTypes.number,
         padding: PropTypes.number
     }
-
-    //getAllFinancialData(){
-    //    let { financials } = this.props.stockData.financials;
-    //    let objectKeys     = Object.keys(financials[0]).filter(item => item !==  "reportDate");
-
-    //    let data = objectKeys.map(objectKey => {
-    //        return financials.map( report => ({
-    //            xValue: new Date(report["reportDate"]),
-    //            yValue: report[objectKey]
-    //        }));
-    //    }).flat();
-
-    //    let filterData = data.filter(item => item.yValue !== null);
-
-    //    return filterData;
-    //}
 
     formatData(objectKey1, objectKey2){
         let { financials } = this.props.stockData.financials;
@@ -58,16 +43,15 @@ class FinancialsChart extends Component{
 
         return(
             <svg width={ width } height={ height } className="financials">
-                {/*
-                    <YGrid
-                        yScale={ this.setYScale("grossProfit") }
-                        padding={ padding }
-                        width={ width }
-                    />
-                data={ this.formatData("reportDate", "totalRevenue") }
-                */}
+                <YGrid
+                    data={ this.formatData("reportDate", "netIncome") }
+                    scaleType={ "linear" }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                />
                 <YAxis
-                    data={ this.formatData("reportDate", "totalRevenue") }
+                    data={ this.formatData("reportDate", "netIncome") }
                     scaleType={ "linear" }
                     width={ width }
                     height={ height }
@@ -75,14 +59,14 @@ class FinancialsChart extends Component{
                     formatType=".0s"
                 />
                 <XAxis
-                    data={ this.formatData("reportDate", "totalRevenue") }
+                    data={ this.formatData("reportDate", "netIncome") }
                     scaleType={ "time" }
                     width={ width }
                     height={ height }
                     padding={ padding }
                 />
                 <Line
-                    data={ this.formatData("reportDate", "totalRevenue") }
+                    data={ this.formatData("reportDate", "netIncome") }
                     xScaleType={ "time" }
                     yScaleType={ "linear" }
                     width={ width }
@@ -90,9 +74,16 @@ class FinancialsChart extends Component{
                     padding={ padding }
                     color={ "orange" }
                 />
+                <Labels
+                    xLabel="Quarter"
+                    yLabel="Net Income"
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                />
                 {/*
                 <Line
-                    data={ this.formatData("reportDate", "netIncome") }
+                    data={ this.formatData("reportDate", "totalRevenue") }
                     xScaleType={ "time" }
                     yScaleType={ "linear" }
                     width={ width }

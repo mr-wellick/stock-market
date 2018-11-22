@@ -21,7 +21,7 @@ class Labels extends Component{
         select(this.node)
             .attr("class", "x-label")
             .append("text")
-            .attr("x", (width - padding*2))
+            .attr("x", (width - padding*3))
             .attr("y", (height - padding*1.5))
             .text(xLabel);
     }
@@ -40,7 +40,10 @@ class Labels extends Component{
 
     render(){
         return(
-            <g ref={ node => this.node = node }></g>
+            <g
+                ref={ node => this.node = node }
+            >
+            </g>
         );
     }
 

@@ -1,19 +1,46 @@
-import React         from "react";
-import PropTypes     from "prop-types";
-import { Component } from "react";
-import { select }    from "d3-selection";
-import { axisLeft }  from "d3-axis";
+import React           from "react";
+import PropTypes       from "prop-types";
+import { Component }   from "react";
+import { select }      from "d3-selection";
+import { axisLeft }    from "d3-axis";
+import { scaleFinder } from "../../Utilities/";
 import "./yGrid.scss";
 
 class YGrid extends Component {
     static propTypes = {
-        yScale: PropTypes.func,
-        padding: PropTypes.number,
-        width: PropTypes.number
+        data: PropTypes.array,
+        scaleType: PropTypes.string,
+        height: PropTypes.number,
+        width: PropTypes.number,
+        padding: PropTypes.number
+    }
+
+    getYScale(){
+        // get y-values
+        let { data, scaleType, height, padding } = this.props;
+        let yValues  = data.map(item => item.yValue);
+
+        // create xScale
+        let scaleObj  = new scaleFinder(yValues);
+        let yScale;
+
+        if(scaleType === "time")
+            yScale = scaleObj.getTimeScale();
+
+        if(scaleType === "linear")
+            yScale = scaleObj.getLinearScale();
+
+        if(scaleType === "ordinal")
+            yScale = scaleObj.getOrdinalScale();
+
+        // set scale range
+        yScale.range([(height - padding), padding]).nice();
+
+        return yScale;
     }
 
     createYGridLines(){
-        let { yScale } = this.props;
+        let  yScale  = this.getYScale();
         return axisLeft(yScale).ticks(5);
     }
 

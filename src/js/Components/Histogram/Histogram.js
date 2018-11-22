@@ -1,7 +1,7 @@
 import React             from "react";
 import PropTypes         from "prop-types";
 import { Component }     from "react";
-//import { YGrid }         from "../YGrid/";
+import { YGrid }         from "../YGrid/";
 import { YAxis }         from "../YAxis/";
 import { XAxis }         from "../XAxis/";
 import { Rects }         from "../Rects/";
@@ -38,13 +38,13 @@ class Histogram extends Component{
 
         return(
             <svg width={ width } height={ height }>
-                {/*
-                    <YGrid
-                        yScale={ this.setYScale()}
-                        padding={ padding }
-                        width={ width }
-                    />
-                */}
+                <YGrid
+                    data={ this.formatData() }
+                    scaleType={ "linear" }
+                    width={ width }
+                    height={ height }
+                    padding={ padding }
+                />
                 <YAxis
                     data={ this.formatData() }
                     scaleType={ "linear" }
