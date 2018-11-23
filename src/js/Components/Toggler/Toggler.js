@@ -37,6 +37,10 @@ class Toggler extends Component{
                 activeIndex: 0
             });
         }
+        else
+            alert("Sorry! Cannot delete all stocks.");
+
+        event.preventDefault();
     }
 
     onChangeChart = (event) => {
