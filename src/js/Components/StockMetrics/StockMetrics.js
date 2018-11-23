@@ -15,40 +15,22 @@ class StockMetrics extends Component {
         let { quote, stats } = this.props.stockData;
 
         return(
-            <div className="table-container">
-                <table>
-                    <caption>
-                        { quote["symbol"] }
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>Closing Price</th>
-                            <th>S/O</th>
-                            <th>MC</th>
-                            <th>Percent Change</th>
-                            <th>Latest Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                            {
-                                quote["close"]
-                                    .toLocaleString("en-US", { style: "currency", currency: "USD" })
-                            }
-                            </td>
-                            <td>{ stats["sharesOutstanding"].toLocaleString("en-US") }</td>
-                            <td>
-                            {
-                                quote["marketCap"]
-                                    .toLocaleString("en-US", { style: "currency", currency: "USD" })
-                            }
-                            </td>
-                            <td>{ quote["changePercent"] }</td>
-                            <td>{ quote["latestTime"] }</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="metrics-container">
+                <div className="metrics-name__container">
+                    <h1 className="company-name">
+                        <b>{ quote["companyName"] }</b>
+                    </h1>
+                    <span> [{ quote["symbol"] }] </span>
+                </div>
+                <div className="metrics-price__container">
+                    <h1 className="company-price">{ quote["close"] }</h1>
+                    <span
+                        className={
+                            quote["changePercent"] > 0 ? "green" : "red"
+                        }
+                    > { `${quote["change"]} (${quote["changePercent"]*100}%)` }
+                    </span>
+                </div>
             </div>
         );
     }

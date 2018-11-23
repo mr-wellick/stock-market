@@ -28,27 +28,31 @@ class Home extends Component{
                             <ChartSelector
                                 onChangeChart={ onChangeChart }
                             />
-                            <div className="main-data-container">
-                                <ActiveChart
-                                    width={ width }
-                                    height={ height }
-                                    padding={ padding }
-                                    activeStockData={ stockData[activeIndex] }
-                                    selectedChart={ selectedChart }
-                                    stockData={ stockData }
-                                />
+                            <div className="chart-data__container">
+                                <div className="chart">
+                                    <ActiveChart
+                                        width={ width }
+                                        height={ height }
+                                        padding={ padding }
+                                        activeStockData={ stockData[activeIndex] }
+                                        selectedChart={ selectedChart }
+                                        stockData={ stockData }
+                                    />
+                                </div>
                                 <StockSelector
                                     stockData={ stockData }
                                     onChange={ onChange }
                                     deleteStock={ deleteStock }
                                 />
                             </div>
+                        {/*
                             <StockDescription
                                 stockData={ stockData[activeIndex] }
                             />
                             <StockNews
                                 stockData={ stockData[activeIndex] }
                             />
+                         */}
                         </>
                     )}
                 </Toggler>

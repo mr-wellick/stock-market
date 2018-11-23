@@ -15,15 +15,15 @@ class Toggler extends Component{
     state = {
         activeIndex: 0,
         selectedChart: "HistoricalChart",
-        width: window.innerWidth*0.80,
-        height: window.innerHeight*0.79,
+        width: window.innerWidth*0.90,
+        height: window.innerHeight*0.90,
         padding: 40
     }
 
     handleChartResize = () => {
         this.setState({
-            width: window.innerWidth*0.80,
-            height: window.innerHeight*0.79
+            width: window.innerWidth*0.90,
+            height: window.innerHeight*0.90
         });
     }
 

@@ -1,49 +1,101 @@
-.table-container
+/*
+ *
+ * METRICS CONTAINER
+ *
+ */
+.metrics-container
 {
-    margin-left: 40px;
-    margin-top: 75px;
+    padding-top: 90px;
+    padding-bottom: 20px;
+    background-color: rgba(187,187,187,.09);
+    font-family: "Noto Sans TC", sans-serif;
 }
 
-table
+/*
+ *
+ * METRICS CONTAINER FOR NAME & PRICE
+ *
+ */
+.metrics-name__container,
+.metrics-price__container
 {
-    border-collapse: collapse;
-    text-align: center;
-    border-right: 0;
-    border-bottom: 0;
+    width: 80%;
+    margin: 0 30px;
 }
 
-
-thead
+/*
+ *
+ * COMPANY NAME & PRICE
+ *
+ */
+.company-name
 {
-    display: block;
-    border: 1px solid #495057;
-    border-left: 0;
-    border-right: 0;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
 }
 
-th, td
+.company-price
 {
-    min-width: 188px;
+    display: inline-block;
 }
 
-th
+.red
 {
-    color: #495057;
-    padding: 3px;
+    color: rgb(247, 33, 33);
 }
 
-tbody
+.green
 {
-    display: block;
+    color: rgb(25, 190, 135);
 }
 
-tbody tr:nth-of-type(odd)
-{
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-td
-{
-    border-bottom: 1px solid #e9ecef;
-    padding: 5px;
-}
+//.table-container
+//{
+//    margin-left: 40px;
+//    margin-top: 75px;
+//}
+//
+//table
+//{
+//    border-collapse: collapse;
+//    text-align: center;
+//    border-right: 0;
+//    border-bottom: 0;
+//}
+//
+//
+//thead
+//{
+//    display: block;
+//    border: 1px solid #495057;
+//    border-left: 0;
+//    border-right: 0;
+//}
+//
+//th, td
+//{
+//    min-width: 188px;
+//}
+//
+//th
+//{
+//    color: #495057;
+//    padding: 3px;
+//}
+//
+//tbody
+//{
+//    display: block;
+//}
+//
+//tbody tr:nth-of-type(odd)
+//{
+//    background-color: rgba(0, 0, 0, 0.05);
+//}
+//
+//td
+//{
+//    border-bottom: 1px solid #e9ecef;
+//    padding: 5px;
+//}

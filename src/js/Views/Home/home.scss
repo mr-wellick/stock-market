@@ -1,4 +1,11 @@
-.main-data-container
+.chart-data__container
 {
     display: flex;
+    flex-direction: column;
+}
+
+.chart
+{
+    width: 90%;
+    margin: auto;
 }
