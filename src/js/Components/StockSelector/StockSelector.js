@@ -10,53 +10,47 @@ class StockSelector extends Component{
         deleteStock: PropTypes.func
     }
 
+    state = {
+        activeIndex: 0
+    }
+
+    onSelectStock = (event) => {
+        this.setState({
+            activeIndex: Number(event.target.value)
+        });
+    }
+
     render(){
-        let { stockData } = this.props;
+        let { stockData }   = this.props;
+        let { activeIndex } = this.state;
+
         if(stockData.length === 0)
             return null;
 
         return(
             <form onChange={ this.props.onChange } className="active-stock__form">
-                <div className="active-stock__container">
-                    <button
-                        id="delete-stock"
-                        onClick={ this.props.deleteStock }
-                        className={ stockData[0]["company"]["symbol"] }
-                    >X</button>
-                    <input
-                        type="radio"
-                        id={ stockData[0]["company"]["symbol"] }
-                        name="active-stock"
-                        value={ 0 }
-                        defaultChecked
-                    />
-                    <label htmlFor={ stockData[0]["company"]["symbol"] }>
-                        { stockData[0]["company"]["symbol"] }
-                    </label>
-                </div>
-                {
-                    // If we only have one stock, no need to run this code.
-                    stockData.length > 1 ?
-                        // Remove first entry and bump indices + 1
-                        stockData.slice(1).map( (item, index) =>
-                            <div key={ index + 1 } className="active-stock__container">
-                                <button
-                                    id="delete-stock"
-                                    onClick={ this.props.deleteStock }
-                                    className={ item["company"]["symbol"] }
-                                >X</button>
-                                <input
-                                    type="radio"
-                                    id={ item["company"]["symbol"] }
-                                    name="active-stock"
-                                    value={ index + 1 }
-                                />
-                                <label htmlFor={ item["company"]["symbol"] }>
-                                    { item["company"]["symbol"] }
-                                </label>
-                            </div>
-                        ) : null
-                }
+            {
+                stockData.map( (item, index) =>
+                    <div key={ index } className="active-stock__container">
+                        <button
+                            id="delete-stock"
+                            onClick={ this.props.deleteStock }
+                            className={ item["company"]["symbol"] }
+                        >X</button>
+                        <input
+                            type="radio"
+                            id={ item["company"]["symbol"] }
+                            name="active-stock"
+                            value={ index }
+                            checked={ activeIndex === index }
+                            onChange={ this.onSelectStock }
+                        />
+                        <label htmlFor={ item["company"]["symbol"] }>
+                            { item["company"]["symbol"] }
+                        </label>
+                    </div>
+                )
+            }
             </form>
         );
     }
