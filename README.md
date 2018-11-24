@@ -1,5 +1,5 @@
 # Desktop Display (in progress)
-![nothing-to-show](./demos/tour.gif)
+![nothing-to-show](./demos/new-demo.gif)
 
 # Using the app
 + Supply a single stock ticker such as: TSLA, AAPL, IBM, etc...
