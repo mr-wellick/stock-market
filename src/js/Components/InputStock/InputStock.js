@@ -74,8 +74,8 @@ class InputStock extends Component{
     }
 
     componentDidMount(){
-        //if(this.props.stockData.length === 0)
-        //    this.props.fetchStockData("TSLA");
+        if(this.props.stockData.length === 0)
+            this.props.fetchStockData("TSLA");
     }
 }
 
