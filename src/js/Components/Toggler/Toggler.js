@@ -53,7 +53,7 @@ class Toggler extends Component{
     onChange = (event) => {
         // use props to select a single data set
         this.setState({
-            activeIndex: event.target.value
+            activeIndex: Number(event.target.value)
         });
     }
 

@@ -32,6 +32,7 @@ class Home extends Component{
                                             stockData={ stockData }
                                             onChange={ onChange }
                                             deleteStock={ deleteStock }
+                                            activeIndex={ activeIndex }
                                         />
                                         <ChartSelector
                                             onChangeChart={ onChangeChart }

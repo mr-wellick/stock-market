@@ -7,28 +7,18 @@ class StockSelector extends Component{
     static propTypes = {
         stockData: PropTypes.array,
         onChange: PropTypes.func,
-        deleteStock: PropTypes.func
-    }
-
-    state = {
-        activeIndex: 0
-    }
-
-    onSelectStock = (event) => {
-        this.setState({
-            activeIndex: Number(event.target.value)
-        });
+        deleteStock: PropTypes.func,
+        activeIndex: PropTypes.number
     }
 
     render(){
-        let { stockData }   = this.props;
-        let { activeIndex } = this.state;
+        let { stockData, activeIndex } = this.props;
 
         if(stockData.length === 0)
             return null;
 
         return(
-            <form onChange={ this.props.onChange } className="active-stock__form">
+            <form className="active-stock__form">
             {
                 stockData.map( (item, index) =>
                     <div key={ index } className="active-stock__container">
@@ -42,8 +32,8 @@ class StockSelector extends Component{
                             id={ item["company"]["symbol"] }
                             name="active-stock"
                             value={ index }
-                            checked={ activeIndex === index }
-                            onChange={ this.onSelectStock }
+                            checked={ activeIndex == index }
+                            onChange={ this.props.onChange }
                         />
                         <label htmlFor={ item["company"]["symbol"] }>
                             { item["company"]["symbol"] }
