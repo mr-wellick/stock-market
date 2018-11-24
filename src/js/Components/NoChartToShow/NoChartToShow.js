@@ -17,10 +17,10 @@ class NoChartToShow extends Component{
                 <rect
                     x="40"
                     y="40"
-                    width="90%"
+                    width="93%"
                     height="85%"
                     fill="black"
-                    fillOpacity="0.2"
+                    fillOpacity="0.1"
                 >
                 </rect>
                 <text
