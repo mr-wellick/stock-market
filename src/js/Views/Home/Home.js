@@ -25,11 +25,18 @@ class Home extends Component{
                             <StockMetrics
                                 stockData={ stockData[activeIndex] }
                             />
-                            <ChartSelector
-                                onChangeChart={ onChangeChart }
-                            />
                             <div className="chart-data__container">
                                 <div className="chart">
+                                    <div className="chart-stock-selection__container">
+                                        <StockSelector
+                                            stockData={ stockData }
+                                            onChange={ onChange }
+                                            deleteStock={ deleteStock }
+                                        />
+                                        <ChartSelector
+                                            onChangeChart={ onChangeChart }
+                                        />
+                                    </div>
                                     <ActiveChart
                                         width={ width }
                                         height={ height }
@@ -39,11 +46,6 @@ class Home extends Component{
                                         stockData={ stockData }
                                     />
                                 </div>
-                                <StockSelector
-                                    stockData={ stockData }
-                                    onChange={ onChange }
-                                    deleteStock={ deleteStock }
-                                />
                             </div>
                         {/*
                             <StockDescription

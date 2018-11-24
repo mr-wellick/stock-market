@@ -7,6 +7,7 @@ import { Switch }     from "react-router-dom";
 import { Link }       from "react-router-dom";
 import { Home }       from "./Views/";
 //import { Basics }     from "./Views/";
+import { Footer }     from "./Components/";
 import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
 import "./app.scss";
@@ -32,6 +33,7 @@ class App extends Component{
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>
                     </Switch>
+                    <Route path="/" component={ Footer }></Route>
                     {/*
                             <Route exact path="/basics" component={ Basics }></Route>
                     */}

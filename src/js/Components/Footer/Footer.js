@@ -6,8 +6,16 @@ class Footer extends Component{
     render(){
         return(
             <footer className="main-footer">
-                <h2 className="main-footer__cta"> <a>Developed &amp;</a> Designed by LRNZ</h2>
-                <p className="main-footer__disclaimer">Disclaimer: use at your own peril.</p>
+                <div>
+                    <p>
+                        Developed &amp; Designed by LRNZ | Data provided for free by &nbsp;
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://iextrading.com/developer/"
+                        >IEX</a>
+                    </p>
+                </div>
             </footer>
         );
     }

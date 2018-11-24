@@ -1,19 +1,28 @@
 .chart-selector-container
 {
+    // display stuff
     display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
+}
+
+.chart-selector-container
+{
+    padding-right: 35px;
 }
 
 .chart-selector-container div
 {
-    //border: 1px solid black;
     padding: 5px;
 }
 
 .chart-selector-container label
 {
     padding: 5px;
+}
+
+.chart-selector-container label:hover
+{
+    cursor: pointer;
+    background-color: rgba(34, 178, 199, 0.3);
 }
 
 .chart-selector-container [type=radio]
@@ -26,3 +35,4 @@
     background-color: rgb(34, 178, 199);
     color: white;
 }
+

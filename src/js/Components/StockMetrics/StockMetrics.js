@@ -12,7 +12,7 @@ class StockMetrics extends Component {
         if(!this.props.stockData)
             return null;
 
-        let { quote, stats } = this.props.stockData;
+        let { quote } = this.props.stockData;
 
         return(
             <div className="metrics-container">
@@ -20,15 +20,16 @@ class StockMetrics extends Component {
                     <h1 className="company-name">
                         <b>{ quote["companyName"] }</b>
                     </h1>
-                    <span> [{ quote["symbol"] }] </span>
+                    &nbsp;
+                    <span>[{ quote["symbol"] }]</span>
                 </div>
                 <div className="metrics-price__container">
                     <h1 className="company-price">{ quote["close"] }</h1>
+                    &nbsp;
                     <span
-                        className={
-                            quote["changePercent"] > 0 ? "green" : "red"
-                        }
-                    > { `${quote["change"]} (${quote["changePercent"]*100}%)` }
+                        className={ quote["changePercent"] > 0 ? "green" : "red"}
+                    >
+                        { `${quote["change"]} (${quote["changePercent"]})` }
                     </span>
                 </div>
             </div>

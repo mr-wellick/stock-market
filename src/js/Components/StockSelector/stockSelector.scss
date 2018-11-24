@@ -1,16 +1,56 @@
-.form-active label:hover
+/*
+ *  ACTIVE STOCK SELECTOR FORM
+ */
+.active-stock__form
+{
+    display: flex;
+    padding-left: 40px;
+}
+
+/*
+ *  CONTAINER FOR EACH STOCK OPTION
+ */
+.active-stock__container
+{
+    border: 1px solid rgba(204, 204, 204, 0.25);
+    margin-right: 10px;
+}
+
+.active-stock__container label
+{
+    padding: 5px;
+}
+
+.active-stock__container [type=radio]
+{
+    display: none;
+}
+
+.active-stock__container label:hover
 {
     cursor: pointer;
     background-color: rgba(34, 178, 199, 0.3);
 }
 
-.form-active [type=radio]
-{
-    display: none;
-}
-
-.form-active [type=radio]:checked ~ label
+.active-stock__container [type=radio]:checked ~ label
 {
     background-color: rgb(34, 178, 199);
     color: white;
+}
+
+/*
+ * DELETE STOCK BUTTON
+ */
+#delete-stock
+{
+    background-color: #f1f1f1;
+    border: 1px solid rgba(204, 204, 204, 0.25);
+    border-right: 0;
+    padding: 6px;
+    height: 28px;
+}
+
+#delete-stock:hover
+{
+    cursor: pointer;
 }

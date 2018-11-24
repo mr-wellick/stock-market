@@ -8,4 +8,17 @@
 {
     width: 90%;
     margin: auto;
+    background-color: white;
+    box-shadow: 0px 1px 10px 1px rgba(210,210,210,.15);
+    padding-top: 15px;
+}
+
+.chart-stock-selection__container
+{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 90%;
+
+    padding-top: 3px;
 }
