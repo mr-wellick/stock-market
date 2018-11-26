@@ -47,15 +47,17 @@ class Home extends Component{
                                         stockData={ stockData }
                                     />
                                 </div>
+                                <div>
+                                    <StockDescription
+                                        stockData={ stockData[activeIndex] }
+                                    />
+                                </div>
+                                <div>
+                                    <StockNews
+                                        stockData={ stockData[activeIndex] }
+                                    />
+                                </div>
                             </div>
-                        {/*
-                            <StockDescription
-                                stockData={ stockData[activeIndex] }
-                            />
-                            <StockNews
-                                stockData={ stockData[activeIndex] }
-                            />
-                         */}
                         </>
                     )}
                 </Toggler>

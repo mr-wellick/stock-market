@@ -1,0 +1,31 @@
+.news-container
+{
+    width: 90%;
+    margin: 0 auto;
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.news-container h2
+{
+    background-color: white;
+    padding-left: 20px;
+}
+
+.news-item
+{
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    padding-top: 10px;
+}
+
+.news-item div
+{
+    width: 50%;
+}
+
+.news-item p
+{
+    line-height: 1.5;
+    padding-top: 10px;
+}

@@ -12,37 +12,36 @@ class StockDescription extends Component{
         if(!this.props.stockData)
             return null;
 
-        let { company }  = this.props.stockData;
-        let { relevant } = this.props.stockData;
+        let { company, relevant }  = this.props.stockData;
 
         return(
-            <div>
-                <div>
-                    <a
-                        href={ company["website"] }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {`${company["companyName"]}`}
-                    </a>
+            <section className="company-description">
+                <div className="company-summary">
+                    <div>
+                        <h2>Summary</h2>
+                        <p>{ company["description"] }</p>
+                    </div>
                 </div>
-                <div>
-                    <h4>{ `CEO: ${company["CEO"]}` }</h4>
-                    <h4>{ `Sector: ${company["sector"] }` }</h4>
-                    <h4>{ `Industry: ${company["industry"]}` }</h4>
-                    <p>{ company["description"] }</p>
+                <hr />
+                <div className="company-details">
+                    <div>
+                        <h3>CEO</h3>
+                        <p>{ company["CEO"] }</p>
+                    </div>
+                    <div>
+                        <h3>Website</h3>
+                        <a href={ company["website"] }>{ company["website"] }</a>
+                    </div>
+                    <div>
+                        <h3>Industry</h3>
+                        <p>{ company["industry"] }</p>
+                    </div>
+                    <div>
+                        <h3>Sector</h3>
+                        <p>{ company["sector"] }</p>
+                    </div>
                 </div>
-                <div>
-                    <h2>Relevant Peers</h2>
-                    {
-                        relevant["symbols"].map((item, index) =>
-                            <ul key={ index }>
-                                <li>{ item }</li>
-                            </ul>
-                        )
-                    }
-                </div>
-            </div>
+            </section>
         );
     }
 

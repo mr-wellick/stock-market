@@ -15,10 +15,11 @@ class StockNews extends Component{
         let { news } = this.props.stockData;
 
         return(
-            <div>
+            <div className="news-container">
+                <h2>News</h2>
                 {
                     news.map( (item, index) =>
-                        <div key={ index }>
+                        <div key={ index } className="news-item">
                             <div>
                                 <a
                                     target="_blank"
