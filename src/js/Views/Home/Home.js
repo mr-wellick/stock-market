@@ -4,8 +4,8 @@ import { Loader }           from "../../Components/";
 import { StockMetrics }     from "../../Components/";
 import { Toggler }          from "../../Components/";
 import { StockSelector }    from "../../Components/";
-import { StockDescription } from "../../Components/";
-import { StockNews }        from "../../Components/";
+//import { StockDescription } from "../../Components/";
+//import { StockNews }        from "../../Components/";
 import { DuplicateEntry }   from "../../Components/";
 import { Errors }           from "../../Components/";
 import { ChartSelector }    from "../../Components/";
@@ -47,16 +47,18 @@ class Home extends Component{
                                         stockData={ stockData }
                                     />
                                 </div>
-                                <div>
-                                    <StockDescription
-                                        stockData={ stockData[activeIndex] }
-                                    />
-                                </div>
-                                <div>
-                                    <StockNews
-                                        stockData={ stockData[activeIndex] }
-                                    />
-                                </div>
+                                {/*
+                                    <div>
+                                        <StockDescription
+                                            stockData={ stockData[activeIndex] }
+                                        />
+                                    </div>
+                                    <div>
+                                        <StockNews
+                                            stockData={ stockData[activeIndex] }
+                                        />
+                                    </div>
+                                */}
                             </div>
                         </>
                     )}
