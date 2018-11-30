@@ -9,29 +9,29 @@ class ScaleFinder {
     }
 
     getInterval(){
-        let MAX      = max(this.data, d => d);
-        let MIN      = min(this.data, d => d);
-        let interval = [MIN, MAX];
+        const MAX      = max(this.data, d => d);
+        const MIN      = min(this.data, d => d);
+        const interval = [MIN, MAX];
 
         return interval;
     }
 
     getLinearScale(){
-        let interval = this.getInterval();
-        let scale    =  scaleLinear().domain(interval);
+        const interval = this.getInterval();
+        const scale    =  scaleLinear().domain(interval);
 
         return scale;
     }
 
     getTimeScale(){
-        let interval = this.getInterval();
-        let scale    = scaleTime().domain(interval);
+        const interval = this.getInterval();
+        const scale    = scaleTime().domain(interval);
 
         return scale;
     }
 
     getOrdinalScale(binWidth){
-        let scale = scaleBand().domain(this.data);
+        const scale = scaleBand().domain(this.data);
         scale.padding([binWidth]);
 
         return scale;

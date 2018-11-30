@@ -1,7 +1,7 @@
 import { ENTERED_DUPLICATE_STOCK }     from "../Constants/";
 import { RESET_DUPLICATE_STOCK_ENTRY } from "../Constants/";
 
-let initialState = {
+const initialState = {
     stockName: ""
 };
 

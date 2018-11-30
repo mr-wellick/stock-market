@@ -4,7 +4,7 @@ import { FAILED_FETCH_REQUEST }               from "../Constants/";
 import { RESET_FAILED_FETCH_REQUEST_MESSAGE } from "../Constants/";
 import { DELETE_SINGLE_STOCK }                from "../Constants/";
 
-let initialState = {
+const initialState = {
     isFetchingData: false,
     stockData: [],
     stockDataError: ""

@@ -10,13 +10,13 @@ import { createLogger }    from "redux-logger";
 import thunkMiddleware     from "redux-thunk";
 
 // Gather reducers
-let rootReducer = combineReducers({
+const rootReducer = combineReducers({
     fetchData: fetchDataReducer,
     duplicateStockEntry: duplicateStockEntryReducer
 });
 
 // Create action logger for development
-let logger = createLogger();
+const logger = createLogger();
 let store;
 
 // Make sure logger middleware is only available in development
