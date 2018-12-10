@@ -1,4 +1,14 @@
 .duplicate-entry
 {
-    margin-top: 75px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 120px;
+    right: 0;
+    margin-right: 70px;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    background-color: #fff3cd;
+    padding: 10px;
+    width: 350px;
 }

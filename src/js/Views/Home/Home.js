@@ -18,7 +18,6 @@ class Home extends Component{
             <>
                 <Errors/>
                 <DuplicateEntry/>
-                <Loader/>
                 <Toggler>
                     { ({ stockData, onChange, activeIndex, width, height, padding, onChangeChart, selectedChart, deleteStock }) => (
                         <>
@@ -27,6 +26,7 @@ class Home extends Component{
                             />
                             <div className="chart-data__container">
                                 <div className="chart">
+                                    <Loader/>
                                     <div className="chart-stock-selection__container">
                                         <StockSelector
                                             stockData={ stockData }

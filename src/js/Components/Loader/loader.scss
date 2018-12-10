@@ -6,11 +6,11 @@ $animation-time: 1s;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 11%;
-    right: 0;
-    height: 20vh;
-    width: 40vw;
-    //background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .loader__block1,
@@ -55,10 +55,10 @@ $animation-time: 1s;
     100%{ opacity: 0; }
 }
 
-@media(max-width: 1000px)
-{
-    .loader
-    {
-        width: 100vw;
-    }
-}
+//@media(max-width: 1000px)
+//{
+//    .loader
+//    {
+//        width: 100vw;
+//    }
+//}

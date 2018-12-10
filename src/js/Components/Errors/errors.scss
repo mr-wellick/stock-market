@@ -1,4 +1,19 @@
 .app-error
 {
-    margin-top: 75px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 70px;
+    right: 0;
+    margin-right: 70px;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    background-color: #f8d7da;
+    padding: 10px;
+    width: 350px;
+}
+
+.app-error a:hover
+{
+    cursor: pointer;
 }
