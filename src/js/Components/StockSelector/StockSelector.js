@@ -1,39 +1,34 @@
-import React         from "react";
-import PropTypes     from "prop-types";
-import { Component } from "react";
+import React                   from "react";
+import PropTypes               from "prop-types";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./stockSelector.scss";
 
 class StockSelector extends Component{
+    static contextType = StockMarketConsumer;
+
     static propTypes = {
-        stockData: PropTypes.array,
-        onChange: PropTypes.func,
-        deleteStock: PropTypes.func,
-        activeIndex: PropTypes.number
+        setActiveIndex: PropTypes.func
     }
 
     render(){
-        let { stockData, activeIndex } = this.props;
+        let { stockMarketData, activeIndex } = this.context;
 
-        if(stockData.length === 0)
+        if(stockMarketData.length === 0)
             return null;
 
         return(
             <form className="active-stock__form">
             {
-                stockData.map( (item, index) =>
+                stockMarketData.map( (item, index) =>
                     <div key={ index } className="active-stock__container">
-                        <button
-                            id="delete-stock"
-                            onClick={ this.props.deleteStock }
-                            className={ item["company"]["symbol"] }
-                        >X</button>
                         <input
                             type="radio"
                             id={ item["company"]["symbol"] }
                             name="active-stock"
                             value={ index }
-                            checked={ activeIndex == index }
-                            onChange={ this.props.onChange }
+                            checked={ activeIndex === index }
+                            onChange={ this.props.setActiveIndex }
                         />
                         <label htmlFor={ item["company"]["symbol"] }>
                             { item["company"]["symbol"] }

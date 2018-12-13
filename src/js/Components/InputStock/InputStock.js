@@ -1,22 +1,16 @@
 import React                   from "react";
 import { Component }           from "react";
 import PropTypes               from "prop-types";
-import { connect }             from "react-redux";
-import { fetchStockData }      from "../../Redux/";
-import { duplicateStockEntry } from "../../Redux/";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import includes                from "lodash.includes";
 import "./inputStock.scss";
 
 class InputStock extends Component{
-    static propTypes = {
-        fetchStockData: PropTypes.func,
-        duplicateStockEntry: PropTypes.func,
-        stockData: PropTypes.array
-    }
+    static contextType = StockMarketConsumer;
 
     getStocksInState(){
-        let { stockData } = this.props;
-        let stocksInState = stockData.map(stock => stock["company"]["symbol"]);
+        let { stockMarketData } = this.context;
+        let stocksInState       = stockMarketData.map(stock => stock["company"]["symbol"]);
 
         return stocksInState;
     }
@@ -33,9 +27,9 @@ class InputStock extends Component{
         let isNewStockEntry = includes(stocksInState, newStockEntry); // returns false if stock is not in state
 
         if(!isNewStockEntry)
-            this.props.fetchStockData(newStockEntry); // fetch new entry
+            this.props.fetchStockMarketData(newStockEntry); // fetch new entry
         else
-            this.props.duplicateStockEntry(newStockEntry); // tell user we cant fetch stocks already in state
+            alert(`${newStockEntry} already in list.`);
     }
 
     onSubmit = (event) => {
@@ -54,12 +48,11 @@ class InputStock extends Component{
 
     render(){
         return(
-            <form onSubmit={ this.onSubmit } className="main-form">
+            <form onSubmit={ this.onSubmit } className="stocks-form">
                 <input
                     type="text"
                     placeholder="Enter Stock"
                     id="user-input"
-                    className="main-form__input"
                     required
                     pattern="([A-Za-z]+)"
                 />
@@ -72,17 +65,6 @@ class InputStock extends Component{
             </form>
         );
     }
-
-    componentDidMount(){
-        if(this.props.stockData.length === 0)
-            this.props.fetchStockData("TSLA");
-    }
 }
 
-let mapState = (state) => {
-    return {
-        ...state.fetchData
-    };
-};
-
-export default connect(mapState, { fetchStockData, duplicateStockEntry })(InputStock);
+export default InputStock;

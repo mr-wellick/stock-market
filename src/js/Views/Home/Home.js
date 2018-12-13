@@ -1,7 +1,9 @@
-import React                from "react";
-import { Component }        from "react";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketProvider } from "../../Context/stockMarketContext.js";
+import { InputStock }          from "../../Components/";
+//import { StockMetrics }        from "../../Components/";
 //import { Loader }           from "../../Components/";
-//import { StockMetrics }     from "../../Components/";
 //import { Toggler }          from "../../Components/";
 //import { StockSelector }    from "../../Components/";
 //import { StockDescription } from "../../Components/";
@@ -33,7 +35,9 @@ class Home extends Component{
             this.setState({ duplicateEntry: "" });
     }
 
-    async fetchStockMarketData(stockName){
+    setActiveIndex = (event) => this.setState({ activeIndex: Number(event.target.value) });
+
+    fetchStockMarketData = async (stockName) => {
         // indicate we are fetching data
         this.setState({ isFetchingData: true });
 
@@ -46,8 +50,9 @@ class Home extends Component{
         try{
             // successful request
             const singleStockData = await res.json();
+
             this.setState({
-                stockMarketData: this.state.stockMarketData.push(singleStockData),
+                stockMarketData: [...this.state.stockMarketData, singleStockData],
                 success: `Successfully retrieved: ${stockName}`,
                 isFetchingData: false
             });
@@ -64,6 +69,16 @@ class Home extends Component{
     render(){
         return(
             <section>
+                <StockMarketProvider value={ this.state }>
+                    <InputStock
+                        fetchStockMarketData={ this.fetchStockMarketData }
+                    />
+                    {/*
+                        <StockSelector
+                            setActiveIndex={ this.setActiveIndex }
+                        />
+                    */}
+                </StockMarketProvider>
             </section>
         );
     }

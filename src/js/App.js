@@ -8,7 +8,6 @@ import { Link }       from "react-router-dom";
 import { Home }       from "./Views/";
 //import { Basics }     from "./Views/";
 import { Footer }     from "./Components/";
-import { InputStock } from "./Components/";
 import { hot }        from "react-hot-loader";
 import "./app.scss";
 
@@ -28,7 +27,6 @@ class App extends Component{
                                 </li>
                             </ul>
                         </nav>
-                        <InputStock/>
                     </header>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>

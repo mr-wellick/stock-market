@@ -37,20 +37,3 @@
     background-color: rgb(34, 178, 199);
     color: white;
 }
-
-/*
- * DELETE STOCK BUTTON
- */
-#delete-stock
-{
-    background-color: #f1f1f1;
-    border: 1px solid rgba(204, 204, 204, 0.25);
-    border-right: 0;
-    padding: 6px;
-    height: 28px;
-}
-
-#delete-stock:hover
-{
-    cursor: pointer;
-}

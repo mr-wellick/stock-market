@@ -4,9 +4,7 @@ body
 }
 
 /*
- *
  * HEADER CONTAINER
- *
  * */
 .main-header
 {
@@ -31,9 +29,7 @@ body
 }
 
 /*
- *
  * NAVIGATION CONTAINER
- *
  * */
 .main-nav
 {
@@ -54,50 +50,4 @@ body
 .main-nav__item a
 {
     color: #222;
-}
-
-/*
- *
- * MAIN FORM CONTAINER
- *
- * */
-.main-form
-{
-    // grow container by 90%
-    flex-grow: 0.9;
-
-    // paddings & margins
-    padding: 10px 0;
-}
-
-.main-form__input
-{
-    // box-model
-    width: 70%;
-    padding: 7px 0;
-    border-width: 1px;
-    border: 1px solid rgba(204, 204, 204, 0.25);
-    border-right: 0;
-
-    // text alignment
-    text-align: center;
-}
-
-.main-form__input:focus
-{
-    outline-color: #98d2e6;
-}
-
-.main-form__btn
-{
-    // box-model
-    padding: 7px 0;
-    width: 10%;
-    border: 1px solid rgba(204, 204, 204, 0.25);
-}
-
-.main-form__btn:hover
-{
-    background-color: #dda4a7;
-    cursor: pointer;
 }
