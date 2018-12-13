@@ -68,15 +68,15 @@ class Home extends Component{
 
     render(){
         return(
-            <section>
+            <section style={{ height: "100vh" }}>
                 <StockMarketProvider value={ this.state }>
                     <InputStock
                         fetchStockMarketData={ this.fetchStockMarketData }
                     />
                     {/*
-                        <StockSelector
-                            setActiveIndex={ this.setActiveIndex }
-                        />
+                    <StockSelector
+                        setActiveIndex={ this.setActiveIndex }
+                    />
                     */}
                 </StockMarketProvider>
             </section>

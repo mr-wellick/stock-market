@@ -15,8 +15,7 @@ class StockSelector extends Component{
         let { stockMarketData, activeIndex } = this.context;
 
         return(
-            <>
-            { stockMarketData.length === 0 ? null :
+            stockMarketData.length === 0 ? null :
                 <form className="active-stock__form">
                 {
                     stockMarketData.map( (item, index) => (
@@ -36,8 +35,6 @@ class StockSelector extends Component{
                     ))
                 }
                 </form>
-            }
-            </>
         );
     }
 }
