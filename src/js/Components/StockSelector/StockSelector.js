@@ -14,29 +14,30 @@ class StockSelector extends Component{
     render(){
         let { stockMarketData, activeIndex } = this.context;
 
-        if(stockMarketData.length === 0)
-            return null;
-
         return(
-            <form className="active-stock__form">
-            {
-                stockMarketData.map( (item, index) =>
-                    <div key={ index } className="active-stock__container">
-                        <input
-                            type="radio"
-                            id={ item["company"]["symbol"] }
-                            name="active-stock"
-                            value={ index }
-                            checked={ activeIndex === index }
-                            onChange={ this.props.setActiveIndex }
-                        />
-                        <label htmlFor={ item["company"]["symbol"] }>
-                            { item["company"]["symbol"] }
-                        </label>
-                    </div>
-                )
+            <>
+            { stockMarketData.length === 0 ? null :
+                <form className="active-stock__form">
+                {
+                    stockMarketData.map( (item, index) => (
+                        <div key={ index } className="active-stock__container">
+                            <input
+                                type="radio"
+                                id={ item["company"]["symbol"] }
+                                name="active-stock"
+                                value={ index }
+                                checked={ activeIndex === index }
+                                onChange={ this.props.setActiveIndex }
+                            />
+                            <label htmlFor={ item["company"]["symbol"] }>
+                                { item["company"]["symbol"] }
+                            </label>
+                        </div>
+                    ))
+                }
+                </form>
             }
-            </form>
+            </>
         );
     }
 }
