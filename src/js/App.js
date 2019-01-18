@@ -25,6 +25,8 @@ class App extends Component{
 
     setActiveIndex = (event) => this.setState({ activeIndex: Number(event.target.value) });
 
+    onChangeChart = (event) => this.setState({ selectedChart: event.target.value });
+
     fetchStockMarketData = async (stockName) => {
         // indicate we are fetching data
         this.setState({ isFetchingData: true });
@@ -63,6 +65,7 @@ class App extends Component{
         isFetchingData: false,
         fetchStockMarketData: this.fetchStockMarketData,
         setActiveIndex: this.setActiveIndex,
+        onChangeChart: this.onChangeChart,
         selectedChart: "HistoricalChart"
     }
 

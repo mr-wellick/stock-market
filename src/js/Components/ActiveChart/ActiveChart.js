@@ -36,19 +36,19 @@ class ActiveChart extends Component{
             case "MarketCap":
                 return (
                     <Histogram
-                        width={ this.props.width }
-                        height={ this.props.height }
-                        padding={ this.props.padding }
-                        stockData={ this.props.stockData }
+                        width={ this.state.width }
+                        height={ this.state.height }
+                        padding={ this.state.padding }
+                        stockData={ this.context.stockMarketData }
                     />
                 );
             case "Financials":
                 return (
                     <FinancialsChart
-                        width={ this.props.width }
-                        height={ this.props.height }
-                        padding={ this.props.padding }
-                        stockData={ this.props.activeStockData }
+                        width={ this.state.width }
+                        height={ this.state.height }
+                        padding={ this.state.padding }
+                        stockData={ this.context.stockMarketData[this.context.activeIndex] }
                     />
                 );
             default:

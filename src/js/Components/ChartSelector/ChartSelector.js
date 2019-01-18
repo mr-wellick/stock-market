@@ -1,16 +1,14 @@
-import React         from "react";
-import PropTypes     from "prop-types";
-import { Component } from "react";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./chartSelector.scss";
 
 class ChartSelector extends Component {
-    static propTypes = {
-        onChangeChart: PropTypes.func
-    }
+    static contextType = StockMarketConsumer;
 
     render() {
         return (
-            <form onChange={this.props.onChangeChart} className="chart-selector-container">
+            <form onChange={ this.context.onChangeChart } className="chart-selector-container">
                 <div>
                     <input
                         type="radio"
