@@ -8,7 +8,7 @@ class StockMetrics extends Component {
 
     render(){
         if(this.context.stockMarketData.length === 0)
-            return null;
+            return <div style={{ height: "186px" }}></div>;
 
         const { activeIndex } = this.context;
         const { quote }       = this.context.stockMarketData[activeIndex];

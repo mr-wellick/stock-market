@@ -7,6 +7,9 @@ class ChartSelector extends Component {
     static contextType = StockMarketConsumer;
 
     render() {
+        if(this.context.stockMarketData.length === 0)
+            return null;
+
         return (
             <form onChange={ this.context.onChangeChart } className="chart-selector-container">
                 <div>

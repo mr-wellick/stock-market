@@ -65,6 +65,10 @@ class InputStock extends Component{
             </form>
         );
     }
+
+    //componentDidMount(){
+    //    this.context.fetchStockMarketData("TSLA");
+    //}
 }
 
 export default InputStock;
