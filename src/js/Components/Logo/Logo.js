@@ -4,7 +4,7 @@ import "./logo.scss";
 const Logo = () => {
     return(
         <div className="app-logo__positioning">
-            <a className="app-logo__container" href="/">
+            <a className="app-logo__container" href="https://ll2nz.github.io/securities-app/">
                 <div className="app-logo__block1"></div>
                 <div className="app-logo__block2"></div>
                 <div className="app-logo__block3"></div>
