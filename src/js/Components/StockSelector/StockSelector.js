@@ -1,5 +1,4 @@
 import React                   from "react";
-import PropTypes               from "prop-types";
 import { Component }           from "react";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./stockSelector.scss";
@@ -7,12 +6,8 @@ import "./stockSelector.scss";
 class StockSelector extends Component{
     static contextType = StockMarketConsumer;
 
-    static propTypes = {
-        setActiveIndex: PropTypes.func
-    }
-
     render(){
-        let { stockMarketData, activeIndex } = this.context;
+        const { stockMarketData, activeIndex } = this.context;
 
         return(
             stockMarketData.length === 0 ? null :
@@ -26,7 +21,7 @@ class StockSelector extends Component{
                                 name="active-stock"
                                 value={ index }
                                 checked={ activeIndex === index }
-                                onChange={ this.props.setActiveIndex }
+                                onChange={ this.context.setActiveIndex }
                             />
                             <label htmlFor={ item["company"]["symbol"] }>
                                 { item["company"]["symbol"] }

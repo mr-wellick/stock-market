@@ -2,3 +2,19 @@ body
 {
     background-color: rgba(187, 187, 187, 0.09);
 }
+
+section
+{
+    background-color: white;
+    width: 92%;
+    margin: 0 auto;
+    box-shadow: 0px 1px 10px 1px rgba(210, 210, 210, 0.15);
+}
+
+.chart-options__container
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px;
+    padding-bottom: 0;
+}

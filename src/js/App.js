@@ -8,6 +8,7 @@ import { InputStock }          from "./Components/";
 import { StockMetrics }        from "./Components/";
 import { ActiveChart }         from "./Components/";
 import { StockSelector }       from "./Components/";
+import { ChartSelector }       from "./Components/";
 import "./app.scss";
 
 class App extends Component{
@@ -61,9 +62,9 @@ class App extends Component{
         duplicateEntry: "",
         isFetchingData: false,
         fetchStockMarketData: this.fetchStockMarketData,
+        setActiveIndex: this.setActiveIndex,
         selectedChart: "HistoricalChart"
     }
-
 
     render(){
         return(
@@ -73,8 +74,11 @@ class App extends Component{
                         <InputStock/>
                     </Navigation>
                     <StockMetrics/>
-                    <section>
-                        <StockSelector/>
+                    <section style={{ height: "100vh" }}>
+                        <div className="chart-options__container">
+                            <StockSelector/>
+                            <ChartSelector/>
+                        </div>
                         <ActiveChart/>
                     </section>
                 </StockMarketProvider>

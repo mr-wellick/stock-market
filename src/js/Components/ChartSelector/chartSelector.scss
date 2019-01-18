@@ -6,12 +6,13 @@
 
 .chart-selector-container
 {
-    padding-right: 35px;
 }
 
 .chart-selector-container div
 {
-    padding: 5px;
+    border: 1px solid rgba(204, 204, 204, 0.25);
+    margin: 0 2px;
+    padding: 5px 0;
 }
 
 .chart-selector-container label
@@ -35,4 +36,3 @@
     background-color: rgb(34, 178, 199);
     color: white;
 }
-
