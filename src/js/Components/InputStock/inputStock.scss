@@ -8,18 +8,19 @@
 {
     padding: 8px;
     font-size: 1rem;
+    border: 1px solid rgba(204, 204, 204, 0.55);
+    &:focus { outline: none; }
 }
 
 .main-form__input,
 {
     width: 80%;
-    border: 1px solid #ced4da;
     border-right: 0;
+
 }
 
 .main-form__btn
 {
-    border: 1px solid #ced4da;
     width: 10%;
 }
 
