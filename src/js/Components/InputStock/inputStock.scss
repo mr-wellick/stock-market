@@ -12,16 +12,23 @@
     &:focus { outline: none; }
 }
 
-.main-form__input,
+.main-form__input:focus,
+.main-form__input:hover
+{
+    box-shadow: 0px 1px 7px 1px rgba(210, 210, 210, 0.55);
+    transition: box-shadow .1s ease;
+}
+
+.main-form__input
 {
     width: 80%;
-    border-right: 0;
-
+    //border-right: 0;
 }
 
 .main-form__btn
 {
     width: 10%;
+    display: none;
 }
 
 .main-form__btn:hover
