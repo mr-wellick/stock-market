@@ -1,25 +1,14 @@
-import React                        from "react";
-import PropTypes                    from "prop-types";
-import { Component }                from "react";
-import { connect }                  from "react-redux";
-import { resetDuplicateStockEntry } from "../../Redux/";
+import React         from "react";
+import PropTypes     from "prop-types";
+import { Component } from "react";
 import "./duplicateEntry.scss";
 
 class DuplicateEntry extends Component{
-    static propTypes = {
-        resetDuplicateStockEntry: PropTypes.func,
-        stockName: PropTypes.string
-    }
-
-    onClick = () => {
-        this.props.resetDuplicateStockEntry();
-    }
-
     render(){
         if(!this.props.stockName)
             return null;
 
-        let { stockName } = this.props;
+        const { stockName } = this.props;
 
         return(
             <div className="duplicate-entry">
@@ -34,10 +23,4 @@ class DuplicateEntry extends Component{
     }
 }
 
-let mapState = (state) => {
-    return {
-        ...state.duplicateStockEntry
-    };
-};
-
-export default connect(mapState, { resetDuplicateStockEntry })(DuplicateEntry);
+export default DuplicateEntry;
