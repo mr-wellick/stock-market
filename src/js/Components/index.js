@@ -1,7 +1,6 @@
 export { InputStock }       from "./InputStock";
 export { Loader }           from "./Loader/";
 export { StockMetrics }     from "./StockMetrics/";
-export { Toggler }          from "./Toggler/";
 export { HistoricalChart }  from "./HistoricalChart/";
 export { Histogram }        from "./Histogram/";
 export { FinancialsChart }  from "./FinancialsChart/";
