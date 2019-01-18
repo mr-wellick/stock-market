@@ -1,51 +1,27 @@
-import React         from "react";
-import PropTypes     from "prop-types";
-import { Component } from "react";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./stockDescription.scss";
 
 class StockDescription extends Component{
-    static propTypes = {
-        stockData: PropTypes.object,
-    }
+    static contextType = StockMarketConsumer;
 
     render(){
-        if(!this.props.stockData)
+        if(this.context.stockMarketData.length === 0)
             return null;
 
-        let { company, relevant }  = this.props.stockData;
+        const { activeIndex }       = this.context;
+        const { company, relevant } = this.context.stockMarketData[activeIndex];
 
         return(
-            <section className="company-description">
-                <div className="company-summary">
-                    <div>
-                        <h2>Summary</h2>
-                        <p>{ company["description"] }</p>
-                    </div>
+            <div className="stock-description__container">
+                <div className="company-description">
+                    <h2>Description</h2>
+                    <p>{ company["description"] }</p>
                 </div>
-                <hr />
-                <div className="company-details">
-                    <div>
-                        <h3>CEO</h3>
-                        <p>{ company["CEO"] }</p>
-                    </div>
-                    <div>
-                        <h3>Website</h3>
-                        <a href={ company["website"] }>{ company["website"] }</a>
-                    </div>
-                    <div>
-                        <h3>Industry</h3>
-                        <p>{ company["industry"] }</p>
-                    </div>
-                    <div>
-                        <h3>Sector</h3>
-                        <p>{ company["sector"] }</p>
-                    </div>
-                </div>
-            </section>
+            </div>
         );
     }
-
-
 }
 
 export default StockDescription;
