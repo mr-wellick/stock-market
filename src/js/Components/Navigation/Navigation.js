@@ -1,5 +1,6 @@
 import React         from "react";
 import { Component } from "react";
+import { Logo }      from "../Logo/";
 import "./navigation.scss";
 
 class Navigation extends Component{
@@ -7,7 +8,10 @@ class Navigation extends Component{
         return(
             <header className="main-header">
                 <nav className="main-nav">
-                    <h1 className="main-title">Stocks</h1>
+                    <div className="main-nav__logo">
+                        <Logo/>
+                        <h1 className="main-title">Stocks</h1>
+                    </div>
                     { this.props.children }
                 </nav>
             </header>

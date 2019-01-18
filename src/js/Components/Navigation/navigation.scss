@@ -32,12 +32,20 @@
     padding: 0 20px;
 }
 
-.main-title
+.main-nav__logo
 {
+    display: flex;
+    align-items: center;
     flex-grow: 0.1;
 }
 
-@media screen and (max-width: 500px)
+.main-title
+{
+    font-size: 1rem;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 600px)
 {
     .main-title
     {
