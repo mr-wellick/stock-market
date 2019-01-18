@@ -1,16 +1,13 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./loader.scss";
 
 class Loader extends Component{
-    static propTypes = {
-        isFetchingData: PropTypes.bool
-    }
+    static contextType = StockMarketConsumer;
 
     render(){
-        if(this.props.isFetchingData === false)
+        if(this.context.isFetchingData === false)
             return null;
 
         return(
@@ -24,10 +21,4 @@ class Loader extends Component{
     }
 }
 
-let mapState = (state) => {
-    return {
-        ...state.fetchData
-    };
-};
-
-export default connect(mapState, null)(Loader);
+export default Loader;

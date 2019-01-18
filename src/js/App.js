@@ -9,6 +9,7 @@ import { StockMetrics }        from "./Components/";
 import { ActiveChart }         from "./Components/";
 import { StockSelector }       from "./Components/";
 import { ChartSelector }       from "./Components/";
+import { Loader }              from "./Components/";
 import { Footer }              from "./Components/";
 import "./app.scss";
 
@@ -79,6 +80,7 @@ class App extends Component{
                     </Navigation>
                     <StockMetrics/>
                     <section style={{ height: "100vh" }}>
+                        <Loader/>
                         <div className="chart-options__container">
                             <StockSelector/>
                             <ChartSelector/>
