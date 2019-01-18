@@ -1,0 +1,38 @@
+/*
+ * HEADER CONTAINER
+ * */
+.main-header
+{
+    // box positioning
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    // dimensions of container
+    height: 64px;
+    width: 100%;
+
+    // colors
+    background-color: white;
+
+    // box model stuff
+    box-shadow: 0px 1px 10px 1px rgba(210, 210, 210, 0.15);
+}
+
+.main-nav
+{
+    // display stuff
+    display: flex;
+    align-items: center; // cross-axis: vertical alignment
+
+    // dimensions of container
+    height: 64px;
+
+    // add padding
+    padding: 0 20px;
+}
+
+.main-title
+{
+    flex-grow: 0.1;
+}

@@ -1,0 +1,22 @@
+.main-form
+{
+    flex-grow: 0.9;
+}
+
+.main-form__input,
+.main-form__btn
+{
+    padding: 10px;
+}
+
+.main-form__input,
+{
+    width: 80%;
+    border: 1px solid #ced4da;
+    border-right: 0;
+}
+
+.main-form__btn
+{
+    border: 1px solid #ced4da;
+}

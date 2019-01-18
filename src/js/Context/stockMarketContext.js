@@ -7,6 +7,7 @@ const StockMarketContext = React.createContext({
     success: "",
     duplicateEntry: "",
     isFetchingData: false,
+    fetchStockMarketData: () => {}
 });
 
 export const StockMarketProvider = StockMarketContext.Provider;

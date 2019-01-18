@@ -13,3 +13,4 @@ export { Errors }           from "./Errors/";
 export { ChartSelector }    from "./ChartSelector/";
 export { ActiveChart }      from "./ActiveChart/";
 export { Footer }           from "./Footer/";
+export { Navigation }       from "./Navigation";

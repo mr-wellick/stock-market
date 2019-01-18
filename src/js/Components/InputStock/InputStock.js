@@ -1,6 +1,5 @@
 import React                   from "react";
 import { Component }           from "react";
-import PropTypes               from "prop-types";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import includes                from "lodash.includes";
 import "./inputStock.scss";
@@ -27,7 +26,7 @@ class InputStock extends Component{
         let isNewStockEntry = includes(stocksInState, newStockEntry); // returns false if stock is not in state
 
         if(!isNewStockEntry)
-            this.props.fetchStockMarketData(newStockEntry); // fetch new entry
+            this.context.fetchStockMarketData(newStockEntry); // fetch new entry
         else
             alert(`${newStockEntry} already in list.`);
     }
@@ -48,13 +47,14 @@ class InputStock extends Component{
 
     render(){
         return(
-            <form onSubmit={ this.onSubmit } className="stocks-form">
+            <form onSubmit={ this.onSubmit } className="main-form">
                 <input
                     type="text"
                     placeholder="Enter Stock"
                     id="user-input"
                     required
                     pattern="([A-Za-z]+)"
+                    className="main-form__input"
                 />
                 <button
                     type="submit"
