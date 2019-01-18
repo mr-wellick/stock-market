@@ -1,18 +1,17 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./stockMetrics.scss";
 
 class StockMetrics extends Component {
-    static propTypes = {
-        stockData: PropTypes.object
-    }
+    static contextType = StockMarketConsumer;
 
     render(){
-        if(!this.props.stockData)
+        if(this.context.stockMarketData.length === 0)
             return null;
 
-        let { quote } = this.props.stockData;
+        const { activeIndex } = this.context;
+        const { quote }       = this.context.stockMarketData[activeIndex];
 
         return(
             <div className="metrics-container">

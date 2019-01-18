@@ -1,30 +1,36 @@
-import React               from "react";
-import PropTypes           from "prop-types";
-import { Component }       from "react";
-import { HistoricalChart } from "../HistoricalChart/";
-import { Histogram }       from "../Histogram/";
-import { FinancialsChart } from "../FinancialsChart/";
+import React                   from "react";
+import { Component }           from "react";
+import { HistoricalChart }     from "../HistoricalChart/";
+import { Histogram }           from "../Histogram/";
+import { FinancialsChart }     from "../FinancialsChart/";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 
 class ActiveChart extends Component{
-    static propTypes = {
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number,
-        activeStockData: PropTypes.object,
-        selectedChart: PropTypes.string,
-        stockData: PropTypes.any
+    static contextType = StockMarketConsumer;
+
+    state = {
+        width: window.innerWidth*0.90,
+        height: window.innerHeight*0.70,
+        padding: 40
+    }
+
+    handleChartResize = () => {
+        this.setState({
+            width: window.innerWidth*0.90,
+            height: window.innerHeight*0.70
+        });
     }
 
     render(){
-        switch(this.props.selectedChart)
+        switch(this.context.selectedChart)
         {
             case "HistoricalChart":
                 return (
                     <HistoricalChart
-                        width={ this.props.width }
-                        height={ this.props.height }
-                        padding={ this.props.padding }
-                        stockData={ this.props.activeStockData }
+                        width={ this.state.width }
+                        height={ this.state.height }
+                        padding={ this.state.padding }
+                        stockData={ this.context.stockMarketData[this.context.activeIndex] }
                     />
                 );
             case "MarketCap":
@@ -48,6 +54,14 @@ class ActiveChart extends Component{
             default:
                 return <h1>Something went horribly wrong!</h1>;
         }
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.handleChartResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.handleChartResize);
     }
 }
 

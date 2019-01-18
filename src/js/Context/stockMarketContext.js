@@ -7,7 +7,8 @@ const StockMarketContext = React.createContext({
     success: "",
     duplicateEntry: "",
     isFetchingData: false,
-    fetchStockMarketData: () => {}
+    fetchStockMarketData: () => {},
+    selectedChart: ""
 });
 
 export const StockMarketProvider = StockMarketContext.Provider;

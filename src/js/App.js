@@ -5,6 +5,9 @@ import { StockMarketProvider } from "./Context/stockMarketContext.js";
 import { Navigation }          from "./Components/";
 import { hot }                 from "react-hot-loader";
 import { InputStock }          from "./Components/";
+import { StockMetrics }        from "./Components/";
+import { ActiveChart }         from "./Components/";
+import { StockSelector }       from "./Components/";
 import "./app.scss";
 
 class App extends Component{
@@ -57,7 +60,8 @@ class App extends Component{
         success: "",
         duplicateEntry: "",
         isFetchingData: false,
-        fetchStockMarketData: this.fetchStockMarketData
+        fetchStockMarketData: this.fetchStockMarketData,
+        selectedChart: "HistoricalChart"
     }
 
 
@@ -68,6 +72,11 @@ class App extends Component{
                     <Navigation>
                         <InputStock/>
                     </Navigation>
+                    <StockMetrics/>
+                    <section>
+                        <StockSelector/>
+                        <ActiveChart/>
+                    </section>
                 </StockMarketProvider>
             </Fragment>
         );
