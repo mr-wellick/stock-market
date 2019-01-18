@@ -15,10 +15,20 @@ class ActiveChart extends Component{
     }
 
     handleChartResize = () => {
-        this.setState({
-            width: window.innerWidth*0.90,
-            height: window.innerHeight*0.70
-        });
+        if(window.innerWidth <= 600)
+        {
+            this.setState({
+                width: window.innerWidth,
+                height: window.innerHeight*0.70
+            });
+        }
+        else
+        {
+            this.setState({
+                width: window.innerWidth*0.90,
+                height: window.innerHeight*0.70
+            });
+        }
     }
 
     render(){

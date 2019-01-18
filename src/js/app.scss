@@ -18,3 +18,11 @@ section
     padding: 20px 15px;
     padding-bottom: 0;
 }
+
+@media screen and (max-width: 600px)
+{
+    section
+    {
+        width: 100%;
+    }
+}

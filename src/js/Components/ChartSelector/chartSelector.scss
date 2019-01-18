@@ -36,3 +36,11 @@
     background-color: rgb(34, 178, 199);
     color: white;
 }
+
+@media screen and (max-width: 600px)
+{
+    .chart-selector-container
+    {
+        display: none;
+    }
+}
