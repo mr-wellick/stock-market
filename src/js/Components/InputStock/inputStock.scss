@@ -6,7 +6,8 @@
 .main-form__input,
 .main-form__btn
 {
-    padding: 10px;
+    padding: 8px;
+    font-size: 1rem;
 }
 
 .main-form__input,
@@ -20,6 +21,12 @@
 {
     border: 1px solid #ced4da;
     width: 10%;
+}
+
+.main-form__btn:hover
+{
+    cursor: pointer;
+    background-color: #dda4a7;
 }
 
 @media screen and (max-width: 500px)
