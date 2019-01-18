@@ -36,3 +36,11 @@
 {
     flex-grow: 0.1;
 }
+
+@media screen and (max-width: 320px)
+{
+    .main-title
+    {
+        display: none;
+    }
+}

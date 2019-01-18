@@ -19,4 +19,18 @@
 .main-form__btn
 {
     border: 1px solid #ced4da;
+    width: 10%;
+}
+
+@media screen and (max-width: 320px)
+{
+    .main-form
+    {
+        display: flex;
+    }
+
+    .main-form__btn
+    {
+        width: 20%;
+    }
 }
