@@ -45,7 +45,7 @@ class Rects extends Component{
         let yValues  = data.map(item => item.yValue);
 
         // create xScale
-        let scaleObj  = new scaleFinder(yValues);
+        let scaleObj  = new scaleFinder([0].concat(yValues)); // Correction: to match corresponding yAxis
         let yScale;
 
         if(yScaleType === "time")

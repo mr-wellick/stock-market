@@ -46,7 +46,7 @@ class Histogram extends Component{
                     padding={ padding }
                 />
                 <YAxis
-                    data={ this.formatData() }
+                    data={ this.formatData().concat({ yValue: 0 }) } // Correction: so we always have 0 in yAxis.
                     scaleType={ "linear" }
                     width={ width }
                     height={ height }
