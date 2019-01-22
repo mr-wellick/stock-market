@@ -13,7 +13,6 @@
 # Reminders
 + Format FinancialsChart & Histogram axes
 + Figure out how to add multiple lines to a FinancialsChart.
-+ Rework UI
 + Start bundle splitting.
 + Ordinal scales in d3: "nice() isn't a method"
     + Look over react components to make sure ordinal scales don't call the method nice().
