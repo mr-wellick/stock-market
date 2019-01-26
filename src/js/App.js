@@ -1,9 +1,9 @@
 import React                   from "react";
 import { Component }           from "react";
 import { Fragment }            from "react";
+import { hot }                 from "react-hot-loader";
 import { StockMarketProvider } from "./Context/stockMarketContext.js";
 import { Navigation }          from "./Components/";
-import { hot }                 from "react-hot-loader";
 import { InputStock }          from "./Components/";
 import { StockMetrics }        from "./Components/";
 import { ActiveChart }         from "./Components/";
@@ -16,10 +16,10 @@ import "./app.scss";
 
 class App extends Component{
     resetApplicationMessages(messageType){
-        if(messageType === "ERRORS")
+        if(messageType === "errors")
             this.setState({ errors: "" });
 
-        if(messageType === "SUCCESS")
+        if(messageType === "success")
             this.setState({ success: "" });
 
         if(messageType === "duplicateEntry");
