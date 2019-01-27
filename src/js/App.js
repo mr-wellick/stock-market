@@ -11,24 +11,23 @@ import { StockSelector }       from "./Components/";
 import { ChartSelector }       from "./Components/";
 import { StockDescription }    from "./Components/";
 import { Loader }              from "./Components/";
+import { DuplicateEntry }      from "./Components/";
 //import { Footer }              from "./Components/";
 import "./app.scss";
 
 class App extends Component{
-    resetApplicationMessages(messageType){
-        if(messageType === "errors")
-            this.setState({ errors: "" });
-
-        if(messageType === "success")
-            this.setState({ success: "" });
-
-        if(messageType === "duplicateEntry");
-            this.setState({ duplicateEntry: "" });
+    resetApplicationMessages = (event) => {
+        const resestMessage = event.target.id;
+        this.setState({
+            [resestMessage]: ""
+        });
     }
 
     setActiveIndex = (event) => this.setState({ activeIndex: Number(event.target.value) });
 
     onChangeChart = (event) => this.setState({ selectedChart: event.target.value });
+
+    setDuplicateEntry = (stockName) => this.setState({ duplicateEntry: stockName });
 
     fetchStockMarketData = async (stockName) => {
         // indicate we are fetching data
@@ -69,6 +68,8 @@ class App extends Component{
         fetchStockMarketData: this.fetchStockMarketData,
         setActiveIndex: this.setActiveIndex,
         onChangeChart: this.onChangeChart,
+        setDuplicateEntry: this.setDuplicateEntry,
+        resetApplicationMessages: this.resetApplicationMessages,
         selectedChart: "HistoricalChart"
     }
 
@@ -76,11 +77,12 @@ class App extends Component{
         return(
             <Fragment>
                 <StockMarketProvider value={ this.state }>
+                    <DuplicateEntry/>
                     <Navigation>
                         <InputStock/>
                     </Navigation>
                     <StockMetrics/>
-                    <section style={{ height: "80vh" }}>
+                    <section style={{ height: "80%" }}>
                         <Loader/>
                         <div className="chart-options__container">
                             <StockSelector/>

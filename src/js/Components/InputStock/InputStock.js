@@ -28,7 +28,7 @@ class InputStock extends Component{
         if(!isNewStockEntry)
             this.context.fetchStockMarketData(newStockEntry); // fetch new entry
         else
-            alert(`${newStockEntry} already in list.`);
+            this.context.setDuplicateEntry(newStockEntry);
     }
 
     onSubmit = (event) => {

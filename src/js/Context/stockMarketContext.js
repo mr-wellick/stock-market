@@ -9,6 +9,8 @@ const StockMarketContext = React.createContext({
     isFetchingData: false,
     fetchStockMarketData: () => {},
     onChangeChart: () => {},
+    setDuplicateEntry: () => {},
+    resetApplicationMessages: () => {},
     selectedChart: ""
 });
 
