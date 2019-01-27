@@ -10,5 +10,5 @@ export { StockNews }        from "./StockNews/";
 export { ChartSelector }    from "./ChartSelector/";
 export { ActiveChart }      from "./ActiveChart/";
 export { Navigation }       from "./Navigation";
-export { DuplicateEntry }   from "./DuplicateEntry/";
 export { Footer }           from "./Footer/";
+export { AppNotifications } from "./AppNotifications/";

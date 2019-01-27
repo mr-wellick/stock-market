@@ -11,15 +11,15 @@ import { StockSelector }       from "./Components/";
 import { ChartSelector }       from "./Components/";
 import { StockDescription }    from "./Components/";
 import { Loader }              from "./Components/";
-import { DuplicateEntry }      from "./Components/";
+import { AppNotifications }    from "./Components/";
 //import { Footer }              from "./Components/";
 import "./app.scss";
 
 class App extends Component{
-    resetApplicationMessages = (event) => {
-        const resestMessage = event.target.id;
+    resetApplicationMessages = () => {
         this.setState({
-            [resestMessage]: ""
+            errors: "",
+            duplicateEntry: ""
         });
     }
 
@@ -52,7 +52,7 @@ class App extends Component{
         catch(err){
             // unsucessful request
             this.setState({
-                errors: `Failed to retrieve: ${stockName}`,
+                errors: stockName,
                 isFetchingData: false
             });
         }
@@ -77,7 +77,7 @@ class App extends Component{
         return(
             <Fragment>
                 <StockMarketProvider value={ this.state }>
-                    <DuplicateEntry/>
+                    <AppNotifications/>
                     <Navigation>
                         <InputStock/>
                     </Navigation>
