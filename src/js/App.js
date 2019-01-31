@@ -16,13 +16,10 @@ import { AppNotifications }    from "./Components/";
 import "./app.scss";
 
 class App extends Component{
-    resetApplicationMessages = () => this.setState({ appMessages: "" });
-
-    setActiveIndex = (event) => this.setState({ activeIndex: Number(event.target.value) });
-
-    onChangeChart = (event) => this.setState({ selectedChart: event.target.value });
-
-    setDuplicateEntry = (stockName) => this.setState({ appMessages: stockName });
+    resetApplicationMessages = ()          => this.setState({ appMessages: "" });
+    setActiveIndex           = (event)     => this.setState({ activeIndex: Number(event.target.value) });
+    onChangeChart            = (event)     => this.setState({ selectedChart: event.target.value });
+    setDuplicateEntry        = (stockName) => this.setState({ appMessages: stockName });
 
     fetchStockMarketData = async (stockName) => {
         // indicate we are fetching data
