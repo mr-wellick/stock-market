@@ -16,18 +16,13 @@ import { AppNotifications }    from "./Components/";
 import "./app.scss";
 
 class App extends Component{
-    resetApplicationMessages = () => {
-        this.setState({
-            errors: "",
-            duplicateEntry: ""
-        });
-    }
+    resetApplicationMessages = () => this.setState({ appMessages: "" });
 
     setActiveIndex = (event) => this.setState({ activeIndex: Number(event.target.value) });
 
     onChangeChart = (event) => this.setState({ selectedChart: event.target.value });
 
-    setDuplicateEntry = (stockName) => this.setState({ duplicateEntry: stockName });
+    setDuplicateEntry = (stockName) => this.setState({ appMessages: stockName });
 
     fetchStockMarketData = async (stockName) => {
         // indicate we are fetching data
@@ -45,14 +40,13 @@ class App extends Component{
 
             this.setState({
                 stockMarketData: [...this.state.stockMarketData, singleStockData],
-                success: `Successfully retrieved: ${stockName}`,
                 isFetchingData: false
             });
         }
         catch(err){
             // unsucessful request
             this.setState({
-                errors: stockName,
+                appMessages: stockName,
                 isFetchingData: false
             });
         }
@@ -61,9 +55,7 @@ class App extends Component{
     state = {
         stockMarketData: [],
         activeIndex: 0,
-        errors: "",
-        success: "",
-        duplicateEntry: "",
+        appMessages: "",
         isFetchingData: false,
         fetchStockMarketData: this.fetchStockMarketData,
         setActiveIndex: this.setActiveIndex,

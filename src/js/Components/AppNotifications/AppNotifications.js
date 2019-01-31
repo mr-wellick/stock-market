@@ -12,9 +12,9 @@ class AppNotifications extends Component{
     static contextType = StockMarketConsumer;
 
     render(){
-        const userStockEntry = this.context.duplicateEntry || this.context.errors;
+        const { appMessages } = this.context;
 
-        if(!userStockEntry)
+        if(!appMessages)
             return null;
 
         return(
@@ -22,7 +22,7 @@ class AppNotifications extends Component{
                 <Card className="app-notifications__card">
                     <CardContent>
                         <Typography>
-                            {`The stock you entered, ${userStockEntry}, is incorrect or already in your list. Please, try again.`}
+                            {`The stock you entered, ${appMessages}, is incorrect or already in your list. Please try again.`}
                         </Typography>
                     </CardContent>
                     <CardActions>
