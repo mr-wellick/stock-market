@@ -29,7 +29,6 @@ class HistoricalChart extends Component{
     render(){
         let { width, height, padding } = this.props;
 
-        // empty array gets coerced into a falsy value.
         if(!this.props.stockData)
             return null;
 
