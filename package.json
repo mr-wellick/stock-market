@@ -58,7 +58,7 @@
         "lodash.includes": "^4.3.0",
         "lodash.uniq": "^4.5.0",
         "react": "^16.6.0",
-        "react-d3-ggplot": "^1.0.25",
+        "react-d3-ggplot": "^1.0.26",
         "react-dom": "^16.6.0"
     }
 }

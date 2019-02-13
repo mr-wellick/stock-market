@@ -7537,10 +7537,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-d3-ggplot@^1.0.25:
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.0.25.tgz#05b1ae3abcabbc5f17a8ab8397af7095c88a27c9"
-  integrity sha512-xPZ/JHawekSuxJLwL0Ebz0k9GPGIqAkVXNtqQd/GVEnz5Ah2hVC/9MC//taf/iVHrcEE6QMGomFc22dPpM+cMA==
+react-d3-ggplot@^1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.0.26.tgz#3e8244bf7f89fdcc6c5c4a4abe07343538fc7545"
+  integrity sha512-HdMq6bFmwcte/3ETKOek4i5bX+HKtCdYaVXfAnwnw/Gc09MbokVH91skeU4v7O4xLvcCHWdmoWzvUw64NoRrvg==
   dependencies:
     d3 "5.7.0"
     d3-svg-legend "^2.25.6"
