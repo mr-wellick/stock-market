@@ -1,20 +1,34 @@
 import React         from "react";
+import PropTypes     from "prop-types";
 import { Component } from "react";
+import AppBar        from "@material-ui/core/AppBar";
+import Toolbar       from "@material-ui/core/Toolbar";
+import IconButton    from "@material-ui/core/IconButton";
 import { Logo }      from "../Logo/";
-import "./navigation.scss";
+import "./style.scss";
 
 class Navigation extends Component{
+    static propTypes = {
+        children: PropTypes.any
+    }
+
     render(){
         return(
-            <header className="main-header">
-                <nav className="main-nav">
-                    <div className="main-nav__logo">
-                        <Logo/>
-                        <h1 className="main-title">Stocks</h1>
-                    </div>
-                    { this.props.children }
-                </nav>
-            </header>
+            <section className="search-section">
+                <AppBar position="fixed" color="default">
+
+                    <Toolbar className="search-container">
+                        <div className="search-brand">
+                            <IconButton>
+                                <Logo/>
+                            </IconButton>
+                        </div>
+
+                        { this.props.children }
+                    </Toolbar>
+
+                </AppBar>
+            </section>
         );
     }
 }

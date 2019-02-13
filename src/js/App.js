@@ -70,6 +70,7 @@ class App extends Component{
                         <InputStock/>
                     </Navigation>
 
+                    {/*
                     <AppNotifications/>
                     <StockMetrics/>
                     <section style={{ height: "80%" }}>
@@ -81,7 +82,6 @@ class App extends Component{
                         <ActiveChart/>
                         <StockDescription/>
                     </section>
-                    {/*
                     */}
                 </StockMarketProvider>
             </Fragment>

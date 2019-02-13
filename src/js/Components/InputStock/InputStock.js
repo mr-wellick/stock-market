@@ -1,8 +1,9 @@
 import React                   from "react";
 import { Component }           from "react";
+import TextField               from "@material-ui/core/TextField";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import includes                from "lodash.includes";
-import "./inputStock.scss";
+import "./style.scss";
 
 class InputStock extends Component{
     static contextType = StockMarketConsumer;
@@ -48,26 +49,22 @@ class InputStock extends Component{
     render(){
         return(
             <form onSubmit={ this.onSubmit } className="main-form">
-                <input
+                <TextField
                     type="text"
-                    placeholder="Enter Stock"
+                    placeholder="Search Stock"
                     id="user-input"
-                    required
-                    pattern="([A-Za-z]+)"
                     className="main-form__input"
+                    fullWidth={ true }
+                    variant="outlined"
+                    inputProps={{style: { padding: "10px", textAlign: "center" }, pattern: "([A-Za-z]+)"}}
+                    required={ true }
                 />
-                <button
-                    type="submit"
-                    className="main-form__btn"
-                >
-                Add
-                </button>
             </form>
         );
     }
 
     componentDidMount(){
-        this.context.fetchStockMarketData("TSLA");
+        //this.context.fetchStockMarketData("TSLA");
         //this.context.fetchStockMarketData("AAPL");
     }
 }

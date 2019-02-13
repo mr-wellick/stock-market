@@ -7,6 +7,7 @@ import { NoChartToShow } from "../NoChartToShow/";
 class BarPlot extends Component {
     formatData(){
         const { stockMarketData } = this.props;
+
         const formattedData = stockMarketData.map(item => ({
             symbol: item["quote"]["symbol"],
             marketCap: item["quote"]["marketCap"]
