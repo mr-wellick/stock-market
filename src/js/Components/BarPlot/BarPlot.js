@@ -31,7 +31,7 @@ class BarPlot extends Component {
                 aes={ ["symbol", "marketCap"] }
                 dimensions={ this.props.dimensions }
             >
-                <Rects/>
+                <Rects opacity="0.7"/>
             </GGPLOT>
         );
     }
