@@ -1,7 +1,7 @@
 import React                   from "react";
 import { Component }           from "react";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
-import "./stockMetrics.scss";
+import "./style.scss";
 
 class StockMetrics extends Component {
     static contextType = StockMarketConsumer;
@@ -14,24 +14,27 @@ class StockMetrics extends Component {
         const { quote }       = this.context.stockMarketData[activeIndex];
 
         return(
-            <div className="metrics-container">
+            <section className="metrics-container">
                 <div className="metrics-name__container">
-                    <h1 className="company-name">
-                        <b>{ quote["companyName"] }</b>
-                    </h1>
-                    &nbsp;
-                    <span>[{ quote["symbol"] }]</span>
+                    <p className="company-name">
+                        <span className="company-full-name">
+                            <b>{ `${quote["companyName"]}` }</b>&nbsp;&nbsp;
+                        </span>
+                        { `[${quote["symbol"]}]` }
+                    </p>
                 </div>
                 <div className="metrics-price__container">
-                    <h1 className="company-price">{ quote["close"] }</h1>
-                    &nbsp;
-                    <span
-                        className={ quote["changePercent"] > 0 ? "green" : "red"}
-                    >
-                        { `${quote["change"]} (${quote["changePercent"]})` }
-                    </span>
+                    <p>
+                        <span className="company-price">
+                            <b>{ quote["close"] }</b>
+                        </span>
+                        &nbsp;&nbsp;
+                        <span className={ quote["changePercent"] >= 0 ? "green" : "red"}>
+                            { `${quote["change"]} (${quote["changePercent"]})` }
+                        </span>
+                    </p>
                 </div>
-            </div>
+            </section>
         );
     }
 }

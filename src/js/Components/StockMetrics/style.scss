@@ -18,13 +18,13 @@
 .metrics-name__container,
 .metrics-price__container
 {
-    width: 92%;
+    width: 80%;
     margin: 0 auto;
 }
 
 .metrics-name__container
 {
-    margin-bottom: 6px;
+    margin-bottom: 15px;
 }
 
 
@@ -42,7 +42,7 @@
 
 .company-price
 {
-    display: inline-block;
+    font-size: 2rem;
 }
 
 .red
@@ -57,7 +57,7 @@
 
 @media screen and (max-width: 500px)
 {
-    .company-name
+    .company-full-name
     {
         display: none;
     }

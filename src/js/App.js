@@ -69,10 +69,9 @@ class App extends Component{
                     <Navigation>
                         <InputStock/>
                     </Navigation>
-
+                    <StockMetrics/>
                     {/*
                     <AppNotifications/>
-                    <StockMetrics/>
                     <section style={{ height: "80%" }}>
                         <Loader/>
                         <div className="chart-options__container">
