@@ -1,125 +1,45 @@
 import React             from "react";
-import PropTypes         from "prop-types";
 import { Component }     from "react";
-import { YGrid }         from "../YGrid/";
-import { XAxis }         from "../XAxis/";
-import { YAxis }         from "../YAxis/";
-import { Line }          from "../Line/";
+import { GGPLOT }        from "react-d3-ggplot";
+import { Line }         from "react-d3-ggplot";
 import { NoChartToShow } from "../NoChartToShow/";
-import { Labels }        from "../Labels/";
 
 class FinancialsChart extends Component{
-    static propTypes = {
-        stockData: PropTypes.object,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number
-    }
+    formatData(){
+        const { stockMarketData, activeIndex } = this.props;
+        const activeDataSet = stockMarketData[activeIndex]["financials"]["financials"]; // data formatted like this from API
 
-    formatData(objectKey1, objectKey2){
-        let { financials } = this.props.stockData.financials;
-        let data           = financials.map(item => ({
-            xValue: new Date(item[objectKey1]),
-            yValue: Number(item[objectKey2])
+        const formattedData = activeDataSet.map(item => ({
+            ...item,
+            reportDate: new Date(item.reportDate)
         }));
 
-        return data;
+        return formattedData;
     }
 
     render(){
-        let { width, height, padding } = this.props;
+        const { stockMarketData, activeIndex } = this.props;
 
-        // empty array gets coerced into a falsy value.
-        if(!this.props.stockData)
+        if(stockMarketData.length === 0)
             return null;
-        else if(!this.props.stockData["financials"]["financials"]) // data formatted like this from api call
+
+        // if no financials data, show message
+        if(!stockMarketData[activeIndex]["financials"]["financials"])
             return (
                 <NoChartToShow
-                    width={ width }
-                    height={ height }
+                    { ...this.props.dimensions }
                     message={ "Sorry! No financials available for this stock." }
                 />
             );
 
         return(
-            <svg width={ width } height={ height } className="financials">
-                <YGrid
-                    data={ this.formatData("reportDate", "netIncome") }
-                    scaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                <YAxis
-                    data={ this.formatData("reportDate", "netIncome") }
-                    scaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    formatType=".0s"
-                />
-                <XAxis
-                    data={ this.formatData("reportDate", "netIncome") }
-                    scaleType={ "time" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                <Line
-                    data={ this.formatData("reportDate", "netIncome") }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "orange" }
-                />
-                <Labels
-                    xLabel="Quarter"
-                    yLabel="Net Income"
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                {/*
-                <Line
-                    data={ this.formatData("reportDate", "totalRevenue") }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "red" }
-                />
-                <Line
-                    data={ this.formatData("reportDate", "researchAndDevelopment") }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "aqua" }
-                />
-                <Line
-                    data={ this.formatData("reportDate", "totalCash") }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "purple" }
-                />
-                <Line
-                    data={ this.formatData("reportDate", "totalDebt") }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "green" }
-                />
-                */}
-            </svg>
+            <GGPLOT
+                data={ this.formatData() }
+                aes={ ["reportDate", "netIncome"] }
+                dimensions={ this.props.dimensions }
+            >
+                <Line/>
+            </GGPLOT>
         );
     }
 }

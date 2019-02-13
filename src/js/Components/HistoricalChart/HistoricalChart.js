@@ -1,79 +1,38 @@
-import React            from "react";
-import PropTypes        from "prop-types";
-import { Component }    from "react";
-import { YGrid }        from "../YGrid/";
-import { XAxis }        from "../XAxis/";
-import { YAxis }        from "../YAxis/";
-import { Line }         from "../Line/";
-import { ChartToolTip } from "../ChartToolTip/";
-import "./historicalChart.scss";
+import React         from "react";
+import PropTypes     from "prop-types";
+import { Component } from "react";
+import { GGPLOT }    from "react-d3-ggplot";
+import { Line }      from "react-d3-ggplot";
 
 class HistoricalChart extends Component{
     static propTypes = {
-        stockData: PropTypes.object,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        padding: PropTypes.number
+        stockMarketData: PropTypes.array,
+        activeIndex: PropTypes.number,
+        dimensions: PropTypes.object
     }
 
     formatData(){
-        let { chart } = this.props.stockData;
-        let data      = chart.map(item => ({
-            xValue: new Date(item["date"]),
-            yValue: Number(item["close"])
+        const activeDataSet = this.props.stockMarketData[this.props.activeIndex]["chart"];
+        const formattedData = activeDataSet.map(item => ({
+            ...item,
+            date: new Date(item.date)
         }));
 
-        return data;
+        return formattedData;
     }
 
     render(){
-        let { width, height, padding } = this.props;
-
-        if(!this.props.stockData)
+        if(this.props.stockMarketData.length === 0)
             return null;
 
         return(
-            <svg width={ width } height={ height } className="stock-market-chart">
-                <YGrid
-                    data={ this.formatData() }
-                    scaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                <YAxis
-                    data={ this.formatData() }
-                    scaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                <XAxis
-                    data={ this.formatData() }
-                    scaleType={ "time" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                />
-                <Line
-                    data={ this.formatData() }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    color={ "orange" }
-                />
-                <ChartToolTip
-                    data={ this.formatData() }
-                    xScaleType={ "time" }
-                    yScaleType={ "linear" }
-                    width={ width }
-                    height={ height }
-                    padding={ padding }
-                    className="stock-market-chart"
-                />
-            </svg>
+            <GGPLOT
+                data={ this.formatData() }
+                aes={ ["date", "close"] }
+                dimensions={ this.props.dimensions }
+            >
+                <Line/>
+            </GGPLOT>
         );
     }
 }

@@ -12,7 +12,7 @@ import { ChartSelector }       from "./Components/";
 import { StockDescription }    from "./Components/";
 import { Loader }              from "./Components/";
 import { AppNotifications }    from "./Components/";
-//import { Footer }              from "./Components/";
+import { Footer }              from "./Components/";
 import "./app.scss";
 
 class App extends Component{
@@ -66,10 +66,11 @@ class App extends Component{
         return(
             <Fragment>
                 <StockMarketProvider value={ this.state }>
-                    <AppNotifications/>
                     <Navigation>
                         <InputStock/>
                     </Navigation>
+
+                    <AppNotifications/>
                     <StockMetrics/>
                     <section style={{ height: "80%" }}>
                         <Loader/>
@@ -80,6 +81,8 @@ class App extends Component{
                         <ActiveChart/>
                         <StockDescription/>
                     </section>
+                    {/*
+                    */}
                 </StockMarketProvider>
             </Fragment>
         );

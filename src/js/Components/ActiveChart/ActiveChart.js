@@ -1,32 +1,40 @@
 import React                   from "react";
 import { Component }           from "react";
-import { HistoricalChart }     from "../HistoricalChart/";
-import { Histogram }           from "../Histogram/";
-import { FinancialsChart }     from "../FinancialsChart/";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
+import { HistoricalChart }     from "../HistoricalChart/";
+import { BarPlot }             from "../BarPlot/";
+import { FinancialsChart }     from "../FinancialsChart/";
 
 class ActiveChart extends Component{
     static contextType = StockMarketConsumer;
 
     state = {
-        width: window.innerWidth*0.90,
-        height: window.innerHeight*0.70,
-        padding: 40
+        dimensions: {
+            width: window.innerWidth*0.90,
+            height: window.innerHeight*0.70,
+            padding: 40
+        }
     }
 
     handleChartResize = () => {
         if(window.innerWidth <= 600)
         {
             this.setState({
-                width: window.innerWidth,
-                height: window.innerHeight*0.70
+                dimensions: {
+                    ...this.state.dimensions,
+                    width: window.innerWidth,
+                    height: window.innerHeight*0.70
+                }
             });
         }
         else
         {
             this.setState({
-                width: window.innerWidth*0.90,
-                height: window.innerHeight*0.70
+                dimensions: {
+                    ...this.state.dimensions,
+                    width: window.innerWidth*0.90,
+                    height: window.innerHeight*0.70
+                }
             });
         }
     }
@@ -37,28 +45,22 @@ class ActiveChart extends Component{
             case "HistoricalChart":
                 return (
                     <HistoricalChart
-                        width={ this.state.width }
-                        height={ this.state.height }
-                        padding={ this.state.padding }
-                        stockData={ this.context.stockMarketData[this.context.activeIndex] }
+                        { ...this.state }
+                        { ...this.context }
                     />
                 );
             case "MarketCap":
                 return (
-                    <Histogram
-                        width={ this.state.width }
-                        height={ this.state.height }
-                        padding={ this.state.padding }
-                        stockData={ this.context.stockMarketData }
+                    <BarPlot
+                        { ...this.state }
+                        { ...this.context }
                     />
                 );
             case "Financials":
                 return (
                     <FinancialsChart
-                        width={ this.state.width }
-                        height={ this.state.height }
-                        padding={ this.state.padding }
-                        stockData={ this.context.stockMarketData[this.context.activeIndex] }
+                        { ...this.state }
+                        { ...this.context }
                     />
                 );
             default:
