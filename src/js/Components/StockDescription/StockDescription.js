@@ -1,7 +1,7 @@
 import React                   from "react";
 import { Component }           from "react";
 import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
-import "./stockDescription.scss";
+import "./style.scss";
 
 class StockDescription extends Component{
     static contextType = StockMarketConsumer;

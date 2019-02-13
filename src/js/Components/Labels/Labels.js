@@ -2,7 +2,7 @@ import React         from "react";
 import { Component } from "react";
 import PropTypes     from "prop-types";
 import { select }    from "d3-selection";
-import "./labels.scss";
+import "./style.scss";
 
 class Labels extends Component{
     static propTypes = {

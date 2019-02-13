@@ -5,7 +5,7 @@ import { bisector }    from "d3-array";
 import { mouse }       from "d3-selection";
 import { select }      from "d3-selection";
 import { scaleFinder } from "../../Utilities/";
-import "./chartToolTip.scss";
+import "./style.scss";
 
 class ChartToolTip extends Component{
     static propTypes = {
