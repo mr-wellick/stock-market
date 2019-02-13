@@ -10,14 +10,14 @@ class ActiveChart extends Component{
 
     state = {
         dimensions: {
-            width: window.innerWidth*0.90,
+            width: window.innerWidth <= 750 ? window.innerWidth : window.innerWidth*0.8,
             height: window.innerHeight*0.70,
             padding: 40
         }
     }
 
     handleChartResize = () => {
-        if(window.innerWidth <= 600)
+        if(window.innerWidth <= 750)
         {
             this.setState({
                 dimensions: {
@@ -32,7 +32,7 @@ class ActiveChart extends Component{
             this.setState({
                 dimensions: {
                     ...this.state.dimensions,
-                    width: window.innerWidth*0.90,
+                    width: window.innerWidth*0.80,
                     height: window.innerHeight*0.70
                 }
             });

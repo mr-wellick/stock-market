@@ -66,13 +66,12 @@ class App extends Component{
         return(
             <Fragment>
                 <StockMarketProvider value={ this.state }>
+                    <AppNotifications/>
                     <Navigation>
                         <InputStock/>
                     </Navigation>
                     <StockMetrics/>
-                    {/*
-                    <AppNotifications/>
-                    <section style={{ height: "80%" }}>
+                    <section className="main-content">
                         <Loader/>
                         <div className="chart-options__container">
                             <StockSelector/>
@@ -81,7 +80,6 @@ class App extends Component{
                         <ActiveChart/>
                         <StockDescription/>
                     </section>
-                    */}
                 </StockMarketProvider>
             </Fragment>
         );

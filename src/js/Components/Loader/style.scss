@@ -6,8 +6,8 @@ $animation-time: 1s;
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 92%;
-    height: 80%;
+    width: 80%;
+    height: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -54,7 +54,7 @@ $animation-time: 1s;
     100%{ opacity: 0; }
 }
 
-@media(max-width: 600px)
+@media(max-width: 750px)
 {
     .loader
     {
