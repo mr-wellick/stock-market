@@ -54,7 +54,6 @@
     "dependencies": {
         "@babel/runtime": "^7.1.5",
         "@material-ui/core": "^3.9.1",
-        "d3": "^5.7.0",
         "lodash.includes": "^4.3.0",
         "lodash.uniq": "^4.5.0",
         "react": "^16.6.0",
