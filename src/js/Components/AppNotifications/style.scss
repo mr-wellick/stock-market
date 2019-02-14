@@ -13,31 +13,10 @@
     align-items: center;
 }
 
-.app-notifications__card
-{
-    width: 90%;
-}
-
-@media screen and (min-width: 500px)
+@media screen and (max-width: 500px)
 {
     .app-notifications__card
     {
-        width: 80%;
-    }
-}
-
-@media screen and (min-width: 600px)
-{
-    .app-notifications__card
-    {
-        width: 70%;
-    }
-}
-
-@media screen and (min-width: 650px)
-{
-    .app-notifications__card
-    {
-        width: 45%;
+        width: 95%;
     }
 }

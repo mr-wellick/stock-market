@@ -34,7 +34,9 @@ class AppNotifications extends Component{
                 <Card className="app-notifications__card">
                     <CardContent>
                         <Typography>
-                            {`The stock you entered, ${appMessages}, is incorrect or already in your list. Please try again.`}
+                            The stock you entered, <b>{appMessages}</b>,
+                            is incorrect or already in your list.<br/>
+                            Please check your entry and try again.
                         </Typography>
                     </CardContent>
                     <CardActions>
