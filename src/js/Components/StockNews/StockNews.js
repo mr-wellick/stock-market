@@ -14,6 +14,9 @@ class StockNews extends Component{
         
         const { news } = stockMarketData[activeIndex];
 
+        if(news.length === 0)
+            return <h2>No News</h2>;
+
         return(
             <section className="news-section">
                 <div className="news-title__container">
