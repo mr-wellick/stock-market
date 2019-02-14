@@ -12,7 +12,8 @@ import { ChartSelector }       from "./Components/";
 import { StockDescription }    from "./Components/";
 import { Loader }              from "./Components/";
 import { AppNotifications }    from "./Components/";
-import { Footer }              from "./Components/";
+import { StockNews }           from "./Components/";
+//import { Footer }              from "./Components/";
 import "./app.scss";
 
 class App extends Component{
@@ -79,6 +80,7 @@ class App extends Component{
                         </div>
                         <ActiveChart/>
                         <StockDescription/>
+                        <StockNews/>
                     </section>
                 </StockMarketProvider>
             </Fragment>

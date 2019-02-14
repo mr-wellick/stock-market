@@ -2,8 +2,8 @@
 {
     background-color: white;
     font-family: "Noto Sans TC", sans-serif;
-    padding: 20px;
-    font-size: .875rem;
+    padding-top: 30px;
+    width: 90%;
     line-height: 1.25;
 }
 
@@ -14,47 +14,10 @@
     p { margin-bottom: 1rem; }
 }
 
-//.company-summary
-//{
-//    padding: 20px;
-//}
-//
-//.company-summary div
-//{
-//    width: 50%;
-//}
-//
-//.company-summary div h2
-//{
-//    padding-bottom: 10px;
-//}
-//
-//.company-summary div p
-//{
-//    line-height: 1.5;
-//}
-//
-//.company-details
-//{
-//    display: grid;
-//    grid-template-columns: 1fr 1fr;
-//    width: 50%;
-//    padding: 20px;
-//}
-//
-//.company-details div h3
-//{
-//    padding-bottom: 10px;
-//}
-//
-//.company-details div p
-//{
-//    padding-bottom: 10px;
-//}
-//
-//hr
-//{
-//    margin: 0;
-//    width: 50%;
-//    margin-left: 20px;
-//}
+@media screen and (min-width: 1300px)
+{
+    .company-description
+    {
+        width: 50%;
+    }
+}

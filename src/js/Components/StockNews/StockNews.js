@@ -1,43 +1,52 @@
-import React         from "react";
-import { Component } from "react";
-import PropTypes     from "prop-types";
+import React                   from "react";
+import { Component }           from "react";
+import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
 import "./style.scss";
 
 class StockNews extends Component{
-    static propTypes = {
-        stockData: PropTypes.object
-    }
+    static contextType = StockMarketConsumer;
 
     render(){
-        if(!this.props.stockData)
-            return null;
+        const { stockMarketData, activeIndex } = this.context;
 
-        let { news } = this.props.stockData;
+        if(stockMarketData.length === 0)
+            return null;
+        
+        const { news } = stockMarketData[activeIndex];
 
         return(
-            <div className="news-container">
-                <h2>News</h2>
+            <section className="news-section">
+                <div className="news-title__container">
+                    <h2 className="news-title">News</h2>
+                </div>
                 {
                     news.map( (item, index) =>
-                        <div key={ index } className="news-item">
-                            <div>
-                                <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href={ item["url"] }>
-                                    {
-                                        `${item["source"]}: ${ item["headline"] }`
-                                    }
-                                </a>
+                        <div key={ index } className="news-item__container">
+                            <div className="news-item__date-container">
+                                <p className="news-item__date">
+                                    { new Date(item["datetime"]).toDateString() } | {item["source"]} 
+                                </p>
                             </div>
-                            <div>
-                                <p>{ item["summary"] }</p>
-                                <p>{ item["datetime"] }</p>
+                            <div className="news-info__container">
+                                <p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={ item["url"] }
+                                        className="news-info__link"
+                                    >
+                                        <span className="news-title">
+                                            <b>{`${ item["headline"] }`}</b>
+                                        </span>
+                                        <br/>
+                                        { item["summary"] }
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     )
                 }
-            </div>
+            </section>
         );
     }
 }
