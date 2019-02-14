@@ -13,7 +13,7 @@ import { StockDescription }    from "./Components/";
 import { Loader }              from "./Components/";
 import { AppNotifications }    from "./Components/";
 import { StockNews }           from "./Components/";
-//import { Footer }              from "./Components/";
+import { Footer }              from "./Components/";
 import "./app.scss";
 
 class App extends Component{
@@ -72,7 +72,10 @@ class App extends Component{
                         <InputStock/>
                     </Navigation>
                     <StockMetrics/>
-                    <section className="main-content">
+                    <section
+                        className="main-content"
+                        id={ this.state.stockMarketData.length === 0 ? "fill-up" : "" }
+                        >
                         <Loader/>
                         <div className="chart-options__container">
                             <StockSelector/>
@@ -82,6 +85,7 @@ class App extends Component{
                         <StockDescription/>
                         <StockNews/>
                     </section>
+                    <Footer/>
                 </StockMarketProvider>
             </Fragment>
         );

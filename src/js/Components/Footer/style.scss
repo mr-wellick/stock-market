@@ -2,19 +2,33 @@
 {
     display: flex;
     align-items: center;
-    height: 56px;
+    height: 70px;
     background-color: #222;
     color: white;
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-.main-footer div
+.main-footer__container
 {
-    margin-left: 20px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .main-footer p a
 {
     color: orange;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 750px)
+{
+    .main-footer__container
+    {
+        width: 91%;
+    }
+
+    .dev-info
+    {
+        display: none;
+    }
 }

@@ -64,8 +64,8 @@ class InputStock extends Component{
     }
 
     componentDidMount(){
-        this.context.fetchStockMarketData("TSLA");
-        this.context.fetchStockMarketData("AAPL");
+        //this.context.fetchStockMarketData("TSLA");
+        //this.context.fetchStockMarketData("AAPL");
     }
 }
 
