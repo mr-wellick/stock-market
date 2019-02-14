@@ -15,7 +15,7 @@ class Navigation extends Component{
     render(){
         return(
             <section className="search-section">
-                <AppBar position="fixed" color="default" style={{ backgroundColor: "#fff" }}>
+                <AppBar position="fixed" color="default" style={{ backgroundColor: "#fff", zIndex: "0" }}>
 
                     <Toolbar className="search-container">
                         <div className="search-brand">

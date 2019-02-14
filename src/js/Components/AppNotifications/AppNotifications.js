@@ -11,7 +11,19 @@ import "./style.scss";
 class AppNotifications extends Component{
     static contextType = StockMarketConsumer;
 
+    restrictScrolling(){
+        const body = document.querySelector("body");
+
+        if(!body.className.includes("restrict-scrolling"))
+            body.className = "restrict-scrolling";
+        else
+            body.className = "";
+    }
+
     render(){
+        // can't get this to work in mounting/updating hooks
+        this.restrictScrolling();
+
         const { appMessages } = this.context;
 
         if(!appMessages)

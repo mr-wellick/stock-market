@@ -3,6 +3,11 @@ body
     background-color: rgba(187, 187, 187, 0.09);
 }
 
+.restrict-scrolling
+{
+    overflow: hidden;
+}
+
 .main-content
 {
     display: flex;
