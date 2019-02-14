@@ -15,11 +15,11 @@ class Navigation extends Component{
     render(){
         return(
             <section className="search-section">
-                <AppBar position="fixed" color="default">
+                <AppBar position="fixed" color="default" style={{ backgroundColor: "#fff" }}>
 
                     <Toolbar className="search-container">
                         <div className="search-brand">
-                            <IconButton>
+                            <IconButton style={{ paddingLeft: "0"}}>
                                 <Logo/>
                             </IconButton>
                         </div>
