@@ -1,9 +1,10 @@
+import "bulma/css/bulma.css";
+import "./app.scss";
 import React          from "react";
 import { Component }  from "react";
 import { Fragment }   from "react";
 import { hot }        from "react-hot-loader";
 import { Navigation } from "./Components/";
-import "./app.scss";
 
 // react-hot-loader complains when using plain functions
 class App extends Component{
