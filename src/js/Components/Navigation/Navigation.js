@@ -5,8 +5,8 @@ import "./style.scss";
 
 function Navigation() {
     return(
-        <section className="nav-container">
-            <nav className="navbar has-shadow">
+        <section>
+            <nav className="navbar has-shadow is-fixed-top">
                 <div className="navbar-brand">
                     <Logo className="navbar-item"/>
                 </div>
