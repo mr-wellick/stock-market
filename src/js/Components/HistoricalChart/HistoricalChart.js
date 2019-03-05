@@ -22,21 +22,18 @@ function HistoricalChart(props){
             }))
         : null;
 
+    if(!formatted)
+        return null;
+
     return(
         <div className="card chart-container">
-            {
-                formatted
-                ?
-                    <GGPLOT
-                        data={ formatted }
-                        aes={ ["date", "close"] }
-                        dimensions={ dimensions }
-                    >
-                        <Line/>
-                    </GGPLOT>
-                :
-                    <h1>No Chart</h1>
-            }
+            <GGPLOT
+                data={ formatted }
+                aes={ ["date", "close"] }
+                dimensions={ dimensions }
+            >
+                <Line color="orange"/>
+            </GGPLOT>
         </div>
     );
 }

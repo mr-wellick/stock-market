@@ -16,9 +16,9 @@ function Navigation() {
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
-                            <a className="button is-primary">
-                                Login
-                            </a>
+                            <span className="icon">
+                                <i className="fas fa-home fa-lg"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
