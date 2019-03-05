@@ -6,7 +6,7 @@ import "./style.scss";
 
 function FinancialsTable(props){
     return(
-        <div className="card">
+        <div className="card financials-table">
             {
                 props.data.length > 0
                 ?

@@ -5,6 +5,7 @@ import { hot }             from "react-hot-loader";
 import { Navigation }      from "./Components/";
 import { StockSelector }   from "./Components/";
 import { FinancialsTable } from "./Components/";
+import { HistoricalChart } from "./Components/";
 import "./app.scss";
 
 // react-hot-loader complains when using plain functions
@@ -19,6 +20,7 @@ class App extends Component {
                     </div>
                     <div className="home-data">
                         <FinancialsTable/>
+                        <HistoricalChart/>
                     </div>
                 </section>
             </Fragment>
