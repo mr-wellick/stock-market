@@ -11,8 +11,9 @@ function StockSelector(props){
     }
 
     function deleteStock(event){
-        props.setActiveIndex(0);
         props.deleteStock(event.target.dataset.symbol);
+        props.setActiveIndex(0); // when there's only one stock, we don't need to call this function
+
     }
 
     return(
