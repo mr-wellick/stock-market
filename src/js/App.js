@@ -14,7 +14,12 @@ class App extends Component {
             <Fragment>
                 <Navigation/>
                 <section className="home-content">
-                    <StockSelector/>
+                    <div className="home-sidebar">
+                        <StockSelector/>
+                    </div>
+                    <div className="home-data">
+                        test
+                    </div>
                 </section>
             </Fragment>
         );

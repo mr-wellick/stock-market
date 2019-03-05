@@ -1,32 +1,35 @@
-.active-stock__form
+.card
 {
-    display: flex;
+    margin: 10px;
 }
 
-.active-stock__container
+.active-form
 {
-    border: 1px solid rgba(204, 204, 204, 0.25);
-    margin: 0 2px;
+    padding: 10px;
+}
+
+.field-container
+{
     padding: 5px 0;
 }
 
-.active-stock__container label
+.field-container label
 {
     padding: 5px;
 }
 
-.active-stock__container [type=radio]
+.field-container [type=radio]
 {
     display: none;
 }
 
-.active-stock__container label:hover
+.field-container label:hover
 {
     cursor: pointer;
     background-color: rgba(34, 178, 199, 0.3);
 }
 
-.active-stock__container [type=radio]:checked ~ label
+.field-container [type=radio]:checked ~ label
 {
     background-color: rgb(34, 178, 199);
     color: white;

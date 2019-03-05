@@ -1,42 +1,18 @@
 body
 {
-    background-color: rgba(187, 187, 187, 0.09);
+    //background-color: rgba(187, 187, 187, 0.09);
 }
 
-.restrict-scrolling
+.home-sidebar
 {
-    overflow: hidden;
-}
-
-.main-content
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    width: 80%;
-    margin: 0 auto;
-    box-shadow: 0px 1px 10px 1px rgba(210, 210, 210, 0.15);
-}
-
-.chart-options__container
-{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 15px;
-    padding-bottom: 0;
-    width: 100%;
-}
-
-#fill-up
-{
+    position: fixed;
     height: 100vh;
+    width: 20%;
+    border-right: 1px solid rgba(204, 204, 204, 0.25);
 }
 
-@media screen and (max-width: 750px)
+.home-data
 {
-    .main-content
-    {
-        width: 100%;
-    }
+    width: 80%;
+    margin-left: auto;
 }
