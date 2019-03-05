@@ -15,6 +15,13 @@ function Navigation() {
                     <div className="navbar-start">
                         <InputStock className="navbar-item"/>
                     </div>
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <a className="button is-primary">
+                                Login
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </section>

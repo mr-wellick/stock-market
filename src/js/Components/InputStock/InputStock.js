@@ -1,12 +1,17 @@
-import React from "react";
+import React     from "react";
+import PropTypes from "prop-types";
 import "./style.scss";
 
-function InputStock(){
+function InputStock(props){
     return(
-        <form>
-            <input className="" type="search" />
+        <form className={ "input-form " + props.className }>
+            <input className="input is-small" type="search" />
         </form>
     );
 }
+
+InputStock.propTypes = {
+    className: PropTypes.string
+};
 
 export default InputStock;

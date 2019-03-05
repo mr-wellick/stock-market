@@ -1,14 +1,12 @@
-.search-container
+.navbar-start,
 {
-    display: flex;
-    margin: 0 auto;
-    width: 85%;
+    width: 50%;
 }
 
-@media screen and (max-width: 750px)
-{
-    .search-container
-    {
-        width: 100%;
-    }
-}
+//@media screen and (max-width: 750px)
+//{
+//    .search-container
+//    {
+//        width: 100%;
+//    }
+//}
