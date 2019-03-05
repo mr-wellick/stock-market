@@ -1,11 +1,11 @@
-import "bulma/css/bulma.css";
+import React               from "react";
+import { Component }       from "react";
+import { Fragment }        from "react";
+import { hot }             from "react-hot-loader";
+import { Navigation }      from "./Components/";
+import { StockSelector }   from "./Components/";
+import { FinancialsTable } from "./Components/";
 import "./app.scss";
-import React             from "react";
-import { Component }     from "react";
-import { Fragment }      from "react";
-import { hot }           from "react-hot-loader";
-import { Navigation }    from "./Components/";
-import { StockSelector } from "./Components/";
 
 // react-hot-loader complains when using plain functions
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
                         <StockSelector/>
                     </div>
                     <div className="home-data">
-                        test
+                        <FinancialsTable/>
                     </div>
                 </section>
             </Fragment>

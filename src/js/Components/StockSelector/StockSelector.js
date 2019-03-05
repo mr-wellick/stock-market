@@ -16,7 +16,7 @@ function StockSelector(props){
     }
 
     return(
-        <div className="card">
+        <div className="card stocks-list">
             <form className="active-form">
                 {
                     props.data.length > 0

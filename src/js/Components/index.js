@@ -1,2 +1,3 @@
-export { Navigation }       from "./Navigation";
-export { StockSelector }    from "./StockSelector/";
+export { Navigation }      from "./Navigation";
+export { StockSelector }   from "./StockSelector/";
+export { FinancialsTable } from "./FinancialsTable/";
