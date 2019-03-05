@@ -1,5 +1,4 @@
 import React          from "react";
-//import PropTypes      from "prop-types";
 import { Logo }       from "../Logo/";
 import { InputStock } from "../InputStock/";
 import "./style.scss";
@@ -7,7 +6,7 @@ import "./style.scss";
 function Navigation() {
     return(
         <section>
-            <nav className="navbar">
+            <nav className="navbar has-shadow">
                 <div className="navbar-brand">
                     <Logo className="navbar-item"/>
                 </div>
