@@ -2,11 +2,17 @@ import React              from "react";
 import PropTypes          from "prop-types";
 import { connect }        from "react-redux";
 import { setActiveIndex } from "../../Redux/";
+import { deleteStock }    from "../../Redux/";
 import "./style.scss";
 
 function StockSelector(props){
     function onChange(event){
         props.setActiveIndex(Number(event.target.value));
+    }
+
+    function deleteStock(event){
+        props.setActiveIndex(0);
+        props.deleteStock(event.target.dataset.symbol);
     }
 
     return(
@@ -17,7 +23,12 @@ function StockSelector(props){
                         ?
                         props.data.map( (item, index) => (
                             <div key={ index } className="toggler-container">
-                                <a className="delete is-small"></a>
+                                <a
+                                    className="delete is-small"
+                                    onClick={ deleteStock }
+                                    data-symbol={ item["company"]["symbol"] }
+                                >
+                                </a>
                                 <div className="field-container">
                                     <input
                                         type="radio"
@@ -46,9 +57,10 @@ function StockSelector(props){
 StockSelector.propTypes = {
     data: PropTypes.array,
     activeIndex: PropTypes.number,
-    setActiveIndex: PropTypes.func
+    setActiveIndex: PropTypes.func,
+    deleteStock: PropTypes.func
 };
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
-export default connect(mapStateToProps, { setActiveIndex })(StockSelector);
+export default connect(mapStateToProps, { setActiveIndex, deleteStock })(StockSelector);
