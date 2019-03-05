@@ -30,7 +30,7 @@ function StockSelector(props){
                                 </label>
                             </div>
                         ))
-                        : null
+                        : <h1 className="message">No Stocks</h1>
                 }
             </form>
         </div>
