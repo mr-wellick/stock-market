@@ -38,6 +38,7 @@
         "postcss-loader": "^3.0.0",
         "react-hot-loader": "^4.3.11",
         "react-test-renderer": "^16.4.2",
+        "redux-devtools-extension": "^2.13.8",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.0",
         "ts-jest": "^23.10.4",
@@ -58,6 +59,9 @@
         "lodash.uniq": "^4.5.0",
         "react": "^16.8.3",
         "react-d3-ggplot": "^1.0.26",
-        "react-dom": "^16.8.3"
+        "react-dom": "^16.8.3",
+        "react-redux": "^6.0.1",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0"
     }
 }
