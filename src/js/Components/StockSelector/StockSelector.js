@@ -16,18 +16,24 @@ function StockSelector(props){
                     props.data.length > 0
                         ?
                         props.data.map( (item, index) => (
-                            <div key={ index } className="field-container">
-                                <input
-                                    type="radio"
-                                    id={ item["company"]["symbol"] }
-                                    name="active-stock"
-                                    value={ index }
-                                    checked={ props.activeIndex === index }
-                                    onChange={ onChange }
-                                />
-                                <label htmlFor={ item["company"]["symbol"] }>
-                                    { item["company"]["symbol"] }
-                                </label>
+                            <div key={ index } className="toggler-container">
+                                <a className="delete is-small"></a>
+                                <div className="field-container">
+                                    <input
+                                        type="radio"
+                                        id={ item["company"]["symbol"] }
+                                        name="active-stock"
+                                        value={ index }
+                                        checked={ props.activeIndex === index }
+                                        onChange={ onChange }
+                                    />
+                                    <label htmlFor={ item["company"]["symbol"] }>
+                                        { item["company"]["symbol"] }
+                                    </label>
+                                    <div>
+                                        { item["quote"]["close"] }
+                                    </div>
+                                </div>
                             </div>
                         ))
                         : <h1 className="message">No Stocks</h1>

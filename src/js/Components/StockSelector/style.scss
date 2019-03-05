@@ -6,6 +6,25 @@
     overflow: scroll;
 }
 
+.delete
+{
+    margin-right: 10px;
+}
+
+.field-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.toggler-container
+{
+    display: flex;
+    align-items: center;
+}
+
 .message
 {
     padding: 5px 0;
@@ -17,28 +36,28 @@
     padding: 10px;
 }
 
-.field-container
+.toggler-container
 {
     padding: 5px 0;
 }
 
-.field-container label
+.toggler-container label
 {
     padding: 5px;
 }
 
-.field-container [type=radio]
+.toggler-container [type=radio]
 {
     display: none;
 }
 
-.field-container label:hover
+.toggler-container label:hover
 {
     cursor: pointer;
     background-color: rgba(34, 178, 199, 0.3);
 }
 
-.field-container [type=radio]:checked ~ label
+.toggler-container [type=radio]:checked ~ label
 {
     background-color: rgb(34, 178, 199);
     color: white;
