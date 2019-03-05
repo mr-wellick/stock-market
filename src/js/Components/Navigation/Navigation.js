@@ -5,7 +5,7 @@ import "./style.scss";
 
 function Navigation() {
     return(
-        <section>
+        <section className="nav-container">
             <nav className="navbar has-shadow">
                 <div className="navbar-brand">
                     <Logo className="navbar-item"/>

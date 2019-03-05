@@ -3,6 +3,11 @@ body
     //background-color: rgba(187, 187, 187, 0.09);
 }
 
+.home-container
+{
+    margin-top: 52px;
+}
+
 .home-sidebar
 {
     position: fixed;
@@ -11,7 +16,7 @@ body
     border-right: 1px solid rgba(204, 204, 204, 0.25);
 }
 
-.home-data
+.home-content
 {
     width: 80%;
     margin-left: auto;

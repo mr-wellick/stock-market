@@ -4,11 +4,12 @@ import PropTypes    from "prop-types";
 import { connect }  from "react-redux";
 import { GGPLOT }   from "react-d3-ggplot";
 import { Line }     from "react-d3-ggplot";
+import "./style.scss";
 
 function HistoricalChart(props){
     const [dimensions, setDimensions] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window.innerWidth*0.7,
+        height: window.innerHeight*0.8,
         padding: 50
     });
 
@@ -22,7 +23,7 @@ function HistoricalChart(props){
         : null;
 
     return(
-        <div className="card">
+        <div className="card chart-container">
             {
                 formatted
                 ?
@@ -31,6 +32,7 @@ function HistoricalChart(props){
                         aes={ ["date", "close"] }
                         dimensions={ dimensions }
                     >
+                        <Line/>
                     </GGPLOT>
                 :
                     <h1>No Chart</h1>

@@ -14,11 +14,11 @@ class App extends Component {
         return(
             <Fragment>
                 <Navigation/>
-                <section className="home-content">
+                <section className="home-container">
                     <div className="home-sidebar">
                         <StockSelector/>
                     </div>
-                    <div className="home-data">
+                    <div className="home-content">
                         <FinancialsTable/>
                         <HistoricalChart/>
                     </div>
