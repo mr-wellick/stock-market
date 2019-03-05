@@ -1,37 +1,34 @@
-import React                   from "react";
-import { Component }           from "react";
-import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
+import React       from "react";
+import { connect } from "react-redux";
 import "./style.scss";
 
-class StockSelector extends Component{
-    static contextType = StockMarketConsumer;
-
-    render(){
-        const { stockMarketData, activeIndex } = this.context;
-
-        return(
-            stockMarketData.length === 0 ? null :
-                <form className="active-stock__form">
-                {
-                    stockMarketData.map( (item, index) => (
+function StockSelector(props){
+    return(
+        <form className="active-stock__form">
+        {
+            props.data.length > 0
+                ?
+                    props.data.map( (item, index) => (
                         <div key={ index } className="active-stock__container">
                             <input
                                 type="radio"
                                 id={ item["company"]["symbol"] }
                                 name="active-stock"
                                 value={ index }
-                                checked={ activeIndex === index }
-                                onChange={ this.context.setActiveIndex }
+                                checked={ props.activeIndex === index }
+                                onChange={ null }
                             />
                             <label htmlFor={ item["company"]["symbol"] }>
                                 { item["company"]["symbol"] }
                             </label>
                         </div>
                     ))
-                }
-                </form>
-        );
-    }
+                : null
+        }
+        </form>
+    );
 }
 
-export default StockSelector;
+const mapStateToProps = state => ({ ...state.iexDataReducer });
+
+export default connect(mapStateToProps, null)(StockSelector);
