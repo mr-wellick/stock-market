@@ -1,7 +1,10 @@
 import { IS_FETCHING }    from "../Constants/";
 import { FETCH_IEX_DATA } from "../Constants/";
 
-function iexDataReducer(state = { data: [], isFetching: false }, action){
+function iexDataReducer(
+    state = { data: [], isFetching: false, activeIndex: 0 },
+    action
+){
     switch(action.type)
     {
         case IS_FETCHING:
