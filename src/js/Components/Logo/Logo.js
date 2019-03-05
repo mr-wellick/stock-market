@@ -1,17 +1,20 @@
-import React from "react";
+import React     from "react";
+import PropTypes from "prop-types";
 import "./style.scss";
 
-const Logo = () => {
+const Logo = (props) => {
     return(
-        <div className="app-logo__positioning">
-            <a className="app-logo__container" href="https://ll2nz.github.io/securities-app/">
-                <div className="app-logo__block1"></div>
-                <div className="app-logo__block2"></div>
-                <div className="app-logo__block3"></div>
-                <div className="app-logo__block4"></div>
-            </a>
+        <div className={ "logo " + props.className }>
+            <div className="logo-block-1"></div>
+            <div className="logo-block-2"></div>
+            <div className="logo-block-3"></div>
+            <div className="logo-block-4"></div>
         </div>
     );
+};
+
+Logo.propTypes = {
+    className: PropTypes.string
 };
 
 export default Logo;

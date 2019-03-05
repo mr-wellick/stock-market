@@ -8,8 +8,14 @@ function Navigation() {
     return(
         <section>
             <nav className="navbar">
-                <Logo/>
-                <InputStock/>
+                <div className="navbar-brand">
+                    <Logo className="navbar-item"/>
+                </div>
+                <div className="navbar-menu">
+                    <div className="navbar-start">
+                        <InputStock className="navbar-item"/>
+                    </div>
+                </div>
             </nav>
         </section>
     );

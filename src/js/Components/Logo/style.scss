@@ -1,36 +1,35 @@
-.app-logo__container
+.logo
 {
     display: grid;
-    grid-template-columns: 15px 15px;
-    grid-column-gap: 1px;
-    grid-row-gap: 1px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 3px;
 }
 
-.app-logo__block1,
-.app-logo__block2,
-.app-logo__block3,
-.app-logo__block4
+.logo-block-1,
+.logo-block-2,
+.logo-block-3,
+.logo-block-4
 {
     height: 15px;
     width: 15px;
 }
 
-.app-logo__block1
+.logo-block-1
 {
     background-color: rgb(34, 178, 199);
 }
 
-.app-logo__block2
+.logo-block-2
 {
     background-color: rgb(221, 164, 167);
 }
 
-.app-logo__block3
+.logo-block-3
 {
     background-color: rgb(162, 173, 102);
 }
 
-.app-logo__block4
+.logo-block-4
 {
     background-color: rgb(0, 0, 0);
 }
