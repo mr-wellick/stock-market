@@ -55,8 +55,6 @@
     "dependencies": {
         "@babel/runtime": "^7.1.5",
         "bulma": "^0.7.4",
-        "lodash.includes": "^4.3.0",
-        "lodash.uniq": "^4.5.0",
         "react": "^16.8.3",
         "react-d3-ggplot": "^1.0.26",
         "react-dom": "^16.8.3",
