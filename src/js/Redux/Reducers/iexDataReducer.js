@@ -1,5 +1,6 @@
-import { IS_FETCHING }    from "../Constants/";
-import { FETCH_IEX_DATA } from "../Constants/";
+import { IS_FETCHING }      from "../Constants/";
+import { FETCH_IEX_DATA }   from "../Constants/";
+import { SET_ACTIVE_INDEX } from "../Constants/";
 
 function iexDataReducer(
     state = { data: [], isFetching: false, activeIndex: 0 },
@@ -16,6 +17,11 @@ function iexDataReducer(
             return {
                 ...state,
                 data: [...state.data, action.data]
+            };
+        case SET_ACTIVE_INDEX:
+            return {
+                ...state,
+                activeIndex: action.activeIndex
             };
         default:
             return state;

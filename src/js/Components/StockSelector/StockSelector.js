@@ -1,8 +1,14 @@
-import React       from "react";
-import { connect } from "react-redux";
+import React              from "react";
+import PropTypes          from "prop-types";
+import { connect }        from "react-redux";
+import { setActiveIndex } from "../../Redux/";
 import "./style.scss";
 
 function StockSelector(props){
+    function onChange(event){
+        props.setActiveIndex(Number(event.target.value));
+    }
+
     return(
         <form className="active-stock__form">
         {
@@ -16,7 +22,7 @@ function StockSelector(props){
                                 name="active-stock"
                                 value={ index }
                                 checked={ props.activeIndex === index }
-                                onChange={ null }
+                                onChange={ onChange }
                             />
                             <label htmlFor={ item["company"]["symbol"] }>
                                 { item["company"]["symbol"] }
@@ -29,6 +35,12 @@ function StockSelector(props){
     );
 }
 
+StockSelector.propTypes = {
+    data: PropTypes.array,
+    activeIndex: PropTypes.number,
+    setActiveIndex: PropTypes.func
+};
+
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
-export default connect(mapStateToProps, null)(StockSelector);
+export default connect(mapStateToProps, { setActiveIndex })(StockSelector);
