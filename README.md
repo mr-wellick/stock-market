@@ -1,5 +1,5 @@
 # Securities App
-+ A prototype of stock-market data dashboard
++ A prototype of a stock-market data dashboard
 
 # Demo (latest iteration)
 ![nothing-to-show](./demos/new-demo.gif)
