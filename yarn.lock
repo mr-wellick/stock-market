@@ -2202,6 +2202,11 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+css-cleanup-webpack-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/css-cleanup-webpack-plugin/-/css-cleanup-webpack-plugin-1.0.2.tgz#1c7a49100d58469c50f2446c948040f0a0621dc6"
+  integrity sha512-RkhkpGqrwc/xqxqpLmEq4mx2xc26Cf6d+P1D8cvIHCoKmmB1td05iSZjfF5W031V2cANruzXQBKOjVkjqzpX4g==
+
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -7419,6 +7424,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rm-unused-css@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/rm-unused-css/-/rm-unused-css-1.1.13.tgz#a5e48514be0d35c318ae1baeb938678d4e9d8f8f"
+  integrity sha512-tpQjml+fo0Vrq5jO0fAXL09OBWAmKhouhq0DNFVgLqMijIPLB6QMWhPQK3jjjudCzTBMjh/LEGGSPhtljMedmg==
 
 rsvp@^3.3.3:
   version "3.6.2"

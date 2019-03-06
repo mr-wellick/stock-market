@@ -5,10 +5,16 @@ import { hot }              from "react-hot-loader";
 import { Navigation }       from "./Components/";
 import { StockSelector }    from "./Components/";
 import { FinancialsTable }  from "./Components/";
-import { ChartSelector }    from "./Components/";
-import { StockDescription } from "./Components/";
-import { StockNews }        from "./Components/";
+//import { ChartSelector }    from "./Components/";
+//import { StockDescription } from "./Components/";
+//import { StockNews }        from "./Components/";
+import { lazy }             from "react";
+import { Suspense }         from "react";
 import "./app.scss";
+
+const ChartSelector    = lazy(() => import("./Components/ChartSelector/ChartSelector.js"));
+const StockDescription = lazy(() => import("./Components/StockDescription/StockDescription.js"));
+const StockNews        = lazy(() => import("./Components/StockNews/StockNews.js"));
 
 // react-hot-loader complains when using plain functions
 class App extends Component {
@@ -21,10 +27,12 @@ class App extends Component {
                         <StockSelector/>
                     </div>
                     <div className="home-content">
-                        <FinancialsTable/>
-                        <ChartSelector/>
-                        <StockDescription/>
-                        <StockNews/>
+                        <Suspense fallback={ <h1>Loading...</h1> }>
+                            <FinancialsTable/>
+                            <ChartSelector/>
+                            <StockDescription/>
+                            <StockNews/>
+                        </Suspense>
                     </div>
                 </section>
             </Fragment>

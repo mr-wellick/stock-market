@@ -1,12 +1,12 @@
-import React               from "react";
-import { useState }        from "react";
-import PropTypes           from "prop-types";
-import { HistoricalChart } from "../HistoricalChart/";
-import { connect }         from "react-redux";
-import { Suspense }        from "react";
-import { lazy }            from "react";
+import React        from "react";
+import { useState } from "react";
+import PropTypes    from "prop-types";
+import { connect }  from "react-redux";
+import { Suspense } from "react";
+import { lazy }     from "react";
 import "./style.scss";
 
+const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
 const MarketCaps      = lazy(() => import("../MarketCaps/MarketCaps.js"));
 const FinancialsChart = lazy(() => import("../FinancialsChart/FinancialsChart.js"));
 
@@ -42,12 +42,7 @@ function ChartSelector(props){
             <div className="card chart-container">
                 <Suspense fallback={<div>Loading...</div>}>
                     { chart === "historical" ? <HistoricalChart dimensions={ dimensions }/> : null }
-                    {
-                        chart === "marketCaps"
-                            ?
-                                <MarketCaps dimensions={ dimensions }/>
-                            : null
-                    }
+                    { chart === "marketCaps" ? <MarketCaps dimensions={ dimensions }/>      : null }
                     { chart === "financials" ? <FinancialsChart dimensions={ dimensions }/> : null }
                 </Suspense>
             </div>
