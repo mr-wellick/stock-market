@@ -20,6 +20,7 @@ const fetchIEXData = function(stockName) {
         catch(err)
         {
             console.error(err);
+            alert("Entered incorrect stock");
         }
 
         // end request

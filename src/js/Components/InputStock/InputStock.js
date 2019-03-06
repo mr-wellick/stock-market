@@ -21,14 +21,14 @@ function InputStock(props){
         );
 
         if(duplicateEntry.length > 0)
-            console.log(`${validInput} is already in your list.`);
+            alert(`${validInput} is already in your list.`);
         else
         {
             // fetch stock market data from iex api
             if(validInput)
                 props.fetchIEXData(input);
             else
-                console.log("Invalid input.");
+                alert("Invalid input.");
         }
 
     }
@@ -42,6 +42,7 @@ function InputStock(props){
                 className="input is-small"
                 type="search"
                 onChange={ (event) => setInput(event.target.value) }
+                required
             />
         </form>
     );
