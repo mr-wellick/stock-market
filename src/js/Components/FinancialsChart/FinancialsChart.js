@@ -23,6 +23,7 @@ function FinancialsChart(props){
             data={ formatted }
             aes={ ["date", "netIncome"] }
             dimensions={ props.dimensions }
+            y_lab={ ".2s" }
         >
             <Line color="crimson"/>
         </GGPLOT>
