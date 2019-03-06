@@ -1,27 +1,40 @@
-import React                   from "react";
-import { Component }           from "react";
-import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
+import React       from "react";
+import PropTypes   from "prop-types";
+import { connect } from "react-redux";
 import "./style.scss";
 
-class StockDescription extends Component{
-    static contextType = StockMarketConsumer;
+function StockDescription(props){
+    const { data, activeIndex } = props;
 
-    render(){
-        if(this.context.stockMarketData.length === 0)
-            return null;
+    if(data.length === 0)
+        return null;
 
-        const { activeIndex }       = this.context;
-        const { company, relevant } = this.context.stockMarketData[activeIndex];
-
-        return(
-            <div className="stock-description__container">
-                <div className="company-description">
-                    <h2>Description</h2>
-                    <p>{ company["description"] }</p>
-                </div>
+    return(
+        <div className="card">
+            <div className="card-header">
+                <p className="card-header-title company-info">
+                    <span className="company-name">
+                        { data[activeIndex].company.companyName }
+                    </span>
+                    <span className="company-ceo">
+                        CEO: { data[activeIndex].company.CEO ? data[activeIndex].company.CEO : "No CEO" }
+                    </span>
+                </p>
             </div>
-        );
-    }
+            <div className="card-content">
+                <p className="content">
+                    { data[activeIndex].company.description }
+                </p>
+            </div>
+        </div>
+    );
 }
 
-export default StockDescription;
+StockDescription.propTypes = {
+    data: PropTypes.array,
+    activeIndex: PropTypes.number
+};
+
+const mapStateToProps = state => ({ ...state.iexDataReducer });
+
+export default connect(mapStateToProps, null)(StockDescription);

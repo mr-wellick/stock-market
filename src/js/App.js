@@ -1,11 +1,12 @@
-import React               from "react";
-import { Component }       from "react";
-import { Fragment }        from "react";
-import { hot }             from "react-hot-loader";
-import { Navigation }      from "./Components/";
-import { StockSelector }   from "./Components/";
-import { FinancialsTable } from "./Components/";
-import { HistoricalChart } from "./Components/";
+import React                from "react";
+import { Component }        from "react";
+import { Fragment }         from "react";
+import { hot }              from "react-hot-loader";
+import { Navigation }       from "./Components/";
+import { StockSelector }    from "./Components/";
+import { FinancialsTable }  from "./Components/";
+import { HistoricalChart }  from "./Components/";
+import { StockDescription } from "./Components/";
 import "./app.scss";
 
 // react-hot-loader complains when using plain functions
@@ -21,6 +22,7 @@ class App extends Component {
                     <div className="home-content">
                         <FinancialsTable/>
                         <HistoricalChart/>
+                        <StockDescription/>
                     </div>
                 </section>
             </Fragment>
