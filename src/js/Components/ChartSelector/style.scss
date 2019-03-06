@@ -1,0 +1,39 @@
+.chart-container
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.chart-selector-card
+{
+    padding: 1px;
+}
+
+.chart-selector-container
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px;
+}
+
+.field-chart [type=radio]
+{
+    display: none;
+}
+
+.field-chart [type=radio]:checked ~ label
+{
+    background-color: #22b2c7;
+    color: #fff;
+}
+
+.field-chart label
+{
+    padding: 5px 10px;
+}
+
+.field-chart label:hover
+{
+    cursor: pointer;
+}

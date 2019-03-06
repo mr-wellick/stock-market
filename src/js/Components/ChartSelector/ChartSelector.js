@@ -3,6 +3,7 @@ import { useState }        from "react";
 import PropTypes           from "prop-types";
 import { HistoricalChart } from "../HistoricalChart/";
 import { MarketCaps }      from "../MarketCaps/";
+import { FinancialsChart } from "../FinancialsChart/";
 import { connect }         from "react-redux";
 import "./style.scss";
 
@@ -19,23 +20,27 @@ function ChartSelector(props){
 
     return(
         <div>
-            <form>
-                <div>
-                    <input type="radio" id="historical" name="active-chart" onChange={ event => setChart(event.target.id) } defaultChecked/>
-                    <label htmlFor="historical">Historical</label>
-                </div>
-                <div>
-                    <input type="radio" id="marketCaps" name="active-chart" onChange={ event => setChart(event.target.id) }/>
-                    <label htmlFor="marketCaps">Market Cap</label>
-                </div>
-                <div>
-                    <input type="radio" id="financials" name="active-chart" onChange={ event => setChart(event.target.id) }/>
-                    <label htmlFor="financials">Historical</label>
-                </div>
-            </form>
-            { chart === "historical" ? <HistoricalChart dimensions={ dimensions }/> : null }
-            { chart === "marketCaps" ? <MarketCaps dimensions={ dimensions }/>      : null }
-            { chart === "financials" ? <FinancialsChart dimensions={ dimensions }/> : null }
+            <div className="card chart-selector-card">
+                <form className="chart-selector-container">
+                    <div className="field-chart">
+                        <input type="radio" id="historical" name="active-chart" onChange={ event => setChart(event.target.id) } defaultChecked/>
+                        <label htmlFor="historical">Historical</label>
+                    </div>
+                    <div className="field-chart">
+                        <input type="radio" id="marketCaps" name="active-chart" onChange={ event => setChart(event.target.id) }/>
+                        <label htmlFor="marketCaps">Market Cap</label>
+                    </div>
+                    <div className="field-chart">
+                        <input type="radio" id="financials" name="active-chart" onChange={ event => setChart(event.target.id) }/>
+                        <label htmlFor="financials">Financials</label>
+                    </div>
+                </form>
+            </div>
+            <div className="card chart-container">
+                { chart === "historical" ? <HistoricalChart dimensions={ dimensions }/> : null }
+                { chart === "marketCaps" ? <MarketCaps dimensions={ dimensions }/>      : null }
+                { chart === "financials" ? <FinancialsChart dimensions={ dimensions }/> : null }
+            </div>
         </div>
     );
 }

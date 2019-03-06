@@ -3,7 +3,6 @@ import PropTypes   from "prop-types";
 import { connect } from "react-redux";
 import { GGPLOT }  from "react-d3-ggplot";
 import { Line }    from "react-d3-ggplot";
-import "./style.scss";
 
 function HistoricalChart(props){
     // format data
@@ -19,15 +18,13 @@ function HistoricalChart(props){
         return null;
 
     return(
-        <div className="card chart-container">
-            <GGPLOT
-                data={ formatted }
-                aes={ ["date", "close"] }
-                dimensions={ props.dimensions }
-            >
-                <Line color="orange"/>
-            </GGPLOT>
-        </div>
+        <GGPLOT
+            data={ formatted }
+            aes={ ["date", "close"] }
+            dimensions={ props.dimensions }
+        >
+            <Line color="orange"/>
+        </GGPLOT>
     );
 }
 
