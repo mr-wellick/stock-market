@@ -26,7 +26,7 @@ function MarketCaps(props){
             aes={ ["symbol", "marketCap"] }
             dimensions={ props.dimensions }
         >
-            <Rects/>
+            <Rects color="#22b2c7" opacity="0.5"/>
         </GGPLOT>
     );
 }

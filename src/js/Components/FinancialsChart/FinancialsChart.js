@@ -24,7 +24,7 @@ function FinancialsChart(props){
             aes={ ["date", "netIncome"] }
             dimensions={ props.dimensions }
         >
-            <Line/>
+            <Line color="crimson"/>
         </GGPLOT>
     );
 }
