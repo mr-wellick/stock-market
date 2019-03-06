@@ -1,57 +1,50 @@
-import React                   from "react";
-import { Component }           from "react";
-import { StockMarketConsumer } from "../../Context/stockMarketContext.js";
+import React       from "react";
+import PropTypes   from "prop-types";
+import { connect } from "react-redux";
 import "./style.scss";
 
-class StockNews extends Component{
-    static contextType = StockMarketConsumer;
+function StockNews(props){
+    const { data, activeIndex } = props;
 
-    render(){
-        const { stockMarketData, activeIndex } = this.context;
+    if(data.length === 0)
+        return null;
 
-        if(stockMarketData.length === 0)
-            return null;
-        
-        const { news } = stockMarketData[activeIndex];
-
-        if(news.length === 0)
-            return <h2>No News</h2>;
-
-        return(
-            <section className="news-section">
-                <div className="news-title__container">
-                    <h2 className="news-title">News</h2>
+    return(
+        data[activeIndex].news.map((item, index) =>
+            <div className="card news-container" key={ index }>
+                <div className="card-header">
+                    <p className="card-header-title news-date">
+                        <span>{ item.source }</span>
+                        <span>{ new Date(item.datetime).toLocaleString() }</span>
+                    </p>
                 </div>
-                {
-                    news.map( (item, index) =>
-                        <div key={ index } className="news-item__container">
-                            <div className="news-item__date-container">
-                                <p className="news-item__date">
-                                    { new Date(item["datetime"]).toDateString() } | {item["source"]} 
-                                </p>
-                            </div>
-                            <div className="news-info__container">
-                                <p>
-                                    <a
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href={ item["url"] }
-                                        className="news-info__link"
-                                    >
-                                        <span className="news-title">
-                                            <b>{`${ item["headline"] }`}</b>
-                                        </span>
-                                        <br/>
-                                        { item["summary"] }
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    )
-                }
-            </section>
-        );
-    }
+                <div className="card-content">
+                    <div className="content">
+                        <a
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href={ item.url }
+                            className="news-link"
+                        >
+                            <span className="news-description">
+                                { item.headline }
+                            </span>
+                            <span className="news-summary">
+                                { item.summary }
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        )
+    );
 }
 
-export default StockNews;
+StockNews.propTypes = {
+    data: PropTypes.array,
+    activeIndex: PropTypes.number
+};
+
+const mapStateToProps = state => ({ ...state.iexDataReducer });
+
+export default connect(mapStateToProps, null)(StockNews);

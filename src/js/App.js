@@ -7,6 +7,7 @@ import { StockSelector }    from "./Components/";
 import { FinancialsTable }  from "./Components/";
 import { HistoricalChart }  from "./Components/";
 import { StockDescription } from "./Components/";
+import { StockNews }        from "./Components/";
 import "./app.scss";
 
 // react-hot-loader complains when using plain functions
@@ -23,6 +24,7 @@ class App extends Component {
                         <FinancialsTable/>
                         <HistoricalChart/>
                         <StockDescription/>
+                        <StockNews/>
                     </div>
                 </section>
             </Fragment>

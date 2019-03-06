@@ -10,7 +10,7 @@ function StockDescription(props){
         return null;
 
     return(
-        <div className="card">
+        <div className="card company-info-container">
             <div className="card-header">
                 <p className="card-header-title company-info">
                     <span className="company-name">
