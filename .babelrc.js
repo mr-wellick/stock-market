@@ -5,7 +5,7 @@ module.exports = {
     [
         "@babel/plugin-proposal-class-properties",
         //"react-hot-loader/babel",
-        //"@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-runtime"
     ]
 }
