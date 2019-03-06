@@ -1,5 +1,6 @@
 import React            from "react";
 import { useState }     from "react";
+import { useEffect }    from "react";
 import PropTypes        from "prop-types";
 import { connect }      from "react-redux";
 import { fetchIEXData } from "../../Redux/";
@@ -32,6 +33,10 @@ function InputStock(props){
         }
 
     }
+
+    useEffect(() => {
+        props.fetchIEXData("tsla");
+    }, []);
 
     return(
         <form
