@@ -5,7 +5,7 @@ import { hot }              from "react-hot-loader";
 import { Navigation }       from "./Components/";
 import { StockSelector }    from "./Components/";
 import { FinancialsTable }  from "./Components/";
-import { HistoricalChart }  from "./Components/";
+import { ChartSelector }    from "./Components/";
 import { StockDescription } from "./Components/";
 import { StockNews }        from "./Components/";
 import "./app.scss";
@@ -22,7 +22,7 @@ class App extends Component {
                     </div>
                     <div className="home-content">
                         <FinancialsTable/>
-                        <HistoricalChart/>
+                        <ChartSelector/>
                         <StockDescription/>
                         <StockNews/>
                     </div>
