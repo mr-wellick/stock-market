@@ -1,9 +1,11 @@
-let path               = require("path");
-let webpack            = require("webpack");
-let merge              = require("webpack-merge");
-let template           = require("html-webpack-plugin");
-let cleanBuildDir      = require("clean-webpack-plugin");
-const CssCleanupPlugin = require('css-cleanup-webpack-plugin');
+let path             = require("path");
+let webpack          = require("webpack");
+let merge            = require("webpack-merge");
+let template         = require("html-webpack-plugin");
+let cleanBuildDir    = require("clean-webpack-plugin");
+const purgeCSSPlugin = require("purgecss-webpack-plugin");
+const glob           = require("glob");
+
 
 // Development, production, and presets
 let configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
@@ -25,7 +27,10 @@ module.exports = ( { mode, presets } = { mode: "production", presets: undefined 
                 new template({ template: "src/index.html" }),
                 new webpack.ProgressPlugin(),
                 new cleanBuildDir(["build"]),
-                new CssCleanupPlugin()
+                new purgeCSSPlugin({
+                    paths: glob.sync(`${path.join(__dirname, "./src/")}/**/*`,
+                    { nodir: true })
+                })
             ]
         },
         configType(mode),
