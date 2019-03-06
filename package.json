@@ -6,7 +6,7 @@
         "prod:compress": "yarn prod --env.presets compress",
         "test": "jest --coverage",
         "test:watch": "jest --watch",
-        "prod:live": "git subtree push --prefix dist origin gh-pages"
+        "prod:live": "git subtree push --prefix build origin gh-pages"
     },
     "name": "securities-app",
     "version": "1.0.0",
