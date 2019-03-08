@@ -5,6 +5,7 @@ import PropTypes     from "prop-types";
 import { connect }   from "react-redux";
 import { Suspense }  from "react";
 import { lazy }      from "react";
+import { Loader }    from "../Loader/";
 import "./style.scss";
 
 const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
@@ -64,6 +65,7 @@ function ChartSelector(props){
             </div>
             <div className="card chart-container">
                 <Suspense fallback={<div>Loading...</div>}>
+                    <Loader/>
                     { chart === "historical" ? <HistoricalChart dimensions={ dimensions }/> : null }
                     { chart === "marketCaps" ? <MarketCaps dimensions={ dimensions }/>      : null }
                     { chart === "financials" ? <FinancialsChart dimensions={ dimensions }/> : null }

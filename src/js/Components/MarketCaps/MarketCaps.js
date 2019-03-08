@@ -18,7 +18,14 @@ function MarketCaps(props){
         return null;
 
     if(props.data.length < 2)
-        return <h1 className="message" style={{ width: "100%" }}>Need at least two stocks.</h1>;
+        return(
+            <h1
+                className="message"
+                style={{ width: "100%", display: "flex", height: "100px", justifyContent: "center", alignItems: "center" }}
+            >
+                Need at least two stocks.
+            </h1>
+        );
 
     return(
         <GGPLOT
