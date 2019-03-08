@@ -1,8 +1,8 @@
 import React       from "react";
 import PropTypes   from "prop-types";
 import { connect } from "react-redux";
-import { GGPLOT }  from "react-d3-ggplot";
-import { Rects }   from "react-d3-ggplot";
+import { GGPLOT }  from "../GGPLOT/";
+import { Rects }   from "../Rects/";
 
 function MarketCaps(props){
     const formatted = props.data.length > 0

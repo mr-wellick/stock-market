@@ -59,8 +59,8 @@
     "dependencies": {
         "@babel/runtime": "^7.1.5",
         "bulma": "^0.7.4",
+        "d3": "^5.9.1",
         "react": "^16.8.3",
-        "react-d3-ggplot": "^1.0.29",
         "react-dom": "^16.8.3",
         "react-redux": "^6.0.1",
         "redux": "^4.0.1",

@@ -1,8 +1,8 @@
 import React       from "react";
 import PropTypes   from "prop-types";
 import { connect } from "react-redux";
-import { GGPLOT }  from "react-d3-ggplot";
-import { Line }    from "react-d3-ggplot";
+import { GGPLOT }  from "../GGPLOT/";
+import { Line }    from "../Line/";
 
 function FinancialsChart(props){
     // format data
