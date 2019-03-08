@@ -1,1 +1,0 @@
-export { default as WithScales } from "./WithScales.js";
