@@ -1,22 +1,45 @@
-import React        from "react";
-import { useState } from "react";
-import PropTypes    from "prop-types";
-import { connect }  from "react-redux";
-import { Suspense } from "react";
-import { lazy }     from "react";
+import React         from "react";
+import { useState }  from "react";
+import { useEffect } from "react";
+import PropTypes     from "prop-types";
+import { connect }   from "react-redux";
+import { Suspense }  from "react";
+import { lazy }      from "react";
 import "./style.scss";
 
 const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
 const MarketCaps      = lazy(() => import("../MarketCaps/MarketCaps.js"));
 const FinancialsChart = lazy(() => import("../FinancialsChart/FinancialsChart.js"));
 
-function ChartSelector(props){
-    const [chart, setChart] = useState("historical");
+function useDimensions(){
     const [dimensions, setDimensions] = useState({
         width: window.innerWidth*0.7,
         height: window.innerHeight*0.8,
         padding: 50
     });
+
+    function resize(){
+        setDimensions({
+            ...dimensions,
+            width: window.innerWidth*0.7,
+            height: window.innerHeight*0.8,
+        });
+    }
+
+    useEffect(() => {
+        window.addEventListener("resize", resize);
+
+        return function cleanUp(){
+            window.removeEventListener("resize", resize);
+        };
+    });
+
+    return dimensions;
+}
+
+function ChartSelector(props){
+    const [chart, setChart] = useState("historical");
+    const dimensions        = useDimensions();
 
     if(props.data.length === 0)
         return null;
