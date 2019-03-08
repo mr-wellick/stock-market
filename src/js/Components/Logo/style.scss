@@ -1,8 +1,9 @@
 .logo
 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 3px;
+    grid-template-columns: 15px 15px;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
 }
 
 .logo-block-1,

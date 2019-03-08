@@ -68,7 +68,7 @@ function FinancialsTable(props){
                             </tr>
                         </tbody>
                     </table>
-                : <h1 className="message">No Data</h1>
+                : <h1 className="message">Enter a stock to get started...</h1>
             }
         </div>
     );

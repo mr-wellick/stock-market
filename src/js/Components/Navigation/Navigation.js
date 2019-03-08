@@ -5,16 +5,16 @@ import "./style.scss";
 
 function Navigation() {
     return(
-        <section>
-            <nav className="navbar has-shadow is-fixed-top">
-                <div className="navbar-brand">
+        <section className="home-section">
+            <nav className="home-nav">
+                <div className="home-brand">
                     <Logo className="navbar-item"/>
                 </div>
-                <div className="navbar-menu">
-                    <div className="navbar-start">
+                <div className="home-menu">
+                    <div className="home-menu-start">
                         <InputStock className="navbar-item"/>
                     </div>
-                    <div className="navbar-end">
+                    <div className="home-menu-end">
                         <div className="navbar-item">
                             <span className="icon">
                                 <i className="fas fa-home fa-lg"></i>
