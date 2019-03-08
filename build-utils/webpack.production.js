@@ -1,6 +1,6 @@
 let extractCSS  = require("mini-css-extract-plugin");
 let minimizeCSS = require("optimize-css-assets-webpack-plugin");
-let uglifyJS    = require("uglifyjs-webpack-plugin");
+//let uglifyJS    = require("uglifyjs-webpack-plugin");
 
 module.exports = () => ({
     optimization:
@@ -8,9 +8,9 @@ module.exports = () => ({
         minimizer:
         [
             new minimizeCSS({}),
-            new uglifyJS({
-                parallel: true
-            })
+            //new uglifyJS({
+            //    parallel: true
+            //})
         ]
     },
     module:
