@@ -24,7 +24,7 @@ module.exports = ( { mode, presets } = { mode: "production", presets: undefined 
             },
             plugins:
             [
-                new template({ template: "src/index.html", favicon: "src/_assets/favicon.ico" }),
+                new template({ template: "src/index.html", favicon: "src/_assets/logo.png" }),
                 new webpack.ProgressPlugin(),
                 new cleanBuildDir(["build"]),
                 new purgeCSSPlugin({
