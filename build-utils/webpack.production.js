@@ -9,7 +9,7 @@ module.exports = () => ({
         [
             new minimizeCSS({}),
             //new terserPlugin({
-            //    parallel: true
+            //    parallel: true,
             //})
         ]
     },

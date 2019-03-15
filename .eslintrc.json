@@ -1,0 +1,34 @@
+{
+    "env":
+    {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends":
+    [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jest/recommended"
+    ],
+    "parserOptions":
+    {
+        "ecmaFeatures":
+        {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "rules":
+    {
+        "linebreak-style": [ "error", "unix" ],
+        "quotes": [ "warn", "double" ],
+        "semi": [ "error", "always" ],
+        "no-console": "off"
+    }
+}
