@@ -1,6 +1,6 @@
 const extractCSS   = require("mini-css-extract-plugin");
 const minimizeCSS  = require("optimize-css-assets-webpack-plugin");
-const terserPlugin = require("terser-webpack-plugin");
+//const terserPlugin = require("terser-webpack-plugin");
 
 module.exports = () => ({
     optimization:
@@ -9,7 +9,7 @@ module.exports = () => ({
         [
             new minimizeCSS({}),
             //new terserPlugin({
-            //    parallel: true,
+            //    parallel: true
             //})
         ]
     },
