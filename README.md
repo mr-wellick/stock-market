@@ -20,7 +20,7 @@
     + Displays stock price for the last five years
 
 + Company Description
-    + A brief description of the products/services that a company offers 
+    + A brief description of the products/services that a company offers
 
 + Company News
     + Lists multiple articles related to current company news
