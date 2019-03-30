@@ -11,8 +11,13 @@ function StockSelector(props){
     }
 
     function deleteStock(event){
-        props.deleteStock(event.target.dataset.symbol);
-        props.setActiveIndex(0);
+        if(props.data.length === 1)
+            alert("You can't delete all stocks in your list!");
+        else
+        {
+            props.deleteStock(event.target.dataset.symbol);
+            props.setActiveIndex(0);
+        }
     }
 
     return(
