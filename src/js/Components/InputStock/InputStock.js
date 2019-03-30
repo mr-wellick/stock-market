@@ -35,7 +35,10 @@ function InputStock(props){
     }
 
     useEffect(() => {
-        props.fetchIEXData("tsla");
+        if(props.data.length === 0)
+        {
+            props.fetchIEXData("tsla");
+        }
     }, []);
 
     return(
@@ -47,6 +50,7 @@ function InputStock(props){
                 className="input is-small"
                 type="search"
                 onChange={ (event) => setInput(event.target.value) }
+                placeholder="Enter a valid stock ticker..."
                 required
             />
         </form>
