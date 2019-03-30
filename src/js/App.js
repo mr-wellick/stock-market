@@ -1,38 +1,26 @@
-import React               from "react";
-import { Component }       from "react";
-import { Fragment }        from "react";
-import { hot }             from "react-hot-loader";
-import { Navigation }      from "./Components/";
-import { StockSelector }   from "./Components/";
-import { FinancialsTable } from "./Components/";
-import { lazy }            from "react";
-import { Suspense }        from "react";
+import React          from "react";
+import { Component }  from "react";
+import { Fragment }   from "react";
+import { hot }        from "react-hot-loader";
+import { HashRouter } from "react-router-dom";
+import { Switch }     from "react-router-dom";
+import { Route }      from "react-router-dom";
+import { Navigation } from "./Components/";
+import { Home }       from "./Views/";
 import "./app.scss";
-
-const ChartSelector    = lazy(() => import("./Components/ChartSelector/ChartSelector.js"));
-const StockDescription = lazy(() => import("./Components/StockDescription/StockDescription.js"));
-const StockNews        = lazy(() => import("./Components/StockNews/StockNews.js"));
 
 // react-hot-loader complains when using plain functions
 class App extends Component {
     render(){
         return(
-            <Fragment>
-                <Navigation/>
-                <section className="home-container">
-                    <div className="home-sidebar">
-                        <StockSelector/>
-                    </div>
-                    <div className="home-content">
-                        <Suspense fallback={ <h1>Loading...</h1> }>
-                            <FinancialsTable/>
-                            <ChartSelector/>
-                            <StockDescription/>
-                            <StockNews/>
-                        </Suspense>
-                    </div>
-                </section>
-            </Fragment>
+            <HashRouter>
+                <Fragment>
+                    <Navigation/>
+                    <Switch>
+                        <Route exact path="/" component={ Home }></Route>
+                    </Switch>
+                </Fragment>
+            </HashRouter>
         );
     }
 }

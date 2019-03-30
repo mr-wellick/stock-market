@@ -1,0 +1,19 @@
+.home-container
+{
+    margin-top: 50px;
+}
+
+.home-sidebar
+{
+    position: fixed;
+    height: 100vh;
+    width: 20%;
+    border-right: 1px solid rgba(204, 204, 204, 0.25);
+}
+
+.home-content
+{
+    width: 80%;
+    margin-left: auto;
+    padding: 50px;
+}
