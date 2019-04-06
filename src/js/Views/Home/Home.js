@@ -31,9 +31,9 @@ function Home(props){
                 <InputStock/>
                 <hr style={{ margin: "0" }}/>
                 <StockSelector/>
+                <ChartSelector/>
             </div>
             <div className="sidebar-content">
-                <ChartSelector/>
                 {/*
                 <FinancialsTable/>
                 <StockDescription/>
