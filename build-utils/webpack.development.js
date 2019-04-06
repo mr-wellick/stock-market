@@ -18,6 +18,18 @@ module.exports = () => ({
                 use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
             },
             {
+                test: /\.(ttf)$/,
+                use:
+                {
+                    loader: "file-loader",
+                    options:
+                    {
+                        name: "[name].[ext]",
+                        outputPath: "fonts/"
+                    }
+                }
+            },
+            {
                 test: /\.(png|jpg|svg)$/,
                 use:
                 {
