@@ -12,7 +12,7 @@ function StockHeader(props) {
     const isDown = data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
 
     return(
-        <div>
+        <div className="stock-header-container">
             <p>
                 <span className="company-name">
                     { data[activeIndex].company.companyName }
