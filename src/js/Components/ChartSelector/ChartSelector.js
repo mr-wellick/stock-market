@@ -1,10 +1,9 @@
-import React         from "react";
-import { useState }  from "react";
-import PropTypes     from "prop-types";
-import { connect }   from "react-redux";
-import { Suspense }  from "react";
-import { lazy }      from "react";
-import useDimensions from "./useDimensions.js";
+import React        from "react";
+import { useState } from "react";
+import PropTypes    from "prop-types";
+import { connect }  from "react-redux";
+import { Suspense } from "react";
+import { lazy }     from "react";
 import "./style.scss";
 
 const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
@@ -14,13 +13,22 @@ const Loader          = lazy(() => import("../Loader/Loader.js"));
 
 function ChartSelector(props){
     const [chart, setChart] = useState("historical");
-    const dimensions        = useDimensions();
 
     if(props.data.length === 0)
         return null;
 
     return(
         <div>
+            <div className="card chart-container">
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Loader/>
+                    { chart === "historical" ? <HistoricalChart/> : null }
+                    { chart === "marketCaps" ? <MarketCaps/>      : null }
+                    { chart === "financials" ? <FinancialsChart/> : null }
+                </Suspense>
+            </div>
+            { /*
+            
             <div className="card chart-selector-card">
                 <form className="chart-selector-container">
                     <div className="field-chart">
@@ -37,14 +45,7 @@ function ChartSelector(props){
                     </div>
                 </form>
             </div>
-            <div className="card chart-container">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Loader/>
-                    { chart === "historical" ? <HistoricalChart dimensions={ dimensions }/> : null }
-                    { chart === "marketCaps" ? <MarketCaps dimensions={ dimensions }/>      : null }
-                    { chart === "financials" ? <FinancialsChart dimensions={ dimensions }/> : null }
-                </Suspense>
-            </div>
+            */ }
         </div>
     );
 }

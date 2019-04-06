@@ -3,8 +3,11 @@ import PropTypes   from "prop-types";
 import { connect } from "react-redux";
 import { GGPLOT }  from "react-d3-ggplot";
 import { Rects }   from "react-d3-ggplot";
+import { useDimensions } from "../../_hooks/";
 
 function MarketCaps(props){
+    const dimensions = useDimensions();
+
     const formatted = props.data.length > 0
         ? props.data.map(
             item => ({
@@ -31,7 +34,7 @@ function MarketCaps(props){
         <GGPLOT
             data={ formatted }
             aes={ ["symbol", "marketCap"] }
-            dimensions={ props.dimensions }
+            dimensions={ dimensions }
             y_lab=".2s"
         >
             <Rects color="#22b2c7" opacity="0.5"/>

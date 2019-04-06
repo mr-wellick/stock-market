@@ -23,6 +23,12 @@
     &:hover { cursor: pointer; }
 }
 
+.sidebar-content
+{
+    width: 70%;
+    margin-left: auto;
+}
+
 .is-open
 {
     left: -280px;

@@ -1,10 +1,13 @@
-import React       from "react";
-import PropTypes   from "prop-types";
-import { connect } from "react-redux";
-import { GGPLOT }  from "react-d3-ggplot";
-import { Line }    from "react-d3-ggplot";
+import React             from "react";
+import PropTypes         from "prop-types";
+import { connect }       from "react-redux";
+import { GGPLOT }        from "react-d3-ggplot";
+import { Line }          from "react-d3-ggplot";
+import { useDimensions } from "../../_hooks/";
 
 function HistoricalChart(props){
+    const dimensions = useDimensions();
+
     // format data
     const formatted = props.data.length > 0
         ?
@@ -21,7 +24,7 @@ function HistoricalChart(props){
         <GGPLOT
             data={ formatted }
             aes={ ["date", "close"] }
-            dimensions={ props.dimensions }
+            dimensions={ dimensions }
         >
             <Line color="orange"/>
         </GGPLOT>

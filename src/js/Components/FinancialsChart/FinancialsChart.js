@@ -1,10 +1,13 @@
-import React       from "react";
-import PropTypes   from "prop-types";
-import { connect } from "react-redux";
-import { GGPLOT }  from "react-d3-ggplot";
-import { Line }    from "react-d3-ggplot";
+import React             from "react";
+import PropTypes         from "prop-types";
+import { connect }       from "react-redux";
+import { useDimensions } from "../../_hooks/";
+import { GGPLOT }        from "react-d3-ggplot";
+import { Line }          from "react-d3-ggplot";
 
 function FinancialsChart(props){
+    const dimensions = useDimensions();
+
     // format data
     const formatted = props.data.length > 0
         ?
@@ -22,7 +25,7 @@ function FinancialsChart(props){
         <GGPLOT
             data={ formatted }
             aes={ ["date", "netIncome"] }
-            dimensions={ props.dimensions }
+            dimensions={ dimensions }
             y_lab={ ".2s" }
         >
             <Line color="crimson"/>
