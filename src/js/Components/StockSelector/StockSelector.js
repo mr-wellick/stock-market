@@ -22,8 +22,8 @@ function StockSelector(props){
 
     return(
         <div>
-            <h1 className="message" style={{ margin: "10px" }}>Portfolio Stocks</h1>
             <div className="card stocks-list">
+                <h1 className="message">Portfolio Stocks</h1>
                 <form className="active-form">
                     {
                         props.data.length > 0
