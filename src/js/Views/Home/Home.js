@@ -7,6 +7,7 @@ import { InputStock }       from "../../Components/";
 //import { StockDescription } from "../../Components/";
 import { ChartSelector }    from "../../Components/";
 import { ActiveChart }      from "../../Components/";
+import { StockHeader }      from "../../Components/";
 import "./style.scss";
 
 
@@ -35,6 +36,7 @@ function Home(props){
                 <ChartSelector/>
             </div>
             <div className="sidebar-content">
+                <StockHeader/>
                 {/*
                 <ActiveChart/>
                 <FinancialsTable/>
