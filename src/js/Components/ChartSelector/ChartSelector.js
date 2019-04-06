@@ -34,7 +34,8 @@ function ChartSelector(props){
 }
 
 ChartSelector.propTypes = {
-    data: PropTypes.array
+    data: PropTypes.array,
+    setActiveChart: PropTypes.func
 };
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
