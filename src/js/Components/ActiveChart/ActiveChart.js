@@ -2,6 +2,8 @@ import React               from "react";
 import PropTypes           from "prop-types";
 import { connect }         from "react-redux";
 import { HistoricalChart } from "../HistoricalChart/";
+import { MarketCaps }      from "../MarketCaps//";
+import { FinancialsChart } from "../FinancialsChart//";
 
 function ActiveChart(props) {
     if(props.data.length === 0)
@@ -10,6 +12,8 @@ function ActiveChart(props) {
     return (
         <div>
             { props.activeChart === "historical" ? <HistoricalChart/> : null }
+            { props.activeChart === "marketCaps" ? <MarketCaps/>      : null }
+            { props.activeChart === "financials" ? <FinancialsChart/> : null }
         </div>
     );
 }

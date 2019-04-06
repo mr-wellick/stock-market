@@ -6,7 +6,7 @@ import { InputStock }       from "../../Components/";
 //import { FinancialsTable }  from "../../Components/";
 //import { StockDescription } from "../../Components/";
 import { ChartSelector }    from "../../Components/";
-//import { ActiveChart }      from "../../Components/";
+import { ActiveChart }      from "../../Components/";
 import "./style.scss";
 
 
