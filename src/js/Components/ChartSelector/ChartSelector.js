@@ -28,7 +28,6 @@ function ChartSelector(props){
                 </Suspense>
             </div>
             { /*
-            
             <div className="card chart-selector-card">
                 <form className="chart-selector-container">
                     <div className="field-chart">

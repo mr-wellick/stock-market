@@ -3,18 +3,20 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+    margin-bottom: 0;
 }
 
 .chart-selector-card
 {
-    padding: 1px;
+    padding: 10px;
+    margin: 50px;
+    margin-top: 0;
 }
 
 .chart-selector-container
 {
     display: flex;
     justify-content: space-evenly;
-    margin: 15px;
 }
 
 .field-chart [type=radio]
