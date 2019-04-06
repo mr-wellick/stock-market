@@ -6,13 +6,12 @@ import { connect }      from "react-redux";
 import { fetchIEXData } from "../../Redux/";
 import "./style.scss";
 
-
 function InputStock(props){
     const [input, setInput] = useState("");
 
     function onSubmit(event){
         event.preventDefault();
-        event.target.children[0].value = "";
+        event.target.children[0].value = ""; // clear user input
 
         const validInput = input.match(/\w+/) ? input.match(/\w+/)[0].toUpperCase() : null;
 

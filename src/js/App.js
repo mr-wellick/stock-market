@@ -7,8 +7,8 @@ import { Switch }     from "react-router-dom";
 import { Route }      from "react-router-dom";
 import { Navigation } from "./Components/";
 import { Home }       from "./Views/";
-import { Basics }     from "./Views/";
-import { Resources }  from "./Views/";
+//import { Basics }     from "./Views/";
+//import { Resources }  from "./Views/";
 import "./app.scss";
 
 // react-hot-loader complains when using plain functions
@@ -20,8 +20,10 @@ class App extends Component {
                     <Navigation/>
                     <Switch>
                         <Route exact path="/" component={ Home }></Route>
-                        <Route exact path="/basics" component={ Basics }></Route>
-                        <Route exact path="/resources" component={ Resources }></Route>
+                        {/*
+                        <route exact path="/basics" component={ basics }></route>
+                        <route exact path="/resources" component={ resources }></route>
+                        */}
                     </Switch>
                 </Fragment>
             </HashRouter>
