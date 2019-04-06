@@ -5,3 +5,4 @@ export { StockDescription } from "./StockDescription/";
 export { StockNews }        from "./StockNews/";
 export { ChartSelector }    from "./ChartSelector/";
 export { InputStock }       from "./InputStock/";
+export { ActiveChart }      from "./ActiveChart/";

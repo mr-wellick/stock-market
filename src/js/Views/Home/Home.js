@@ -4,8 +4,9 @@ import { StockSelector }    from "../../Components/";
 import { connect }          from "react-redux";
 import { InputStock }       from "../../Components/";
 //import { FinancialsTable }  from "../../Components/";
-import { ChartSelector }    from "../../Components/";
 //import { StockDescription } from "../../Components/";
+import { ChartSelector }    from "../../Components/";
+//import { ActiveChart }      from "../../Components/";
 import "./style.scss";
 
 
@@ -35,6 +36,7 @@ function Home(props){
             </div>
             <div className="sidebar-content">
                 {/*
+                <ActiveChart/>
                 <FinancialsTable/>
                 <StockDescription/>
                 <StockNews/>
