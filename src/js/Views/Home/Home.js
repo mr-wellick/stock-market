@@ -1,10 +1,8 @@
-import React               from "react";
-import PropTypes           from "prop-types";
-//import { lazy }            from "react";
-//import { Suspense }        from "react";
-import { StockSelector }   from "../../Components/";
-//import { FinancialsTable } from "../../Components/";
-import { connect }         from "react-redux";
+import React             from "react";
+import PropTypes         from "prop-types";
+import { StockSelector } from "../../Components/";
+import { connect }       from "react-redux";
+import { InputStock }    from "../../Components/";
 import "./style.scss";
 
 //const ChartSelector    = lazy(() => import("../../Components/ChartSelector/ChartSelector.js"));
@@ -12,9 +10,26 @@ import "./style.scss";
 //const StockNews        = lazy(() => import("../../Components/StockNews/StockNews.js"));
 
 function Home(props){
+
+    function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+
+        if(!sidebar.className.includes(" is-open"))
+        {
+            sidebar.className += " is-open";
+        }
+        else
+        {
+            sidebar.className = "sidebar";
+        }
+    }
+
     return(
-        <section className="home-container">
-            <div className="home-sidebar">
+        <section className="sidebar-container">
+            <div className="sidebar">
+                <div className="sidebar-toggler" onClick={ toggleSidebar }>&gt;&gt;</div>
+                <InputStock/>
+                <hr style={{ margin: "0" }}/>
                 <StockSelector/>
             </div>
             {/*

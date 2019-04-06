@@ -42,7 +42,7 @@ function InputStock(props){
 
     return(
         <form
-            className={ "input-form " + props.className }
+            className="input-form main-form"
             onSubmit={ onSubmit }
         >
             <input
