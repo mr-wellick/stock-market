@@ -2,9 +2,10 @@ import { IS_FETCHING }      from "../Constants/";
 import { FETCH_IEX_DATA }   from "../Constants/";
 import { SET_ACTIVE_INDEX } from "../Constants/";
 import { DELETE_STOCK }     from "../Constants/";
+import { SET_ACTIVE_CHART } from "../Constants/";
 
 function iexDataReducer(
-    state = { data: [], isFetching: false, activeIndex: 0 },
+    state = { data: [], isFetching: false, activeIndex: 0, activeChart: "historical" },
     action
 ){
     switch(action.type)
@@ -23,6 +24,11 @@ function iexDataReducer(
             return {
                 ...state,
                 activeIndex: action.activeIndex
+            };
+        case SET_ACTIVE_CHART:
+            return {
+                ...state,
+                activeChart: action.activeChart
             };
         case DELETE_STOCK:
             return {
