@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 function useDimensions(){
     const [dimensions, setDimensions] = useState({
-        width: window.innerWidth*0.6,
+        width: window.innerWidth*0.65,
         height: window.innerHeight*0.8,
         padding: 50
     });
@@ -11,7 +11,7 @@ function useDimensions(){
     function resize(){
         setDimensions({
             ...dimensions,
-            width: window.innerWidth*0.6,
+            width: window.innerWidth*0.65,
             height: window.innerHeight*0.8,
         });
     }

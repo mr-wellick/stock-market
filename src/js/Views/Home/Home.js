@@ -37,8 +37,8 @@ function Home(props){
             </div>
             <div className="sidebar-content">
                 <StockHeader/>
-                {/*
                 <ActiveChart/>
+                {/*
                 <FinancialsTable/>
                 <StockDescription/>
                 <StockNews/>

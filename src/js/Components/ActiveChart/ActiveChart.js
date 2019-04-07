@@ -4,13 +4,14 @@ import { connect }         from "react-redux";
 import { HistoricalChart } from "../HistoricalChart/";
 import { MarketCaps }      from "../MarketCaps//";
 import { FinancialsChart } from "../FinancialsChart//";
+import "./style.scss";
 
 function ActiveChart(props) {
     if(props.data.length === 0)
         return null;
 
     return (
-        <div>
+        <div className="chart-container">
             { props.activeChart === "historical" ? <HistoricalChart/> : null }
             { props.activeChart === "marketCaps" ? <MarketCaps/>      : null }
             { props.activeChart === "financials" ? <FinancialsChart/> : null }
