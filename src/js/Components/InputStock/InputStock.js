@@ -9,7 +9,7 @@ import "./style.scss";
 function InputStock(props){
     const [input, setInput] = useState("");
 
-    function onSubmit(event){
+    const onSubmit = (event) => {
         event.preventDefault();
         event.target.children[0].value = ""; // clear user input
 
@@ -30,8 +30,8 @@ function InputStock(props){
             else
                 alert("Invalid input.");
         }
+    };
 
-    }
 
     useEffect(() => {
         if(props.data.length === 0)
