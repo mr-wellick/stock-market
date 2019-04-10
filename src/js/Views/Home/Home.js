@@ -15,14 +15,17 @@ function Home(props){
 
     function toggleSidebar() {
         const sidebar = document.querySelector(".sidebar");
+        const content = document.querySelector(".sidebar-content");
 
         if(!sidebar.className.includes(" is-open"))
         {
             sidebar.className += " is-open";
+            content.className += " is-full-width";
         }
         else
         {
             sidebar.className = "sidebar";
+            content.className = "sidebar-content";
         }
     }
 
