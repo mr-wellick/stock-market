@@ -4,10 +4,23 @@ import { useEffect }    from "react";
 import PropTypes        from "prop-types";
 import { connect }      from "react-redux";
 import { fetchIEXData } from "../../Redux/";
+import { useSymbols }   from "../../_hooks/";
 import "./style.scss";
 
 function InputStock(props){
-    const [input, setInput] = useState("");
+    const [input, setInput]     = useState("");
+    const symbols               = useSymbols();
+    const [matches, setMatches] = useState([]);
+
+    const onChange = (event) => {
+        setInput(event.target.value);
+
+        // check for possible stock matches
+        const pattern               = event.target.value !== "" ? new RegExp(event.target.value.toUpperCase()) : null;
+        const possibleStocksToQuery = symbols.slice(0, 50).filter(item => item.symbol.match(pattern));
+
+        setMatches(possibleStocksToQuery);
+    };
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -41,18 +54,29 @@ function InputStock(props){
     }, []);
 
     return(
-        <form
-            className="input-form main-form"
-            onSubmit={ onSubmit }
-        >
-            <input
-                className="input is-small"
-                type="search"
-                onChange={ (event) => setInput(event.target.value) }
-                placeholder="Enter a valid stock ticker..."
-                required
-            />
-        </form>
+        <>
+            <form
+                className="input-form main-form"
+                onSubmit={ onSubmit }
+            >
+                <input
+                    className="input is-small"
+                    type="search"
+                    onChange={ onChange }
+                    placeholder="Enter a valid stock ticker..."
+                    list="symbols"
+                    required
+                />
+            </form>
+            <datalist id="symbols">
+                {
+                    matches.map(stock => (
+                        <option value={ stock.symbol + " " + stock.name } key={ stock.symbol }>
+                        </option>
+                    ))
+                }
+            </datalist>
+        </>
     );
 }
 
