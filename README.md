@@ -1,7 +1,7 @@
 # Securities App
 + A prototype of a stock-market data dashboard
 
-# Demo (latest iteration)
+# Demo (current iteration)
 ![nothing-to-show](./demos/new-demo.gif)
 
 # Introduction
@@ -25,10 +25,9 @@
 + Company News
     + Lists multiple articles related to current company news
 
-# Screenshots
-![nothing-to-show](./demos/one.png)
-![nothing-to-show](./demos/two.png)
-![nothing-to-show](./demos/three.png)
+# Next Iteration (currently under development)
+![nothing-to-show](./demos/desktop-new-1.png)
+![nothing-to-show](./demos/desktop-new-2.png)
 
 # Disclaimer
 + Not intended to replace a financial advisor
