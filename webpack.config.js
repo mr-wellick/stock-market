@@ -1,15 +1,15 @@
-let path             = require("path");
-let webpack          = require("webpack");
-let merge            = require("webpack-merge");
-let template         = require("html-webpack-plugin");
-let cleanBuildDir    = require("clean-webpack-plugin");
+const path           = require("path");
+const webpack        = require("webpack");
+const merge          = require("webpack-merge");
+const template       = require("html-webpack-plugin");
+const cleanBuildDir  = require("clean-webpack-plugin");
 const purgeCSSPlugin = require("purgecss-webpack-plugin");
 const glob           = require("glob");
 
 
 // Development, production, and presets
-let configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
-let configPreset =          require("./build-utils/loadPresets.js");
+const configType   = (env) => require(`./build-utils/webpack.${env}`)(env);
+const configPreset =          require("./build-utils/loadPresets.js");
 
 // common webpack configuration
 module.exports = ( { mode, presets } = { mode: "production", presets: undefined } ) => {
