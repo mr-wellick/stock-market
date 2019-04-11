@@ -7,6 +7,16 @@ import { fetchIEXData } from "../../Redux/";
 import { useSymbols }   from "../../_hooks/";
 import "./style.scss";
 
+function validate(userInput) {
+    const singleWord = /\w+/;
+    const isValidInput = userInput.match(singleWord);
+
+    if(isValidInput !== null)
+        return isValidInput[0].toUpperCase();
+
+    return isValidInput;
+}
+
 function InputStock(props){
     const [input, setInput]     = useState("");
     const symbols               = useSymbols();
@@ -15,9 +25,10 @@ function InputStock(props){
     const onChange = (event) => {
         setInput(event.target.value);
 
-        // check for possible stock matches
-        const pattern               = event.target.value !== "" ? new RegExp(event.target.value.toUpperCase()) : null;
-        const possibleStocksToQuery = symbols.slice(0, 50).filter(item => item.symbol.match(pattern));
+        // check for possible stock matches.
+        const validInput            = validate(event.target.value);
+        const pattern               = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
+        const possibleStocksToQuery = symbols.match(pattern);
 
         setMatches(possibleStocksToQuery);
     };
@@ -26,7 +37,7 @@ function InputStock(props){
         event.preventDefault();
         event.target.children[0].value = ""; // clear user input
 
-        const validInput = input.match(/\w+/) ? input.match(/\w+/)[0].toUpperCase() : null;
+        const validInput = validate(input);
 
         // won't fetch duplicate entries
         const duplicateEntry = props.data.filter(
@@ -39,7 +50,7 @@ function InputStock(props){
         {
             // fetch stock market data from iex api
             if(validInput)
-                props.fetchIEXData(input);
+                props.fetchIEXData(validInput);
             else
                 alert("Invalid input.");
         }
@@ -70,10 +81,12 @@ function InputStock(props){
             </form>
             <datalist id="symbols">
                 {
-                    matches.map(stock => (
-                        <option value={ stock.symbol + " " + stock.name } key={ stock.symbol }>
+                    /* NOT READY FOR PRODUCTION */
+                    matches !== null && matches.length < 100 ? matches.map(stock => (
+                        <option value={ stock } key={ stock }>
                         </option>
                     ))
+                    : null
                 }
             </datalist>
         </>
