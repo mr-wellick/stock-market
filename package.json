@@ -58,7 +58,6 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.1.5",
-        "bulma": "^0.7.4",
         "react": "^16.8.3",
         "react-d3-ggplot": "^1.0.32",
         "react-dom": "^16.8.3",
