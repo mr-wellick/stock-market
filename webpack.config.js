@@ -22,6 +22,43 @@ module.exports = ( { mode, presets } = { mode: "production", presets: undefined 
                 path: path.join(__dirname, "build"),
                 filename: "[name].js"
             },
+            module:
+            {
+                rules:
+                [
+                    {
+                        test: /\.(ttf)$/,
+                        use:
+                        {
+                            loader: "file-loader",
+                            options:
+                            {
+                                name: "[name].[ext]",
+                                outputPath: "fonts/"
+                            }
+                        }
+                    },
+                    {
+                        test: /\.(png|jpg|svg)$/,
+                        use:
+                        {
+                            loader: "url-loader",
+                            options: { limit: 500 }
+                        }
+                    },
+                    {
+                        test: /\.ts$/, use: [ "ts-loader" ]
+                    },
+                    {
+                        test: /\.js$/,
+                        loader: "babel-loader",
+                        query:
+                        {
+                            presets: [ "@babel/preset-react", "@babel/preset-env" ]
+                        }
+                    }
+                ]
+            },
             plugins:
             [
                 new template({ template: "src/index.html", favicon: "src/_assets/logo.png" }),
