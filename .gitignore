@@ -4,3 +4,4 @@ coverage
 build
 reference
 yarn-error.log
+.env

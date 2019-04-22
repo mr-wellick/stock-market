@@ -1,34 +1,38 @@
 {
-    "env":
-    {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "extends":
-    [
+    "extends": [
         "eslint:recommended",
+        "plugin:import/errors",
         "plugin:react/recommended",
-        "plugin:jest/recommended"
+        "plugin:jsx-a11y/recommended",
+        "prettier",
+        "prettier/react"
     ],
-    "parserOptions":
-    {
-        "ecmaFeatures":
-        {
+    "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
             "jsx": true
-        },
-        "sourceType": "module"
+        }
     },
-    "plugins": [
-        "react",
-        "jest"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "rules":
-    {
-        "linebreak-style": [ "error", "unix" ],
-        "quotes": [ "warn", "double" ],
-        "semi": [ "error", "always" ],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "jest": "true"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["warn", "double"],
+        "semi": ["error", "always"],
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
         "no-console": "off"
     }
 }
