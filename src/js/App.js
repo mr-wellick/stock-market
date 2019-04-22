@@ -10,7 +10,6 @@ import { Navigation } from "./Components/";
 //import { Basics }     from "./Views/";
 //import { Resources }  from "./Views/";
 
-// react-hot-loader complains when using plain functions
 class App extends Component {
   render() {
     return (

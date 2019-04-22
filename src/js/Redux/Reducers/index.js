@@ -1,8 +1,8 @@
-import iexDataReducer      from "./iexDataReducer.js";
+import iexDataReducer from "./iexDataReducer.js";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-    iexDataReducer
+  iexDataReducer
 });
 
 export default rootReducer;

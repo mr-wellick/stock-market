@@ -1,42 +1,44 @@
-import React             from "react";
-import PropTypes         from "prop-types";
-import { connect }       from "react-redux";
-import { GGPLOT }        from "react-d3-ggplot";
-import { Line }          from "react-d3-ggplot";
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { GGPLOT } from "react-d3-ggplot";
+import { Line } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
 
-function HistoricalChart(props){
-    const dimensions = useDimensions();
+function HistoricalChart(props) {
+  const dimensions = useDimensions();
 
-    // format data
-    const formatted = props.data.length > 0
-        ?
-            props.data[props.activeIndex].chart.map(item => ({
-                ...item,
-                date: new Date(item.date)
-            }))
-        : null;
+  // format data
+  const formatted =
+    props.data.length > 0
+      ? props.data[props.activeIndex].chart.map(item => ({
+          ...item,
+          date: new Date(item.date)
+        }))
+      : null;
 
-    if(!formatted)
-        return null;
+  if (!formatted) return null;
 
-    return(
-        <GGPLOT
-            data={ formatted }
-            aes={ ["date", "close"] }
-            dimensions={ dimensions }
-        >
-            <Line color="orange"/>
-        </GGPLOT>
-    );
+  return (
+    <GGPLOT
+      data={formatted}
+      aes={["date", "close"]}
+      dimensions={dimensions}
+    >
+      <Line color="orange" />
+    </GGPLOT>
+  );
 }
 
 HistoricalChart.propTypes = {
-    data: PropTypes.array,
-    activeIndex: PropTypes.number,
-    dimensions: PropTypes.object
+  data: PropTypes.array,
+  activeIndex: PropTypes.number,
+  dimensions: PropTypes.object
 };
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
-export default connect(mapStateToProps, null)(HistoricalChart);
+export default connect(
+  mapStateToProps,
+  null
+)(HistoricalChart);
