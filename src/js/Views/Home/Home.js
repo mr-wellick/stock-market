@@ -11,7 +11,6 @@ import { InputStock } from "../../Components/";
 import "./style.scss";
 
 function Home(props) {
-
   return (
     <section>
       <div className="sidenav sidenav-fixed">

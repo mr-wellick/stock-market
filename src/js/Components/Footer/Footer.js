@@ -19,9 +19,7 @@ class Footer extends Component {
               </a>
             </span>
             <span className="dev-info"> | </span>
-            <span className="dev-info">
-              Data provided for free by&nbsp;
-            </span>
+            <span className="dev-info">Data provided for free by&nbsp;</span>
             <a
               target="_blank"
               rel="noopener noreferrer"

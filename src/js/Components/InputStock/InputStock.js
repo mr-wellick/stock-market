@@ -26,9 +26,7 @@ function InputStock(props) {
 
     // check for possible stock matches.
     const validInput = validate(event.target.value);
-    const pattern = validInput
-      ? new RegExp(`([^"]*${validInput}[^"]*)`, "g")
-      : null;
+    const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
     const possibleStocksToQuery = symbols.match(pattern);
 
     setMatches(possibleStocksToQuery);
@@ -41,12 +39,9 @@ function InputStock(props) {
     const validInput = validate(input);
 
     // won't fetch duplicate entries
-    const duplicateEntry = props.data.filter(
-      item => item.company.symbol === validInput
-    );
+    const duplicateEntry = props.data.filter(item => item.company.symbol === validInput);
 
-    if (duplicateEntry.length > 0)
-      alert(`${validInput} is already in your list.`);
+    if (duplicateEntry.length > 0) alert(`${validInput} is already in your list.`);
     else {
       // fetch stock market data from iex api
       if (validInput) props.fetchIEXData(validInput);
@@ -75,9 +70,7 @@ function InputStock(props) {
         <datalist id="symbols">
           {/* NOT READY FOR PRODUCTION */
           matches !== null && matches.length < 100
-            ? matches.map(stock => (
-                <option value={stock} key={stock} />
-              ))
+            ? matches.map(stock => <option value={stock} key={stock} />)
             : null}
         </datalist>
       </div>

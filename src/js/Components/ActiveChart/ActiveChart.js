@@ -11,13 +11,9 @@ function ActiveChart(props) {
 
   return (
     <div className="chart-container">
-      {props.activeChart === "historical" ? (
-        <HistoricalChart />
-      ) : null}
+      {props.activeChart === "historical" ? <HistoricalChart /> : null}
       {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
-      {props.activeChart === "financials" ? (
-        <FinancialsChart />
-      ) : null}
+      {props.activeChart === "financials" ? <FinancialsChart /> : null}
     </div>
   );
 }

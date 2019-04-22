@@ -14,10 +14,14 @@ function Navigation() {
             </Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <Link to="/basics" className="black-text">Basics</Link>
+                <Link to="/basics" className="black-text">
+                  Basics
+                </Link>
               </li>
               <li>
-                <Link to="/resources" className="black-text">Resources</Link>
+                <Link to="/resources" className="black-text">
+                  Resources
+                </Link>
               </li>
             </ul>
           </div>

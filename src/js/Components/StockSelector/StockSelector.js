@@ -11,8 +11,7 @@ function StockSelector(props) {
   }
 
   function deleteStock(event) {
-    if (props.data.length === 1)
-      alert("You can't delete all stocks in your list!");
+    if (props.data.length === 1) alert("You can't delete all stocks in your list!");
     else {
       props.deleteStock(event.target.dataset.symbol);
       props.setActiveIndex(0);
@@ -41,9 +40,7 @@ function StockSelector(props) {
                     checked={props.activeIndex === index}
                     onChange={onChange}
                   />
-                  <label htmlFor={item["company"]["symbol"]}>
-                    {item["company"]["symbol"]}
-                  </label>
+                  <label htmlFor={item["company"]["symbol"]}>{item["company"]["symbol"]}</label>
                   <div>{item["quote"]["close"]}</div>
                 </div>
               </div>

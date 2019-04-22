@@ -26,21 +26,11 @@ function ChartSelector(props) {
           <label htmlFor="historical">Historical</label>
         </div>
         <div className="field-chart">
-          <input
-            type="radio"
-            id="marketCaps"
-            name="active-chart"
-            onChange={changeChart}
-          />
+          <input type="radio" id="marketCaps" name="active-chart" onChange={changeChart} />
           <label htmlFor="marketCaps">Market Cap</label>
         </div>
         <div className="field-chart">
-          <input
-            type="radio"
-            id="financials"
-            name="active-chart"
-            onChange={changeChart}
-          />
+          <input type="radio" id="financials" name="active-chart" onChange={changeChart} />
           <label htmlFor="financials">Financials</label>
         </div>
       </form>

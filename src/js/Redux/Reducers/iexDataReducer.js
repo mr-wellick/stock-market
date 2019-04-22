@@ -37,9 +37,7 @@ function iexDataReducer(
     case DELETE_STOCK:
       return {
         ...state,
-        data: state.data.filter(
-          item => item.quote.symbol !== action.symbol
-        )
+        data: state.data.filter(item => item.quote.symbol !== action.symbol)
       };
     default:
       return state;

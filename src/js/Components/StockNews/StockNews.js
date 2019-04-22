@@ -18,12 +18,7 @@ function StockNews(props) {
       </div>
       <div className="card-content">
         <div className="content">
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href={item.url}
-            className="news-link"
-          >
+          <a rel="noopener noreferrer" target="_blank" href={item.url} className="news-link">
             <span className="news-description">{item.headline}</span>
             <span className="news-summary">{item.summary}</span>
           </a>

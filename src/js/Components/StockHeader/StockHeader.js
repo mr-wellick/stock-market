@@ -8,26 +8,18 @@ function StockHeader(props) {
 
   const { data, activeIndex } = props;
 
-  const isDown =
-    data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
+  const isDown = data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
 
   return (
     <div className="stock-header-container">
       <p>
-        <span className="company-name">
-          {data[activeIndex].company.companyName}
-        </span>
-        <span className="company-symbol">
-          [{data[activeIndex].company.symbol}]
-        </span>
+        <span className="company-name">{data[activeIndex].company.companyName}</span>
+        <span className="company-symbol">[{data[activeIndex].company.symbol}]</span>
       </p>
       <p>
-        <span className="company-close">
-          {data[activeIndex].quote.close}
-        </span>
+        <span className="company-close">{data[activeIndex].quote.close}</span>
         <span className={"company-change " + isDown}>
-          {data[activeIndex].quote.change}(
-          {data[activeIndex].quote.changePercent})
+          {data[activeIndex].quote.change}({data[activeIndex].quote.changePercent})
         </span>
       </p>
     </div>

@@ -7,14 +7,11 @@ const purgeCSSPlugin = require("purgecss-webpack-plugin");
 const glob = require("glob");
 
 // Development, production, and presets
-const configType = env =>
-  require(`./build-utils/webpack.${env}`)(env);
+const configType = env => require(`./build-utils/webpack.${env}`)(env);
 const configPreset = require("./build-utils/loadPresets.js");
 
 // common webpack configuration
-module.exports = (
-  { mode, presets } = { mode: "production", presets: undefined }
-) => {
+module.exports = ({ mode, presets } = { mode: "production", presets: undefined }) => {
   return merge(
     {
       mode,

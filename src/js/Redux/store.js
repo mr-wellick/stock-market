@@ -7,10 +7,7 @@ import rootReducer from "./Reducers/";
 let store;
 
 if (process.env.NODE_ENV === "development") {
-  store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
-  );
+  store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 } else {
   store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 }

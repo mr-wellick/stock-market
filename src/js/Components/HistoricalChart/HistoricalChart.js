@@ -20,11 +20,7 @@ function HistoricalChart(props) {
   if (!formatted) return null;
 
   return (
-    <GGPLOT
-      data={formatted}
-      aes={["date", "close"]}
-      dimensions={dimensions}
-    >
+    <GGPLOT data={formatted} aes={["date", "close"]} dimensions={dimensions}>
       <Line color="orange" />
     </GGPLOT>
   );

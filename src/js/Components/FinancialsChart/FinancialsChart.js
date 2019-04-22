@@ -11,24 +11,17 @@ function FinancialsChart(props) {
   // format data
   const formatted =
     props.data.length > 0
-      ? props.data[props.activeIndex].financials.financials.map(
-          item => ({
-            ...item,
-            date: new Date(item.reportDate),
-            netIncome: item.netIncome
-          })
-        )
+      ? props.data[props.activeIndex].financials.financials.map(item => ({
+          ...item,
+          date: new Date(item.reportDate),
+          netIncome: item.netIncome
+        }))
       : null;
 
   if (!formatted) return null;
 
   return (
-    <GGPLOT
-      data={formatted}
-      aes={["date", "netIncome"]}
-      dimensions={dimensions}
-      y_lab={".2s"}
-    >
+    <GGPLOT data={formatted} aes={["date", "netIncome"]} dimensions={dimensions} y_lab={".2s"}>
       <Line color="crimson" />
     </GGPLOT>
   );
