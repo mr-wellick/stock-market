@@ -61,24 +61,27 @@ function InputStock(props) {
   }, []);
 
   return (
-    <>
-      <form className="input-form main-form" onSubmit={onSubmit}>
+    <form className="search" onSubmit={onSubmit}>
+      <div className="search-wrapper">
         <input
-          className="input is-small"
+          className="main-form__input"
+          id="search"
           type="search"
           onChange={onChange}
-          placeholder="Enter a valid stock ticker..."
+          placeholder="Seach Stocks"
           list="symbols"
           required
         />
-      </form>
-      <datalist id="symbols">
-        {/* NOT READY FOR PRODUCTION */
-        matches !== null && matches.length < 100
-          ? matches.map(stock => <option value={stock} key={stock} />)
-          : null}
-      </datalist>
-    </>
+        <datalist id="symbols">
+          {/* NOT READY FOR PRODUCTION */
+          matches !== null && matches.length < 100
+            ? matches.map(stock => (
+                <option value={stock} key={stock} />
+              ))
+            : null}
+        </datalist>
+      </div>
+    </form>
   );
 }
 
