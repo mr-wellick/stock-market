@@ -9,7 +9,7 @@ function StockHeader(props) {
   }
 
   const { data, activeIndex } = props;
-  const isDown = data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
+  const stockTrend = data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
 
   return (
     <div className="row">
@@ -21,7 +21,7 @@ function StockHeader(props) {
           </p>
           <p>
             <span className="company-close">{data[activeIndex].quote.close}</span>
-            <span className={"company-change " + isDown}>
+            <span className={"company-change " + stockTrend}>
               {data[activeIndex].quote.change}({data[activeIndex].quote.changePercent})
             </span>
           </p>
