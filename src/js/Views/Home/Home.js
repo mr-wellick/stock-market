@@ -13,22 +13,15 @@ import "./style.scss";
 function Home(props) {
   return (
     <section>
-      <div className="sidenav sidenav-fixed">
-        <InputStock />
-        {/*
-          <StockSelector />
-          <ChartSelector />
-        */}
+      <div className="row">
+        {/* SIDEBAR */}
+        <div className="col s3">
+          <InputStock/>
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div className="col s9">test</div>
       </div>
-      {/*
-      <div className="sidebar-content">
-        <StockHeader />
-        <ActiveChart />
-        <FinancialsTable/>
-        <StockDescription/>
-        <StockNews/>
-      </div>
-      */}
     </section>
   );
 }

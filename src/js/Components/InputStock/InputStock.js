@@ -56,23 +56,16 @@ function InputStock(props) {
   }, []);
 
   return (
-    <form className="search" onSubmit={onSubmit}>
-      <div className="search-wrapper">
-        <input
-          className="main-form__input"
-          id="search"
-          type="search"
-          onChange={onChange}
-          placeholder="Seach Stocks"
-          list="symbols"
-          required
-        />
-        <datalist id="symbols">
-          {/* NOT READY FOR PRODUCTION */
-          matches !== null && matches.length < 100
-            ? matches.map(stock => <option value={stock} key={stock} />)
-            : null}
-        </datalist>
+    <form className="row" onSubmit={onSubmit}>
+      <div className="col s12">
+        <div className="row">
+          <div className="input-field col s12">
+            <input id="email" type="text" className="validate" placeholder="Search Stocks"/>
+            <span className="helper-text" data-error="wrong" data-success="right">
+              Helper text
+            </span>
+          </div>
+        </div>
       </div>
     </form>
   );
