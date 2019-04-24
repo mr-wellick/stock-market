@@ -5,7 +5,7 @@ import "./style.scss";
 
 function Navigation() {
   return (
-    <section>
+    <section className="navbar-fixed">
       <div className="row">
         <nav className="main-nav col s12 white z-depth-0">
           <Link to="/">
