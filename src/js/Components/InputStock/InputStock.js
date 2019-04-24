@@ -34,18 +34,22 @@ function InputStock(props) {
 
   const onSubmit = event => {
     event.preventDefault();
-    event.target.children[0].value = ""; // clear user input
+    document.querySelector("#stocks").value = ""; // clear user input
 
     const validInput = validate(input);
 
     // won't fetch duplicate entries
     const duplicateEntry = props.data.filter(item => item.company.symbol === validInput);
 
-    if (duplicateEntry.length > 0) alert(`${validInput} is already in your list.`);
-    else {
+    if (duplicateEntry.length > 0) {
+      alert(`${validInput} is already in your list.`);
+    } else {
       // fetch stock market data from iex api
-      if (validInput) props.fetchIEXData(validInput);
-      else alert("Invalid input.");
+      if (validInput) {
+        props.fetchIEXData(validInput);
+      } else {
+        alert("Invalid input.");
+      }
     }
   };
 
@@ -60,9 +64,15 @@ function InputStock(props) {
       <div className="col s12">
         <div className="row">
           <div className="input-field col s12">
-            <input id="email" type="text" className="validate" placeholder="Search Stocks"/>
+            <input
+              id="stocks"
+              type="text"
+              className="validate"
+              placeholder="Search Stocks"
+              onChange={onChange}
+            />
             <span className="helper-text" data-error="wrong" data-success="right">
-              Helper text
+              { props.error }
             </span>
           </div>
         </div>
