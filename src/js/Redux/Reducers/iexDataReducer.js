@@ -3,13 +3,15 @@ import { FETCH_IEX_DATA } from "../Constants/";
 import { SET_ACTIVE_INDEX } from "../Constants/";
 import { DELETE_STOCK } from "../Constants/";
 import { SET_ACTIVE_CHART } from "../Constants/";
+import { FETCH_IEX_ERROR } from "../Constants/";
 
 function iexDataReducer(
   state = {
     data: [],
     isFetching: false,
     activeIndex: 0,
-    activeChart: "historical"
+    activeChart: "historical",
+    error: ""
   },
   action
 ) {
@@ -23,6 +25,11 @@ function iexDataReducer(
       return {
         ...state,
         data: [...state.data, action.data]
+      };
+    case FETCH_IEX_ERROR:
+      return {
+        ...state,
+        error: action.error
       };
     case SET_ACTIVE_INDEX:
       return {

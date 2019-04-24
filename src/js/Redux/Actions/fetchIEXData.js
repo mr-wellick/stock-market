@@ -1,5 +1,6 @@
 import { IS_FETCHING } from "../Constants/";
 import { FETCH_IEX_DATA } from "../Constants/";
+import { FETCH_IEX_ERROR } from "../Constants/";
 
 const fetchIEXData = function(stockName) {
   return async dispatch => {
@@ -14,8 +15,7 @@ const fetchIEXData = function(stockName) {
       const data = await response.json();
       dispatch({ type: FETCH_IEX_DATA, data });
     } catch (err) {
-      console.error(err);
-      alert("Entered incorrect stock");
+      dispatch({ type: FETCH_IEX_ERROR, error: "Incorrect stock" });
     }
 
     // end request
