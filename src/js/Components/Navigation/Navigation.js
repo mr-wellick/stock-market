@@ -1,30 +1,20 @@
 import React from "react";
-//import { Logo } from "../Logo/";
+import { Logo } from "../Logo/";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
 function Navigation() {
   return (
     <section>
-      <div className="navbar-fixed">
-        <nav className="white z-depth-0">
-          <div className="nav-wrapper">
-            <Link to="/" className="brand-logo black-text">
-              Logo
-            </Link>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <Link to="/basics" className="black-text">
-                  Basics
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className="black-text">
-                  Resources
-                </Link>
-              </li>
-            </ul>
-          </div>
+      <div className="row">
+        <nav className="main-nav col s12 white z-depth-0">
+          <Link to="/">
+            <Logo/>
+          </Link>
+          <ul>
+            <li><Link className="black-text" to="/basics">Basics</Link></li>
+            <li><Link className="black-text" to="/resources">Resources</Link></li>
+          </ul>
         </nav>
       </div>
     </section>
