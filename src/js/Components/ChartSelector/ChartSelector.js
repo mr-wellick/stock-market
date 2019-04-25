@@ -5,36 +5,57 @@ import { setActiveChart } from "../../Redux/";
 import "./style.scss";
 
 function ChartSelector(props) {
-  function changeChart(event) {
+  const changeChart = event => {
     props.setActiveChart(event.target.id);
-  }
+  };
 
   if (props.data.length === 0) return null;
 
   return (
-    <div className="card chart-selector-card">
-      <h1 className="message">Active Chart</h1>
-      <form className="chart-selector-form">
-        <div className="field-chart">
-          <input
-            type="radio"
-            id="historical"
-            name="active-chart"
-            defaultChecked
-            onChange={changeChart}
-          />
-          <label htmlFor="historical">Historical</label>
-        </div>
-        <div className="field-chart">
-          <input type="radio" id="marketCaps" name="active-chart" onChange={changeChart} />
-          <label htmlFor="marketCaps">Market Cap</label>
-        </div>
-        <div className="field-chart">
-          <input type="radio" id="financials" name="active-chart" onChange={changeChart} />
-          <label htmlFor="financials">Financials</label>
-        </div>
-      </form>
-    </div>
+    <form>
+      <ul className="collection with-header">
+        <li className="collection-header">
+          <h5>Active Chart</h5>
+        </li>
+        <li className="collection-item">
+          <label>
+            <input
+              className="with-gap"
+              type="radio"
+              id="historical"
+              name="active-chart"
+              defaultChecked
+              onChange={changeChart}
+            />
+            <span>Historical</span>
+          </label>
+        </li>
+        <li className="collection-item">
+          <label>
+            <input
+              className="with-gap"
+              type="radio"
+              id="marketCaps"
+              name="active-chart"
+              onChange={changeChart}
+            />
+            <span>Market Cap</span>
+          </label>
+        </li>
+        <li className="collection-item">
+          <label className="field-chart">
+            <input
+              className="with-gap"
+              type="radio"
+              id="financials"
+              name="active-chart"
+              onChange={changeChart}
+            />
+            <span>Net Income</span>
+          </label>
+        </li>
+      </ul>
+    </form>
   );
 }
 
