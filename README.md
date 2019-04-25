@@ -12,7 +12,6 @@
 
 - Six Key Metrics
 
-  - Report Date
   - Stock Price
   - Shares Outstanding
   - Market Cap = Stock Price x Shares Outstanding
