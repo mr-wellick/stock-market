@@ -9,17 +9,31 @@ function StockDescription(props) {
   if (data.length === 0) return null;
 
   return (
-    <div className="card company-info-container">
-      <div className="card-header">
-        <p className="card-header-title company-info">
-          <span className="company-name">{data[activeIndex].company.companyName}</span>
-          <span className="company-ceo">
-            CEO: {data[activeIndex].company.CEO ? data[activeIndex].company.CEO : "No CEO"}
-          </span>
-        </p>
-      </div>
-      <div className="card-content">
-        <p className="content">{data[activeIndex].company.description}</p>
+    <div className="row">
+      <div className="col s12">
+        <h2 className="header">
+          CEO: {data[activeIndex].company.CEO ? data[activeIndex].company.CEO : "No CEO"}
+        </h2>
+        <div className="card horizontal">
+          <div className="card-image valign-wrapper">
+            <img src={data[activeIndex].logo.url} alt="company logo" />
+          </div>
+          <div className="card-stacked">
+            <div className="card-content">
+              <p className="">{data[activeIndex].company.description}</p>
+            </div>
+            <div className="card-action">
+              <a
+                className="blue-text"
+                href={data[activeIndex].company.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {data[activeIndex].company.symbol}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
