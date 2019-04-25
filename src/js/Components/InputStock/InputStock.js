@@ -25,6 +25,11 @@ function InputStock(props) {
   const onChange = event => {
     setInput(event.target.value);
 
+    // clear any previous errors
+    if (props.error !== "") {
+      props.fetchIEXError("");
+    }
+
     // check for possible stock matches.
     const validInput = validate(event.target.value);
     const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
