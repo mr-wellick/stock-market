@@ -30,10 +30,6 @@
 - Company News
   - Lists multiple articles related to current company news
 
-# Current Iteration
-
-![nothing-to-show](./demos/new-demo.gif)
-
 # Disclaimer
 
 - Not intended to replace a financial advisor
