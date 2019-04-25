@@ -11,46 +11,55 @@ function StockSelector(props) {
   }
 
   function deleteStock(event) {
-    if (props.data.length === 1) alert("You can't delete all stocks in your list!");
-    else {
+    if (props.data.length === 1) {
+      alert("You can't delete all stocks in your list!");
+    } else {
       props.deleteStock(event.target.dataset.symbol);
       props.setActiveIndex(0);
     }
   }
 
+  const { data, activeIndex } = props;
+
+  if (data.length === 0) {
+    return null;
+  }
+
+  const stockTrend = stock => (stock.quote.change < 0 ? "is-down" : "is-up");
+
   return (
-    <div>
-      <div className="card stocks-list">
-        <h1 className="message">Portfolio Stocks</h1>
-        <form className="active-form">
-          {props.data.length > 0 ? (
-            props.data.map((item, index) => (
-              <div key={index} className="toggler-container">
-                <a
-                  className="delete is-small"
-                  onClick={deleteStock}
-                  data-symbol={item["company"]["symbol"]}
+    <form>
+      <h4>Portfolio Stocks</h4>
+      <ul className="collection">
+        {data.map((stock, index) => {
+          return (
+            <li key={stock.company.symbol} className="collection-item">
+              <i
+                className="tiny material-icons"
+                data-symbol={stock.company.symbol}
+                onClick={deleteStock}
+              >
+                delete
+              </i>
+              <label>
+                <input
+                  className="with-gap"
+                  type="radio"
+                  name="stock-list"
+                  checked={activeIndex === index}
+                  onChange={onChange}
+                  value={index}
                 />
-                <div className="field-container">
-                  <input
-                    type="radio"
-                    id={item["company"]["symbol"]}
-                    name="active-stock"
-                    value={index}
-                    checked={props.activeIndex === index}
-                    onChange={onChange}
-                  />
-                  <label htmlFor={item["company"]["symbol"]}>{item["company"]["symbol"]}</label>
-                  <div>{item["quote"]["close"]}</div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <h1 className="message">No Data</h1>
-          )}
-        </form>
-      </div>
-    </div>
+                <span>{stock.company.symbol}</span>
+                <span className={`secondary-content ${stockTrend(stock)}`}>
+                  {stock.quote.close}
+                </span>
+              </label>
+            </li>
+          );
+        })}
+      </ul>
+    </form>
   );
 }
 
