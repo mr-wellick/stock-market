@@ -8,20 +8,22 @@ function StockNews(props) {
 
   if (data.length === 0) return null;
 
-  return data[activeIndex].news.map((item, index) => (
-    <div className="card news-container" key={index}>
-      <div className="card-header">
-        <p className="card-header-title news-date">
-          <span>{item.source}</span>
-          <span>{new Date(item.datetime).toLocaleString()}</span>
-        </p>
-      </div>
-      <div className="card-content">
-        <div className="content">
-          <a rel="noopener noreferrer" target="_blank" href={item.url} className="news-link">
-            <span className="news-description">{item.headline}</span>
-            <span className="news-summary">{item.summary}</span>
-          </a>
+  return data[activeIndex].news.map(stock => (
+    <div key={stock.url} className="row">
+      <div className="col s12">
+        <div className="card blue-grey darken-1">
+          <div className="card-content white-text">
+            <span className="card-title">
+              {`${stock.source} -- ${new Date(stock.datetime).toLocaleString()}`}
+            </span>
+            <span className="card-title">{stock.headline}</span>
+            <p>{stock.summary}</p>
+          </div>
+          <div className="card-action">
+            <a rel="noopener noreferrer" target="_blank" href={stock.url}>
+              Read More
+            </a>
+          </div>
         </div>
       </div>
     </div>
