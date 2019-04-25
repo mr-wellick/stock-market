@@ -4,7 +4,7 @@ import { StockSelector } from "../../Components/";
 import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
 //import { FinancialsTable }  from "../../Components/";
-//import { StockDescription } from "../../Components/";
+import { StockDescription } from "../../Components/";
 import { ChartSelector } from "../../Components/";
 import { ActiveChart } from "../../Components/";
 import { StockHeader } from "../../Components/";
@@ -25,6 +25,7 @@ function Home() {
         <div className="main-content col s9 grey lighten-5">
           <StockHeader />
           <ActiveChart />
+          <StockDescription />
         </div>
       </div>
     </section>
