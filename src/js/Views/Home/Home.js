@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { StockSelector } from "../../Components/";
 import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
-//import { FinancialsTable }  from "../../Components/";
+import { FinancialsTable } from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { ChartSelector } from "../../Components/";
 import { ActiveChart } from "../../Components/";
 import { StockHeader } from "../../Components/";
+import { StockNews } from "../../Components/";
 import "./style.scss";
 
 function Home() {
@@ -26,6 +27,8 @@ function Home() {
           <StockHeader />
           <ActiveChart />
           <StockDescription />
+          <FinancialsTable />
+          <StockNews />
         </div>
       </div>
     </section>
