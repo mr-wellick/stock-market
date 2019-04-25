@@ -8,9 +8,9 @@ function FinancialsTable(props) {
   if (props.data.length === 0) return null;
 
   return (
-    <div className="card financials-table">
+    <div className="card">
       {
-        <table className="table">
+        <table>
           <thead>
             <tr>
               <th>Symbol</th>
