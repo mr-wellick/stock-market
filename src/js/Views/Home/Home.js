@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import { StockSelector } from "../../Components/";
+import { StockSelector } from "../../Components/";
 import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
 //import { FinancialsTable }  from "../../Components/";
@@ -19,6 +19,7 @@ function Home() {
           {/* SIDEBAR */}
           <div className="main-sidebar col s3">
             <InputStock />
+            <StockSelector/>
           </div>
 
           {/* MAIN CONTENT */}
