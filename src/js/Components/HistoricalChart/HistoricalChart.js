@@ -17,11 +17,15 @@ function HistoricalChart(props) {
         }))
       : null;
 
-  if (!formatted) return null;
+  if (!formatted) {
+    return null;
+  }
+
+  const stockTrend = props.data[props.activeIndex].quote.change < 0 ? "#f72121" : "#19be87";
 
   return (
     <GGPLOT data={formatted} aes={["date", "close"]} dimensions={dimensions}>
-      <Line color="orange" />
+      <Line color={stockTrend} />
     </GGPLOT>
   );
 }
