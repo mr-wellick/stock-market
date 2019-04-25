@@ -29,8 +29,10 @@ function StockSelector(props) {
 
   return (
     <form>
-      <h4>Portfolio Stocks</h4>
-      <ul className="collection">
+      <ul className="collection with-header">
+        <li className="collection-header">
+          <h5>Portfolio Stocks</h5>
+        </li>
         {data.map((stock, index) => {
           return (
             <li key={stock.company.symbol} className="collection-item">
