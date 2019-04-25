@@ -2,7 +2,7 @@
 
 - A prototype of a stock-market data dashboard
 
-# Next Iteration (currently under development)
+# Demo
 
 ![nothing-to-show](./demos/materialize-demo.gif)
 
