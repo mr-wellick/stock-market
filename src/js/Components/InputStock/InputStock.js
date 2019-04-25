@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchIEXData } from "../../Redux/";
+import { fetchIEXError } from "../../Redux/";
 import { useSymbols } from "../../_hooks/";
 import "./style.scss";
 
@@ -42,13 +43,13 @@ function InputStock(props) {
     const duplicateEntry = props.data.filter(item => item.company.symbol === validInput);
 
     if (duplicateEntry.length > 0) {
-      alert(`${validInput} is already in your list.`);
+      props.fetchIEXError(`${validInput} is already in your list`);
     } else {
       // fetch stock market data from iex api
       if (validInput) {
         props.fetchIEXData(validInput);
       } else {
-        alert("Invalid input.");
+        props.fetchIEXError("Invalid input");
       }
     }
   };
@@ -72,7 +73,7 @@ function InputStock(props) {
               onChange={onChange}
             />
             <span className="helper-text" data-error="wrong" data-success="right">
-              { props.error }
+              {props.error}
             </span>
           </div>
         </div>
@@ -91,5 +92,5 @@ const mapStateToProps = state => ({ ...state.iexDataReducer });
 
 export default connect(
   mapStateToProps,
-  { fetchIEXData }
+  { fetchIEXData, fetchIEXError }
 )(InputStock);
