@@ -15,7 +15,7 @@ const fetchIEXData = function(stockName) {
       const data = await response.json();
       dispatch({ type: FETCH_IEX_DATA, data });
     } catch (err) {
-      dispatch({ type: FETCH_IEX_ERROR, error: "Incorrect stock" });
+      dispatch({ type: FETCH_IEX_ERROR, error: "Incorrect stock name" });
     }
 
     // end request
