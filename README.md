@@ -2,9 +2,9 @@
 
 - A prototype of a stock-market data dashboard
 
-# Demo (current iteration)
+# Next Iteration (currently under development)
 
-![nothing-to-show](./demos/new-demo.gif)
+![nothing-to-show](./demos/materialize-demo.gif)
 
 # Introduction
 
@@ -30,9 +30,9 @@
 - Company News
   - Lists multiple articles related to current company news
 
-# Next Iteration (currently under development)
+# Current Iteration
 
-![nothing-to-show](./demos/material-design.png)
+![nothing-to-show](./demos/new-demo.gif)
 
 # Disclaimer
 
