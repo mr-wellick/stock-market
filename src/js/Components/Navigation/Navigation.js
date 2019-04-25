@@ -12,8 +12,10 @@ function Navigation() {
             <Logo/>
           </Link>
           <ul>
+            {/*
             <li><Link className="black-text" to="/basics">Basics</Link></li>
             <li><Link className="black-text" to="/resources">Resources</Link></li>
+            */}
           </ul>
         </nav>
       </div>
