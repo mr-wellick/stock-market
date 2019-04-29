@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchIEXData } from "../../Redux/";
 import { fetchIEXError } from "../../Redux/";
-import { useSymbols } from "../../_hooks/";
+//import { useSymbols } from "../../_hooks/";
 import "./style.scss";
 
 function validate(userInput) {
@@ -19,8 +19,8 @@ function validate(userInput) {
 
 function InputStock(props) {
   const [input, setInput] = useState("");
-  const symbols = useSymbols();
-  const [matches, setMatches] = useState([]);
+  //const symbols = useSymbols();
+  //const [matches, setMatches] = useState([]);
 
   const onChange = event => {
     setInput(event.target.value);
@@ -31,11 +31,11 @@ function InputStock(props) {
     }
 
     // check for possible stock matches.
-    const validInput = validate(event.target.value);
-    const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
-    const possibleStocksToQuery = symbols.match(pattern);
+      //const validInput = validate(event.target.value);
+    //const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
+    //const possibleStocksToQuery = symbols.match(pattern);
 
-    setMatches(possibleStocksToQuery);
+    //setMatches(possibleStocksToQuery);
   };
 
   const onSubmit = event => {
@@ -66,23 +66,19 @@ function InputStock(props) {
   }, []);
 
   return (
-    <form className="row" onSubmit={onSubmit}>
-      <div className="col s12">
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              id="stocks"
-              type="text"
-              className="validate"
-              placeholder="Search Stocks"
-              onChange={onChange}
-            />
-            <span className="helper-text" data-error="wrong" data-success="right">
-              {props.error}
-            </span>
-          </div>
+    <form onSubmit={onSubmit}>
+        <div className="input-field">
+          <input
+            id="stocks"
+            type="text"
+            className="validate"
+            placeholder="Search Stocks"
+            onChange={onChange}
+          />
+          <span className="helper-text" data-error="wrong" data-success="right">
+            {props.error}
+          </span>
         </div>
-      </div>
     </form>
   );
 }
