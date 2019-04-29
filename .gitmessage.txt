@@ -1,0 +1,16 @@
+# Place a subject above the body, limit to 50 chars.
+
+# Specify the body of the commit one line below the subject wrapping at
+# 70 characters to keep things neatly organized. Here you should explain
+# why the commit was created.
+
+# You can use multiple paragraphs and other formatting to describe the
+# commit. Add details as necessary until you have provided enough info
+# about the commit.
+
+#   -Bullets can be added
+#   -But should be persistent
+
+# Additionally, work items can be tracked using their id numbers.
+
+# Work Items Resolved: 13, 753, 382
