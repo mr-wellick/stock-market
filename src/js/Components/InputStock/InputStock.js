@@ -5,22 +5,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchIEXData } from "../../Redux/";
 import { fetchIEXError } from "../../Redux/";
-//import { useSymbols } from "../../_hooks/";
+import { useSymbols } from "../../_hooks/";
+import { SuggestionsBox } from "../SuggestionsBox/";
 import "./style.scss";
 
 function validate(userInput) {
   const singleWord = /\w+/;
   const isValidInput = userInput.match(singleWord);
 
-  if (isValidInput !== null) return isValidInput[0].toUpperCase();
+  if (isValidInput !== null) {
+    return isValidInput[0].toUpperCase();
+  }
 
   return isValidInput;
 }
 
 function InputStock(props) {
   const [input, setInput] = useState("");
-  //const symbols = useSymbols();
-  //const [matches, setMatches] = useState([]);
+  const symbols = useSymbols();
+  const [matches, setMatches] = useState([]);
 
   const onChange = event => {
     setInput(event.target.value);
@@ -31,11 +34,11 @@ function InputStock(props) {
     }
 
     // check for possible stock matches.
-      //const validInput = validate(event.target.value);
-    //const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
-    //const possibleStocksToQuery = symbols.match(pattern);
+    const validInput = validate(event.target.value);
+    const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
+    const possibleStocksToQuery = symbols.match(pattern);
 
-    //setMatches(possibleStocksToQuery);
+    setMatches(possibleStocksToQuery);
   };
 
   const onSubmit = event => {
@@ -66,7 +69,8 @@ function InputStock(props) {
   }, []);
 
   return (
-    <form onSubmit={onSubmit}>
+    <div>
+      <form onSubmit={onSubmit}>
         <div className="input-field">
           <input
             id="stocks"
@@ -79,7 +83,9 @@ function InputStock(props) {
             {props.error}
           </span>
         </div>
-    </form>
+      </form>
+      <SuggestionsBox matches={matches} />
+    </div>
   );
 }
 
