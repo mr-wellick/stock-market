@@ -36,7 +36,7 @@ function InputStock(props) {
     // check for possible stock matches.
     const validInput = validate(event.target.value);
     const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
-    const possibleStocksToQuery = symbols.match(pattern);
+    const possibleStocksToQuery = pattern === null ? [] : symbols.match(pattern);
 
     setMatches(possibleStocksToQuery);
   };
@@ -69,7 +69,7 @@ function InputStock(props) {
   }, []);
 
   return (
-    <div>
+    <div className="user-input-container">
       <form onSubmit={onSubmit} autoComplete="off">
         <div className="input-field">
           <input
