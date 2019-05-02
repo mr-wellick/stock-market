@@ -70,7 +70,7 @@ function InputStock(props) {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} autoComplete="off">
         <div className="input-field">
           <input
             id="stocks"
@@ -78,6 +78,7 @@ function InputStock(props) {
             className="validate"
             placeholder="Search Stocks"
             onChange={onChange}
+            required
           />
           <span className="helper-text" data-error="wrong" data-success="right">
             {props.error}
