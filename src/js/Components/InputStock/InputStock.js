@@ -72,6 +72,7 @@ function InputStock(props) {
   const onSubmit = event => {
     event.preventDefault();
     document.querySelector("#stocks").value = ""; // clear user input
+    setMatches([]);
 
     const validInput = validate(input);
 
