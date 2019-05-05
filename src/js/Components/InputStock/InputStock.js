@@ -25,6 +25,28 @@ function InputStock(props) {
   const symbols = useSymbols();
   const [matches, setMatches] = useState([]);
 
+  const onSelectEntry = event => {
+    const validInput = validate(event.target.dataset.stockName);
+
+    // clear user input
+    document.querySelector("#stocks").value = "";
+    setMatches([]);
+
+    // won't fetch duplicate entries
+    const duplicateEntry = props.data.filter(item => item.company.symbol === validInput);
+
+    if (duplicateEntry.length > 0) {
+      props.fetchIEXError(`${validInput} is already in your list`);
+    } else {
+      // fetch stock market data from iex api
+      if (validInput) {
+        props.fetchIEXData(validInput);
+      } else {
+        props.fetchIEXError("Invalid input");
+      }
+    }
+  };
+
   const onChange = event => {
     setInput(event.target.value);
 
@@ -91,7 +113,7 @@ function InputStock(props) {
           </span>
         </div>
       </form>
-      <SuggestionsBox matches={matches} />
+      <SuggestionsBox matches={matches} onSelectEntry={onSelectEntry} />
     </div>
   );
 }
