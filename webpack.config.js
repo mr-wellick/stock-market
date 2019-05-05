@@ -20,6 +20,11 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
         path: path.join(__dirname, "build"),
         filename: "[name].js"
       },
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom"
+        }
+      },
       module: {
         rules: [
           {

@@ -1,12 +1,11 @@
-.main-sidebar
-{
+.main-sidebar {
+  z-index: 5;
   border-right: 1px solid rgba(0, 0, 0, 0.14);
   height: 100vh;
-  position: fixed
+  position: fixed;
 }
 
-.main-content.col
-{
+.main-content.col {
   float: none;
   margin-left: auto;
 }

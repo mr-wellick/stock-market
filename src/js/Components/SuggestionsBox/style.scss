@@ -1,0 +1,11 @@
+.suggestions-box {
+  position: absolute;
+  z-index: 1;
+  background: white;
+  border: 1px solid black;
+  max-height: 400px;
+  min-height: 200px;
+  width: 600px;
+  overflow: scroll;
+  top: 50px;
+}
