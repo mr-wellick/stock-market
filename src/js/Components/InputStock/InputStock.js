@@ -33,11 +33,17 @@ function InputStock(props) {
       props.fetchIEXError("");
     }
 
-    // check for possible stock matches.
+    // validate user input
     const validInput = validate(event.target.value);
-    const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
-    const possibleStocksToQuery = pattern === null ? [] : symbols.match(pattern);
 
+    // when an incorrect input such as, SOME_ENTRY_THAT_IS_VALID_BUT_NOT_A_STOCK_TICKER, is entered,
+    // we still get back a valid regex pattern. however, when we use this pattern to search the array,
+    // we end up with no matches.
+    const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, "g") : null;
+
+    // returning an empty array when we don't have any matches just to stay consistent with initial state.
+    const possibleStocksToQuery =
+      pattern !== null && symbols.match(pattern) !== null ? symbols.match(pattern) : [];
     setMatches(possibleStocksToQuery);
   };
 
