@@ -60,9 +60,11 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
     "react": "^16.8.6",
     "react-d3-ggplot": "^1.0.32",
     "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
     "react-redux": "^7.0.2",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",

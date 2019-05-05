@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { HashRouter } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
+import { hot } from "react-hot-loader/root";
 import { Navigation } from "./Components/";
 import { Home } from "./Views/";
 //import { Basics }     from "./Views/";
@@ -29,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(App);
