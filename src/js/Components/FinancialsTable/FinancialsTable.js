@@ -26,22 +26,32 @@ function FinancialsTable(props) {
           <tbody>
             <tr>
               <td>{props.data[props.activeIndex].quote.symbol}</td>
-              <td>{props.data[props.activeIndex].financials.financials[0].reportDate}</td>
+              <td>
+                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                  ? "NA"
+                  : props.data[props.activeIndex].financials.financials[0].reportDate}
+              </td>
               <td>{props.data[props.activeIndex].quote.close}</td>
               <td>{format(".2s")(props.data[props.activeIndex].stats.sharesOutstanding)}</td>
               <td>{format(".2s")(props.data[props.activeIndex].stats.marketcap)}</td>
               <td>
-                {format(".2s")(props.data[props.activeIndex].financials.financials[0].totalCash)}
+                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                  ? "NA"
+                  : format(".2s")(props.data[props.activeIndex].financials.financials[0].totalCash)}
               </td>
               <td>
-                {format(".2s")(props.data[props.activeIndex].financials.financials[0].totalDebt)}
+                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                  ? "NA"
+                  : format(".2s")(props.data[props.activeIndex].financials.financials[0].total)}
               </td>
               <td>
-                {format(".2s")(
-                  props.data[props.activeIndex].stats.marketcap -
-                    props.data[props.activeIndex].financials.financials[0].totalCash +
-                    props.data[props.activeIndex].financials.financials[0].totalDebt
-                )}
+                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                  ? "NA"
+                  : format(".2s")(
+                      props.data[props.activeIndex].stats.marketcap -
+                        props.data[props.activeIndex].financials.financials[0].totalCash +
+                        props.data[props.activeIndex].financials.financials[0].totalDebt
+                    )}
               </td>
             </tr>
           </tbody>
