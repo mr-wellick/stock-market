@@ -7,18 +7,8 @@ import { fetchIEXData } from "../../Redux/";
 import { fetchIEXError } from "../../Redux/";
 import { useSymbols } from "../../_hooks/";
 import { SuggestionsBox } from "../SuggestionsBox/";
+import { validate } from "../../_utilities/";
 import "./style.scss";
-
-function validate(userInput) {
-  const singleWord = /\w+/;
-  const isValidInput = userInput.match(singleWord);
-
-  if (isValidInput !== null) {
-    return isValidInput[0].toUpperCase();
-  }
-
-  return isValidInput;
-}
 
 function InputStock(props) {
   const [input, setInput] = useState("");
