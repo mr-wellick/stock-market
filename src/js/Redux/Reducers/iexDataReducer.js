@@ -4,6 +4,7 @@ import { SET_ACTIVE_INDEX } from "../Constants/";
 import { DELETE_STOCK } from "../Constants/";
 import { SET_ACTIVE_CHART } from "../Constants/";
 import { FETCH_IEX_ERROR } from "../Constants/";
+import { SET_USER_INPUT } from "../Constants/";
 
 function iexDataReducer(
   state = {
@@ -11,7 +12,8 @@ function iexDataReducer(
     isFetching: false,
     activeIndex: 0,
     activeChart: "historical",
-    error: ""
+    error: "",
+    input: ""
   },
   action
 ) {
@@ -45,6 +47,11 @@ function iexDataReducer(
       return {
         ...state,
         data: state.data.filter(item => item.quote.symbol !== action.symbol)
+      };
+    case SET_USER_INPUT:
+      return {
+        ...state,
+        input: action.input
       };
     default:
       return state;

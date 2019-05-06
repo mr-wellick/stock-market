@@ -6,3 +6,4 @@ export { setActiveIndex } from "./Actions/";
 export { deleteStock } from "./Actions/";
 export { setActiveChart } from "./Actions/";
 export { fetchIEXError } from "./Actions/";
+export { setUserInput } from "./Actions/";
