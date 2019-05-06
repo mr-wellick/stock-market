@@ -18,7 +18,7 @@ function SuggestionsBox(props) {
       props.fetchIEXError(`${duplicateEntry[0].company.symbol} is already in your list.`);
     } else {
       if (validInput) {
-        props.fetchIEXData(validate);
+        props.fetchIEXData(validInput);
       } else {
         props.fetchIEXData("Invalid input.");
       }
@@ -30,7 +30,7 @@ function SuggestionsBox(props) {
   }
 
   return (
-    <form className="suggestions-box">
+    <form className="suggestions-box card">
       {props.matches.slice(0, 150).map(symbol => (
         <p key={symbol}>
           <label>
