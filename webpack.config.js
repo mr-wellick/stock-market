@@ -45,10 +45,6 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
             }
           },
           {
-            test: /\.ts$/,
-            use: ["ts-loader"]
-          },
-          {
             test: /\.js$/,
             loader: "babel-loader",
             query: {
