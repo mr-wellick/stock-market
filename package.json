@@ -8,8 +8,7 @@
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "prod:live": "git subtree push --prefix build origin gh-pages"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
   },
   "name": "securities-app",
   "version": "1.0.0",
@@ -28,6 +27,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "compression-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",

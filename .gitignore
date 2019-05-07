@@ -6,3 +6,4 @@ reference
 yarn-error.log
 .env
 tags
+_redirects
