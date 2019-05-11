@@ -5,7 +5,11 @@ import { format } from "d3-format";
 import "./style.scss";
 
 function FinancialsTable(props) {
-  if (props.data.length === 0) return null;
+  if (props.data.length === 0) {
+    return null;
+  }
+
+  const { quote, financials, stats } = props.data[props.activeIndex];
 
   return (
     <div className="card">
@@ -15,7 +19,7 @@ function FinancialsTable(props) {
             <tr>
               <th>Symbol</th>
               <th>Report Date</th>
-              <th>Price</th>
+              <th>Close</th>
               <th>SO</th>
               <th>MC</th>
               <th>Cash</th>
@@ -25,32 +29,32 @@ function FinancialsTable(props) {
           </thead>
           <tbody>
             <tr>
-              <td>{props.data[props.activeIndex].quote.symbol}</td>
+              <td>{quote.symbol}</td>
               <td>
-                {Object.keys(props.data[props.activeIndex].financials).length === 0
-                  ? "NA"
-                  : props.data[props.activeIndex].financials.financials[0].reportDate}
+                {financials.financials === undefined ? "NA" : financials.financials[0].reportDate}
               </td>
-              <td>{props.data[props.activeIndex].quote.close}</td>
-              <td>{format(".2s")(props.data[props.activeIndex].stats.sharesOutstanding)}</td>
-              <td>{format(".2s")(props.data[props.activeIndex].stats.marketcap)}</td>
+              <td>{!quote.close ? "NA" : quote.close}</td>
+              <td>{!stats.sharesOutstanding ? "NA" : format(".2s")(stats.sharesOutstanding)}</td>
+              <td>{!stats.marketcap ? "NA" : format(".2s")(stats.marketcap)}</td>
               <td>
-                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                {!financials.financials[0].totalCash
                   ? "NA"
-                  : format(".2s")(props.data[props.activeIndex].financials.financials[0].totalCash)}
+                  : format(".2s")(financials.financials[0].totalCash)}
               </td>
               <td>
-                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                {!financials.financials[0].totalDebt
                   ? "NA"
-                  : format(".2s")(props.data[props.activeIndex].financials.financials[0].total)}
+                  : format(".2s")(financials.financials[0].totalDebt)}
               </td>
               <td>
-                {Object.keys(props.data[props.activeIndex].financials).length === 0
+                {!financials.financials[0].totalCash &&
+                !financials.financials[0].totalDebt &&
+                !stats.marketcap
                   ? "NA"
                   : format(".2s")(
-                      props.data[props.activeIndex].stats.marketcap -
-                        props.data[props.activeIndex].financials.financials[0].totalCash +
-                        props.data[props.activeIndex].financials.financials[0].totalDebt
+                      stats.marketcap -
+                        financials.financials[0].totalCash +
+                        financials.financials[0].totalDebt
                     )}
               </td>
             </tr>
