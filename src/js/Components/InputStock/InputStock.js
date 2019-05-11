@@ -61,6 +61,8 @@ function InputStock(props) {
     }
   }, []);
 
+  const isError = props.error ? "is-error" : "";
+
   return (
     <div className="user-input-container">
       <form onSubmit={onSubmit} autoComplete="off">
@@ -73,7 +75,7 @@ function InputStock(props) {
             onChange={onChange}
             required
           />
-          <span className="helper-text" data-error="wrong" data-success="right">
+          <span className="helper-text" id={isError}>
             {props.error}
           </span>
         </div>
