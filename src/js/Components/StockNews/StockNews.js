@@ -8,26 +8,31 @@ function StockNews(props) {
 
   if (data.length === 0) return null;
 
-  return data[activeIndex].news.map(stock => (
-    <div key={stock.url} className="row">
-      <div className="col s12">
-        <div className="card blue-grey darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">
-              {`${stock.source} -- ${new Date(stock.datetime).toLocaleString()}`}
-            </span>
-            <span className="card-title">{stock.headline}</span>
-            <p>{stock.summary}</p>
-          </div>
-          <div className="card-action">
-            <a rel="noopener noreferrer" target="_blank" href={stock.url}>
-              Read More
-            </a>
+  return (
+    <section>
+      <h3>News</h3>
+      {data[activeIndex].news.map(stock => (
+        <div key={stock.url} className="row">
+          <div className="col s12">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">
+                  {`${stock.source} -- ${new Date(stock.datetime).toLocaleString()}`}
+                </span>
+                <span className="card-title">{stock.headline}</span>
+                <p>{stock.summary}</p>
+              </div>
+              <div className="card-action">
+                <a rel="noopener noreferrer" target="_blank" href={stock.url}>
+                  Read More
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  ));
+      ))}
+    </section>
+  );
 }
 
 StockNews.propTypes = {
