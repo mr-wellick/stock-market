@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setActiveIndex } from "../../Redux/";
 import { deleteStock } from "../../Redux/";
@@ -26,51 +25,45 @@ function StockSelector(props) {
   }
 
   const stockTrend = stock => (stock.quote.change < 0 ? "is-down" : "is-up");
+  const classNames = (activeIndex, index) =>
+    activeIndex === index ? "collection-item active teal lighten-3" : "collection-item";
 
   return (
     <form>
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h5>Portfolio Stocks</h5>
-        </li>
-        {data.map((stock, index) => {
-          return (
-            <li key={stock.company.symbol} className="collection-item">
-              <i
-                className="tiny material-icons"
-                data-symbol={stock.company.symbol}
-                onClick={deleteStock}
-              >
-                delete
-              </i>
-              <label>
-                <input
-                  className="with-gap"
-                  type="radio"
-                  name="stock-list"
-                  checked={activeIndex === index}
-                  onChange={onChange}
-                  value={index}
-                />
-                <span>{stock.company.symbol}</span>
-                <span className={`secondary-content ${stockTrend(stock)}`}>
-                  {stock.quote.close}
-                </span>
-              </label>
-            </li>
-          );
-        })}
+      <h5>Portfolio Stocks</h5>
+      <ul className="stock-selections-ul collection">
+        {data.map((stock, index) => (
+          <li key={stock.company.symbol} className={classNames(props.activeIndex, index)}>
+            <label className="active-selection black-text">
+              <input
+                name="stock-list"
+                type="radio"
+                onChange={onChange}
+                checked={activeIndex === index}
+                value={index}
+              />
+              {stock.company.symbol}
+            </label>
+            <div className={`secondary-content ${stockTrend(stock)}`}>
+              <span>{stock.quote.close}</span>
+              <span className="delete-icon-container">
+                <i
+                  className="tiny material-icons black-text"
+                  data-symbol={stock.company.symbol}
+                  onClick={deleteStock}
+                  role="radio"
+                  aria-checked={activeIndex === index}
+                >
+                  delete
+                </i>
+              </span>
+            </div>
+          </li>
+        ))}
       </ul>
     </form>
   );
 }
-
-StockSelector.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number,
-  setActiveIndex: PropTypes.func,
-  deleteStock: PropTypes.func
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
