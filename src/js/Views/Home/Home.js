@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StockSelector } from "../../Components/";
 import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
-import { FinancialsTable } from "../../Components/";
+//import { FinancialsTable } from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { ChartSelector } from "../../Components/";
 import { ActiveChart } from "../../Components/";
@@ -21,17 +21,14 @@ function Home() {
           <SmallLoader />
           <InputStock />
           <StockSelector />
-        </div>
-        {/*
           <ChartSelector />
-        */}
+        </div>
 
         {/* MAIN CONTENT */}
         <div className="main-content col s9 grey lighten-5">
           <StockHeader />
           <ActiveChart />
           <StockDescription />
-          <FinancialsTable />
           <StockNews />
         </div>
       </div>
