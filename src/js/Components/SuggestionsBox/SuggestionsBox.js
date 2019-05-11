@@ -10,6 +10,7 @@ function SuggestionsBox(props) {
   const onChange = event => {
     // clear matches on selection
     props.setMatches([]);
+    document.querySelector("#stocks").value = ""; // clear user input
 
     const validInput = validate(event.target.dataset.stockName);
     const duplicateEntry = props.data.filter(item => item.company.symbol === validInput);
@@ -20,7 +21,7 @@ function SuggestionsBox(props) {
       if (validInput) {
         props.fetchIEXData(validInput);
       } else {
-        props.fetchIEXData("Invalid input.");
+        props.fetchIEXError("Invalid input.");
       }
     }
   };
