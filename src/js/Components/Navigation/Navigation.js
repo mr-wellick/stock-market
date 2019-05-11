@@ -9,7 +9,7 @@ function Navigation() {
       <div className="row">
         <nav className="main-nav col s12 white z-depth-0">
           <Link to="/">
-            <Logo/>
+            <Logo />
           </Link>
           <ul>
             {/*
