@@ -9,6 +9,7 @@ import { ChartSelector } from "../../Components/";
 import { ActiveChart } from "../../Components/";
 import { StockHeader } from "../../Components/";
 import { StockNews } from "../../Components/";
+import { SmallLoader } from "../../Components/";
 import "./style.scss";
 
 function Home() {
@@ -17,10 +18,13 @@ function Home() {
       <div className="row">
         {/* SIDEBAR */}
         <div className="main-sidebar col s3">
+          <SmallLoader />
           <InputStock />
           <StockSelector />
-          <ChartSelector />
         </div>
+        {/*
+          <ChartSelector />
+        */}
 
         {/* MAIN CONTENT */}
         <div className="main-content col s9 grey lighten-5">
