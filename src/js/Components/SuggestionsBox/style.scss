@@ -3,8 +3,19 @@
   z-index: 1;
   background: white;
   max-height: 300px;
-  min-height: 200px;
   width: 100%;
   overflow: scroll;
   top: 50px;
+}
+
+.suggestion-li:hover {
+  background: #80cbc4;
+}
+
+.suggestion-label:hover {
+  cursor: pointer;
+}
+
+.stand-out {
+  color: #ffa200;
 }

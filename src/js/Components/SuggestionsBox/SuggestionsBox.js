@@ -32,20 +32,25 @@ function SuggestionsBox(props) {
 
   return (
     <form className="suggestions-box card">
-      {props.matches.slice(0, 150).map(symbol => (
-        <p key={symbol}>
-          <label>
-            <input
-              name="stocks"
-              className="with-gap"
-              type="radio"
-              data-stock-name={symbol}
-              onChange={onChange}
-            />
-            <span>{symbol}</span>
-          </label>
-        </p>
-      ))}
+      <ul className="collection" style={{ margin: 0 }}>
+        {props.matches.slice(0, 150).map((symbol, index) => (
+          <li key={symbol} className="collection-item suggestion-li">
+            <label className="black-text suggestion-label">
+              <input
+                type="radio"
+                name="stock-suggestions"
+                data-stock-name={symbol}
+                onChange={onChange}
+                value={index}
+              />
+              <div>
+                <span className="stand-out">{symbol.split(" - ")[0]}</span>
+                <span>{" - " + symbol.split(" - ")[1]}</span>
+              </div>
+            </label>
+          </li>
+        ))}
+      </ul>
     </form>
   );
 }
