@@ -10,12 +10,10 @@ function ActiveChart(props) {
   if (props.data.length === 0) return null;
 
   return (
-    <div className="row" style={{ margin: "0px 5px" }}>
-      <div className="chart-container card col s12">
-        {props.activeChart === "historical" ? <HistoricalChart /> : null}
-        {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
-        {props.activeChart === "financials" ? <FinancialsChart /> : null}
-      </div>
+    <div className="card chart-container">
+      {props.activeChart === "historical" ? <HistoricalChart /> : null}
+      {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
+      {props.activeChart === "financials" ? <FinancialsChart /> : null}
     </div>
   );
 }
