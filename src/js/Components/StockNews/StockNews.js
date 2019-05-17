@@ -31,7 +31,9 @@ function StockNews(props) {
                 <p className="article-summary">{article.summary.substring(0, 250)}...</p>
               </div>
               <div className="card-action link-to-article">
-                <a href={article.url}>{article.source}</a>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  {article.source}
+                </a>
                 <span>{new Date(article.datetime).toLocaleString()}</span>
               </div>
             </div>
