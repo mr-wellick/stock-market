@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { GGPLOT } from "react-d3-ggplot";
 import { Line } from "react-d3-ggplot";
@@ -7,11 +6,12 @@ import { useDimensions } from "../../_hooks/";
 
 function HistoricalChart(props) {
   const dimensions = useDimensions();
+  const { data, activeIndex } = props;
 
   // format data
   const formatted =
-    props.data.length > 0
-      ? props.data[props.activeIndex].chart.map(item => ({
+    data.length > 0
+      ? data[activeIndex].chart.map(item => ({
           ...item,
           date: new Date(item.date)
         }))
@@ -21,7 +21,7 @@ function HistoricalChart(props) {
     return null;
   }
 
-  const stockTrend = props.data[props.activeIndex].quote.change < 0 ? "#f72121" : "#19be87";
+  const stockTrend = data[activeIndex].quote.change < 0 ? "#f72121" : "#19be87";
 
   return (
     <GGPLOT data={formatted} aes={["date", "close"]} dimensions={dimensions}>
@@ -29,12 +29,6 @@ function HistoricalChart(props) {
     </GGPLOT>
   );
 }
-
-HistoricalChart.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number,
-  dimensions: PropTypes.object
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
