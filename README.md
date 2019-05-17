@@ -6,7 +6,7 @@
 
 # Demo
 
-![nothing-to-show](./demos/materialize-demo.gif)
+![nothing-to-show](./demos/new-api.gif)
 
 # Introduction
 
