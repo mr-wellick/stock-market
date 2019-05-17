@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./style.scss";
 
@@ -12,29 +11,20 @@ function StockHeader(props) {
   const stockTrend = data[activeIndex].quote.change < 0 ? "is-down" : "is-up";
 
   return (
-    <div className="row">
-      <div className="col s12">
-        <div className="card-pannel">
-          <p>
-            <span className="company-name">{data[activeIndex].company.companyName}</span>
-            <span className="company-symbol">[{data[activeIndex].company.symbol}]</span>
-          </p>
-          <p>
-            <span className="company-close">{data[activeIndex].quote.close}</span>
-            <span className={"company-change " + stockTrend}>
-              {data[activeIndex].quote.change}({data[activeIndex].quote.changePercent})
-            </span>
-          </p>
-        </div>
+    <div className="stock-header-container card-pannel">
+      <div>
+        <span className="company-name">{data[activeIndex].company.companyName}</span>
+        <span className="company-symbol">[{data[activeIndex].company.symbol}]</span>
+      </div>
+      <div>
+        <span className="company-close">{data[activeIndex].quote.close}</span>
+        <span className={"company-change " + stockTrend}>
+          {data[activeIndex].quote.change}({data[activeIndex].quote.changePercent})
+        </span>
       </div>
     </div>
   );
 }
-
-StockHeader.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
