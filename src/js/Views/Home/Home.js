@@ -5,9 +5,8 @@ import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
 //import { FinancialsTable } from "../../Components/";
 import { StockDescription } from "../../Components/";
-import { ChartSelector } from "../../Components/";
+//import { ChartSelector } from "../../Components/";
 import { ActiveChart } from "../../Components/";
-import { StockHeader } from "../../Components/";
 import { StockNews } from "../../Components/";
 import { SmallLoader } from "../../Components/";
 import "./style.scss";
@@ -21,15 +20,15 @@ function Home() {
           <SmallLoader />
           <InputStock />
           <StockSelector />
-          <ChartSelector />
         </div>
 
         {/* MAIN CONTENT */}
         <div className="main-content col s9 grey lighten-5">
-          <StockHeader />
           <ActiveChart />
           <StockDescription />
           <StockNews />
+          {/*
+           */}
         </div>
       </div>
     </section>
