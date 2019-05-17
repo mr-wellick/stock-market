@@ -12,14 +12,16 @@ function StockDescription(props) {
   return (
     <section>
       <div className="row">
-        <div className="col s12 m6">
+        <div className="col s12">
           <div className="card">
             <div className="card-content">
-              <span className="card-title">Description</span>
+              <span className="card-title">Profile</span>
               <p>{data[activeIndex].company.description}</p>
             </div>
             <div className="card-action">
-              <a href={data[activeIndex].company.website}>{data[activeIndex].company.symbol}</a>
+              <a href={data[activeIndex].company.website} target="_blank" rel="noopener noreferrer">
+                Visit {data[activeIndex].company.symbol}
+              </a>
             </div>
           </div>
         </div>
