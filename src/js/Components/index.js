@@ -6,5 +6,4 @@ export { StockNews } from "./StockNews/";
 export { ChartSelector } from "./ChartSelector/";
 export { InputStock } from "./InputStock/";
 export { ActiveChart } from "./ActiveChart/";
-export { StockHeader } from "./StockHeader/";
 export { SmallLoader } from "./SmallLoader/";
