@@ -4,16 +4,22 @@ import { connect } from "react-redux";
 import { HistoricalChart } from "../HistoricalChart/";
 import { MarketCaps } from "../MarketCaps//";
 import { FinancialsChart } from "../FinancialsChart//";
+import { StockHeader } from "../StockHeader/";
 import "./style.scss";
 
 function ActiveChart(props) {
-  if (props.data.length === 0) return null;
+  if (props.data.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="card chart-container">
-      {props.activeChart === "historical" ? <HistoricalChart /> : null}
-      {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
-      {props.activeChart === "financials" ? <FinancialsChart /> : null}
+    <div className="card">
+      <StockHeader />
+      <div className="chart-container">
+        {props.activeChart === "historical" ? <HistoricalChart /> : null}
+        {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
+        {props.activeChart === "financials" ? <FinancialsChart /> : null}
+      </div>
     </div>
   );
 }
