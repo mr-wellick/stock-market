@@ -8,7 +8,9 @@ const fetchIEXData = function(stockName) {
     dispatch({ type: IS_FETCHING, isFetching: true });
 
     const response = await fetch(
-      `https://api.iextrading.com/1.0/stock/${stockName}/batch?types=logo,relevant,stats,company,financials,news,quote,chart&range=5y`
+      `https://cloud.iexapis.com/stable/stock/${stockName}/batch?types=logo,peers,stats,company,income,news,quote,chart&range=5y&token=${
+        process.env.IEX_KEY
+      }`
     );
 
     try {
