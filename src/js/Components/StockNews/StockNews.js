@@ -11,12 +11,17 @@ function StockNews(props) {
 
   return (
     <div className="news-container row">
-      <h3 style={{ paddingLeft: "10px" }}>News</h3>
+      {/*
+        <h3 style={{ paddingLeft: "10px" }}>News</h3>
+      */}
       {data[activeIndex].news.map(article => (
         <div key={article.url} className="col s12">
           <div className="card horizontal hoverable">
             <div className="image-container card-image">
+              <div className="grey lighten-3" style={{ width: "300px", height: "100%" }} />
+              {/*
               <img className="responsive-image" src={article.image} alt="not-available" />
+            */}
             </div>
             <div className="card-stacked">
               <div className="card-content">
@@ -25,10 +30,9 @@ function StockNews(props) {
                 </h6>
                 <p className="article-summary">{article.summary.substring(0, 250)}...</p>
               </div>
-              <div className="card-action">
-                <a href={article.url}>
-                  {`${article.source} | ${new Date(article.datetime).toLocaleString()}`}
-                </a>
+              <div className="card-action link-to-article">
+                <a href={article.url}>{article.source}</a>
+                <span>{new Date(article.datetime).toLocaleString()}</span>
               </div>
             </div>
           </div>

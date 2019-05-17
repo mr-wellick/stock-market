@@ -1,9 +1,14 @@
+.link-to-article {
+  display: flex;
+  justify-content: space-between;
+}
+
 .news-container {
-  padding: 15px;
+  //padding: 15px;
 }
 
 .image-container {
-  width: 40%;
+  max-width: 250px;
 }
 
 #article-headline {
@@ -11,5 +16,5 @@
 }
 
 .article-summary {
-  color: #9e9e9e;
+  //color: #9e9e9e;
 }
