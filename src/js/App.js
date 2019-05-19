@@ -15,16 +15,23 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <Fragment>
-          <Navigation />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            {/*
+        <div className="main-container row">
+          <div className="main-sidebar-container col s3">
+            <Navigation />
+          </div>
+          <div className="main-content-container col s9">
+            <Fragment>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                {/*
+            <Navigation />
               <Route exact path="/basics" component={ basics }></route>
               <Route exact path="/resources" component={ resources }></route>
             */}
-          </Switch>
-        </Fragment>
+              </Switch>
+            </Fragment>
+          </div>
+        </div>
       </HashRouter>
     );
   }
