@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
 import { StockDescription } from "../../Components/";
@@ -7,9 +6,9 @@ import { ActiveChart } from "../../Components/";
 import { StockNews } from "../../Components/";
 import "./style.scss";
 
-function Home() {
+function Home(props) {
   return (
-    <section>
+    <section className={props.data.length === 0 ? "fill-viewport" : ""}>
       <InputStock />
       <ActiveChart />
       <StockDescription />
@@ -17,11 +16,6 @@ function Home() {
     </section>
   );
 }
-
-Home.propTypes = {
-  data: PropTypes.array,
-  isFetching: PropTypes.bool
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

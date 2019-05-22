@@ -19,7 +19,7 @@ function StockNews(props) {
               <div
                 className="grey lighten-1"
                 style={{
-                  width: "350px",
+                  width: "300px",
                   height: "100%"
                 }}
               >

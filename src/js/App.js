@@ -7,6 +7,7 @@ import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
 import { Navigation } from "./Components/";
+import { SmallLoader } from "./Components/";
 import { Home } from "./Views/";
 //import { Basics }     from "./Views/";
 //import { Resources }  from "./Views/";
@@ -17,6 +18,7 @@ class App extends Component {
       <HashRouter>
         <div className="main-container row">
           <div className="main-sidebar-container col s3">
+            <SmallLoader />
             <Navigation />
           </div>
           <div className="main-content-container col s9 right">

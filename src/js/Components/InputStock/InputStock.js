@@ -57,7 +57,7 @@ function InputStock(props) {
 
   useEffect(() => {
     if (props.data.length === 0) {
-      //props.fetchIEXData("tsla");
+      props.fetchIEXData("tsla");
     }
   }, []);
 
