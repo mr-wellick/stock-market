@@ -19,15 +19,14 @@ class App extends Component {
           <div className="main-sidebar-container col s3">
             <Navigation />
           </div>
-          <div className="main-content-container col s9">
+          <div className="main-content-container col s9 right">
             <Fragment>
               <Switch>
                 <Route exact path="/" component={Home} />
                 {/*
-            <Navigation />
-              <Route exact path="/basics" component={ basics }></route>
-              <Route exact path="/resources" component={ resources }></route>
-            */}
+                  <Route exact path="/basics" component={ basics }></route>
+                  <Route exact path="/resources" component={ resources }></route>
+                */}
               </Switch>
             </Fragment>
           </div>

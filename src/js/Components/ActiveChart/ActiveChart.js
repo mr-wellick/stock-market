@@ -1,10 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { HistoricalChart } from "../HistoricalChart/";
-import { MarketCaps } from "../MarketCaps//";
-import { FinancialsChart } from "../FinancialsChart//";
 import { StockHeader } from "../StockHeader/";
+import { StockSelector } from "../StockSelector/";
 import "./style.scss";
 
 function ActiveChart(props) {
@@ -13,21 +11,19 @@ function ActiveChart(props) {
   }
 
   return (
-    <div className="card">
-      <StockHeader />
-      <div className="chart-container">
-        {props.activeChart === "historical" ? <HistoricalChart /> : null}
-        {props.activeChart === "marketCaps" ? <MarketCaps /> : null}
-        {props.activeChart === "financials" ? <FinancialsChart /> : null}
+    <div className="card chart-container">
+      <div className="row">
+        <div className="col s8">
+          <StockHeader />
+          <HistoricalChart />
+        </div>
+        <div className="col s4">
+          <StockSelector />
+        </div>
       </div>
     </div>
   );
 }
-
-ActiveChart.propTypes = {
-  data: PropTypes.array,
-  activeChart: PropTypes.string
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

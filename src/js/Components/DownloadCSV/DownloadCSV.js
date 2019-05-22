@@ -28,12 +28,15 @@ const DownloadCSV = props => {
   headers.push({ label: "Date", key: "date" });
 
   return (
-    <div className="download-csv-btn">
-      <CSVLink data={firstStock} headers={headers} filename="closing-prices.csv">
-        <i className="material-icons grey-text">file_download</i>
-        CSV
-      </CSVLink>
-    </div>
+    <CSVLink
+      className="download-csv-btn"
+      data={firstStock}
+      headers={headers}
+      filename="closing-prices.csv"
+    >
+      <i className="material-icons grey-text">file_download</i>
+      <span>CSV</span>
+    </CSVLink>
   );
 };
 

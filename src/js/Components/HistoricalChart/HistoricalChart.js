@@ -25,7 +25,7 @@ function HistoricalChart(props) {
 
   return (
     <GGPLOT data={formatted} aes={["date", "close"]} dimensions={dimensions}>
-      <Line color={stockTrend} />
+      <Line fill={stockTrend} />
     </GGPLOT>
   );
 }

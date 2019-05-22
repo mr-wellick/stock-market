@@ -1,6 +1,16 @@
+.stock-selections-form {
+  margin: 10px;
+}
+
+.stock-selections-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .stock-selections-ul {
-  max-height: 170px;
   min-height: 40px;
+  max-height: 460px;
   overflow: scroll;
 }
 

@@ -11,17 +11,22 @@ function StockNews(props) {
 
   return (
     <div className="news-container row">
-      {/*
-        <h3 style={{ paddingLeft: "10px" }}>News</h3>
-      */}
+      <h3 style={{ paddingLeft: "10px" }}>News</h3>
       {data[activeIndex].news.map(article => (
         <div key={article.url} className="col s12">
           <div className="card horizontal hoverable">
             <div className="image-container card-image">
-              <div className="grey lighten-3" style={{ width: "300px", height: "100%" }} />
-              {/*
-              <img className="responsive-image" src={article.image} alt="not-available" />
-            */}
+              <div
+                className="grey lighten-1"
+                style={{
+                  width: "350px",
+                  height: "100%"
+                }}
+              >
+                {/*
+                <img className="responsive-image" src={article.image} alt="not-available" />
+              */}
+              </div>
             </div>
             <div className="card-stacked">
               <div className="card-content">

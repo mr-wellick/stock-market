@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setActiveIndex } from "../../Redux/";
 import { deleteStock } from "../../Redux/";
+import { DownloadCSV } from "../DownloadCSV/";
 import "./style.scss";
 
 function StockSelector(props) {
@@ -29,8 +30,11 @@ function StockSelector(props) {
     activeIndex === index ? "collection-item active teal lighten-3" : "collection-item";
 
   return (
-    <form>
-      <h5>Portfolio Stocks</h5>
+    <form className="stock-selections-form">
+      <div className="stock-selections-container">
+        <h5>Portfolio Stocks</h5>
+        <DownloadCSV />
+      </div>
       <ul className="stock-selections-ul collection">
         {data.map((stock, index) => (
           <li key={stock.company.symbol} className={classNames(props.activeIndex, index)}>

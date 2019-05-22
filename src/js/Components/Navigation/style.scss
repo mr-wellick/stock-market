@@ -1,16 +1,16 @@
-.lrnz-logo-container {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-
-  .lrnz-text {
-    margin-left: 20px;
-    font-size: 32px;
-  }
+.main-nav-section ul {
+  border: 0;
 }
 
-.collection {
-  border: 0;
+.lrnz-logo-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .lrnz-text {
+    margin: 0;
+    margin-left: 20px;
+  }
 }
 
 .align-collection-item {
@@ -19,4 +19,6 @@
 
 #collection-item-override {
   background: #20292c;
+  border: 0;
+  padding-left: 15px;
 }
