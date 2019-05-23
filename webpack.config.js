@@ -59,9 +59,9 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
           template: "src/index.html",
           favicon: "src/_assets/logo.png"
         }),
-        new dotenv(),
+        new dotenv({ systemvars: true }),
         new webpack.ProgressPlugin(),
-        new cleanBuildDir({ systemvars: true }),
+        new cleanBuildDir(),
         new purgeCSSPlugin({
           paths: glob.sync(`${path.join(__dirname, "./src/")}/**/*`, {
             nodir: true
