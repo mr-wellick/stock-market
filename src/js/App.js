@@ -9,8 +9,7 @@ import { hot } from "react-hot-loader/root";
 import { Navigation } from "./Components/";
 import { SmallLoader } from "./Components/";
 import { Home } from "./Views/";
-//import { Basics }     from "./Views/";
-//import { Resources }  from "./Views/";
+//import { Contact } from "./Views/";
 
 class App extends Component {
   render() {
@@ -26,8 +25,8 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 {/*
-                  <Route exact path="/basics" component={ basics }></route>
-                  <Route exact path="/resources" component={ resources }></route>
+                  <Route exact path="/contact" component={Contact} />
+                  <Route exact path="/basics" component={ Basics }/>
                 */}
               </Switch>
             </Fragment>

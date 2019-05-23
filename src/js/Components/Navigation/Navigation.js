@@ -17,6 +17,7 @@ function Navigation() {
             Home
           </Link>
         </li>
+        {/*
         <li className="collection-item valign-wrapper white-text" id="collection-item-override">
           <i className="material-icons cyan-text lighten-5 circle">graphic_eq</i>
           <Link className="align-collection-item white-text title" to="/basics">
@@ -29,6 +30,7 @@ function Navigation() {
             Contact
           </Link>
         </li>
+        */}
       </ul>
     </section>
   );

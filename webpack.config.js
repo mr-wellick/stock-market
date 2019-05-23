@@ -5,6 +5,7 @@ const template = require("html-webpack-plugin");
 const cleanBuildDir = require("clean-webpack-plugin");
 const purgeCSSPlugin = require("purgecss-webpack-plugin");
 const glob = require("glob");
+const dotenv = require("dotenv-webpack");
 
 // Development, production, and presets
 const configType = env => require(`./build-utils/webpack.${env}`)(env);
@@ -60,6 +61,7 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
         }),
         new webpack.ProgressPlugin(),
         new cleanBuildDir(),
+        new dotenv(),
         new purgeCSSPlugin({
           paths: glob.sync(`${path.join(__dirname, "./src/")}/**/*`, {
             nodir: true
