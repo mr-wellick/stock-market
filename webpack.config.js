@@ -61,7 +61,7 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
         }),
         new dotenv(),
         new webpack.ProgressPlugin(),
-        new cleanBuildDir(),
+        new cleanBuildDir({ systemvars: true }),
         new purgeCSSPlugin({
           paths: glob.sync(`${path.join(__dirname, "./src/")}/**/*`, {
             nodir: true
