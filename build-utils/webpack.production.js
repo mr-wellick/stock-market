@@ -1,6 +1,5 @@
 const extractCSS = require("mini-css-extract-plugin");
 const minimizeCSS = require("optimize-css-assets-webpack-plugin");
-const copy = require("copy-webpack-plugin");
 const terserPlugin = require("terser-webpack-plugin");
 
 module.exports = () => ({
@@ -20,5 +19,5 @@ module.exports = () => ({
       }
     ]
   },
-  plugins: [new extractCSS({ filename: "[name].css" }), new copy([{ from: "_redirects" }])]
+  plugins: [new extractCSS({ filename: "[name].css" })]
 });
