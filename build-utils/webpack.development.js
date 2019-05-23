@@ -1,3 +1,5 @@
+const dotenv = require("dotenv-webpack");
+
 module.exports = () => ({
   devServer: {
     historyApiFallback: true,
@@ -14,5 +16,6 @@ module.exports = () => ({
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
       }
     ]
-  }
+  },
+  plugins: [new dotenv()]
 });
