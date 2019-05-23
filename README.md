@@ -20,12 +20,12 @@
 
 - Six Key Metrics
 
-  - Stock Price
-  - Shares Outstanding
-  - Market Cap = Stock Price x Shares Outstanding
-  - Total Cash
-  - Total Debt
-  - Enterprise Value = Market Cap - Total Cash + Total Debt
+  - `Stock Price`
+  - `Shares Outstanding`
+  - `Market Cap` = Stock Price x Shares Outstanding
+  - `Total Cash`
+  - `Total Debt`
+  - `Enterprise Value` = Market Cap - Total Cash + Total Debt
 
 - Historical Chart
 
