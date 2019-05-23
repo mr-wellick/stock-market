@@ -10,7 +10,7 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
   },
-  "name": "securities-app",
+  "name": "stock-market",
   "version": "1.0.0",
   "description": "A web application allowing you to query stock data",
   "author": "Pablo Lorenzo",
