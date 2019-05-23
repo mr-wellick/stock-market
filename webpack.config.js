@@ -4,6 +4,7 @@ const merge = require("webpack-merge");
 const template = require("html-webpack-plugin");
 const cleanBuildDir = require("clean-webpack-plugin");
 const purgeCSSPlugin = require("purgecss-webpack-plugin");
+const dotenv = require("dotenv-webpack");
 const glob = require("glob");
 
 // Development, production, and presets
@@ -58,6 +59,7 @@ module.exports = ({ mode, presets } = { mode: "production", presets: undefined }
           template: "src/index.html",
           favicon: "src/_assets/logo.png"
         }),
+        new dotenv(),
         new webpack.ProgressPlugin(),
         new cleanBuildDir(),
         new purgeCSSPlugin({
