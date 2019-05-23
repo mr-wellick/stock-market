@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/71563dc0-9c2f-471f-8b2a-f6c1f1c11c12/deploy-status)](https://app.netlify.com/sites/lrnztrading/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a24fa809-6de4-4170-94b4-2511531425b0/deploy-status)](https://app.netlify.com/sites/lrnztrading/deploys)
 
 # Securities App
 
