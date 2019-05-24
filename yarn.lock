@@ -7412,10 +7412,10 @@ react-csv@^1.1.1:
   resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-1.1.1.tgz#718dadd2607a1795bfc8dbd32ca282a043739634"
   integrity sha512-eQSrkEfzPN+1IeXT58kJaDNmpFr3RhdjfE09jTrw+jdTEp0g0Ig9NOI+TpvMBbCukE1HQhOf4dyrLDRFKgZzbA==
 
-react-d3-ggplot@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.1.1.tgz#b4c15402d7f3d5efc88084ae099406e77d5aaa3d"
-  integrity sha512-pA1xBM0BC7oB+U1UmvF0cUVuWqRBFEhJKJQSSK6lepq9QtF+m6RpA4TmMEKzct447kFp0y/NgW62c9/rbc6IWQ==
+react-d3-ggplot@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.1.3.tgz#f789bc9e8b8aa3d0f91a630566e7d3884361831e"
+  integrity sha512-/QUMX/Wta7ML5LL6ypM7gVNBzJwz+/Snlh5O3MeMxIVH4zCDtVBkqgGz0F6pdXO7ktae7NZrEgKdoj/HQljxIQ==
   dependencies:
     d3-array "^2.0.3"
     d3-axis "^1.0.12"
