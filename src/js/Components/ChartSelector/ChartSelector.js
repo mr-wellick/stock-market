@@ -1,67 +1,58 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setActiveChart } from "../../Redux/";
+import { DownloadCSV } from "../DownloadCSV/";
 import "./style.scss";
 
-function ChartSelector(props) {
-  const changeChart = event => {
-    props.setActiveChart(event.target.id);
+const ChartSelector = props => {
+  const onChange = event => {
+    props.setActiveChart(event.target.dataset.chartType);
   };
 
   if (props.data.length === 0) return null;
 
   return (
-    <form>
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h5>Active Chart</h5>
-        </li>
-        <li className="collection-item">
-          <label>
-            <input
-              className="with-gap"
-              type="radio"
-              id="historical"
-              name="active-chart"
-              defaultChecked
-              onChange={changeChart}
-            />
-            <span>Historical</span>
-          </label>
-        </li>
-        <li className="collection-item">
-          <label>
-            <input
-              className="with-gap"
-              type="radio"
-              id="marketCaps"
-              name="active-chart"
-              onChange={changeChart}
-            />
-            <span>Market Cap</span>
-          </label>
-        </li>
-        <li className="collection-item">
-          <label className="field-chart">
-            <input
-              className="with-gap"
-              type="radio"
-              id="financials"
-              name="active-chart"
-              onChange={changeChart}
-            />
-            <span>Net Income</span>
-          </label>
-        </li>
-      </ul>
-    </form>
+    <div className="active-chart-container">
+      <form>
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            name="charts"
+            data-chart-type="historical"
+            onChange={onChange}
+            checked={props.activeChart === "historical"}
+          />
+          <span>Historical</span>
+        </label>
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            name="charts"
+            data-chart-type="marketCap"
+            onChange={onChange}
+            checked={props.activeChart === "marketCap"}
+          />
+          <span>Market Cap</span>
+        </label>
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            name="charts"
+            data-chart-type="financial"
+            onChange={onChange}
+            checked={props.activeChart === "financial"}
+          />
+          <span>Income</span>
+        </label>
+      </form>
+      <div>
+        <DownloadCSV />
+      </div>
+    </div>
   );
-}
-
-ChartSelector.propTypes = {
-  data: PropTypes.array,
-  setActiveChart: PropTypes.func
 };
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });

@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { HistoricalChart } from "../HistoricalChart/";
+import { MarketCaps } from "../MarketCaps/";
+import { FinancialsChart } from "../FinancialsChart/";
 import { StockHeader } from "../StockHeader/";
 import { StockSelector } from "../StockSelector/";
+import { ChartSelector } from "../ChartSelector/";
 import "./style.scss";
 
 function ActiveChart(props) {
@@ -15,7 +18,10 @@ function ActiveChart(props) {
       <div className="row">
         <div className="col s8">
           <StockHeader />
-          <HistoricalChart />
+          {props.activeChart === "historical" ? <HistoricalChart /> : null}
+          {props.activeChart === "marketCap" ? <MarketCaps /> : null}
+          {props.activeChart === "financial" ? <FinancialsChart /> : null}
+          <ChartSelector />
         </div>
         <div className="col s4">
           <StockSelector />
