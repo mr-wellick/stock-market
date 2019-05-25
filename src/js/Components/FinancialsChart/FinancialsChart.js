@@ -33,7 +33,20 @@ function FinancialsChart(props) {
   const dimensions = useDimensions();
 
   if (!data[activeIndex].income.income) {
-    return <h1>no financial data</h1>;
+    // used to override GEOMS' iternals. will change.
+    const Text = () => (
+      <text x={dimensions.padding * 1.1} y={dimensions.height - dimensions.padding * 1.1}>
+        There is no financial data available for {data[activeIndex].company.symbol}
+      </text>
+    );
+    Text.displayName = "Text";
+
+    return (
+      <GEOMS data={[]} aes={[]} dimensions={dimensions}>
+        <Background />
+        <Text />
+      </GEOMS>
+    );
   }
 
   const formattedData = Object.entries(data[activeIndex].income.income[0])
