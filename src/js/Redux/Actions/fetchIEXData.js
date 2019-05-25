@@ -7,9 +7,9 @@ const fetchIEXData = function(stockName) {
     // begin request
     dispatch({ type: IS_FETCHING, isFetching: true });
 
-    // will add these later: peers,income, symbol
+    // will add these later: peers, symbol
     const response = await fetch(
-      `https://cloud.iexapis.com/stable/stock/${stockName}/batch?types=stats,company,news,quote,chart&range=3m&token=${
+      `https://cloud.iexapis.com/stable/stock/${stockName}/batch?types=income,stats,company,news,quote,chart&range=3m&token=${
         process.env.IEX_KEY
       }`
     );
