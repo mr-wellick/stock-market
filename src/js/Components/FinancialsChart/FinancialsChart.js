@@ -1,51 +1,61 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useDimensions } from "../../_hooks/";
-import { GGPLOT } from "react-d3-ggplot";
-import { Line } from "react-d3-ggplot";
+import { GEOMS } from "react-d3-ggplot";
+import { Background } from "react-d3-ggplot";
+import { XAxis } from "react-d3-ggplot";
+import { YAxis } from "react-d3-ggplot";
+import { XGrid } from "react-d3-ggplot";
+import { YGrid } from "react-d3-ggplot";
+import { Rects } from "react-d3-ggplot";
+
+const newNames = [
+  "report",
+  "t.r",
+  "c.o.r",
+  "g.p",
+  "r.a.d",
+  "s.g.a.a",
+  "o.e",
+  "o.i",
+  "o.i.e.n",
+  "ebit",
+  "i.i",
+  "p.i",
+  "i.t",
+  "m.i",
+  "n.i",
+  "n.i.b"
+];
 
 function FinancialsChart(props) {
+  const { data, activeIndex } = props;
   const dimensions = useDimensions();
 
-  if (Object.keys(props.data[props.activeIndex].financials).length === 0) {
-    return (
-      <h1
-        className="message"
-        style={{
-          width: "100%",
-          display: "flex",
-          height: "100px",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        No financial data.
-      </h1>
-    );
+  if (!data[activeIndex].income.income) {
+    return <h1>no financial data</h1>;
   }
 
-  // format data
-  const formatted = props.data[props.activeIndex].financials.financials
+  const formattedData = Object.entries(data[activeIndex].income.income[0])
+    .map((item, index) => [newNames[index], item[1]])
     .map(item => ({
-      ...item,
-      date: new Date(item.reportDate),
-      netIncome: item.netIncome
+      x: item[0],
+      y: item[1]
     }))
-    .filter(item => item.netIncome !== null);
+    .slice(1)
+    .filter(item => item.y > 0);
 
   return (
-    <GGPLOT data={formatted} aes={["date", "netIncome"]} dimensions={dimensions} y_lab={".2s"}>
-      <Line />
-    </GGPLOT>
+    <GEOMS data={formattedData} aes={["x", "y"]} dimensions={dimensions}>
+      <Background />
+      <XGrid />
+      <YGrid />
+      <XAxis />
+      <YAxis label=".2s" />
+      <Rects fill="#f062" />
+    </GEOMS>
   );
 }
-
-FinancialsChart.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number,
-  dimensions: PropTypes.object
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

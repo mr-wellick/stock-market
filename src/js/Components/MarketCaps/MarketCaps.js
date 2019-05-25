@@ -1,7 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { GGPLOT } from "react-d3-ggplot";
+import { GEOMS } from "react-d3-ggplot";
+import { Background } from "react-d3-ggplot";
+import { XGrid } from "react-d3-ggplot";
+import { YGrid } from "react-d3-ggplot";
+import { XAxis } from "react-d3-ggplot";
+import { YAxis } from "react-d3-ggplot";
 import { Rects } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
 
@@ -18,34 +22,34 @@ function MarketCaps(props) {
 
   if (!formatted) return null;
 
-  if (props.data.length < 2)
-    return (
-      <h1
-        className="message"
-        style={{
-          width: "100%",
-          display: "flex",
-          height: "100px",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        Need at least two stocks.
-      </h1>
+  if (props.data.length < 2) {
+    // used to override GEOMS' iternals. will change.
+    const Text = () => (
+      <text x={dimensions.padding * 1.1} y={dimensions.height - dimensions.padding * 1.1}>
+        You need at least two stocks to correctly display this chart.
+      </text>
     );
+    Text.displayName = "Text";
+
+    return (
+      <GEOMS data={formatted} aes={["symbol", "marketCap"]} dimensions={dimensions}>
+        <Background />
+        <Text />
+      </GEOMS>
+    );
+  }
 
   return (
-    <GGPLOT data={formatted} aes={["symbol", "marketCap"]} dimensions={dimensions} y_lab=".2s">
-      <Rects color="#22b2c7" opacity="0.5" />
-    </GGPLOT>
+    <GEOMS data={formatted} aes={["symbol", "marketCap"]} dimensions={dimensions}>
+      <Background />
+      <XGrid />
+      <YGrid />
+      <XAxis />
+      <YAxis label=".2s" />
+      <Rects fill="#22b2c7" />
+    </GEOMS>
   );
 }
-
-MarketCaps.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number,
-  dimensions: PropTypes.object
-};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
