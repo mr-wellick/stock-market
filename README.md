@@ -6,13 +6,13 @@
 
 # Demo
 
-![nothing-to-show](./demos/new-dashboard.gif)
+![nothing-to-show](./demos/demo.gif)
 
 # Screenshots
 
-![nothing-to-show](./demos/main-view.png)
-![nothing-to-show](./demos/main-view-search.png)
-![nothing-to-show](./demos/main-view-content.png)
+![nothing-to-show](./demos/d1.png)
+![nothing-to-show](./demos/d2.png)
+![nothing-to-show](./demos/d3.png)
 
 # Introduction
 
