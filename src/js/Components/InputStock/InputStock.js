@@ -9,7 +9,7 @@ import { useSymbols } from "../../_hooks/";
 import { SuggestionsBox } from "../SuggestionsBox/";
 import "./style.scss";
 
-function InputStock(props) {
+const InputStock = props => {
   const [input, setInput] = useState("");
   const [matches, setMatches] = useState([]);
   const symbols = useSymbols();
@@ -83,7 +83,7 @@ function InputStock(props) {
       <SuggestionsBox matches={matches} setMatches={setMatches} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
