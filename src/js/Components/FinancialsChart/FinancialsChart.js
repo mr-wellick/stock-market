@@ -8,6 +8,7 @@ import { YAxis } from "react-d3-ggplot";
 import { XGrid } from "react-d3-ggplot";
 import { YGrid } from "react-d3-ggplot";
 import { Rects } from "react-d3-ggplot";
+import { PlaceholderChart } from "../PlaceholderChart/";
 
 const newNames = [
   "report",
@@ -33,19 +34,10 @@ const FinancialsChart = props => {
   const dimensions = useDimensions();
 
   if (!data[activeIndex].income.income) {
-    // used to override GEOMS' iternals. will change.
-    const Text = () => (
-      <text x={dimensions.padding * 1.1} y={dimensions.height - dimensions.padding * 1.1}>
-        There is no financial data available for {data[activeIndex].company.symbol}
-      </text>
-    );
-    Text.displayName = "Text";
-
     return (
-      <GEOMS data={[]} aes={[]} dimensions={dimensions}>
-        <Background />
-        <Text />
-      </GEOMS>
+      <PlaceholderChart
+        message={`There is no financial data available for ${data[activeIndex].company.symbol}`}
+      />
     );
   }
 

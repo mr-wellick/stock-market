@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { GGPLOT } from "react-d3-ggplot";
 import { Line } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
+import { PlaceholderChart } from "../PlaceholderChart/";
 
 const HistoricalChart = props => {
   const dimensions = useDimensions();
@@ -18,7 +19,7 @@ const HistoricalChart = props => {
       : null;
 
   if (!formatted) {
-    return null;
+    return <PlaceholderChart message="There is no historical data available." />;
   }
 
   const stockTrend = data[activeIndex].quote.change < 0 ? "#f72121" : "#19be87";

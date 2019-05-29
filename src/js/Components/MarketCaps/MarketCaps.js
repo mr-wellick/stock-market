@@ -8,6 +8,7 @@ import { XAxis } from "react-d3-ggplot";
 import { YAxis } from "react-d3-ggplot";
 import { Rects } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
+import { PlaceholderChart } from "../PlaceholderChart/";
 
 const MarketCaps = props => {
   const dimensions = useDimensions();
@@ -20,22 +21,13 @@ const MarketCaps = props => {
         }))
       : null;
 
-  if (!formatted) return null;
+  if (!formatted) {
+    return <PlaceholderChart message="Something went horribly wrong." />;
+  }
 
   if (props.data.length < 2) {
-    // used to override GEOMS' iternals. will change.
-    const Text = () => (
-      <text x={dimensions.padding * 1.1} y={dimensions.height - dimensions.padding * 1.1}>
-        You need at least two stocks to correctly display this chart.
-      </text>
-    );
-    Text.displayName = "Text";
-
     return (
-      <GEOMS data={formatted} aes={["symbol", "marketCap"]} dimensions={dimensions}>
-        <Background />
-        <Text />
-      </GEOMS>
+      <PlaceholderChart message="You need at least two stocks to correctly display this chart." />
     );
   }
 

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { StockHeader } from "../StockHeader/";
 import { StockSelector } from "../StockSelector/";
 import { ChartSelector } from "../ChartSelector/";
+import { PlaceholderChart } from "../PlaceholderChart/";
 import "./style.scss";
 
 const MarketCaps = lazy(() => import("../MarketCaps/MarketCaps.js"));
@@ -22,7 +23,7 @@ const ActiveChart = props => {
       <div className="row">
         <div className="col s8">
           <StockHeader />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PlaceholderChart message="Loading..." />}>
             {props.activeChart === "historical" ? <HistoricalChart /> : null}
             {props.activeChart === "marketCap" ? <MarketCaps /> : null}
             {props.activeChart === "financial" ? <FinancialsChart /> : null}
