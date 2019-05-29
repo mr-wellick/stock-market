@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "./style.scss";
 
-function StockNews(props) {
+const StockNews = props => {
   const { data, activeIndex } = props;
 
   if (data.length === 0) {
@@ -47,7 +47,7 @@ function StockNews(props) {
       ))}
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

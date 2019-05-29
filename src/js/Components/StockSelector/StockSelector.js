@@ -4,7 +4,7 @@ import { setActiveIndex } from "../../Redux/";
 import { deleteStock } from "../../Redux/";
 import "./style.scss";
 
-function StockSelector(props) {
+const StockSelector = props => {
   function onChange(event) {
     props.setActiveIndex(Number(event.target.value));
   }
@@ -63,7 +63,7 @@ function StockSelector(props) {
       </ul>
     </form>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

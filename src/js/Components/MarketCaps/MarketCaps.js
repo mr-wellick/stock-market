@@ -9,7 +9,7 @@ import { YAxis } from "react-d3-ggplot";
 import { Rects } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
 
-function MarketCaps(props) {
+const MarketCaps = props => {
   const dimensions = useDimensions();
 
   const formatted =
@@ -49,7 +49,7 @@ function MarketCaps(props) {
       <Rects fill="#22b2c7" />
     </GEOMS>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

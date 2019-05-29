@@ -28,7 +28,7 @@ const newNames = [
   "n.i.b"
 ];
 
-function FinancialsChart(props) {
+const FinancialsChart = props => {
   const { data, activeIndex } = props;
   const dimensions = useDimensions();
 
@@ -68,7 +68,7 @@ function FinancialsChart(props) {
       <Rects fill="#f062" />
     </GEOMS>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

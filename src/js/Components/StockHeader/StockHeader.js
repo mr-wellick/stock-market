@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "./style.scss";
 
-function StockHeader(props) {
+const StockHeader = props => {
   if (props.data.length === 0) {
     return null;
   }
@@ -24,7 +24,7 @@ function StockHeader(props) {
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

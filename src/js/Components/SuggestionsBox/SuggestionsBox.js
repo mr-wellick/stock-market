@@ -6,7 +6,7 @@ import { fetchIEXError } from "../../Redux/";
 //import { setUserInput } from "../../Redux/";
 import "./style.scss";
 
-function SuggestionsBox(props) {
+const SuggestionsBox = props => {
   const onChange = event => {
     // clear matches on selection
     props.setMatches([]);
@@ -53,7 +53,7 @@ function SuggestionsBox(props) {
       </ul>
     </form>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

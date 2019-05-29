@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { format } from "d3-format";
 import "./style.scss";
 
-function FinancialsTable(props) {
+const FinancialsTable = props => {
   if (props.data.length === 0) {
     return null;
   }
@@ -35,11 +34,6 @@ function FinancialsTable(props) {
       }
     </div>
   );
-}
-
-FinancialsTable.propTypes = {
-  data: PropTypes.array,
-  activeIndex: PropTypes.number
 };
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });

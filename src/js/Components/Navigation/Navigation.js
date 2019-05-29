@@ -3,7 +3,7 @@ import { Logo } from "../Logo/";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-function Navigation() {
+const Navigation = () => {
   return (
     <section className="main-nav-section">
       <ul className="collection with-header">
@@ -34,6 +34,6 @@ function Navigation() {
       </ul>
     </section>
   );
-}
+};
 
 export default Navigation;

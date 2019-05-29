@@ -4,7 +4,7 @@ import { GGPLOT } from "react-d3-ggplot";
 import { Line } from "react-d3-ggplot";
 import { useDimensions } from "../../_hooks/";
 
-function HistoricalChart(props) {
+const HistoricalChart = props => {
   const dimensions = useDimensions();
   const { data, activeIndex } = props;
 
@@ -28,7 +28,7 @@ function HistoricalChart(props) {
       <Line fill={stockTrend} />
     </GGPLOT>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 

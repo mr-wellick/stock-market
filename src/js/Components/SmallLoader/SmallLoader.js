@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "./style.scss";
 
-function SmallLoader(props) {
+const SmallLoader = props => {
   if (props.isFetching === false) {
     return null;
   }
@@ -15,7 +15,7 @@ function SmallLoader(props) {
       <div className="lrnz-small__block-4" />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({ isFetching: state.iexDataReducer.isFetching });
 
