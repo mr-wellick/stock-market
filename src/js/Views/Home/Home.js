@@ -6,7 +6,7 @@ import { ActiveChart } from "../../Components/";
 import { StockNews } from "../../Components/";
 import "./style.scss";
 
-function Home(props) {
+const Home = props => {
   return (
     <section className={props.data.length === 0 ? "fill-viewport" : ""}>
       <InputStock />
@@ -15,7 +15,7 @@ function Home(props) {
       <StockNews />
     </section>
   );
-}
+};
 
 const mapStateToProps = state => ({ ...state.iexDataReducer });
 
