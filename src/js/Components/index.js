@@ -5,3 +5,5 @@ export { StockNews } from "./StockNews/";
 export { InputStock } from "./InputStock/";
 export { ActiveChart } from "./ActiveChart/";
 export { SmallLoader } from "./SmallLoader/";
+export { FinancialsTable } from "./FinancialsTable/";
+export { Footer } from "./Footer/";
