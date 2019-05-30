@@ -11,7 +11,6 @@ import "./style.scss";
 const MarketCaps = lazy(() => import("../MarketCaps/MarketCaps.js"));
 const FinancialsChart = lazy(() => import("../FinancialsChart/FinancialsChart.js"));
 const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
-//import { HistoricalChart } from "../HistoricalChart/";
 
 const ActiveChart = props => {
   if (props.data.length === 0) {
