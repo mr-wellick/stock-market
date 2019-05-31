@@ -1,8 +1,11 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a24fa809-6de4-4170-94b4-2511531425b0/deploy-status)](https://app.netlify.com/sites/lrnztrading/deploys)
+<h1 align="center">Stock Market</h1>
+<p align="center">A stock-market dashboard to give you a rough overview of any particular company.</p>
 
-# Securities App
-
-- A prototype of a stock-market data dashboard
+<p align="center">
+    <a href="https://app.netlify.com/sites/lrnztrading/deploys">
+        <img src="https://api.netlify.com/api/v1/badges/a24fa809-6de4-4170-94b4-2511531425b0/deploy-status">
+    </a>
+</p>
 
 # Demo
 
@@ -16,7 +19,7 @@
 
 # Introduction
 
-- The purpose of this dashboard is to give you a rough overview of any particular company.
+- The purpose of this dashboard is to give you a rough overview of any particular company (Please star if you found this repo helpful).
 
 - Six Key Metrics
 
@@ -36,6 +39,7 @@
   - A brief description of the products/services that a company offers
 
 - Company News
+
   - Lists multiple articles related to current company news
 
 # Disclaimer
