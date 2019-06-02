@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { validate } from "../../_utilities/";
 import { fetchIEXData } from "../../Redux/";
 import { fetchIEXError } from "../../Redux/";
-//import { setUserInput } from "../../Redux/";
 import "./style.scss";
 
 const SuggestionsBox = props => {
