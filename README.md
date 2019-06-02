@@ -9,7 +9,7 @@
 
 # Demo
 
-![nothing-to-show](./demos/demo.gif)
+![nothing-to-show](./demos/new-demo.gif)
 
 # Screenshots
 
