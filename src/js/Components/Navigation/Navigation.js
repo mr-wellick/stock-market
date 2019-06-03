@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "../Logo/";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import "./style.scss";
 
 const Navigation = () => {
