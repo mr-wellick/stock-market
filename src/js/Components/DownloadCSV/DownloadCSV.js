@@ -40,7 +40,7 @@ const DownloadCSV = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => ({ data: state.iexDataReducer.data });
 
 export default connect(
   mapStateToProps,

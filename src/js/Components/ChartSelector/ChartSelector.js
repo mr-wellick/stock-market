@@ -9,7 +9,9 @@ const ChartSelector = props => {
     props.setActiveChart(event.target.dataset.chartType);
   };
 
-  if (props.data.length === 0) return null;
+  if (props.data.length === 0) {
+    return null;
+  }
 
   return (
     <div className="active-chart-container">
@@ -55,7 +57,14 @@ const ChartSelector = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => {
+  const { data, activeChart } = state.iexDataReducer;
+
+  return {
+    data,
+    activeChart
+  };
+};
 
 export default connect(
   mapStateToProps,

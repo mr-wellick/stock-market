@@ -5,18 +5,18 @@ import { deleteStock } from "../../Redux/";
 import "./style.scss";
 
 const StockSelector = props => {
-  function onChange(event) {
+  const onChange = event => {
     props.setActiveIndex(Number(event.target.value));
-  }
+  };
 
-  function deleteStock(event) {
+  const deleteStock = event => {
     if (props.data.length === 1) {
       alert("You can't delete all stocks in your list!");
     } else {
       props.deleteStock(event.target.dataset.symbol);
       props.setActiveIndex(0);
     }
-  }
+  };
 
   const { data, activeIndex } = props;
 
@@ -65,7 +65,14 @@ const StockSelector = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => {
+  const { data, activeIndex } = state.iexDataReducer;
+
+  return {
+    data,
+    activeIndex
+  };
+};
 
 export default connect(
   mapStateToProps,

@@ -85,7 +85,14 @@ const InputStock = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => {
+  const { data, error } = state.iexDataReducer;
+
+  return {
+    data,
+    error
+  };
+};
 
 export default connect(
   mapStateToProps,

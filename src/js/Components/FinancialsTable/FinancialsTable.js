@@ -37,7 +37,14 @@ const FinancialsTable = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => {
+  const { data, activeIndex } = state.iexDataReducer;
+
+  return {
+    data,
+    activeIndex
+  };
+};
 
 export default connect(
   mapStateToProps,

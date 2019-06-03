@@ -38,7 +38,14 @@ const ActiveChart = props => {
   );
 };
 
-const mapStateToProps = state => ({ ...state.iexDataReducer });
+const mapStateToProps = state => {
+  const { data, activeChart } = state.iexDataReducer;
+
+  return {
+    data,
+    activeChart
+  };
+};
 
 export default connect(
   mapStateToProps,
