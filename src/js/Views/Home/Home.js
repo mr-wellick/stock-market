@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { InputStock } from "../../Components/";
 import { StockDescription } from "../../Components/";
 import { ActiveChart } from "../../Components/";
@@ -7,17 +8,22 @@ import { FinancialsTable } from "../../Components/";
 import { Footer } from "../../Components/";
 import "./style.scss";
 
-const Home = () => {
+const Home = props => {
   return (
-    <section>
+    <section className={props.data.length === 0 ? "fill-viewport" : ""}>
       <InputStock />
       <FinancialsTable />
       <ActiveChart />
       <StockDescription />
       <StockNews />
-      <Footer />
+      {props.data.length === 0 ? null : <Footer />}
     </section>
   );
 };
 
-export default Home;
+const mapStateToProps = state => ({ ...state.iexDataReducer });
+
+export default connect(
+  mapStateToProps,
+  null
+)(Home);
