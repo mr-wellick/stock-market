@@ -8,9 +8,10 @@ import { ChartSelector } from "../ChartSelector/";
 import { PlaceholderChart } from "../PlaceholderChart/";
 import "./style.scss";
 
+//import { HistoricalChart } from "../HistoricalChart/";
+const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
 const MarketCaps = lazy(() => import("../MarketCaps/MarketCaps.js"));
 const FinancialsChart = lazy(() => import("../FinancialsChart/FinancialsChart.js"));
-const HistoricalChart = lazy(() => import("../HistoricalChart/HistoricalChart.js"));
 
 const ActiveChart = props => {
   if (props.data.length === 0) {
