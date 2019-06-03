@@ -57,14 +57,13 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "@reach/router": "^1.2.1",
     "react": "^16.8.6",
     "react-csv": "^1.1.1",
     "react-d3-ggplot": "^1.1.5",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.4",
     "react-redux": "^7.0.2",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0",
     "react-window": "^1.8.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
