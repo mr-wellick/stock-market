@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { validate } from "../../_utilities/";
 import { fetchIEXData } from "../../Redux/";
 import { fetchIEXError } from "../../Redux/";
+import { FixedSizeList } from "react-window";
 import "./style.scss";
 
 const SuggestionsBox = props => {
@@ -30,27 +31,36 @@ const SuggestionsBox = props => {
   }
 
   return (
-    <form className="suggestions-box card">
+    <div className="suggestions-box card">
       <ul className="collection" style={{ margin: 0 }}>
-        {props.matches.slice(0, 150).map((symbol, index) => (
-          <li key={symbol} className="collection-item suggestion-li">
-            <label className="black-text suggestion-label">
-              <input
-                type="radio"
-                name="stock-suggestions"
-                data-stock-name={symbol}
-                onChange={onChange}
-                value={index}
-              />
-              <div>
-                <span className="stand-out">{symbol.split(" - ")[0]}</span>
-                <span>{" - " + symbol.split(" - ")[1]}</span>
-              </div>
-            </label>
-          </li>
-        ))}
+        <FixedSizeList
+          height={175}
+          itemCount={props.matches.length}
+          itemSize={35}
+          width="100%"
+          itemData={props.matches}
+          onChange={onChange}
+        >
+          {({ data, index, style }) => (
+            <li className="collection-item suggestion-li" style={style}>
+              <label className="black-text suggestion-label">
+                <input
+                  type="radio"
+                  name="stock-suggestions"
+                  data-stock-name={data[index]}
+                  onChange={onChange}
+                  value={index}
+                />
+                <div>
+                  <span className="stand-out">{data[index].split(" - ")[0]}</span>
+                  <span>{" - " + data[index].split(" - ")[1]}</span>
+                </div>
+              </label>
+            </li>
+          )}
+        </FixedSizeList>
       </ul>
-    </form>
+    </div>
   );
 };
 

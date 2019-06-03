@@ -1,11 +1,9 @@
 .suggestions-box {
   position: absolute;
   z-index: 1;
-  background: white;
-  max-height: 300px;
+  //max-height: 300px;
   width: 100%;
-  overflow: scroll;
-  top: 50px;
+  top: 40px;
 }
 
 .suggestion-li:hover {
