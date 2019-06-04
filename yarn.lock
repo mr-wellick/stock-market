@@ -2393,9 +2393,9 @@ cyclist@~0.2.2:
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
 "d3-array@^1.2.0 || 2", d3-array@^2.0.3:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-2.1.0.tgz#912dc6d3b49693c757784ad5c10bff5b645fc6a3"
-  integrity sha512-1iavkfd/3w6TrZInIU6EvfDgDNQkxk3W+HH7b57wgdfz5QcbUGJiYRq3JTN5rhdNSLojpLnJmjk7LuObmlbjBA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-2.2.0.tgz#a9e966b8f8d78f0888d98db1fb840fc8da8ac5c7"
+  integrity sha512-eE0QmSh6xToqM3sxHiJYg/QFdNn52ZEgmFE8A8abU8GsHvsIOolqH8B70/8+VGAKm5MlwaExhqR3DLIjOJMLPA==
 
 d3-axis@^1.0.12:
   version "1.0.12"
@@ -6379,10 +6379,10 @@ react-csv@^1.1.1:
   resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-1.1.1.tgz#718dadd2607a1795bfc8dbd32ca282a043739634"
   integrity sha512-eQSrkEfzPN+1IeXT58kJaDNmpFr3RhdjfE09jTrw+jdTEp0g0Ig9NOI+TpvMBbCukE1HQhOf4dyrLDRFKgZzbA==
 
-react-d3-ggplot@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.1.5.tgz#842b04506b6a606b3cf6df6d8d2184292ed61054"
-  integrity sha512-ldUZ08Y59Gto5RVtM98npf9ec78s3ivwJL4IrFjC9sAVH6IJhFaVfQ1WBn3AzEP0xctbVgaqKwHws0VO2iN6eQ==
+react-d3-ggplot@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-d3-ggplot/-/react-d3-ggplot-1.2.0.tgz#3b6a00daa809e9266e916b974333558c1fcefc15"
+  integrity sha512-lW9yqxDGXgoykvzk0tzuN1Tnu8Zej+G5UQ3oT+hT00FB9I+LrBK/S4iiwlK+d0nG2KZX0uuKSCHIPP+Rd/u2Xg==
   dependencies:
     d3-array "^2.0.3"
     d3-axis "^1.0.12"
