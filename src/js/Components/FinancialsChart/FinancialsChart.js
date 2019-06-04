@@ -47,8 +47,7 @@ const FinancialsChart = props => {
       x: item[0],
       y: item[1]
     }))
-    .slice(1)
-    .filter(item => item.y > 0);
+    .slice(1);
 
   return (
     <GEOMS data={formattedData} aes={["x", "y"]} dimensions={dimensions}>
@@ -56,8 +55,8 @@ const FinancialsChart = props => {
       <XGrid />
       <YGrid />
       <XAxis />
-      <YAxis label=".2s" />
-      <Rects fill="#f062" />
+      <YAxis y_format=".2s" />
+      <Rects fill="#b2dfdb" />
     </GEOMS>
   );
 };

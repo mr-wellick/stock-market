@@ -37,8 +37,8 @@ const MarketCaps = props => {
       <XGrid />
       <YGrid />
       <XAxis />
-      <YAxis label=".2s" />
-      <Rects fill="#22b2c7" />
+      <YAxis y_format=".2s" />
+      <Rects fill="#a2ad66" />
     </GEOMS>
   );
 };
