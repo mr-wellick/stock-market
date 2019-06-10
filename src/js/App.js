@@ -5,8 +5,6 @@ import { Navigation } from "./Components/";
 import { SmallLoader } from "./Components/";
 import { Router } from "@reach/router";
 import { Home } from "./Views/";
-//import { Basics } from "./Views/";
-//import { Contact } from "./Views/";
 
 const App = () => {
   return (
@@ -18,10 +16,6 @@ const App = () => {
       <div className="main-content-container col s9 right">
         <Router>
           <Home path="/" />
-          {/*
-            <Basics path="/basics" />
-            <Contact path="/contact"/>
-          */}
         </Router>
       </div>
     </div>
