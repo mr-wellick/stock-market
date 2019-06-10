@@ -17,12 +17,14 @@ const Navigation = () => {
             Home
           </Link>
         </li>
-        <li className="collection-item valign-wrapper white-text" id="collection-item-override">
-          <i className="material-icons cyan-text lighten-5 circle">graphic_eq</i>
-          <Link className="align-collection-item white-text title" to="/statements">
-            Statements
-          </Link>
-        </li>
+        {/*
+          <li className="collection-item valign-wrapper white-text" id="collection-item-override">
+            <i className="material-icons cyan-text lighten-5 circle">graphic_eq</i>
+            <Link className="align-collection-item white-text title" to="/statements">
+              Statements
+            </Link>
+          </li>
+        */}
       </ul>
     </section>
   );

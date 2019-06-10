@@ -5,7 +5,7 @@ import { Navigation } from "./Components/";
 import { SmallLoader } from "./Components/";
 import { Router } from "@reach/router";
 import { Home } from "./Views/";
-import { Statements } from "./Views/";
+//import { Statements } from "./Views/";
 
 const App = () => {
   return (
@@ -17,7 +17,9 @@ const App = () => {
       <div className="main-content-container col s9 right">
         <Router>
           <Home path="/" />
-          <Statements path="/statements" />
+          {/*
+            <Statements path="/statements" />
+          */}
         </Router>
       </div>
     </div>

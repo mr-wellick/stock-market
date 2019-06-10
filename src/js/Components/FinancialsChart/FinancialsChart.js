@@ -1,12 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useDimensions } from "../../_hooks/";
-import { GEOMS } from "react-d3-ggplot";
-import { Background } from "react-d3-ggplot";
-import { XAxis } from "react-d3-ggplot";
-import { YAxis } from "react-d3-ggplot";
-import { XGrid } from "react-d3-ggplot";
-import { YGrid } from "react-d3-ggplot";
+import { GGPLOT } from "react-d3-ggplot";
 import { Rects } from "react-d3-ggplot";
 import { PlaceholderChart } from "../PlaceholderChart/";
 
@@ -50,14 +45,9 @@ const FinancialsChart = props => {
     .slice(1);
 
   return (
-    <GEOMS data={formattedData} aes={["x", "y"]} dimensions={dimensions}>
-      <Background />
-      <XGrid />
-      <YGrid />
-      <XAxis />
-      <YAxis y_format=".2s" />
+    <GGPLOT data={formattedData} aes={["x", "y"]} dimensions={dimensions} y_format=".2s">
       <Rects fill="#b2dfdb" />
-    </GEOMS>
+    </GGPLOT>
   );
 };
 
