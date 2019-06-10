@@ -60,7 +60,7 @@
     "@reach/router": "^1.2.1",
     "react": "^16.8.6",
     "react-csv": "^1.1.1",
-    "react-d3-ggplot": "^1.2.0",
+    "react-d3-ggplot": "^1.2.1",
     "react-datasheet": "^1.3.14",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.4",
