@@ -19,7 +19,7 @@
 
 # Introduction
 
-- The purpose of this dashboard is to give you a rough overview of any particular company (Please star if you found this repo helpful).
+- The purpose of this dashboard is to give you a rough overview of any particular company
 
 - Six Key Metrics
 
