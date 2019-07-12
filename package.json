@@ -58,6 +58,7 @@
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
     "@reach/router": "^1.2.1",
+    "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-csv": "^1.1.1",
     "react-d3-ggplot": "^1.2.1",
