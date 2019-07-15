@@ -1,9 +1,14 @@
 import './app.scss';
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
+import { Sidebar } from './components/';
 
 const App = () => {
-  return <div>Welcome to your new reat app</div>;
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
 };
 
 export default hot(App);

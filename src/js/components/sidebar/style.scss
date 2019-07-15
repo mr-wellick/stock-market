@@ -1,0 +1,8 @@
+@import '../../../sass/colors';
+
+.sidebar {
+  width: 255px;
+  position: fixed;
+  height: 100vh;
+  background-color: $background-color;
+}
