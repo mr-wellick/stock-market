@@ -29,7 +29,7 @@
   },
   "rules": {
     "linebreak-style": ["error", "unix"],
-    "quotes": ["warn", "double"],
+    "quotes": ["warn", "single"],
     "semi": ["error", "always"],
     "react/prop-types": 0,
     "react-hooks/rules-of-hooks": "error",
