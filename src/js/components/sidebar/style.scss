@@ -33,3 +33,12 @@
   height: 40px;
   width: 40px;
 }
+
+.dot:hover {
+  height: 30px;
+  width: 30px;
+  background-color: #bdbdbd;
+  opacity: 0.5;
+  border-radius: 50%;
+  display: inline-block;
+}

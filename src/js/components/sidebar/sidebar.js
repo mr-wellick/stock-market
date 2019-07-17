@@ -20,9 +20,11 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-footer">
         <div className="sidebar-footer-icon">
-          <svg width="100%" height="100%" viewBox="0 0 18 18">
-            <path d="M5.46 8.846l3.444-3.442-1.058-1.058-4.5 4.5 4.5 4.5 1.058-1.057L5.46 8.84zm7.194 4.5v-9h-1.5v9h1.5z" />
-          </svg>
+          <span className="dot">
+            <svg width="20px" height="20px">
+              <path d="M5.46 8.846l3.444-3.442-1.058-1.058-4.5 4.5 4.5 4.5 1.058-1.057L5.46 8.84zm7.194 4.5v-9h-1.5v9h1.5z" />
+            </svg>
+          </span>
         </div>
       </div>
     </section>
