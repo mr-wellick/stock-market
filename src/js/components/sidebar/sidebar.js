@@ -1,5 +1,5 @@
 import React from 'react';
-import { LrnzLogo } from '../LrnzLogo/';
+import { LrnzLogo } from '../lrnz-logo/';
 import './style.scss';
 
 const Sidebar = () => {
