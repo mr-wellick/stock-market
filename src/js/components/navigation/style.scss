@@ -1,0 +1,28 @@
+.nav-item,
+.nav-item__container {
+  height: 40px;
+}
+
+.nav-item {
+  margin: 8px 0;
+}
+
+.nav-item__container {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.nav-item__icon {
+  margin: 11px 15px;
+}
+
+.nav-item__icon svg path,
+.nav-item__link {
+  color: #0000008a;
+}
+
+.nav-item__link {
+  padding: 0 8px;
+  text-decoration: none;
+}
