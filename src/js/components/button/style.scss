@@ -1,8 +1,17 @@
-.dot:hover {
-  height: 30px;
-  width: 30px;
+@import '../../../sass/colors';
+
+.button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: $background-color;
+}
+
+.button:hover {
+  height: 40px;
+  width: 40px;
   background-color: #bdbdbd;
   opacity: 0.5;
   border-radius: 50%;
-  display: inline-block;
 }
