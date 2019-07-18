@@ -1,5 +1,6 @@
 import React from 'react';
 import { LrnzLogo } from '../lrnz-logo/';
+import { Navigation } from '../navigation/';
 import { Button } from '../button/';
 import './style.scss';
 
@@ -10,19 +11,15 @@ const Sidebar = () => {
         <div className="sidebar-logo">
           <LrnzLogo />
         </div>
-        <div className="sidebar-brand">
-          <h3>LRNZ</h3>
+        <div className="sidebar-brand-container">
+          <h2 className="sidebar-brand-name">LRNZ</h2>
         </div>
       </div>
       <div className="sidebar-contents">
-        <ul className="sidebar-list">
-          <li className="sidebar-list__item">Dashboard</li>
-        </ul>
+        <Navigation />
       </div>
       <div className="sidebar-footer">
-        <div className="sidebar-footer-icon">
-          <Button />
-        </div>
+        <Button />
       </div>
     </section>
   );

@@ -5,6 +5,7 @@
   position: fixed;
   height: 100vh;
   background-color: $background-color;
+  border-right: 1.1px solid hsla(0, 0%, 0%, 0.12);
 }
 
 .sidebar-logo-container {
@@ -12,10 +13,15 @@
   align-items: center;
   padding-left: 16px;
   height: 48px;
+  border-bottom: 1.1px solid hsla(0, 0%, 0%, 0.12);
 }
 
 .sidebar-logo {
   margin-right: 16px;
+}
+
+.sidebar-brand-name {
+  color: #000000a7;
 }
 
 .sidebar-footer {
@@ -24,12 +30,4 @@
   padding: 6px 12px;
   width: 100%;
   height: 40px;
-}
-
-.sidebar-footer-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
 }
