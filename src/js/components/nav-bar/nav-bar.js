@@ -18,8 +18,8 @@ const NavBar = () => {
           </form>
         </div>
         <div className="nav-bar__right">
-          <button>login</button>
-          <button>register</button>
+          <button className="nav-login-btn">login</button>
+          <button className="nav-register-btn">register</button>
         </div>
       </header>
     </section>

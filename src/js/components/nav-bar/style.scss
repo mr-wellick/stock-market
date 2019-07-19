@@ -38,3 +38,18 @@
   flex: 1 0 auto;
   justify-content: flex-end;
 }
+
+.nav-login-btn,
+.nav-register-btn {
+  background-color: #ef0073;
+  border: 1px solid #ef0073;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 5px 10px;
+  margin: 2px;
+}
+
+.nav-login-btn:hover,
+.nav-register-btn:hover {
+  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
+}
