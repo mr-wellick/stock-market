@@ -1,6 +1,6 @@
 import React from 'react';
 import { LrnzLogo } from '../lrnz-logo/';
-import { Navigation } from '../navigation/';
+import { Routes } from '../routes/';
 import { Button } from '../button/';
 import './style.scss';
 
@@ -16,7 +16,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="sidebar-contents">
-        <Navigation />
+        <Routes />
       </div>
       <div className="sidebar-footer">
         <Button />
