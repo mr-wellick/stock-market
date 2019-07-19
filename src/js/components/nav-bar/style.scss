@@ -5,9 +5,33 @@
 
 .nav-bar-section {
   position: fixed;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 3px -2px rgba(0, 0, 0, 0.14),
+    0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
 
 .nav-bar-header {
   display: flex;
   align-items: center;
+  padding: 0 12px;
+}
+
+.nav-bar__left {
+  flex: 1 0 auto;
+}
+
+.nav-bar__middle {
+  flex: 0 1 512px;
+}
+
+.nav-form,
+.nav-form__input {
+  width: 100%;
+}
+
+.nav-bar__right {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
 }
