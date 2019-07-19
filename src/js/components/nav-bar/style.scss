@@ -1,0 +1,13 @@
+.nav-bar-section,
+.nav-bar-header {
+  height: 48px;
+}
+
+.nav-bar-section {
+  position: fixed;
+}
+
+.nav-bar-header {
+  display: flex;
+  align-items: center;
+}
