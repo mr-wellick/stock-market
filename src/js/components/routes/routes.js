@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const Navigation = () => {
+const Routes = () => {
   return (
     <nav className="nav">
       <ul className="nav-items">
@@ -34,4 +34,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Routes;
