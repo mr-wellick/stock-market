@@ -4,7 +4,7 @@
   width: 255px;
   position: fixed;
   margin-top: 50px;
-  height: 93vh;
+  height: calc(100vh - 50px);
   z-index: -1;
   background-color: $background-color;
   border-right: 1.1px solid hsla(0, 0%, 0%, 0.12);
