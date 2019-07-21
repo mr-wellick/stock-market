@@ -1,4 +1,5 @@
 import React from 'react';
+import { StockFetcher } from '../stock-fetcher/';
 import './style.scss';
 
 const NavBar = () => {
@@ -13,9 +14,7 @@ const NavBar = () => {
           </button>
         </div>
         <div className="nav-bar__middle">
-          <form className="nav-form">
-            <input className="nav-form__input" type="text" />
-          </form>
+          <StockFetcher />
         </div>
         <div className="nav-bar__right">
           <button className="nav-login-btn">login</button>
