@@ -6,14 +6,14 @@ import { validate } from '../../_utilities/';
 import './style.scss';
 
 const StockFetcher = props => {
-  const [state, setState] = useState('');
+  const [stockName, setStockName] = useState('');
 
   const onSubmit = event => {
     event.preventDefault();
-    const validStockName = validate(state);
+    const validStockName = validate(stockName);
 
     if (validStockName) {
-      props.fetchIEXData(state);
+      props.fetchIEXData(stockName);
     } else {
       console.log('wooops');
     }
@@ -24,7 +24,7 @@ const StockFetcher = props => {
   return (
     <form className="stock-fetcher__form" autoComplete="off" onSubmit={onSubmit}>
       <input
-        onChange={event => setState(event.target.value)}
+        onChange={event => setStockName(event.target.value)}
         className="stock-fetcher__input"
         type="text"
       />
