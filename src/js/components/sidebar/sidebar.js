@@ -14,7 +14,7 @@ const Sidebar = props => {
           <LrnzLogo />
         </div>
         <div className="sidebar-brand-container">
-          <h2 className="sidebar-brand-name">LRNZ</h2>
+          <h2 className={`sidebar-brand-name ${props.className}`}>LRNZ</h2>
         </div>
       </div>
       <div className="sidebar-contents">

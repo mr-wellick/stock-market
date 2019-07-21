@@ -3,6 +3,9 @@
   margin-left: auto;
   width: calc(100% - 256px);
 }
+.main-content__container.toggled {
+  width: calc(100% - 61px);
+}
 
 .main-content__summary {
   height: 48px;

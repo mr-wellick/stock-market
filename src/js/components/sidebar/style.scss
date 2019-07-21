@@ -5,9 +5,12 @@
   position: fixed;
   margin-top: 50px;
   height: calc(100vh - 50px);
-  z-index: -1;
   background-color: $background-color;
   border-right: 1.1px solid hsla(0, 0%, 0%, 0.12);
+}
+
+.sidebar.toggled {
+  width: 60px;
 }
 
 .sidebar-logo-container {
@@ -24,6 +27,10 @@
 
 .sidebar-brand-name {
   color: #000000a7;
+}
+
+.sidebar-brand-name.toggled {
+  display: none;
 }
 
 .sidebar-footer {
