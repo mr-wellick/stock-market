@@ -1,0 +1,1 @@
+export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
