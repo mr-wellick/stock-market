@@ -13,7 +13,7 @@ const StockFetcher = props => {
     const validStockName = validate(stockName);
 
     if (validStockName) {
-      props.fetchIEXData(stockName);
+      props.fetchIEXData(validStockName);
     } else {
       console.log('wooops');
     }
