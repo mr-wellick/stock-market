@@ -1,0 +1,7 @@
+// initial widths for page layouts
+$sidebar-width: 255px;
+$main-content-width: calc(100% - 255px);
+
+// widths after button is pressed to close sidebar
+$sidebar-width-toggled: 60px;
+$main-content-width-toggled: calc(100% - 60px);

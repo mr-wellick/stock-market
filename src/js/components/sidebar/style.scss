@@ -1,7 +1,8 @@
 @import '../../../sass/colors';
+@import '../../../sass/global-dimensions';
 
 .sidebar {
-  width: 255px;
+  width: $sidebar-width;
   position: fixed;
   margin-top: 50px;
   height: calc(100vh - 50px);
@@ -10,7 +11,7 @@
 }
 
 .sidebar.toggled {
-  width: 60px;
+  width: $sidebar-width-toggled;
 }
 
 .sidebar-logo-container {

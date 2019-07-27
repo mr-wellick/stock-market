@@ -1,10 +1,12 @@
+@import '../../../sass/global-dimensions';
+
 .main-content__container {
   padding-top: 50px;
   margin-left: auto;
-  width: calc(100% - 256px);
+  width: $main-content-width;
 }
 .main-content__container.toggled {
-  width: calc(100% - 61px);
+  width: $main-content-width-toggled;
 }
 
 .main-content__summary {
