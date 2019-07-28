@@ -7,7 +7,7 @@ function iexReducer(state = { data: {}, error: '' }, action) {
       ...state,
       data: {
         ...state.data,
-        [action.payload.stockName]: action.payload.data
+        ...action.payload
       }
     };
   }

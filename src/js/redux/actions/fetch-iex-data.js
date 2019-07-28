@@ -9,7 +9,7 @@ const fetchIEXData = function(stockName) {
 
     try {
       const data = await response.json();
-      dispatch({ type: FETCH_IEX_DATA, payload: { stockName, data } });
+      dispatch({ type: FETCH_IEX_DATA, payload: { [stockName]: data } });
     } catch (err) {
       dispatch({ type: FETCH_ERROR, payload: { error: `Invalid stock ticker: ${stockName}` } });
     }
