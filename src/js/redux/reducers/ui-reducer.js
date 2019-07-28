@@ -4,7 +4,7 @@ function uiReducer(state = { className: '' }, action) {
   if (action.type === SIDEBAR_TOGGLED) {
     return {
       ...state,
-      className: action.className
+      className: action.payload.className
     };
   }
 

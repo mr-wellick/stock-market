@@ -1,18 +1,21 @@
 import { FETCH_IEX_DATA } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 
-function iexReducer(state = { data: [], error: null }, action) {
+function iexReducer(state = { data: {}, error: '' }, action) {
   if (action.type === FETCH_IEX_DATA) {
     return {
       ...state,
-      data: [...state.data, action.data]
+      data: {
+        ...state.data,
+        [action.payload.stockName]: action.payload.data
+      }
     };
   }
 
   if (action.type === FETCH_ERROR) {
     return {
       ...state,
-      error: action.error
+      error: action.payload.error
     };
   }
 

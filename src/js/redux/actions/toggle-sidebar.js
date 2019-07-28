@@ -6,9 +6,9 @@ const toggleSidebar = function() {
     const { className } = store.getState().uiReducer;
 
     if (className === '') {
-      dispatch({ type: SIDEBAR_TOGGLED, className: 'toggled' });
+      dispatch({ type: SIDEBAR_TOGGLED, payload: { className: 'toggled' } });
     } else {
-      dispatch({ type: SIDEBAR_TOGGLED, className: '' });
+      dispatch({ type: SIDEBAR_TOGGLED, payload: { className: '' } });
     }
   };
 };
