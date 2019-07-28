@@ -1,35 +1,34 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/';
 import { LrnzLogo } from '../lrnz-logo/';
 import { Routes } from '../routes/';
 import { Button } from '../button/';
 import './style.scss';
 
-const Sidebar = props => {
+const Sidebar = () => {
+  const { className } = useSelector(state => state.uiReducer);
+  const dispatch = useDispatch();
+
   return (
-    <section className={`sidebar ${props.className}`}>
+    <section className={`sidebar ${className}`}>
       <div className="sidebar-logo-container">
         <div className="sidebar-logo">
           <LrnzLogo />
         </div>
         <div className="sidebar-brand-container">
-          <h2 className={`sidebar-brand-name ${props.className}`}>LRNZ</h2>
+          <h2 className={`sidebar-brand-name ${className}`}>LRNZ</h2>
         </div>
       </div>
       <div className="sidebar-contents">
         <Routes />
       </div>
-      <div className="sidebar-footer" onClick={props.toggleSidebar}>
+      <div className="sidebar-footer" onClick={() => dispatch(toggleSidebar())}>
         <Button />
       </div>
     </section>
   );
 };
 
-const mapStateToPros = state => state.uiReducer;
-
-export default connect(
-  mapStateToPros,
-  { toggleSidebar }
-)(Sidebar);
+export default Sidebar;

@@ -1,19 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchIEXData } from '../../redux/';
 import { validate } from '../../_utilities/';
 import './style.scss';
 
-const StockFetcher = props => {
+const StockFetcher = () => {
   const [stockName, setStockName] = useState('');
+  const dispatch = useDispatch();
 
   const onSubmit = event => {
     event.preventDefault();
     const validStockName = validate(stockName);
 
     if (validStockName) {
-      props.fetchIEXData(validStockName);
+      dispatch(fetchIEXData(validStockName));
     } else {
       console.log('wooops');
     }
@@ -32,7 +33,4 @@ const StockFetcher = props => {
   );
 };
 
-export default connect(
-  null,
-  { fetchIEXData }
-)(StockFetcher);
+export default StockFetcher;

@@ -1,11 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { CompanyName } from '../company-name/';
 import './style.scss';
 
 const MainContent = props => {
+  const { className } = useSelector(state => state.uiReducer);
+
   return (
-    <section className={`main-content__container ${props.className}`}>
+    <section className={`main-content__container ${className}`}>
       <div className="main-content__summary">
         <CompanyName />
       </div>
@@ -14,9 +16,4 @@ const MainContent = props => {
   );
 };
 
-const mapStateToPros = state => state.uiReducer;
-
-export default connect(
-  mapStateToPros,
-  null
-)(MainContent);
+export default MainContent;
