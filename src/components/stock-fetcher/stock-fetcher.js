@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { fetchIEXData } from '../../redux/';
-import { validate } from '../../_utilities/';
+import { validate } from '../../utilities/';
 import './style.scss';
 
 const StockFetcher = () => {

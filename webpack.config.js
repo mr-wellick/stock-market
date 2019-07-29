@@ -56,8 +56,8 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: undefined }
       },
       plugins: [
         new template({
-          template: 'src/index.html',
-          favicon: 'src/_assets/logo.png'
+          template: 'public/index.html',
+          favicon: 'src/assets/logo.png'
         }),
         new dotenv({ systemvars: true }),
         new webpack.ProgressPlugin(),

@@ -1,7 +1,7 @@
 module.exports = () => ({
   devServer: {
     historyApiFallback: true,
-    stats: "errors-only",
+    stats: 'errors-only',
     overlay: {
       errors: true,
       warnings: true
@@ -11,7 +11,7 @@ module.exports = () => ({
     rules: [
       {
         test: /\.(scss|css)/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       }
     ]
   }

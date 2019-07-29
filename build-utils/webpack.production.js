@@ -1,6 +1,6 @@
-const extractCSS = require("mini-css-extract-plugin");
-const minimizeCSS = require("optimize-css-assets-webpack-plugin");
-const terserPlugin = require("terser-webpack-plugin");
+const extractCSS = require('mini-css-extract-plugin');
+const minimizeCSS = require('optimize-css-assets-webpack-plugin');
+const terserPlugin = require('terser-webpack-plugin');
 
 module.exports = () => ({
   optimization: {
@@ -15,9 +15,9 @@ module.exports = () => ({
     rules: [
       {
         test: /\.(scss|css)$/,
-        use: [extractCSS.loader, "css-loader", "postcss-loader", "sass-loader"]
+        use: [extractCSS.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       }
     ]
   },
-  plugins: [new extractCSS({ filename: "[name].css" })]
+  plugins: [new extractCSS({ filename: '[name].css' })]
 });

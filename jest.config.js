@@ -1,6 +1,6 @@
 module.exports = {
-  testEnvironment: "jest-environment-node",
-  collectCoverageFrom: ["**/src/js/**/*"],
+  testEnvironment: 'jest-environment-node',
+  collectCoverageFrom: ['**/src/js/**/*'],
   coverageThreshold: {
     global: {
       statements: 50,
