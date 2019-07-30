@@ -20,11 +20,12 @@ function iexReducer(state = { data: {}, error: '', activeStock: '' }, action) {
     };
   }
 
-  if (action.type === SET_ACTIVE_STOCK)
+  if (action.type === SET_ACTIVE_STOCK) {
     return {
       ...state,
       activeStock: action.payload.activeStock
     };
+  }
 
   return state;
 }
