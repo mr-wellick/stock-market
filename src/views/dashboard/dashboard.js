@@ -1,8 +1,13 @@
 import React from 'react';
+import { StockSelector } from '../../components/';
 import './style.scss';
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <section>
+      <StockSelector />
+    </section>
+  );
 };
 
 export default Dashboard;
