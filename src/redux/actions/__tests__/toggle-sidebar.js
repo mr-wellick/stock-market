@@ -1,13 +1,18 @@
 import toggleSidebar from '../toggle-sidebar.js';
 import { SIDEBAR_TOGGLED } from '../../constants/';
 
-// this is a bit tricky since our toggleSidebar method will return either
-// an empty string '' or the following string 'toggled'
-// to test this works correctly we need to dispatch an action of type SIDEBAR_TOGGLED
 test('Action creator toggling main sidebar', () => {
-  const toggled = 'toggled';
-  const { type, payload } = toggleSidebar();
+  const className = 'toggled';
+  const { type, payload } = toggleSidebar(true);
 
   expect(type).toBe(SIDEBAR_TOGGLED);
-  expect(payload.className).toBe(toggled);
+  expect(payload.className).toBe(className);
+});
+
+test('Action creator toggling main sidebar', () => {
+  const className = '';
+  const { type, payload } = toggleSidebar(false);
+
+  expect(type).toBe(SIDEBAR_TOGGLED);
+  expect(payload.className).toBe(className);
 });
