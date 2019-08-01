@@ -8,7 +8,8 @@
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
+    "validate": "yarn format:check"
   },
   "name": "stock-market",
   "version": "1.0.0",
