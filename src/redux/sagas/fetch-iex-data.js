@@ -4,8 +4,8 @@ import { takeLatest } from 'redux-saga/effects';
 import { FETCH_IEX_DATA } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 
-function* fetchIEXData({ validStockName }) {
-  const url = `https://cloud.iexapis.com/stable/stock/${validStockName}/batch?types=income,stats,company,news,quote,chart&range=3m&token=${process.env.IEX_KEY}`;
+export function* fetchIEXData({ validStockName }) {
+  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${validStockName}&apikey=${process.env.ALPHA_VANTAGE_KEY}`;
   const response = yield call(fetch, url);
 
   try {
