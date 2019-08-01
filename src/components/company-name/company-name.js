@@ -7,12 +7,16 @@ const CompanyName = () => {
 
   if (Object.keys(data).length === 0) return null;
 
-  const metaData = data[activeStock]['Meta Data']['1. Information'];
-  const symbol = data[activeStock]['Meta Data']['2. Symbol'];
+  const { companyName, symbol, close, latestTime } = data[activeStock].quote;
 
   return (
     <div className="company-name-container">
-      <h1>{symbol + ' ' + metaData}</h1>
+      <p>
+        <span className="company-name">{companyName}</span>
+        <span className="company-symbol">[{symbol}]</span>
+        <span className="company-close">{close}</span>
+      </p>
+      <p>{latestTime}</p>
     </div>
   );
 };
