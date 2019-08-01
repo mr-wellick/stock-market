@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { fetchIEXData } from '../../redux/';
 import { validate } from '../../utilities/';
 import './style.scss';
 
@@ -16,7 +15,7 @@ const StockFetcher = () => {
     const validStockName = validate(stockName);
 
     if (validStockName && !data[validStockName]) {
-      dispatch(fetchIEXData(validStockName));
+      dispatch({ type: 'FETCH_REQUESTED', validStockName });
     } else {
       console.log('wooops');
     }
