@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/';
@@ -8,8 +9,14 @@ import { Button } from '../button/';
 import './style.scss';
 
 const Sidebar = () => {
+  const [toggled, setToggled] = useState(true);
   const { className } = useSelector(state => state.uiReducer);
   const dispatch = useDispatch();
+
+  const onClick = () => {
+    setToggled(!toggled);
+    dispatch(toggleSidebar(toggled));
+  };
 
   return (
     <section className={`sidebar ${className}`}>
@@ -24,7 +31,8 @@ const Sidebar = () => {
       <div className="sidebar-contents">
         <Routes />
       </div>
-      <div className="sidebar-footer" onClick={() => dispatch(toggleSidebar())}>
+      {/* eslint-disable */}
+      <div className="sidebar-footer" onClick={onClick}>
         <Button />
       </div>
     </section>

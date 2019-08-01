@@ -1,10 +1,7 @@
 import { SIDEBAR_TOGGLED } from '../constants/';
-import store from '../store.js';
 
-const toggleSidebar = () => {
-  const { className } = store.getState().uiReducer;
-
-  if (className === '') {
+const toggleSidebar = toggled => {
+  if (toggled) {
     return {
       type: SIDEBAR_TOGGLED,
       payload: { className: 'toggled' }
