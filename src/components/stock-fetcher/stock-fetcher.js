@@ -29,6 +29,7 @@ const StockFetcher = () => {
         onChange={event => setStockName(event.target.value)}
         className="stock-fetcher__input"
         type="text"
+        disabled
       />
     </form>
   );
