@@ -1,8 +1,9 @@
 import { FETCH_IEX_DATA } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 import { SET_ACTIVE_STOCK } from '../constants/';
+import { TSLA } from './tsla-data.js';
 
-function iexReducer(state = { data: {}, error: '', activeStock: '' }, action) {
+function iexReducer(state = { data: { TSLA }, error: '', activeStock: 'TSLA' }, action) {
   if (action.type === FETCH_IEX_DATA) {
     return {
       ...state,
