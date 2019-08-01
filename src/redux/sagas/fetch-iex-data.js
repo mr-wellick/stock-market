@@ -3,6 +3,7 @@ import { put } from 'redux-saga/effects';
 import { takeLatest } from 'redux-saga/effects';
 import { FETCH_IEX_DATA } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
+import fetch from 'node-fetch';
 
 export function* fetchIEXData({ validStockName }) {
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${validStockName}&apikey=${process.env.ALPHA_VANTAGE_KEY}`;
