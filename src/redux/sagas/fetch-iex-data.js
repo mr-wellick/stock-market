@@ -5,7 +5,7 @@ import { FETCH_IEX_DATA } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 
 export function* fetchIEXData({ validStockName }) {
-  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${validStockName}&apikey=${process.env.ALPHA_VANTAGE_KEY}`;
+  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${validStockName}&apikey=${process.env.ALPHA_VANTAGE_KEY}`;
   const response = yield call(fetch, url);
 
   try {
