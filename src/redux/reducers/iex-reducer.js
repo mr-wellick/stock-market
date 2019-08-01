@@ -6,6 +6,7 @@ function iexReducer(state = { data: {}, error: '', activeStock: '' }, action) {
   if (action.type === FETCH_IEX_DATA) {
     return {
       ...state,
+      activeStock: Object.keys(action.payload)[0],
       data: {
         ...state.data,
         ...action.payload
