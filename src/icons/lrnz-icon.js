@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LrnzLogo = () => {
+const LrnzIcon = () => {
   return (
     <svg width="32px" height="32px">
       <rect x="0" y="0" width="14" height="14" fill="#22b2c7" />
@@ -11,4 +11,4 @@ const LrnzLogo = () => {
   );
 };
 
-export default LrnzLogo;
+export default LrnzIcon;

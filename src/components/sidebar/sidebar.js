@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/';
 import { Routes } from '../routes/';
 import { LrnzIcon } from '../../icons/';
-import { HamburgerMenu } from '../../icons/';
+import { ArrowIcon } from '../../icons/';
 import './style.scss';
 
 const Sidebar = () => {
@@ -34,7 +34,7 @@ const Sidebar = () => {
       {/* eslint-disable */}
       <div className="sidebar-footer" onClick={onClick}>
         <button className="button">
-          <HamburgerMenu />
+          <ArrowIcon />
         </button>
       </div>
     </section>

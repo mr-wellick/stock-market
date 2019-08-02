@@ -1,6 +1,6 @@
 import React from 'react';
 import { StockFetcher } from '../stock-fetcher/';
-import { HamburgerMenu } from '../../icons/';
+import { MenuIcon } from '../../icons/';
 import './style.scss';
 
 const NavBar = () => {
@@ -9,7 +9,7 @@ const NavBar = () => {
       <header className="nav-bar-header">
         <div className="nav-bar__left">
           <button className="button" id="nav-button">
-            <HamburgerMenu />
+            <MenuIcon />
           </button>
         </div>
         <div className="nav-bar__middle">
