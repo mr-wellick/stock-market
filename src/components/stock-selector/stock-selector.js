@@ -7,23 +7,27 @@ import './style.scss';
 const StockSelector = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
   const dispatch = useDispatch();
-  const stockNames = Object.keys(data);
+  const stockNames = Object.keys(data).concat(['APPL', 'IBM', 'KO', 'CMG', 'NKE']);
 
   if (stockNames.length === 0) return null;
 
   return (
-    <form>
+    <form className="stock-list">
       {stockNames.map(stock => (
-        <label key={stock}>
+        <div key={stock} className="stock-list__container">
           <input
+            className="stock-list__input"
             type="radio"
-            name="active-stock"
-            value={stock}
+            name="stock-selector"
+            id={stock}
             onChange={() => dispatch(setActiveStock(stock))}
             checked={activeStock === stock}
           />
-          {stock}
-        </label>
+          <label className="stock-list__label" htmlFor={stock}>
+            {stock}
+            <button className="stock-list__btn">x</button>
+          </label>
+        </div>
       ))}
     </form>
   );

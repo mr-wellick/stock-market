@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 const useHistoricalData = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
 
-  if (Object.keys(data).length === 0) return null;
+  if (Object.keys(data).length === 0 || !data[activeStock]) return null;
 
   const formatted = data[activeStock].chart.map(item => ({
     ...item,

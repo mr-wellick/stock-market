@@ -5,7 +5,7 @@ import './style.scss';
 const CompanyName = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
 
-  if (Object.keys(data).length === 0) return null;
+  if (Object.keys(data).length === 0 || !data[activeStock]) return null;
 
   const { companyName, symbol, close, latestTime } = data[activeStock].quote;
 
