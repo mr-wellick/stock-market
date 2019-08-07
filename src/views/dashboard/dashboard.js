@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-//import { StockSelector } from '../../components/';
-//import { HistoricalChart } from '../../components/';
+import { StockSelector } from '../../components/';
+import { HistoricalChart } from '../../components/';
 import { CompanyName } from '../../components/';
 import './style.scss';
 
@@ -14,15 +14,12 @@ const Dashboard = () => {
         <CompanyName />
       </div>
       <div className="main-content__data">
-        <h1>under development</h1>
-        {/*
-          <div className="dashboard-selector">
-            <StockSelector />
-          </div>
-          <div>
-            <HistoricalChart />
-          </div>
-        */}
+        <div className="dashboard-selector">
+          <StockSelector />
+        </div>
+        <div className="dashboard-chart">
+          <HistoricalChart />
+        </div>
       </div>
     </section>
   );
