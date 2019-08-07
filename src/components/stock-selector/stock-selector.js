@@ -7,7 +7,7 @@ import './style.scss';
 const StockSelector = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
   const dispatch = useDispatch();
-  const stockNames = Object.keys(data).concat(['APPL', 'IBM', 'KO', 'CMG', 'NKE']);
+  const stockNames = Object.keys(data);
 
   if (stockNames.length === 0) return null;
 
