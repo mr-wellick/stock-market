@@ -5,22 +5,22 @@ import './style.scss';
 
 const NavBar = () => {
   return (
-    <section className="nav-bar-section">
-      <header className="nav-bar-header">
-        <div className="nav-bar__left">
-          <button className="button" id="nav-button">
+    <header className="main-header">
+      <nav className="main-nav">
+        <div className="main-nav__container">
+          <button className="main-nav__btn">
             <MenuIcon />
           </button>
         </div>
-        <div className="nav-bar__middle">
+        <div className="main-nav__container">
           <StockFetcher />
         </div>
-        <div className="nav-bar__right">
-          <button className="nav-login-btn">login</button>
-          <button className="nav-register-btn">register</button>
+        <div className="main-nav__container">
+          <button className="main-nav__login">login</button>
+          <button className="main-nav__register">register</button>
         </div>
-      </header>
-    </section>
+      </nav>
+    </header>
   );
 };
 
