@@ -1,37 +1,42 @@
-.nav-item,
-.nav-item__container {
+.route-container,
+.route-link {
   height: 40px;
 }
 
-.nav-item {
-  margin: 8px 0;
+.route-container {
+  margin-top: 8px;
 }
 
-.nav-item__container {
-  display: flex;
-  align-items: center;
-  padding: 0 8px;
+.route-container:hover {
+  background: rgba(161, 194, 250, 0.16);
 }
 
-.nav-item__icon {
-  margin: 11px 15px;
+.route-label:hover {
+  cursor: pointer;
 }
 
-.nav-item__icon svg path,
-.nav-item__link {
-  color: #0000008a;
-}
-
-.nav-item__link {
-  padding: 0 8px;
-  text-decoration: none;
-}
-
-.nav-item__link.toggled {
+.route-input {
   display: none;
 }
 
-#active {
+// don't know why it's not working
+.route-input:checked + .route-link {
   color: #3367d6;
   background: rgba(161, 194, 250, 0.16);
+}
+
+.route-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 20px;
+  color: #0000008a;
+}
+
+.route-label {
+  margin: 11px 15px;
+}
+
+.route-label.toggled {
+  display: none;
 }
