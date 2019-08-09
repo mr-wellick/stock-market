@@ -61,13 +61,13 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@hot-loader/react-dom": "^16.8.6",
-    "@reach/router": "^1.2.1",
     "react": "^16.8.6",
     "react-csv": "^1.1.1",
     "react-d3-ggplot": "^1.2.1",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.10",
     "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
     "react-window": "^1.8.5",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5"
