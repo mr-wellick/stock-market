@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { DashboardIcon } from '../../icons/';
 import { FinancialsIcon } from '../../icons/';
 import './style.scss';
@@ -37,7 +37,7 @@ const Routes = () => {
             <i className="nav-item__icon">
               <FinancialsIcon />
             </i>
-            <Link className={`nav-item__link ${className}`} to="/financials">
+            <Link className={`nav-item__link ${className}`} to="/financials/">
               Financials
             </Link>
           </div>

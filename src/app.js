@@ -1,24 +1,18 @@
 import './app.scss';
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-//import { Router } from '@reach/router';
-//import { NavBar } from './components/';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Sidebar } from './components/';
-//import { Dashboard } from './views/';
-//import { Financials } from './views/';
+import { Dashboard } from './views/';
+import { Financials } from './views/';
 
 const App = () => {
   return (
-    <>
+    <Router>
       <Sidebar />
-      {/*
-      <NavBar />
-      <Router>
-        <Dashboard path="/" />
-        <Financials path="/financials" />
-      </Router>
-    */}
-    </>
+      <Route exact path="/" component={Dashboard} />
+      <Route path="/financials/" component={Financials} />
+    </Router>
   );
 };
 
