@@ -2,42 +2,53 @@
 @import '../../sass/global-dimensions';
 
 .sidebar {
-  width: $sidebar-width;
   position: fixed;
-  margin-top: 50px;
-  height: calc(100vh - 50px);
+  height: 100vh;
+  width: $sidebar-width;
   background-color: $background-color;
-  border-right: 1.1px solid hsla(0, 0%, 0%, 0.12);
+  border-right: $border-color;
 }
 
 .sidebar.toggled {
   width: $sidebar-width-toggled;
 }
 
-.sidebar-logo-container {
+.sidebar-header {
   display: flex;
   align-items: center;
-  padding-left: 16px;
   height: 48px;
-  border-bottom: 1.1px solid hsla(0, 0%, 0%, 0.12);
+  padding-left: 16px;
+  border-bottom: $border-color;
 }
 
-.sidebar-logo {
-  margin-right: 16px;
-}
-
-.sidebar-brand-name {
+.sidebar-header__brand {
+  margin-left: 16px;
   color: #000000a7;
 }
 
-.sidebar-brand-name.toggled {
+.sidebar-header__brand.toggled {
   display: none;
 }
 
 .sidebar-footer {
+  display: flex;
+  align-items: center;
   position: absolute;
-  padding: 6px 12px;
   bottom: 0;
   width: 100%;
+  height: 48px;
+  padding: 6px 12px;
+}
+
+.sidebar-footer__btn {
   height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: $background-color;
+}
+
+.sidebar-footer__btn:hover {
+  background-color: #bdbdbd;
+  opacity: 0.5;
 }
