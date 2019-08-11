@@ -12,24 +12,29 @@ const StockSelector = () => {
   if (stockNames.length === 0) return null;
 
   return (
-    <form className="stock-list">
-      {stockNames.map(stock => (
-        <div key={stock} className="stock-list__container">
-          <input
-            className="stock-list__input"
-            type="radio"
-            name="stock-selector"
-            id={stock}
-            onChange={() => dispatch(setActiveStock(stock))}
-            checked={activeStock === stock}
-          />
-          <label className="stock-list__label" htmlFor={stock}>
-            {stock}
-            <button className="stock-list__btn">x</button>
-          </label>
-        </div>
-      ))}
-    </form>
+    <div className="list-container">
+      <div className="stock-header">
+        <p>Stock List</p>
+      </div>
+      <form className="stock-list">
+        {stockNames.map(stock => (
+          <div key={stock} className="stock-list__container">
+            <input
+              className="stock-list__input"
+              type="radio"
+              name="stock-selector"
+              id={stock}
+              onChange={() => dispatch(setActiveStock(stock))}
+              checked={activeStock === stock}
+            />
+            <label className="stock-list__label" htmlFor={stock}>
+              {stock}
+              <button className="stock-list__btn">x</button>
+            </label>
+          </div>
+        ))}
+      </form>
+    </div>
   );
 };
 

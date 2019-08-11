@@ -1,7 +1,28 @@
-.stock-list {
+.list-container {
+  height: 335px;
   width: 200px;
+  border-radius: 2px;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
     0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.list-container:hover {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.stock-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.stock-header p {
+  padding: 10px;
+  padding-left: 5px;
+}
+
+.stock-list {
+  max-height: calc(100% - 36px);
+  overflow: scroll;
 }
 
 .stock-list [type='radio'] {
