@@ -3,16 +3,16 @@ import { useEffect } from 'react';
 
 function useDimensions() {
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth * 0.55,
-    height: window.innerHeight * 0.6,
+    width: window.innerWidth * 0.6,
+    height: window.innerHeight * 0.7,
     padding: 50
   });
 
   function resize() {
     setDimensions({
       ...dimensions,
-      width: window.innerWidth * 0.55,
-      height: window.innerHeight * 0.6
+      width: window.innerWidth * 0.6,
+      height: window.innerHeight * 0.7
     });
   }
 
