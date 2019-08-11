@@ -11,13 +11,7 @@ export function* fetchIEXData({ validStockName }) {
 
   try {
     const data = yield response.json();
-
-    if (data['Meta Data']) {
-      yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
-    } else {
-      // will be replaced once modal component is up and running
-      yield alert('Incorrect stock name.');
-    }
+    yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
   } catch (error) {
     yield put({ type: FETCH_ERROR, payload: { error: `Invalid stock ticker: ${validStockName}` } });
   }

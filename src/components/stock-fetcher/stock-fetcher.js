@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { validate } from '../../utilities/';
-import { setActiveStock } from '../../redux/';
 import './style.scss';
 
 const StockFetcher = () => {
@@ -25,12 +23,6 @@ const StockFetcher = () => {
     document.querySelector('.stock-fetcher__input').value = '';
   };
 
-  // need to refactor this code
-  useEffect(() => {
-    dispatch(setActiveStock('TSLA'));
-    dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
-  }, []);
-
   return (
     <form className="stock-fetcher__form" autoComplete="off" onSubmit={onSubmit}>
       <input
@@ -38,6 +30,7 @@ const StockFetcher = () => {
         className="stock-fetcher__input"
         type="text"
         required
+        disabled
       />
     </form>
   );
