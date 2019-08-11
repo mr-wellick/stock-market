@@ -2,10 +2,7 @@
 <p align="center">A stock-market dashboard to give you a rough overview of any particular company.</p>
 
 <p align="center">
-    <a href="https://app.netlify.com/sites/lrnztrading/deploys">
-        <img src="https://api.netlify.com/api/v1/badges/a24fa809-6de4-4170-94b4-2511531425b0/deploy-status">
-    </a>
-    <img alt="Travis (.org)" src="https://img.shields.io/travis/ll2nz/stock-market?style=flat-square">
+  <img alt="Travis (.org)" src="https://img.shields.io/travis/ll2nz/stock-market?style=flat-square">
 </p>
 
 # Demo
