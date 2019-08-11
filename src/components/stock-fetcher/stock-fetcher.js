@@ -19,7 +19,7 @@ const StockFetcher = () => {
     if (validStockName && !data[validStockName]) {
       dispatch({ type: 'FETCH_REQUESTED', validStockName });
     } else {
-      console.log('wooops');
+      alert('There was an error processing your request. Please try again.');
     }
 
     document.querySelector('.stock-fetcher__input').value = '';
@@ -38,7 +38,6 @@ const StockFetcher = () => {
         className="stock-fetcher__input"
         type="text"
         required
-        disabled
       />
     </form>
   );
