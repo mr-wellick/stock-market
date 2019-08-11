@@ -11,7 +11,15 @@ export function* fetchIEXData({ validStockName }) {
 
   try {
     const data = yield response.json();
-    yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
+
+    if (data['Meta Data']) {
+      yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
+    } else {
+      yield put({
+        type: FETCH_ERROR,
+        payload: { error: `Invalid stock ticker: ${validStockName}` }
+      });
+    }
   } catch (error) {
     yield put({ type: FETCH_ERROR, payload: { error: `Invalid stock ticker: ${validStockName}` } });
   }
