@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { DashboardIcon } from '../../icons/';
-import { FinancialsIcon } from '../../icons/';
+//import { FinancialsIcon } from '../../icons/';
 import './style.scss';
 
 const Routes = () => {
@@ -25,6 +25,7 @@ const Routes = () => {
           </label>
         </Link>
       </div>
+      {/*
       <div className="route-container">
         <input type="radio" id="financials" name="route-selector" className="route-input" />
         <Link to="/financials/" className="route-link">
@@ -34,6 +35,7 @@ const Routes = () => {
           </label>
         </Link>
       </div>
+      */}
     </form>
   );
 };
