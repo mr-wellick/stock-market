@@ -4,9 +4,7 @@ import './style.scss';
 
 const News = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
-
-  const news = data[activeStock].news;
-  console.log(news);
+  const { news } = data[activeStock];
 
   return news.map(article => (
     <div className="news-container" key={article.url}>
