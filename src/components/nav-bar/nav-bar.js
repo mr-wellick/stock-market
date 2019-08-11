@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <header className="main-header">
       <nav className="main-nav">
-        <div className="main-nav__middle">
+        <div className="main-nav__left">
           <StockFetcher />
         </div>
         <div className="main-nav__right">

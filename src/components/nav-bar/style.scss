@@ -16,8 +16,8 @@
   margin: 0 12px;
 }
 
-.main-nav__middle {
-  flex: 2;
+.main-nav__left {
+  flex: 1;
 }
 
 .main-nav__right {
@@ -42,7 +42,7 @@
 }
 
 @media (max-width: 1000px) {
-  .main-nav__middle {
+  .main-nav__left {
     margin: 0 10px;
   }
 
