@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { NavBar } from '../../components/';
 import { StockSelector } from '../../components/';
+import { News } from '../../components/';
 import './style.scss';
 
 const HistoricalChart = lazy(() => import('../../components/historical-chart/historical-chart.js'));
@@ -21,6 +22,9 @@ const Dashboard = () => {
         <Suspense fallback={'<div>Loading</div>'}>
           <HistoricalChart />
         </Suspense>
+      </div>
+      <div className="main-content__news">
+        <News />
       </div>
     </section>
   );
