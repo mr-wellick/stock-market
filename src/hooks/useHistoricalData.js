@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 const useHistoricalData = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
 
-  if (Object.keys(data).length === 0 || !data[activeStock].chart) return null;
+  if (Object.keys(data).length === 0 || !data[activeStock]) return null;
 
-  const formatted = data[activeStock].chart.map(item => ({
-    ...item,
-    date: new Date(item.date)
+  const rawData = Object.entries(data[activeStock])[1][1];
+
+  const formatted = Object.entries(rawData).map(items => ({
+    date: new Date(items[0]),
+    close: Number(items[1]['5. adjusted close'])
   }));
 
   return formatted;
