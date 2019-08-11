@@ -29,7 +29,9 @@ const StockSelector = () => {
             />
             <label className="stock-list__label" htmlFor={stock}>
               {stock}
-              <button className="stock-list__btn">x</button>
+              <button className="stock-list__btn" disabled>
+                x
+              </button>
             </label>
           </div>
         ))}
