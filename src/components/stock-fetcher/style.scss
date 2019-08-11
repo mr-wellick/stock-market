@@ -1,4 +1,22 @@
-.stock-fetcher__form,
+.stock-fetcher__form {
+  width: 100%;
+  margin: 0 10px;
+}
+
 .stock-fetcher__input {
   width: 100%;
+}
+
+.main-nav__left {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+  height: 35px;
+}
+
+.stock-fetcher__input {
+  border: 0;
+  background-color: transparent;
+  outline-width: 0;
 }
