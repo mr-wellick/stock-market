@@ -3,6 +3,7 @@
 
 <p align="center">
   <img alt="Travis (.org)" src="https://img.shields.io/travis/ll2nz/stock-market?style=flat-square">
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/ll2nz/stock-market?style=flat-square">
 </p>
 
 # Demo
