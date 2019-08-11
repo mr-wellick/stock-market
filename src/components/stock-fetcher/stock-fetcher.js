@@ -30,6 +30,7 @@ const StockFetcher = () => {
         className="stock-fetcher__input"
         type="text"
         required
+        disabled
       />
     </form>
   );
