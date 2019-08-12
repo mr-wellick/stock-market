@@ -15,8 +15,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.stock-header p {
-  padding-left: 5px;
+.stock-header__name {
+  padding: 10px 5px;
+  margin: 0;
 }
 
 .stock-list {

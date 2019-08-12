@@ -14,7 +14,7 @@ const StockSelector = () => {
   return (
     <div className="list-container">
       <div className="stock-header">
-        <p>Stock List</p>
+        <p className="stock-header__name">Stock List</p>
       </div>
       <form className="stock-list">
         {stockNames.map(stock => (
