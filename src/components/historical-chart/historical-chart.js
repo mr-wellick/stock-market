@@ -7,7 +7,7 @@ import './style.scss';
 
 const HistoricalChart = () => {
   const historicalData = useHistoricalData();
-  const dimensions = useDimensions();
+  const [dimensions] = useDimensions();
 
   if (!historicalData) return null;
 
