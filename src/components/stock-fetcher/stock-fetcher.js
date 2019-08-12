@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { validate } from '../../utilities/';
+import { SearchIcon } from '../../icons/';
 import './style.scss';
 
 const StockFetcher = () => {
@@ -25,12 +26,12 @@ const StockFetcher = () => {
 
   return (
     <form className="stock-fetcher__form" autoComplete="off" onSubmit={onSubmit}>
+      <SearchIcon />
       <input
         onChange={event => setStockName(event.target.value)}
         className="stock-fetcher__input"
         type="text"
         required
-        disabled
       />
     </form>
   );
