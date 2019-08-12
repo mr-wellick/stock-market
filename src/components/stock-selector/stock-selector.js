@@ -2,6 +2,7 @@ import React from 'react';
 import { setActiveStock } from '../../redux/';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { TrashIcon } from '../../icons/';
 import './style.scss';
 
 const StockSelector = () => {
@@ -30,7 +31,7 @@ const StockSelector = () => {
             <label className="stock-list__label" htmlFor={stock}>
               {stock}
               <button className="stock-list__btn" disabled>
-                x
+                <TrashIcon />
               </button>
             </label>
           </div>

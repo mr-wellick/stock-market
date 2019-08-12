@@ -62,14 +62,14 @@
 }
 
 .stock-list__btn {
-  background-color: #ef0073;
-  border: 1px solid #ef0073;
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 0.25rem;
   color: white;
   text-align: center;
-  width: 40px;
+  width: 50px;
 }
 
 .stock-list__btn:hover {
-  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
+  background-color: #e0e0e0;
 }
