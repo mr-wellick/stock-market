@@ -24,6 +24,7 @@ const Dashboard = () => {
         </Suspense>
       </div>
       <div className="main-content__news">
+        <h1>News</h1>
         <News />
       </div>
     </section>
