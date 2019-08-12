@@ -7,16 +7,20 @@ const CompanyName = () => {
 
   if (Object.keys(data).length === 0 || !data[activeStock]) return null;
 
-  const { companyName, symbol, close, latestTime } = data[activeStock].quote;
+  const { companyName, symbol, close, change, changePercent } = data[activeStock].quote;
+  const trend = change < 0 ? 'trend-down' : 'trend-up';
 
   return (
-    <div className="company-name-container">
-      <p>
+    <div className="company-info-container">
+      <p className="company-name-container">
         <span className="company-name">{companyName}</span>
         <span className="company-symbol">[{symbol}]</span>
-        <span className="company-close">{close}</span>
       </p>
-      <p>{latestTime}</p>
+      <p>
+        <span className="company-close">{close}</span>
+        <span className={trend}>{change}</span>
+        <span className={trend}>({changePercent})</span>
+      </p>
     </div>
   );
 };
