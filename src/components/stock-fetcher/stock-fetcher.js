@@ -18,6 +18,7 @@ const StockFetcher = () => {
         type="text"
         placeholder="Search Symbols"
         required
+        disabled
       />
     </form>
   );
