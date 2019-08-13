@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Sidebar } from './components/';
 import { Dashboard } from './views/';
-import { Financials } from './views/';
+//import { Financials } from './views/';
 
 const App = () => {
   const { className } = useSelector(state => state.uiReducer);
@@ -16,7 +16,9 @@ const App = () => {
       <Sidebar />
       <section className={`main-content ${className}`}>
         <Route exact path="/" component={Dashboard} />
-        <Route path="/financials/" component={Financials} />
+        {/*
+          <Route path="/financials/" component={Financials} />
+        */}
       </section>
     </Router>
   );

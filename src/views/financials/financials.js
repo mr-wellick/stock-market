@@ -1,11 +1,10 @@
 import React from 'react';
-import { Spreadsheet } from '../../components/';
 import './style.scss';
 
 const Financials = () => {
   return (
     <>
-      <Spreadsheet />
+      <h1>Financials</h1>
     </>
   );
 };
