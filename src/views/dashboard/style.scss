@@ -1,14 +1,3 @@
-@import '../../sass/global-dimensions';
-
-.main-content {
-  margin-left: auto;
-  width: $main-content-width;
-}
-
-.main-content.toggled {
-  width: $main-content-width-toggled;
-}
-
 .main-content__data {
   padding: 24px;
   display: flex;

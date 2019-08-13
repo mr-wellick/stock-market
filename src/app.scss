@@ -1,0 +1,10 @@
+@import './sass/global-dimensions';
+
+.main-content {
+  margin-left: auto;
+  width: $main-content-width;
+}
+
+.main-content.toggled {
+  width: $main-content-width-toggled;
+}

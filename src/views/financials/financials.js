@@ -1,8 +1,13 @@
 import React from 'react';
+import { Spreadsheet } from '../../components/';
 import './style.scss';
 
 const Financials = () => {
-  return <div>Financials</div>;
+  return (
+    <>
+      <Spreadsheet />
+    </>
+  );
 };
 
 export default Financials;
