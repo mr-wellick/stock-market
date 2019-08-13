@@ -3,6 +3,9 @@ import { symbols } from '../../mock-data/symbols.js';
 import './style.scss';
 
 const Dropdown = () => {
+  // will remove after full implementation
+  if (symbols) return null;
+
   return (
     <ul className="symbol-list">
       {symbols.slice(0, 20).map(stock => (
