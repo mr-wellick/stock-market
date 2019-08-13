@@ -1,5 +1,6 @@
 import React from 'react';
 import { StockFetcher } from '../stock-fetcher/';
+import { Dropdown } from '../dropdown/';
 import './style.scss';
 
 const NavBar = () => {
@@ -8,6 +9,7 @@ const NavBar = () => {
       <nav className="main-nav">
         <div className="main-nav__left">
           <StockFetcher />
+          <Dropdown />
         </div>
         <div className="main-nav__right">
           <button className="main-nav__login">login</button>
