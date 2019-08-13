@@ -26,7 +26,6 @@ export const financials = {
     [{ value: '' }, { value: '' }, { value: '' }, { value: '' }],
     [{ value: 'Cost of Revenues' }, { value: '' }, { value: '' }, { value: '' }],
     [{ value: '' }, { value: '' }, { value: '' }, { value: '' }],
-    [{ value: 'Auto Sales' }, { value: 2561881000 }, { value: 3117865000 }, { value: 5878305000 }],
     [{ value: 'Auto Sales' }, { value: 2091397000 }, { value: 2529739000 }, { value: 4405919000 }],
     [{ value: 'Auto Leasing' }, { value: 104496000 }, { value: 136915000 }, { value: 119283000 }],
     [
