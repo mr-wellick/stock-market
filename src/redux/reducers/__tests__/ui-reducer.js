@@ -9,7 +9,7 @@ test('uiReducer returns class name of "toggled"', () => {
   expect(newState.className).toBe(action.payload.className);
 });
 
-test('uiReducer returns initialState if no active is passed', () => {
+test('uiReducer returns initialState if an invalid action is passed', () => {
   const action = {};
   const initialState = { className: '' };
   const newState = uiReducer(initialState, action);
