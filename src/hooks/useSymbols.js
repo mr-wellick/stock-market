@@ -1,19 +1,22 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { symbols } from '../mock-data/symbols.js';
+import { useSelector } from 'react-redux';
+import { validate } from '../utilities/';
 
-function useSymbols() {
-  const [symbols, setSymbols] = useState('');
+const useSymbols = () => {
+  const stringOfSymbols = symbols.map(stock => `"${stock.symbol} - ${stock.name}"`).join('');
+  const { input } = useSelector(state => state.uiReducer);
+  const validInput = validate(input);
 
-  useEffect(() => {
-    fetch('https://api.iextrading.com/1.0/ref-data/symbols')
-      .then(res => res.json())
-      .then(data => {
-        const hugeString = data.map(stock => `"${stock.symbol} - ${stock.name}"`).join('');
-        setSymbols(hugeString);
-      });
-  }, []);
+  // TSLA is a valid stock ticker. HELLO is not a valid stock ticker; however, it still creates
+  // a valid regex pattern, which will be used to search stringOfSymbols. This will result in null.
+  const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, 'g') : null;
 
-  return symbols;
-}
+  const matches =
+    pattern !== null && stringOfSymbols.match(pattern) !== null
+      ? stringOfSymbols.match(pattern)
+      : [];
+
+  return matches;
+};
 
 export default useSymbols;

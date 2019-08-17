@@ -1,25 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { symbols } from '../../mock-data/symbols.js';
-import { validate } from '../../utilities/';
+import { useSymbols } from '../../hooks/';
 import './style.scss';
 
 const Dropdown = () => {
-  const { input } = useSelector(state => state.uiReducer);
-  const validInput = validate(input);
+  const symbols = useSymbols();
 
-  // will remove after full implementation
-  if (symbols) return null;
+  if (symbols.length === 0) return null;
 
   return (
     <ul className="symbol-list">
-      {symbols.slice(0, 20).map(stock => (
-        <li className="symbol-item" key={stock.name}>
+      {symbols.map(stock => (
+        <li className="symbol-item" key={stock.split(' - ')[0]}>
           <p className="symbol-ticker">
-            {stock.symbol}
+            {stock.split(' - ')[0]}
             <span className="symbol-dash">-</span>
           </p>
-          <p className="symbol-name">{stock.name}</p>
+          <p className="symbol-name">{stock.split(' - ')[1]}</p>
         </li>
       ))}
     </ul>
