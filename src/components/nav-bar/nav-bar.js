@@ -2,7 +2,6 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { StockFetcher } from '../stock-fetcher/';
-//import { Dropdown } from '../dropdown/';
 import './style.scss';
 
 const Dropdown = lazy(() => import('../dropdown/dropdown.js'));
@@ -13,7 +12,7 @@ const NavBar = () => {
       <nav className="main-nav">
         <div className="main-nav__left">
           <StockFetcher />
-          <Suspense fallback={'<div>loading</div>'}>
+          <Suspense fallback={null}>
             <Dropdown />
           </Suspense>
         </div>
