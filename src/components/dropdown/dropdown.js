@@ -1,8 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { symbols } from '../../mock-data/symbols.js';
+import { validate } from '../../utilities/';
 import './style.scss';
 
 const Dropdown = () => {
+  const { input } = useSelector(state => state.uiReducer);
+  const validInput = validate(input);
+
   // will remove after full implementation
   if (symbols) return null;
 
