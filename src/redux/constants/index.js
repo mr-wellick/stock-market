@@ -2,3 +2,4 @@ export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
 export const FETCH_IEX_DATA = 'FETCH_IEX_DATA';
 export const FETCH_ERROR = 'FETCH_ERROR';
 export const SET_ACTIVE_STOCK = 'SET_ACTIVE_STOCK';
+export const USER_INPUT = 'USER_INPUT';
