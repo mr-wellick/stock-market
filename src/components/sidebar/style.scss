@@ -1,5 +1,5 @@
-@import '../../sass/colors';
-@import '../../sass/global-dimensions';
+@import '../../sass/colors.scss';
+@import '../../sass/global-dimensions.scss';
 
 .sidebar {
   position: fixed;
@@ -16,11 +16,12 @@
   display: flex;
   align-items: center;
   height: 48px;
-  padding-left: 16px;
+  padding: 0 16px;
   border-bottom: $border-color;
 }
 
 .sidebar-header__brand {
+  margin: 0;
   margin-left: 16px;
   color: #000000a7;
 }
@@ -34,7 +35,6 @@
   align-items: center;
   position: absolute;
   bottom: 0;
-  width: 100%;
   height: 48px;
   padding: 6px 12px;
 }
@@ -43,6 +43,7 @@
   height: 40px;
   width: 40px;
   border: none;
+  padding: 0;
   border-radius: 50%;
   background-color: white;
 }
