@@ -7,20 +7,18 @@ const News = () => {
   const { news } = data[activeStock];
 
   return news.map(article => (
-    <div className="news-container" key={article.url}>
-      <div className="news-headline">
-        <h2>
+    <div className="card" key={article.url}>
+      <div className="card-content">
+        <h3 className="card-title">
           <b>{article.headline}</b>
-        </h2>
+        </h3>
+        <p className="card-summary">{article.summary}</p>
       </div>
-      <div className="news-summary">
-        <p>{article.summary}</p>
-      </div>
-      <div className="news-source">
-        <a className="news-link" href={article.url} target="_blank" rel="noopener noreferrer">
+      <div className="card-action article-link-container">
+        <a className="article-link" href={article.url} target="_blank" rel="noopener noreferrer">
           {article.source}
         </a>
-        <span>{new Date(article.datetime).toLocaleString()}</span>
+        <p className="article-date">{new Date(article.datetime).toLocaleString()}</p>
       </div>
     </div>
   ));
