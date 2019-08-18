@@ -15,19 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 40px;
+  margin: 0 16px;
 }
 
 .main-nav__left {
   position: relative;
-  flex: 1;
 }
 
 .main-nav__right {
-  flex: 0.5;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .main-nav__btn {
@@ -43,6 +40,3 @@
 .main-nav__btn:hover {
   box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
 }
-
-//.main-nav__menu {
-//}
