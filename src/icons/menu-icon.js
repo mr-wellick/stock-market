@@ -3,7 +3,9 @@ import React from 'react';
 const MenuIcon = () => {
   return (
     <svg height="24px" width="24px">
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      <rect width="24" height="3.5" rx="1.75" ry="1.75"></rect>
+      <rect y="8.25" width="24" height="3.5" rx="1.75" ry="1.75"></rect>
+      <rect y="16.5" width="24" height="3.5" rx="1.75" ry="1.75"></rect>
     </svg>
   );
 };

@@ -1,40 +1,24 @@
 @import '../../sass/colors.scss';
-@import '../../sass/global-dimensions.scss';
+@import '../../sass/dimensions.scss';
 
 .sidebar {
   position: fixed;
   height: 100vh;
+  background-color: #fff;
   width: $sidebar-width;
   border-right: $border-color;
 }
 
-.sidebar.toggled {
-  width: $sidebar-width-toggled;
-}
-
 .sidebar-header {
+  padding: 0 24px;
+  height: 72px;
   display: flex;
   align-items: center;
-  height: 48px;
-  padding: 0 16px;
   border-bottom: $border-color;
 }
 
 .sidebar-header__brand {
-  margin: 0;
+  font-size: 25px;
   margin-left: 16px;
   color: #000000a7;
-}
-
-.sidebar-header__brand.toggled {
-  display: none;
-}
-
-.sidebar-footer {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  height: 48px;
-  padding: 6px 12px;
 }

@@ -1,6 +1,5 @@
 import './app.scss';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -9,12 +8,10 @@ import { Dashboard } from './views/';
 //import { Financials } from './views/';
 
 const App = () => {
-  const { className } = useSelector(state => state.uiReducer);
-
   return (
     <Router>
       <Sidebar />
-      <section className={`main-content ${className}`}>
+      <section className="main-content">
         <Route exact path="/" component={Dashboard} />
         {/*
           <Route path="/financials/" component={Financials} />
