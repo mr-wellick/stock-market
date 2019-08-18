@@ -7,7 +7,7 @@ const News = () => {
   const { news } = data[activeStock];
 
   return news.map(article => (
-    <div className="card" key={article.url}>
+    <div className="card article-container" key={article.url}>
       <div className="card-content">
         <h3 className="card-title">
           <b>{article.headline}</b>
