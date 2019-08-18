@@ -1,12 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Routes } from '../routes/';
 import { LrnzIcon } from '../../icons/';
-import { ArrowIcon } from '../../icons/';
-import { useToggler } from '../../hooks/';
 import './style.scss';
 
 const Sidebar = () => {
-  const [className, toggle] = useToggler();
+  const { className } = useSelector(state => state.uiReducer);
 
   return (
     <section className={`sidebar ${className}`}>
@@ -16,11 +15,6 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-routes">
         <Routes />
-      </div>
-      <div className="sidebar-footer">
-        <button className="sidebar-footer__btn" onClick={toggle}>
-          <ArrowIcon />
-        </button>
       </div>
     </section>
   );

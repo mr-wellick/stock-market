@@ -28,27 +28,27 @@
   flex: 1;
 }
 
-.main-nav__login,
-.main-nav__register {
-  background-color: #ef0073;
-  border: 1px solid #ef0073;
-  border-radius: 0.25rem;
-  color: white;
-  padding: 5px 10px;
-  margin: 2px;
-}
-
-.main-nav__login:hover,
-.main-nav__register:hover {
-  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
-}
-
-@media (max-width: 1000px) {
-  .main-nav__left {
-    margin: 0 10px;
-  }
-
-  .main-nav__right {
-    display: none;
-  }
-}
+//.main-nav__login,
+//.main-nav__register {
+//  background-color: #ef0073;
+//  border: 1px solid #ef0073;
+//  border-radius: 0.25rem;
+//  color: white;
+//  padding: 5px 10px;
+//  margin: 2px;
+//}
+//
+//.main-nav__login:hover,
+//.main-nav__register:hover {
+//  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
+//}
+//
+//@media (max-width: 1000px) {
+//  .main-nav__left {
+//    margin: 0 10px;
+//  }
+//
+//  .main-nav__right {
+//    display: none;
+//  }
+//}
