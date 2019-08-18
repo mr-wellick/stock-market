@@ -3,18 +3,11 @@
   align-items: center;
   width: 100%;
   margin: 0 10px;
+  display: none;
 }
 
 .stock-fetcher__input {
   width: 100%;
-}
-
-.main-nav__left {
-  display: flex;
-  align-items: center;
-  background-color: #f1f1f1;
-  border-radius: 2px;
-  height: 48px;
 }
 
 .stock-fetcher__input {

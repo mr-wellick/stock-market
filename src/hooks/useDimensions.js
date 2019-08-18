@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 const useDimensions = () => {
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth * 0.6,
+    width: window.innerWidth,
     height: window.innerHeight * 0.55,
-    padding: 50
+    padding: 35
   });
 
   return [dimensions, setDimensions];

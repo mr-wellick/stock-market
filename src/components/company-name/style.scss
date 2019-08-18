@@ -1,32 +1,32 @@
-//@import '../../sass/font-sizes.scss';
+@import '../../sass/font-sizes.scss';
 
-//.company-info-container {
-//  margin-left: 50px;
-//  padding-top: 15px;
-//}
-//
-//.company-info-container p {
-//  margin: 0;
-//}
-//
-//.company-name-container {
-//  font-size: $font-mid;
-//  padding-bottom: 5px;
-//}
-//
-//.company-symbol {
-//  margin-left: 10px;
-//}
-//
-//.company-close {
-//  font-size: 30px;
-//  margin-right: 10px;
-//}
-//
-//.trend-up {
-//  color: #19be87;
-//}
-//
-//.trend-down {
-//  color: #f72121;
-//}
+.company-info-container {
+  margin-left: 30px;
+  padding-top: 15px;
+}
+
+.company-info-container p {
+  margin: 0;
+}
+
+.company-name-container {
+  font-size: $font-mid;
+  padding-bottom: 5px;
+}
+
+.company-symbol {
+  margin-left: 10px;
+}
+
+.company-close {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.trend-up {
+  color: #19be87;
+}
+
+.trend-down {
+  color: #f72121;
+}
