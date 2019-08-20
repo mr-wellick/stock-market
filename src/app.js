@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Sidebar } from './components/';
 import { Dashboard } from './views/';
-//import { Financials } from './views/';
 
 const App = () => {
   return (
@@ -13,9 +12,6 @@ const App = () => {
       <Sidebar />
       <section className="main-content">
         <Route exact path="/" component={Dashboard} />
-        {/*
-          <Route path="/financials/" component={Financials} />
-        */}
       </section>
     </Router>
   );
