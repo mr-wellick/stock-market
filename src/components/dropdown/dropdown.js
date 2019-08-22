@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSymbols } from '../../hooks/';
 import './style.scss';
 
 const Dropdown = () => {
-  const symbols = useSymbols();
+  const symbols = [];
 
   if (symbols.length === 0) return null;
 
