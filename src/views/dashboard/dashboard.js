@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavBar } from '../../components/';
 import { StockSelector } from '../../components/';
-import { News } from '../../components/';
 import { HistoricalChart } from '../../components/';
+import { News } from '../../components/';
 import './style.scss';
 
 const Dashboard = () => {
