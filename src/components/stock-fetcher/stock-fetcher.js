@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useRef } from 'react';
 import { SearchIcon } from '../../icons/';
 import { useFetcher } from '../../hooks/';
@@ -13,6 +14,10 @@ const StockFetcher = () => {
   // useFetcher handles all the logic related to fetching data.
   const fetchData = useFetcher(inputNode);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
+  }, []);
 
   return (
     <form className="stock-fetcher__form" autoComplete="off" onSubmit={fetchData}>
