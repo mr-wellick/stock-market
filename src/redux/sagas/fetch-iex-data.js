@@ -11,9 +11,15 @@ export function* fetchIEXData({ validStockName }) {
 
   try {
     const data = yield response.json();
-    yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
+    if (data['Monthly Adjusted Time Series'])
+      yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
+    else
+      yield put({
+        type: FETCH_ERROR,
+        payload: { error: 'Something went wrong, please try again.' }
+      });
   } catch (error) {
-    yield put({ type: FETCH_ERROR, payload: { error: `Invalid stock ticker: ${validStockName}` } });
+    yield put({ type: FETCH_ERROR, payload: { error: 'Something went wrong, please try again.' } });
   }
 }
 
