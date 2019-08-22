@@ -1,23 +1,20 @@
-import { symbols } from '../mock-data/symbols.js';
-import { useSelector } from 'react-redux';
-import { validate } from '../utilities/';
-
-const stringOfSymbols = symbols.map(stock => `"${stock.symbol} - ${stock.name}"`).join('');
+//import { useSelector } from 'react-redux';
+//import { validate } from '../utilities/';
 
 const useSymbols = () => {
-  const { input } = useSelector(state => state.uiReducer);
-  const validInput = validate(input);
+  //const { input } = useSelector(state => state.uiReducer);
+  //const validInput = validate(input);
 
   // TSLA is a valid stock ticker. HELLO is not a valid stock ticker; however, it still creates
   // a valid regex pattern, which will be used to search stringOfSymbols.
-  const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, 'g') : null;
+  //const pattern = validInput ? new RegExp(`([^"]*${validInput}[^"]*)`, 'g') : null;
 
-  const matches =
-    pattern !== null && stringOfSymbols.match(pattern) !== null
-      ? stringOfSymbols.match(pattern)
-      : [];
+  //const matches =
+  //  pattern !== null && stringOfSymbols.match(pattern) !== null
+  //    ? stringOfSymbols.match(pattern)
+  //    : [];
 
-  return matches;
+  return [];
 };
 
 export default useSymbols;
