@@ -14,7 +14,10 @@ const useFetcher = node => {
     if (validStockName && !data[validStockName]) {
       dispatch({ type: 'FETCH_REQUESTED', validStockName });
     } else {
-      console.log('woooops');
+      dispatch({
+        type: 'FETCH_ERROR',
+        payload: { error: 'Something went wrong, please try again.' }
+      });
     }
 
     node.current.value = '';
