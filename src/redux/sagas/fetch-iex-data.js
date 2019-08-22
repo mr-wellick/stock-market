@@ -11,6 +11,7 @@ export function* fetchIEXData({ validStockName }) {
 
   try {
     const data = yield response.json();
+
     if (data['Monthly Adjusted Time Series'])
       yield put({ type: FETCH_IEX_DATA, payload: { [validStockName]: data } });
     else
