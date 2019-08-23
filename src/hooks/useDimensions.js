@@ -9,11 +9,19 @@ const useDimensions = () => {
   });
 
   const resize = () => {
-    setDimensions({
-      ...dimensions,
-      width: window.innerWidth,
-      height: window.innerHeight * 0.55
-    });
+    if (window.innerWidth >= 1024) {
+      setDimensions({
+        ...dimensions,
+        width: window.innerWidth * 0.7,
+        height: window.innerHeight * 0.55
+      });
+    } else {
+      setDimensions({
+        ...dimensions,
+        width: window.innerWidth,
+        height: window.innerHeight * 0.55
+      });
+    }
   };
 
   useEffect(() => {

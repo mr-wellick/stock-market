@@ -45,3 +45,13 @@
 .main-nav__btn:hover {
   box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
 }
+
+@media (min-width: 1024px) {
+  .main-nav__menu {
+    display: none;
+  }
+
+  .main-nav__btn {
+    display: initial;
+  }
+}
