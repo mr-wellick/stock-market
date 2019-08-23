@@ -10,11 +10,12 @@
 
 ![nothing-to-show](./demos/new-demo.gif)
 
-# Screenshots
+# Current
 
-![nothing-to-show](./demos/d1.png)
-![nothing-to-show](./demos/d2.png)
-![nothing-to-show](./demos/d3.png)
+![nothing-to-show](./demos/desktop-1.png)
+![nothing-to-show](./demos/desktop-2.png)
+![nothing-to-show](./demos/responsive-1.png)
+![nothing-to-show](./demos/responsive-2.png)
 
 # Introduction
 
