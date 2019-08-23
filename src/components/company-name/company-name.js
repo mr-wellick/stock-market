@@ -5,7 +5,7 @@ import './style.scss';
 const CompanyName = () => {
   const { data, activeStock } = useSelector(state => state.iexReducer);
 
-  if (!data[activeStock] && !data[activeStock]['Meta Data']) {
+  if (!data[activeStock]) {
     return;
   }
 
