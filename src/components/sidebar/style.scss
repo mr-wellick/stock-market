@@ -5,8 +5,9 @@
   position: fixed;
   height: 100vh;
   background-color: #fff;
-  width: $sidebar-width;
-  //border-right: $border-color;
+  //width: $sidebar-width; doesn't properly display some styles
+  width: 254px;
+  border-right: $border-color;
 }
 
 .sidebar-header {
