@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Sidebar } from './components/';
+import { Footer } from './components/';
 import { Dashboard } from './views/';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Sidebar />
       <section className="main-content">
         <Route exact path="/" component={Dashboard} />
+        <Route path="/" component={Footer} />
       </section>
     </Router>
   );
