@@ -5,3 +5,4 @@ export { default as MenuIcon } from './menu-icon.js';
 export { default as ArrowIcon } from './arrow-icon.js';
 export { default as SearchIcon } from './search-icon.js';
 export { default as TrashIcon } from './trash-icon.js';
+export { default as ExitIcon } from './exit-icon.js';
