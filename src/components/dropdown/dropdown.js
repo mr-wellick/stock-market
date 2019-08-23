@@ -31,7 +31,7 @@ const Dropdown = () => {
             if (!data[symbol]) {
               dispatch({ type: 'FETCH_REQUESTED', validStockName: symbol });
             } else {
-              dispatch(fetchError('You either entered a stock already in your list.'));
+              dispatch(fetchError('You entered a stock already in your list.'));
             }
           }}
         >

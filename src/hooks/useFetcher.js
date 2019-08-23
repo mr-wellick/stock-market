@@ -11,6 +11,7 @@ const useFetcher = node => {
   const fetchStock = event => {
     event.preventDefault();
     const validStockName = validate(input);
+    dispatch({ type: 'BEST_MATCHES', payload: {} });
 
     if (validStockName && !data[validStockName]) {
       dispatch({ type: 'FETCH_REQUESTED', validStockName });
