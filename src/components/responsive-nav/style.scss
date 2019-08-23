@@ -21,7 +21,6 @@
 .responsive-btn__container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -35,4 +34,5 @@
   padding: 10px 0;
   margin: 2px;
   text-transform: uppercase;
+  margin: 5px 20px;
 }
