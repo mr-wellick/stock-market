@@ -14,7 +14,7 @@ const StockFetcher = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
+    dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
   }, []);
 
   return (
