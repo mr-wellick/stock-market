@@ -10,13 +10,11 @@ import './style.scss';
 const StockFetcher = () => {
   // inputNode will be used to select <input /> so we can clear user input after submission.
   const inputNode = useRef();
-
-  // useFetcher handles all the logic related to fetching data.
   const fetchData = useFetcher(inputNode);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
+    //dispatch({ type: 'FETCH_REQUESTED', validStockName: 'TSLA' });
   }, []);
 
   return (
@@ -24,7 +22,10 @@ const StockFetcher = () => {
       <SearchIcon />
       <input
         ref={inputNode}
-        onChange={event => dispatch(userInput(event.target.value))}
+        onChange={event => {
+          dispatch(userInput(event.target.value));
+          dispatch({ type: 'SYMBOLS_REQUESTED', input: event.target.value });
+        }}
         className="stock-fetcher__input"
         type="text"
         placeholder="Search Symbols"

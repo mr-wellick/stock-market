@@ -1,6 +1,7 @@
 @import '../../sass/colors.scss';
 
 .symbol-list {
+  z-index: 10;
   position: absolute;
   top: 0;
   padding: 0;
