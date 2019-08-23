@@ -16,7 +16,9 @@ const NavBar = () => {
       <ResponsiveNav />
       <nav className="main-nav">
         <div className="main-nav__left">
-          <LrnzIcon />
+          <div className="main-nav__left-icon">
+            <LrnzIcon />
+          </div>
           <StockFetcher />
           <Dropdown />
         </div>

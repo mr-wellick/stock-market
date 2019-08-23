@@ -21,15 +21,15 @@
 .main-nav__left {
   display: flex;
   align-items: center;
-  //background-color: #f1f1f1;
-  //border-radius: 2px;
-  //height: 48px;
   position: relative;
+  flex: 1;
 }
 
 .main-nav__right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .main-nav__btn {
@@ -48,6 +48,10 @@
 
 @media (min-width: 1024px) {
   .main-nav__menu {
+    display: none;
+  }
+
+  .main-nav__left-icon {
     display: none;
   }
 
