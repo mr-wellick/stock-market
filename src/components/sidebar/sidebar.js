@@ -5,10 +5,10 @@ import './style.scss';
 
 const Sidebar = () => {
   return (
-    <section className="sidebar" style={{ borderRight: '1.1px solid rgba(0, 0, 0, 0.12)' }}>
+    <section className="sidebar">
       <div className="sidebar-header">
         <LrnzIcon />
-        <p className="sidebar-header__brand">LRNZ</p>
+        <p className="sidebar-brand">LRNZ</p>
       </div>
       <div className="sidebar-routes">
         <Routes />

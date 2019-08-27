@@ -1,25 +1,19 @@
-@import '../../sass/colors.scss';
-@import '../../sass/dimensions.scss';
-
 .sidebar {
-  position: fixed;
   height: 100vh;
-  background-color: #fff;
-  //width: $sidebar-width; doesn't properly display some styles
-  width: 254px;
-  border-right: $border-color;
+  width: 280px;
+  border-right: var(--border-color-gray);
 }
 
 .sidebar-header {
-  padding: 0 24px;
-  height: 72px;
   display: flex;
   align-items: center;
-  border-bottom: $border-color;
+  height: 72px;
+  padding: 0 24px;
+  border-bottom: var(--border-color-gray);
 }
 
-.sidebar-header__brand {
-  font-size: 25px;
+.sidebar-brand {
   margin-left: 16px;
+  font-size: 1.75rem;
   color: #000000a7;
 }
