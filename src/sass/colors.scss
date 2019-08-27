@@ -1,7 +1,10 @@
-$background-color: #fafafa;
-$border-color: 1.1px solid hsla(0, 0%, 0%, 0.12);
-
-$trend-up: #19be87;
-$trend-down: #f72121;
-$black: #222;
-$grey: #8c8c8c;
+:root {
+  --border-color-gray: 1.1px solid hsla(0, 0%, 0%, 0.12);
+  --active-control-blue: rgba(161, 194, 250, 0.16);
+}
+//$background-color: #fafafa;
+//
+//$trend-up: #19be87;
+//$trend-down: #f72121;
+//$black: #222;
+//$grey: #8c8c8c;
