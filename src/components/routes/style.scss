@@ -1,11 +1,11 @@
-.routes {
-  padding-top: 8px;
-}
-
 .route-container {
   display: flex;
   align-items: center;
   height: 40px;
+}
+
+.route-container:hover {
+  background: rgba(161, 194, 250, 0.16);
 }
 
 .route-input {
@@ -17,27 +17,19 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 0 20px;
-}
-
-.routes [type='radio']:checked + .route-label {
-  //color: #3367d6;
-  background: rgba(161, 194, 250, 0.16);
-}
-
-.route-name {
-  margin-left: 15px;
-  color: #0000008a;
-}
-
-.route-container:hover {
-  background: rgba(161, 194, 250, 0.16);
+  padding: 10px 0;
+  padding-left: 28px;
 }
 
 .route-label:hover {
   cursor: pointer;
 }
 
-.route-name.toggled {
-  display: none;
+[type='radio']:checked + .route-label {
+  background: rgba(161, 194, 250, 0.16);
+}
+
+.route-name {
+  margin-left: 16px;
+  color: #0000008a;
 }
