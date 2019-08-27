@@ -6,14 +6,11 @@ import { Route } from 'react-router-dom';
 import { Footer } from './components/';
 import { Sidebar } from './components/';
 import { Dashboard } from './views/';
-import { useDimensions } from './hooks/';
 
 const App = () => {
-  const [dimensions] = useDimensions();
-
   return (
     <Router>
-      {dimensions.width <= window.innerWidth * 0.5 ? <Sidebar /> : null}
+      <Sidebar />
       <section className="main-content">
         <Route exact path="/" component={Dashboard} />
         <Route path="/" component={Footer} />

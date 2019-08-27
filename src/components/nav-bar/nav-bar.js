@@ -5,7 +5,6 @@ import { Dropdown } from '../dropdown/';
 import { useToggler } from '../../hooks/';
 import { MenuIcon } from '../../icons/';
 import { LrnzIcon } from '../../icons/';
-import { ResponsiveNav } from '../responsive-nav/';
 import './style.scss';
 
 const NavBar = () => {
@@ -13,7 +12,6 @@ const NavBar = () => {
 
   return (
     <header className="main-header">
-      <ResponsiveNav />
       <nav className="main-nav">
         <div className="main-nav__left">
           <div className="main-nav__left-icon">
