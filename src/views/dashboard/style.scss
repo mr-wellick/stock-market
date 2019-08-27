@@ -1,15 +1,23 @@
-@import '../../sass/dimensions.scss';
+//@import '../../sass/dimensions.scss';
 
-@media (min-width: 1024px) {
-  .main-content {
-    width: $main-content-width;
-    margin-left: auto;
-  }
-
-  .main-content__data {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 24px;
-  }
+.dashboard-nav {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  border-bottom: var(--border-color-gray);
+  padding: 16px 40px;
 }
+
+//@media (min-width: 1024px) {
+//  .main-content {
+//    width: $main-content-width;
+//    margin-left: auto;
+//  }
+//
+//  .main-content__data {
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: flex-start;
+//    margin: 24px;
+//  }
+//}

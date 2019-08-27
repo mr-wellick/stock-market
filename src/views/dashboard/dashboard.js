@@ -6,17 +6,17 @@ import './style.scss';
 
 const Dashboard = () => {
   return (
-    <>
-      <div className="main-content__nav">
+    <div className="dashboard-container">
+      <div className="dashboard-nav">
         <NavBar />
       </div>
-      <div className="main-content__data">
+      <div className="dashboard-data">
         {/*
         <StockSelector />
         <HistoricalChart />
         */}
       </div>
-    </>
+    </div>
   );
 };
 
