@@ -1,5 +1,7 @@
-.main-content {
-  background-color: #f7f8fb;
-  position: relative;
-  height: 100vh;
+.content-container {
+  width: calc(100% - 280px);
+  margin-left: auto;
+  //background-color: #f7f8fb;
+  //position: relative;
+  //height: 100vh;
 }
