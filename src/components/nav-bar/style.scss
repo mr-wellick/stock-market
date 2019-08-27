@@ -1,61 +1,66 @@
-@import '../../sass/colors';
-
-.main-header,
-.main-nav {
-  height: 72px;
-}
-
-.main-header {
-  background-color: white;
-  border-bottom: $border-color;
-  z-index: 1;
-}
-
-.main-nav {
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 16px;
+  width: 100%;
 }
 
-.main-nav__left {
-  display: flex;
-  align-items: center;
-  position: relative;
-  flex: 1;
-}
+//.main-header,
+//.main-nav {
+//  height: 72px;
+//}
 
-.main-nav__right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-}
-
-.main-nav__btn {
-  background-color: #ef0073;
-  border: 1px solid #ef0073;
-  border-radius: 0.25rem;
-  color: white;
-  padding: 5px 10px;
-  margin: 2px;
-  display: none;
-}
-
-.main-nav__btn:hover {
-  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
-}
-
-@media (min-width: 1024px) {
-  .main-nav__menu {
-    display: none;
-  }
-
-  .main-nav__left-icon {
-    display: none;
-  }
-
-  .main-nav__btn {
-    display: initial;
-  }
-}
+//.main-header {
+//  background-color: white;
+//  //border-bottom: $border-color;
+//  z-index: 1;
+//}
+//
+//.main-nav {
+//  display: flex;
+//  align-items: center;
+//  justify-content: space-between;
+//  margin: 0 16px;
+//}
+//
+//.main-nav__left {
+//  display: flex;
+//  align-items: center;
+//  position: relative;
+//  flex: 1;
+//}
+//
+//.main-nav__right {
+//  display: flex;
+//  align-items: center;
+//  justify-content: flex-end;
+//  flex: 1;
+//}
+//
+//.main-nav__btn {
+//  background-color: #ef0073;
+//  border: 1px solid #ef0073;
+//  border-radius: 0.25rem;
+//  color: white;
+//  padding: 5px 10px;
+//  margin: 2px;
+//  display: none;
+//}
+//
+//.main-nav__btn:hover {
+//  box-shadow: inset 20rem 20rem rgba(26, 40, 49, 0.05);
+//}
+//
+////@media (min-width: 1024px) {
+////  .main-nav__menu {
+////    display: none;
+////  }
+////
+////  .main-nav__left-icon {
+////    display: none;
+////  }
+////
+////  .main-nav__btn {
+////    display: initial;
+////  }
+////}
