@@ -1,28 +1,14 @@
-.stock-fetcher__form {
+.stock-form {
   display: flex;
   align-items: center;
-  width: 100%;
-  margin: 0 10px;
-  padding: 0 10px;
-  display: none;
-  background-color: #f1f1f1;
+  padding-left: 8px;
   border-radius: 2px;
   height: 48px;
+  border: 1px solid #dee7f1;
+  background-color: #f7f8fb;
 }
 
-.stock-fetcher__input {
-  width: 100%;
-}
-
-.stock-fetcher__input {
-  border: 0;
+.stock-input {
+  margin: 0 10px;
   background-color: transparent;
-  margin-left: 15px;
-}
-
-@media (min-width: 1024px) {
-  .stock-fetcher__form {
-    display: flex;
-    margin: 0;
-  }
 }

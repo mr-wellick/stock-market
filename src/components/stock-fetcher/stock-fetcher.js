@@ -8,11 +8,11 @@ const StockFetcher = () => {
   const dispatch = useDispatch();
 
   return (
-    <form className="stock-fetcher__form" autoComplete="off">
+    <form className="stock-form" autoComplete="off">
       <SearchIcon />
       <input
         onChange={event => dispatch(userInput(event.target.value))}
-        className="stock-fetcher__input"
+        className="stock-input"
         type="text"
         placeholder="Search Symbols"
         required
