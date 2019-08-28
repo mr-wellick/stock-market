@@ -2,19 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StockFetcher } from '../stock-fetcher/';
 import { MenuIcon } from '../../icons/';
+import { LrnzIcon } from '../../icons/';
+import { useToggler } from '../../hooks/';
 import './style.scss';
 
 const NavBar = () => {
+  const [, setToggled] = useToggler();
+
   return (
     <header className="nav-container">
+      <div className="nav-icon">
+        <LrnzIcon />
+      </div>
       <StockFetcher />
-      <div className="nav-buttons">
-        <Link className="nav-login" to="/login">
-          login
+      <div className="nav-btns">
+        <Link className="btn btn-blue" to="/login">
+          Login
         </Link>
-        <Link className="nav-register" to="/register">
-          register
+        <Link className="btn btn-blue" to="/register">
+          Register
         </Link>
+        {/* eslint-disable */}
+        <div className="nav-menu" onClick={setToggled}>
+          <MenuIcon />
+        </div>
       </div>
     </header>
   );
