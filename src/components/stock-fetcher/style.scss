@@ -6,9 +6,16 @@
   height: 48px;
   border: 1px solid #dee7f1;
   background-color: #f7f8fb;
+  display: none;
 }
 
 .stock-input {
   margin: 0 10px;
   background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .stock-form {
+    display: flex;
+  }
 }
