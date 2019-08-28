@@ -8,7 +8,7 @@
 }
 
 .sidebar.is-open {
-  left: 0;
+  animation: slidein 250ms ease-in-out forwards;
 }
 
 .sidebar-header {
@@ -44,5 +44,15 @@
 
   .sidebar-brand {
     display: initial;
+  }
+}
+
+@keyframes slidein {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
   }
 }
