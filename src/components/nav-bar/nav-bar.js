@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { StockFetcher } from '../stock-fetcher/';
 import { MenuIcon } from '../../icons/';
 import { LrnzIcon } from '../../icons/';
-import { useToggler } from '../../hooks/';
+import { useToggled } from '../../hooks/';
 import './style.scss';
 
 const NavBar = () => {
-  const [, setToggled] = useToggler();
+  const [, setToggled] = useToggled();
 
   return (
     <header className="nav-container">

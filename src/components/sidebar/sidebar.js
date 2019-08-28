@@ -2,11 +2,11 @@ import React from 'react';
 import { Routes } from '../routes/';
 import { LrnzIcon } from '../../icons/';
 import { ExitIcon } from '../../icons/';
-import { useToggler } from '../../hooks/';
+import { useToggled } from '../../hooks/';
 import './style.scss';
 
 const Sidebar = () => {
-  const [toggled, setToggled] = useToggler();
+  const [toggled, setToggled] = useToggled();
 
   return (
     <section className={`sidebar ${toggled}`}>

@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { sidebarToggled } from '../redux/';
 
-const useToggler = () => {
+const useToggled = () => {
   const dispatch = useDispatch();
   const { toggled } = useSelector(state => state.uiReducer);
 
-  const setToggle = () => {
+  const setToggled = () => {
     if (toggled === '') {
       dispatch(sidebarToggled(true));
     } else {
@@ -14,7 +14,7 @@ const useToggler = () => {
     }
   };
 
-  return [toggled, setToggle];
+  return [toggled, setToggled];
 };
 
-export default useToggler;
+export default useToggled;

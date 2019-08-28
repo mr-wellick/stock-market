@@ -1,1 +1,1 @@
-export { default as useToggler } from './useToggler.js';
+export { default as useToggled } from './useToggled.js';
