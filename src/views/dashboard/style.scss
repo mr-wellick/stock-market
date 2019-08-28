@@ -1,23 +1,13 @@
-//@import '../../sass/dimensions.scss';
-
 .dashboard-nav {
   display: flex;
   align-items: center;
   height: 72px;
   border-bottom: var(--border-color-gray);
-  padding: 16px 40px;
+  padding: 16px;
 }
 
-//@media (min-width: 1024px) {
-//  .main-content {
-//    width: $main-content-width;
-//    margin-left: auto;
-//  }
-//
-//  .main-content__data {
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: flex-start;
-//    margin: 24px;
-//  }
-//}
+@media (min-width: 1024px) {
+  .dashboard-nav {
+    padding: 16px 40px;
+  }
+}
