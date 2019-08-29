@@ -4,9 +4,8 @@ import { applyMiddleware } from 'redux';
 import rootReducer from './reducers/';
 import { rootEpic } from './epics/';
 
-const epicMiddleware = createEpicMiddleware();
-
 let store;
+const epicMiddleware = createEpicMiddleware();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 if (process.env.NODE_ENV === 'development') {
