@@ -1,3 +1,4 @@
+export const SET_ACTIVE_STOCK = 'SET_ACTIVE_STOCK';
 export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
 
 // available stock tickers
