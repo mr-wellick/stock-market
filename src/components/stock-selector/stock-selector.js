@@ -4,8 +4,8 @@ import { TrashIcon } from '../../icons/';
 import './style.scss';
 
 const StockSelector = () => {
-  const { data, activeStock } = useSelector(state => state.iexReducer);
-  const stockNames = Object.keys(data);
+  const { stockData, stockName } = useSelector(state => state.stockDataReducer);
+  const stockNames = Object.keys(stockData);
 
   if (stockNames.length === 0) return null;
 
@@ -22,7 +22,7 @@ const StockSelector = () => {
               type="radio"
               name="stock-selector"
               id={stock}
-              checked={activeStock === stock}
+              checked={stockName === stock}
             />
             <label className="stock-list__label" htmlFor={stock}>
               {stock}

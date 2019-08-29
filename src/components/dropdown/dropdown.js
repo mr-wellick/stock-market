@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchStockData } from '../../redux/';
+import { stockTickersSuccess } from '../../redux/';
 import './style.scss';
 
 const useHandler = () => {
@@ -10,6 +11,7 @@ const useHandler = () => {
   return e => {
     const { symbol } = e.target.dataset;
     dispatch(fetchStockData(symbol));
+    dispatch(stockTickersSuccess({})); // clear previous results
   };
 };
 

@@ -1,8 +1,5 @@
 export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
 
-// user input
-//export const UPDATE_STOCK_TICKER_INPUT = 'UPDATE_STOCK_TICKER_INPUT';
-
 // available stock tickers
 export const QUERY_STOCK_TICKERS = 'QUERY_STOCK_TICKERS';
 export const QUERY_STOCK_TICKERS_SUCCESS = 'QUERY_STOCK_TICKERS_SUCCESS';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavBar } from '../../components/';
-//import { StockSelector } from '../../components/';
+import { StockSelector } from '../../components/';
 //import { HistoricalChart } from '../../components/';
 import './style.scss';
 
@@ -11,8 +11,8 @@ const Dashboard = () => {
         <NavBar />
       </div>
       <div className="dashboard-data">
-        {/*
         <StockSelector />
+        {/*
         <HistoricalChart />
         */}
       </div>
