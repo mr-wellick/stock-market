@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setActiveStock } from '../../redux/';
 import { TrashIcon } from '../../icons/';
 import './style.scss';
 
 const StockSelector = () => {
-  const { stockData, stockName } = useSelector(state => state.stockDataReducer);
+  const dispatch = useDispatch();
+  const { stockData, activeStock } = useSelector(state => state.stockDataReducer);
   const stockNames = Object.keys(stockData);
 
   if (stockNames.length === 0) return null;
@@ -22,7 +25,8 @@ const StockSelector = () => {
               type="radio"
               name="stock-selector"
               id={stock}
-              checked={stockName === stock}
+              checked={activeStock === stock}
+              onChange={() => dispatch(setActiveStock(stock))}
             />
             <label className="stock-list__label" htmlFor={stock}>
               {stock}
