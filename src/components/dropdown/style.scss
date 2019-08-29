@@ -29,11 +29,12 @@
   color: #ffa200;
 }
 
-.symbol-name {
-  font-size: 12px;
+.symbol-ticker::after {
+  content: ' - ';
+  margin: 0 10px;
+  color: #000;
 }
 
-.symbol-dash {
-  color: black;
-  margin: 0 10px;
+.symbol-name {
+  font-size: 12px;
 }
