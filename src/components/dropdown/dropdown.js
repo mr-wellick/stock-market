@@ -3,17 +3,15 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 
 const Dropdown = () => {
-  const { symbols } = useSelector(state => state.uiReducer);
+  const { tickers } = useSelector(state => state.stockTickersReducer);
 
-  if (!symbols.bestMatches) return null;
-  if (symbols.bestMatches && symbols.bestMatches.length === 0) return null;
-
-  const { bestMatches } = symbols;
+  if (!tickers.bestMatches) return null;
+  if (tickers.bestMatches.length === 0) return null;
 
   return (
     <ul className="symbol-list">
       {/* eslint-disable */}
-      {bestMatches.map(stock => (
+      {tickers.bestMatches.map(stock => (
         <li className="symbol-item" key={stock['1. symbol']} data-symbol={stock['1. symbol']}>
           <p className="symbol-ticker">
             {stock['1. symbol']}

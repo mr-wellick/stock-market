@@ -1,3 +1,11 @@
+.stock-form-container {
+  flex: 0.4;
+}
+
+.stock-form-container {
+  position: relative;
+}
+
 .stock-form {
   display: flex;
   align-items: center;
@@ -12,6 +20,7 @@
 .stock-input {
   margin: 0 10px;
   background-color: transparent;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
