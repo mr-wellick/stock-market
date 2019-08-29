@@ -11,7 +11,7 @@ const fetchStockDataEpic = action$ => {
     mergeMap(action =>
       ajax
         .getJSON(
-          `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${action.payload.stockName}&apikey=${process.env.ALPHA_VANTAGE_KEY}`
+          `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${action.payload.input}&apikey=${process.env.ALPHA_VANTAGE_KEY}`
         )
         .pipe(map(response => fetchStockDataSuccess(response)))
     )
