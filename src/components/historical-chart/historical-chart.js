@@ -1,12 +1,15 @@
 import React from 'react';
 import { GGPLOT } from 'react-d3-ggplot';
 import { Line } from 'react-d3-ggplot';
+import { useSelector } from 'react-redux';
 import { useDimensions } from '../../hooks/';
 import { useHistoricalData } from '../../hooks/';
 import { CompanyName } from '../company-name/';
+import { Loader } from '../loader/';
 import './style.scss';
 
 const HistoricalChart = () => {
+  const { isLoading } = useSelector(state => state.stockDataReducer);
   const historicalData = useHistoricalData();
   const [dimensions] = useDimensions();
 
@@ -14,6 +17,7 @@ const HistoricalChart = () => {
 
   return (
     <div className="historical-chart">
+      {true ? <Loader /> : null}
       <CompanyName />
       <GGPLOT data={historicalData} aes={['date', 'close']} dimensions={dimensions}>
         <Line />
