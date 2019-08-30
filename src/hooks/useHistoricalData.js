@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 
 const useHistoricalData = () => {
-  const { data, activeStock } = useSelector(state => state.iexReducer);
+  const { stockData, activeStock } = useSelector(state => state.stockDataReducer);
 
-  if (data[activeStock] && data[activeStock]['Monthly Adjusted Time Series']) {
-    const prices = data[activeStock]['Monthly Adjusted Time Series'];
+  if (stockData[activeStock] && stockData[activeStock]['Monthly Adjusted Time Series']) {
+    const prices = stockData[activeStock]['Monthly Adjusted Time Series'];
     const formattedData = [];
 
     // don't know why eslint is complaining
