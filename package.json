@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "validate": "npm-run-all -p format:check lint test"
+    "validate": "npm-run-all -p format:check test"
   },
   "name": "stock-market",
   "version": "1.0.0",
