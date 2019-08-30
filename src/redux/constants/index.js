@@ -1,6 +1,7 @@
 export const SET_ACTIVE_STOCK = 'SET_ACTIVE_STOCK';
 export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
 export const DELETE_STOCK = 'DELETE_STOCK';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
 // available stock tickers
 export const QUERY_STOCK_TICKERS = 'QUERY_STOCK_TICKERS';
