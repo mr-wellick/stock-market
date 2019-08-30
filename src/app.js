@@ -5,17 +5,21 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Footer } from './components/';
 import { Sidebar } from './components/';
+import { Modal } from './components/';
 import { Dashboard } from './views/';
 
 const App = () => {
   return (
-    <Router>
-      <Sidebar />
-      <section className="content-container">
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/" component={Footer} />
-      </section>
-    </Router>
+    <>
+      <Modal />
+      <Router>
+        <Sidebar />
+        <section className="content-container">
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/" component={Footer} />
+        </section>
+      </Router>
+    </>
   );
 };
 
