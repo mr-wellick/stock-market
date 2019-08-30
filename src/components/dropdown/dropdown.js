@@ -7,11 +7,20 @@ import './style.scss';
 
 const useHandler = () => {
   const dispatch = useDispatch();
+  const { stockData } = useSelector(state => state.stockDataReducer);
 
   return e => {
     const { symbol } = e.target.dataset;
-    dispatch(fetchStockData(symbol));
-    dispatch(stockTickersSuccess({})); // clear previous results
+
+    if (!stockData[symbol]) {
+      dispatch(fetchStockData(symbol));
+    } else {
+      console.log(`${symbol} is already in your list.`);
+    }
+
+    // clear previous results and clear input field
+    dispatch(stockTickersSuccess({}));
+    document.querySelector('.stock-input').value = '';
   };
 };
 
