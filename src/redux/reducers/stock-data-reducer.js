@@ -39,7 +39,9 @@ function stockDataReducer(
 
     /* eslint-ignore */
     for (const stockName in state.stockData) {
+      /* eslint-ignore */
       if (stockName !== action.payload.ticker) {
+        /* eslint-ignore */
         updatedStocks[stockName] = state.stockData[stockName];
       }
     }
