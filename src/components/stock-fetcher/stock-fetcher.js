@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Dropdown } from '../dropdown/';
@@ -38,8 +39,17 @@ const useHandler = () => {
 };
 
 const StockFetcher = () => {
+  const { stockData } = useSelector(state => state.stockDataReducer);
   const dispatch = useDispatch();
   const handler = useHandler();
+
+  useEffect(() => {
+    const stockLength = Object.keys(stockData).length;
+
+    if (stockLength === 0) {
+      dispatch(fetchStockData('TSLA'));
+    }
+  }, []);
 
   return (
     <div className="stock-form-container">
