@@ -1,3 +1,9 @@
+.content-container {
+  height: 100vh;
+  position: relative;
+  background: #f7f8fb;
+}
+
 @media (min-width: 1024px) {
   .content-container {
     width: calc(100% - 280px);
