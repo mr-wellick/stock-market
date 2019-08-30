@@ -3,9 +3,29 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setActiveStock } from '../../redux/';
 import { TrashIcon } from '../../icons/';
+import { deleteStock } from '../../redux/';
 import './style.scss';
 
+const useHandler = () => {
+  const dispatch = useDispatch();
+  const { stockData } = useSelector(state => state.stockDataReducer);
+
+  return e => {
+    e.preventDefault();
+    const { symbol } = e.target.dataset;
+    const stockNames = Object.keys(stockData);
+
+    if (stockNames.length > 1) {
+      dispatch(deleteStock(symbol));
+      dispatch(setActiveStock(stockNames[0]));
+    } else {
+      console.log('You cannot delete all of your stocks!');
+    }
+  };
+};
+
 const StockSelector = () => {
+  const handler = useHandler();
   const dispatch = useDispatch();
   const { stockData, activeStock } = useSelector(state => state.stockDataReducer);
   const stockNames = Object.keys(stockData);
@@ -30,8 +50,8 @@ const StockSelector = () => {
             />
             <label className="stock-list__label" htmlFor={stock}>
               {stock}
-              <button className="stock-list__btn" disabled>
-                <TrashIcon />
+              <button className="stock-list__btn" data-symbol={stock} onClick={handler}>
+                <TrashIcon symbol={stock} />
               </button>
             </label>
           </div>
