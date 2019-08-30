@@ -17,7 +17,7 @@ const HistoricalChart = () => {
 
   return (
     <div className="historical-chart">
-      {true ? <Loader /> : null}
+      {isLoading ? <Loader /> : null}
       <CompanyName />
       <GGPLOT data={historicalData} aes={['date', 'close']} dimensions={dimensions}>
         <Line />
