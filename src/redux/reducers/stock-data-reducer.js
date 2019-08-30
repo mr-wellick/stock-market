@@ -37,6 +37,7 @@ function stockDataReducer(
   if (action.type === DELETE_STOCK) {
     const updatedStocks = {};
 
+    /* eslint-ignore */
     for (const stockName in state.stockData) {
       if (stockName !== action.payload.ticker) {
         updatedStocks[stockName] = state.stockData[stockName];
