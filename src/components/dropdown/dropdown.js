@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchStockData } from '../../redux/';
 import { stockTickersSuccess } from '../../redux/';
+import { toggleModal } from '../../redux/';
 import './style.scss';
 
 const useHandler = () => {
@@ -15,7 +16,13 @@ const useHandler = () => {
     if (!stockData[symbol]) {
       dispatch(fetchStockData(symbol));
     } else {
-      console.log(`${symbol} is already in your list.`);
+      dispatch(
+        toggleModal({
+          error: `Looks like you either entered an incorrect stock ticker or the stock ticker
+          you are attempting to retrieve is already in your list. Please double check your input and
+          try again.`
+        })
+      );
     }
 
     // clear previous results and clear input field

@@ -6,6 +6,7 @@ import { SearchIcon } from '../../icons/';
 import { queryStockTickers } from '../../redux/';
 import { fetchStockData } from '../../redux/';
 import { stockTickersSuccess } from '../../redux/';
+import { toggleModal } from '../../redux/';
 import { validate } from '../../utilities/';
 import './style.scss';
 
@@ -21,7 +22,13 @@ const useHandler = () => {
     if (!stockData[validQueryTerm]) {
       dispatch(fetchStockData(validQueryTerm));
     } else {
-      console.log(`${validQueryTerm} is already in your list.`);
+      dispatch(
+        toggleModal({
+          error: `Looks like you either entered an incorrect stock ticker or the stock ticker
+          you are attempting to retrieve is already in your list. Please double check your input and
+          try again.`
+        })
+      );
     }
 
     // clear previous tickers and clear input field
