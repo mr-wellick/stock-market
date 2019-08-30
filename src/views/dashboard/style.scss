@@ -4,10 +4,21 @@
   height: 72px;
   border-bottom: var(--border-color-gray);
   padding: 16px;
+  background: #fff;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
 }
 
 @media (min-width: 1024px) {
   .dashboard-nav {
     padding: 16px 40px;
+  }
+
+  .dashboard-content {
+    margin: 24px;
   }
 }

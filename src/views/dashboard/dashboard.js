@@ -10,7 +10,7 @@ const Dashboard = () => {
       <div className="dashboard-nav">
         <NavBar />
       </div>
-      <div className="dashboard-data">
+      <div className="dashboard-content">
         <StockSelector />
         <HistoricalChart />
       </div>
