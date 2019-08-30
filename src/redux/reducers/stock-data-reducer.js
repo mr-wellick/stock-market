@@ -3,17 +3,22 @@ import { FETCH_STOCK_DATA_SUCCESS } from '../constants/';
 import { SET_ACTIVE_STOCK } from '../constants/';
 import { DELETE_STOCK } from '../constants/';
 
-function stockDataReducer(state = { input: '', stockData: {}, activeStock: '' }, action) {
+function stockDataReducer(
+  state = { input: '', stockData: {}, activeStock: '', isLoading: false },
+  action
+) {
   if (action.type === FETCH_STOCK_DATA) {
     return {
       ...state,
-      input: action.payload.input
+      input: action.payload.input,
+      isLoading: true
     };
   }
 
   if (action.type === FETCH_STOCK_DATA_SUCCESS) {
     return {
       ...state,
+      isLoading: false,
       activeStock: state.input,
       stockData: {
         ...state.stockData,
