@@ -5,6 +5,7 @@
   border-right: var(--border-color-gray);
   left: -100%;
   background: #fff;
+  z-index: 11;
 }
 
 .sidebar.is-open {
