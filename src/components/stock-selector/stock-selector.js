@@ -13,9 +13,12 @@ const useHandler = () => {
   return e => {
     e.preventDefault();
     const { symbol } = e.target.dataset;
-    const stockNames = Object.keys(stockData);
+    // here we want to delete symbol from our current stock list in stockData.
+    // this line helps us keep our UI in sync.
+    const stockNames = Object.keys(stockData).filter(stockName => stockName !== symbol);
 
-    if (stockNames.length > 1) {
+    // if we have one stock, we won't be allowed to delete it.
+    if (stockNames.length > 0) {
       dispatch(deleteStock(symbol));
       dispatch(setActiveStock(stockNames[0]));
     } else {
