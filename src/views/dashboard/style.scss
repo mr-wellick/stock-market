@@ -3,7 +3,7 @@
   align-items: center;
   height: 72px;
   border-bottom: var(--border-color-gray);
-  padding: 16px;
+  padding: 0 16px;
   background: #fff;
 }
 
@@ -15,7 +15,7 @@
 
 @media (min-width: 1024px) {
   .dashboard-nav {
-    padding: 16px 40px;
+    padding: 0 40px;
   }
 
   .dashboard-content {
