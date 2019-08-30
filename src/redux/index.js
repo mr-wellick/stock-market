@@ -7,3 +7,4 @@ export { sidebarToggled } from './actions';
 export { queryStockTickers } from './actions/';
 export { stockTickersSuccess } from './actions/';
 export { fetchStockData } from './actions/';
+export { deleteStock } from './actions/';
