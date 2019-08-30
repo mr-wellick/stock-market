@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavBar } from '../../components/';
 import { StockSelector } from '../../components/';
-//import { HistoricalChart } from '../../components/';
+import { HistoricalChart } from '../../components/';
 import './style.scss';
 
 const Dashboard = () => {
@@ -12,9 +12,7 @@ const Dashboard = () => {
       </div>
       <div className="dashboard-data">
         <StockSelector />
-        {/*
         <HistoricalChart />
-        */}
       </div>
     </div>
   );
