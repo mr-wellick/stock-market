@@ -20,7 +20,7 @@ const useHandler = () => {
     e.preventDefault();
     const validQueryTerm = validate(queryTerm);
 
-    if (!stockData[validQueryTerm]) {
+    if (validQueryTerm && !stockData[validQueryTerm]) {
       dispatch(fetchStockData(validQueryTerm));
     } else {
       dispatch(
