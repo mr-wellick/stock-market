@@ -7,8 +7,8 @@ const Dropdown = () => {
   const { tickers } = useSelector(state => state.stockTickersReducer);
   const handler = useHandler();
 
-  if (!tickers.bestMatches) return null;
-  if (tickers.bestMatches.length === 0) return null;
+  // tickers.bestMatches can be undefined or an empty array.
+  if (!tickers.bestMatches || tickers.bestMatches.length === 0) return null;
 
   return (
     <ul className="symbol-list">
