@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <>
       <Sidebar />
-      <div className="dashboard-container">
+      <div className="content-container">
         <div className="dashboard-nav">
           <NavBar />
         </div>

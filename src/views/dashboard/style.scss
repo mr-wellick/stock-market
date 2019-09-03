@@ -1,3 +1,16 @@
+.content-container {
+  //height: 100vh;
+  background: #f7f8fb;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    width: calc(100% - 280px);
+    margin-left: auto;
+  }
+}
+
 .dashboard-nav {
   display: flex;
   align-items: center;
