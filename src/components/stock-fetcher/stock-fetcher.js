@@ -20,7 +20,7 @@ const StockFetcher = () => {
     if (stockLength === 0) {
       dispatch(fetchStockData('TSLA'));
     }
-  }, []);
+  });
 
   return (
     <div className="stock-form-container">
