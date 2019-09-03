@@ -5,15 +5,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Modal } from './components/';
 import { Dashboard } from './views/';
+import { Login } from './views/';
 
 const App = () => {
   return (
     <>
       <Modal />
       <Router>
-        <section className="content-container">
-          <Route exact path="/" component={Dashboard} />
-        </section>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/login" component={Login} />
       </Router>
     </>
   );
