@@ -19,7 +19,7 @@ const useHistoricalData = () => {
     return formattedData;
   }
 
-  return null;
+  return stockData[activeStock];
 };
 
 export default useHistoricalData;
