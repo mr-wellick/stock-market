@@ -20,7 +20,7 @@ const StockFetcher = () => {
     if (stockLength === 0) {
       dispatch(fetchStockData('TSLA'));
     }
-  });
+  }, [stockData, dispatch]); // complains, when leaving out dipatch.
 
   return (
     <div className="stock-form-container">
