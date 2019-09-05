@@ -14,6 +14,7 @@ const HistoricalChart = () => {
   const historicalData = useHistoricalData();
   const [dimensions] = useDimensions();
 
+  if (!historicalData) return null;
   if (historicalData['Note'])
     return (
       <div className="historical-chart">
