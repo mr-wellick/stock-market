@@ -1,14 +1,7 @@
 .content-container {
-  //height: 100vh;
+  height: 100vh;
   background: #f7f8fb;
   position: relative;
-}
-
-@media (min-width: 1024px) {
-  .content-container {
-    width: calc(100% - 280px);
-    margin-left: auto;
-  }
 }
 
 .dashboard-nav {
@@ -26,7 +19,18 @@
   margin: 0;
 }
 
+.dashboard-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 @media (min-width: 1024px) {
+  .content-container {
+    width: calc(100% - 280px);
+    margin-left: auto;
+  }
+
   .dashboard-nav {
     padding: 0 40px;
   }
