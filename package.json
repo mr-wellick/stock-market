@@ -65,6 +65,7 @@
     "@babel/runtime": "^7.5.5",
     "@hot-loader/react-dom": "^16.9.0",
     "react": "^16.9.0",
+    "react-csv": "^1.1.1",
     "react-d3-ggplot": "^1.2.1",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.11",
