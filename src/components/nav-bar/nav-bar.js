@@ -19,8 +19,7 @@ const NavBar = () => {
         <Link className="btn btn-blue" to="/login">
           Login
         </Link>
-        {/* remove link for now */}
-        <Link className="btn btn-blue" to="/">
+        <Link className="btn btn-blue" to="/register">
           Register
         </Link>
         {/* eslint-disable */}
