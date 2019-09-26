@@ -1,5 +1,5 @@
 <h1 align="center">Stock Market</h1>
-<p align="center">A stock-market dashboard to give you a rough overview of any particular company.</p>
+<p align="center">A stock-market dashboard to give you a rough overview of any company.</p>
 
 <p align="center">
   <img alt="Travis (.org)" src="https://img.shields.io/travis/ll2nz/stock-market?style=flat-square">
