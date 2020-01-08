@@ -5,6 +5,10 @@ import { ofType } from 'redux-observable';
 import { FETCH_STOCK_DATA } from '../constants/';
 import { fetchStockDataSuccess } from '../actions/';
 
+//const iex = `https://cloud.iexapis.com/v1/stock/${
+//  action.payload.input
+//}/batch?types=quote,company,news,chart&range=1m&last=10&token=${process.env.IEX_KEY}`
+
 const fetchStockDataEpic = action$ => {
   return action$.pipe(
     ofType(FETCH_STOCK_DATA),
