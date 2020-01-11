@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Dropdown } from '../dropdown/';
 import { SearchIcon } from '../../icons/';
 import { queryStockTickers } from '../../redux/';
-import { fetchStockData } from '../../redux/';
+//import { fetchStockData } from '../../redux/';
 import useHandler from './use-handler.js';
 import './style.scss';
 
@@ -18,7 +18,7 @@ const StockFetcher = () => {
     const stockLength = Object.keys(stockData).length;
 
     if (stockLength === 0) {
-      dispatch(fetchStockData('TSLA'));
+      //dispatch(fetchStockData('TSLA'));
     }
   }, [stockData, dispatch]); // complains, when leaving out dipatch.
 

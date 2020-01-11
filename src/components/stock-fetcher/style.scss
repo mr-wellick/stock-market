@@ -21,6 +21,10 @@
   margin: 0 10px;
   background-color: transparent;
   width: 100%;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (min-width: 1024px) {
