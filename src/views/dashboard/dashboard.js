@@ -19,6 +19,9 @@ const Dashboard = () => {
           <StockSelector />
           <HistoricalChart />
         </div>
+        <div className="dashboard-content">
+          <CompanyDescription />
+        </div>
       </div>
     </>
   );
