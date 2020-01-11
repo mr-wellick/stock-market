@@ -8,7 +8,10 @@ import './style.scss';
 const DownloadCSV = () => {
   const { activeStock } = useSelector(state => state.stockDataReducer);
   const data = useHistoricalData().map(day => ({ ...day, date: day.date.toDateString() }));
-  const headers = [{ label: 'Date', key: 'date' }, { label: 'Close', key: 'close' }];
+  const headers = [
+    { label: 'Date', key: 'date' },
+    { label: 'Close', key: 'close' }
+  ];
 
   if (!data || data['Note']) return null;
 
