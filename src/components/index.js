@@ -5,3 +5,4 @@ export { HistoricalChart } from './historical-chart/';
 export { Footer } from './footer/';
 export { Modal } from './modal/';
 export { Loader } from './loader/';
+export { CompanyDescription } from './company-description/';
