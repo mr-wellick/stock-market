@@ -3,23 +3,20 @@ import { useSelector } from 'react-redux';
 const useHistoricalData = () => {
   const { stockData, activeStock } = useSelector(state => state.stockDataReducer);
 
-  if (stockData[activeStock] && stockData[activeStock]['Monthly Adjusted Time Series']) {
-    const prices = stockData[activeStock]['Monthly Adjusted Time Series'];
-    const formattedData = [];
+  if (stockData[activeStock]) {
+    const { chart } = stockData[activeStock];
 
-    // don't know why eslint is complaining
-    /* eslint-disable */
-    for (const month in prices) {
-      formattedData.push({
-        date: new Date(month),
-        close: Number(prices[month]['5. adjusted close'])
-      });
+    if (chart.length > 0) {
+      const formattedData = chart.map(day => ({
+        ...day,
+        date: new Date(day.date)
+      }));
+
+      return formattedData;
     }
-
-    return formattedData;
   }
 
-  return stockData[activeStock];
+  return null;
 };
 
 export default useHistoricalData;
