@@ -26,6 +26,10 @@
     outline: none;
     box-shadow: none;
   }
+
+  &:required {
+    box-shadow: none;
+  }
 }
 
 @media (min-width: 1024px) {
