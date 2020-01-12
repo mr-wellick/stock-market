@@ -8,10 +8,6 @@
 
 # Demo
 
-![nothing-to-show](./demos/new-demo.gif)
-
-# Current
-
 ![nothing-to-show](./demos/desktop-1.png)
 ![nothing-to-show](./demos/desktop-2.png)
 ![nothing-to-show](./demos/responsive-1.png)
