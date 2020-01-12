@@ -9,18 +9,21 @@ import { useHistoricalData } from '../../hooks/';
 import './style.scss';
 
 const HistoricalChart = () => {
-  const { isLoading } = useSelector(state => state.stockDataReducer);
+  const { isLoading, stockData, activeStock } = useSelector(state => state.stockDataReducer);
   const historicalData = useHistoricalData();
   const [dimensions] = useDimensions();
 
   if (!historicalData) return null;
+
+  const { quote } = stockData[activeStock];
+  const trend = quote.change < 0 ? '#f72121' : '#19be87';
 
   return (
     <div className="historical-chart">
       {isLoading ? <Loader /> : null}
       <CompanyName />
       <GGPLOT data={historicalData} aes={['date', 'close']} dimensions={dimensions}>
-        <Line />
+        <Line fill={trend} />
       </GGPLOT>
     </div>
   );

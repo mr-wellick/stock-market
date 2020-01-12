@@ -16,7 +16,7 @@ const CompanyName = () => {
   return (
     <div className="company-info-container">
       <p className="company-name">
-        {companyName}[{symbol}]{' '}
+        {companyName} [{symbol}]
       </p>
       <span className="company-close">{close}</span>
       <span className="company-change" id={trend}>
