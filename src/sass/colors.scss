@@ -1,10 +1,15 @@
 :root {
   --border-color-gray: 1.1px solid hsla(0, 0%, 0%, 0.12);
   --active-control-blue: rgba(161, 194, 250, 0.16);
+
+  // containers
+  --lrnz-border: 1.1px solid hsla(0, 0%, 0%, 0.12);
+  --lrnz-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  --lrnz-box-shadow-hover: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+  --lrnz-active-blue: rgba(161, 194, 250, 0.16);
+  --lrnz-trend-up: #19be87;
+  --lrnz-tredn-down: #f72121;
 }
-//$background-color: #fafafa;
-//
-//$trend-up: #19be87;
-//$trend-down: #f72121;
-//$black: #222;
-//$grey: #8c8c8c;
