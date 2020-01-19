@@ -1,3 +1,4 @@
-// main widths for content layout
-$sidebar-width: 255px;
-$main-content-width: calc(100% - 255px);
+:root {
+  --sidebar-width: 255px;
+  --main-content-width: calc(100% - 255px);
+}
