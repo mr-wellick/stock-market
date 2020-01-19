@@ -1,4 +1,4 @@
-import fetchStockDataEpic from './fetch-stock-data-epic.js';
+import fetchDataEpic from './fetch-data-epic.js';
 import { combineEpics } from 'redux-observable';
 
-export const rootEpic = combineEpics(fetchStockDataEpic);
+export const rootEpic = combineEpics(fetchDataEpic);

@@ -1,27 +1,39 @@
 import React from 'react';
-//import { useEffect } from 'react';
-//import { useDispatch } from 'react-redux';
-//import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { SearchIcon } from '../../icons/';
+import { querying } from '../../redux/';
+import { fetchDataSuccess } from '../../redux/';
 import './style.scss';
 
+const useHandler = () => {
+  const { queryTerm } = useSelector(state => state.stockDataReducer);
+  const dispatch = useDispatch();
+
+  return e => {
+    e.preventDefault();
+    dispatch(fetchDataSuccess(queryTerm));
+
+    const input = document.querySelector('.stock-input');
+    input.value = '';
+  };
+};
+
 const StockFetcher = () => {
-  //const { stockData } = useSelector(state => state.stockDataReducer);
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const handler = useHandler();
 
   return (
-    <div className="stock-form-container">
-      <form className="stock-form" autoComplete="off" onSubmit={null}>
-        <SearchIcon />
-        <input
-          className="stock-input"
-          type="text"
-          placeholder="Search Symbols"
-          required
-          onChange={e => console.log(e.target.value)}
-        />
-      </form>
-    </div>
+    <form className="stock-form" autoComplete="off" onSubmit={handler}>
+      <SearchIcon />
+      <input
+        className="stock-input"
+        type="text"
+        placeholder="Search Symbols"
+        required
+        onChange={e => dispatch(querying(e.target.value))}
+      />
+    </form>
   );
 };
 

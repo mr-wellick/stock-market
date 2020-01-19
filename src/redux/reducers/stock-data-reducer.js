@@ -1,13 +1,10 @@
-import { FETCH_STOCK_DATA_SUCCESS } from '../constants/';
+import { QUERY_TERM } from '../constants/';
 
-function stockDataReducer(state = { stockData: {}, queryTerm: '' }, action) {
-  if (action.type === FETCH_STOCK_DATA_SUCCESS) {
+function stockDataReducer(state = { data: {}, queryTerm: '', isFetching: false }, action) {
+  if (action.type === QUERY_TERM) {
     return {
       ...state,
-      stockData: {
-        ...state.stockData,
-        [state.queryTerm]: action.payload.stockData
-      }
+      queryTerm: action.payload.queryTerm
     };
   }
 

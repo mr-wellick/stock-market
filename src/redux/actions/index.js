@@ -1,2 +1,2 @@
-export { default as toggleModal } from './toggle-modal.js';
-export { default as fetchStockDataSuccess } from './fetch-stock-data-success.js';
+export { default as fetchDataSuccess } from './fetch-data-success.js';
+export { default as querying } from './querying.js';

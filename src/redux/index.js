@@ -1,5 +1,3 @@
-// store
 export { default as store } from './store.js';
-
-export { toggleModal } from './actions/';
-export { fetchStockDataSuccess } from './actions/';
+export { querying } from './actions/';
+export { fetchDataSuccess } from './actions/';
