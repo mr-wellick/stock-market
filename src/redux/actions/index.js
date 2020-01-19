@@ -1,4 +1,3 @@
-export { default as sidebarToggled } from './sidebar-toggled.js';
 export { default as setActiveStock } from './set-active-stock.js';
 export { default as deleteStock } from './delete-stock.js';
 export { default as toggleModal } from './toggle-modal.js';
