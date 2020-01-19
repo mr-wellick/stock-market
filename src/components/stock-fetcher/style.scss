@@ -1,9 +1,6 @@
 .stock-form-container {
-  flex: 0.4;
-}
-
-.stock-form-container {
-  position: relative;
+  width: calc(100% - 280px);
+  margin-left: auto;
 }
 
 .stock-form {
@@ -14,13 +11,11 @@
   height: 48px;
   border: 1px solid #dee7f1;
   background-color: #f7f8fb;
-  display: none;
 }
 
 .stock-input {
   margin: 0 10px;
   background-color: transparent;
-  width: 100%;
 
   &:focus {
     outline: none;
@@ -29,11 +24,5 @@
 
   &:required {
     box-shadow: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .stock-form {
-    display: flex;
   }
 }
