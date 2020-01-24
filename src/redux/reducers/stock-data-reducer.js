@@ -1,4 +1,4 @@
-import { QUERY_TERM, START_FETCH } from '../constants/';
+import { QUERY_TERM, START_FETCH, FETCH_SUCCESS } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 
 function stockDataReducer(
@@ -15,6 +15,14 @@ function stockDataReducer(
   if (action.type === START_FETCH) {
     return {
       ...state,
+      isFetching: action.payload.isFetching
+    };
+  }
+
+  if (action.type === FETCH_SUCCESS) {
+    return {
+      ...state,
+      data: action.payload.data,
       isFetching: action.payload.isFetching
     };
   }
