@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { SearchIcon } from '../../icons/';
@@ -20,8 +21,17 @@ const useHandler = () => {
 };
 
 const StockFetcher = props => {
+  const { data } = useSelector(state => state.stockDataReducer);
   const dispatch = useDispatch();
   const handler = useHandler();
+
+  useEffect(() => {
+    const stocks = Object.keys(data);
+
+    if (stocks.length <= 0) {
+      dispatch(startFetch('tsla'));
+    }
+  }, []);
 
   return (
     <div className={`stock-fetcher-container ${props.className}`}>
