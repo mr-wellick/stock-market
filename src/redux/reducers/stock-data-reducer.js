@@ -22,7 +22,10 @@ function stockDataReducer(
   if (action.type === FETCH_SUCCESS) {
     return {
       ...state,
-      data: action.payload.data,
+      data: {
+        ...state.data,
+        [action.payload.data.company.symbol]: action.payload.data
+      },
       isFetching: action.payload.isFetching
     };
   }
