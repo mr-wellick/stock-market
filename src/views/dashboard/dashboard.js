@@ -1,15 +1,14 @@
 import React from 'react';
-import { Sidebar, StockFetcher } from '../../components/';
+import { Sidebar } from '../../components/';
+import { Navigation } from '../../components/';
 import './style.scss';
 
 const Dashboard = () => {
   return (
-    <div>
+    <>
       <Sidebar />
-      <div className="dashboard-content-container">
-        <StockFetcher />
-      </div>
-    </div>
+      <Navigation />
+    </>
   );
 };
 

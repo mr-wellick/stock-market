@@ -19,21 +19,23 @@ const useHandler = () => {
   };
 };
 
-const StockFetcher = () => {
+const StockFetcher = props => {
   const dispatch = useDispatch();
   const handler = useHandler();
 
   return (
-    <form className="stock-form" autoComplete="off" onSubmit={handler}>
+    <div className={`stock-fetcher-container ${props.className}`}>
       <SearchIcon />
-      <input
-        className="stock-input"
-        type="text"
-        placeholder="Search Symbols"
-        required
-        onChange={e => dispatch(querying(e.target.value))}
-      />
-    </form>
+      <form className="stock-form" autoComplete="off" onSubmit={handler}>
+        <input
+          className="stock-input"
+          type="text"
+          placeholder="Search Symbols"
+          required
+          onChange={e => dispatch(querying(e.target.value))}
+        />
+      </form>
+    </div>
   );
 };
 

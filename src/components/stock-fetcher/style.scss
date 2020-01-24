@@ -1,20 +1,30 @@
+.stock-fetcher-container {
+  display: flex;
+  align-items: center;
+}
+
 .stock-form {
   display: flex;
   align-items: center;
-  padding-left: 8px;
+  margin-left: 8px;
   border-radius: 2px;
-  height: 48px;
+  height: 36px;
   border: 1px solid #dee7f1;
   background-color: #f7f8fb;
+  width: 100%;
 }
 
 .stock-input {
-  margin: 0 10px;
   background-color: transparent;
+  padding-left: 8px;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
 
   &:focus {
     outline: none;
     box-shadow: none;
+    background-color: white;
   }
 
   &:required {
