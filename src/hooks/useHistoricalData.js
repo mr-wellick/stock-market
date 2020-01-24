@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 
 const useHistoricalData = () => {
-  const { stockData, activeStock } = useSelector(state => state.stockDataReducer);
+  const { data, activeStock } = useSelector(state => state.stockDataReducer);
 
-  if (stockData[activeStock]) {
-    const { chart } = stockData[activeStock];
+  if (data[activeStock]) {
+    const { chart } = data[activeStock];
 
     if (chart.length > 0) {
       const formattedData = chart.map(day => ({
@@ -12,7 +12,15 @@ const useHistoricalData = () => {
         date: new Date(day.date)
       }));
 
-      return formattedData;
+      return {
+        data: formattedData,
+        aes: ['date', 'close'],
+        dimensions: {
+          height: window.innerHeight * 0.7,
+          width: window.innerWidth * 0.8,
+          padding: 50
+        }
+      };
     }
   }
 
