@@ -1,10 +1,29 @@
-import { QUERY_TERM } from '../constants/';
+import { QUERY_TERM, START_FETCH } from '../constants/';
+import { FETCH_ERROR } from '../constants/';
 
-function stockDataReducer(state = { data: {}, queryTerm: '', isFetching: false }, action) {
+function stockDataReducer(
+  state = { data: {}, queryTerm: '', isFetching: false, error: {} },
+  action
+) {
   if (action.type === QUERY_TERM) {
     return {
       ...state,
       queryTerm: action.payload.queryTerm
+    };
+  }
+
+  if (action.type === START_FETCH) {
+    return {
+      ...state,
+      isFetching: action.payload.isFetching
+    };
+  }
+
+  if (action.type === FETCH_ERROR) {
+    return {
+      ...state,
+      error: action.payload.error,
+      isFetching: action.payload.isFetching
     };
   }
 
