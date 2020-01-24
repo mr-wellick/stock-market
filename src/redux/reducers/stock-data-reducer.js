@@ -2,7 +2,7 @@ import { QUERY_TERM, START_FETCH, FETCH_SUCCESS } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 
 function stockDataReducer(
-  state = { data: {}, queryTerm: '', isFetching: false, error: {} },
+  state = { data: {}, queryTerm: '', isFetching: false, error: {}, activeStock: '' },
   action
 ) {
   if (action.type === QUERY_TERM) {
@@ -26,7 +26,8 @@ function stockDataReducer(
         ...state.data,
         [action.payload.data.company.symbol]: action.payload.data
       },
-      isFetching: action.payload.isFetching
+      isFetching: action.payload.isFetching,
+      activeStock: action.payload.data.company.symbol
     };
   }
 
