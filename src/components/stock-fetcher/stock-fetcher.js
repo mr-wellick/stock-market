@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { SearchIcon } from '../../icons/';
 import { querying } from '../../redux/';
-import { fetchDataSuccess } from '../../redux/';
+import { startFetch } from '../../redux/';
 import './style.scss';
 
 const useHandler = () => {
@@ -12,7 +12,7 @@ const useHandler = () => {
 
   return e => {
     e.preventDefault();
-    dispatch(fetchDataSuccess(queryTerm));
+    dispatch(startFetch(queryTerm));
 
     const input = document.querySelector('.stock-input');
     input.value = '';
