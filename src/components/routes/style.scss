@@ -4,7 +4,7 @@
 }
 
 .route-container:hover {
-  background: var(--active-control-blue);
+  background: var(--lrnz-active-blue);
 }
 
 .route-input {
@@ -25,7 +25,7 @@
 }
 
 [type='radio']:checked + .route-label {
-  background: var(--active-control-blue);
+  background: var(--lrnz-active-blue);
 }
 
 .route-name {

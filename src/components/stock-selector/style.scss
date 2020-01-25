@@ -1,0 +1,18 @@
+.stock-list [type='radio'] {
+  display: none;
+}
+
+.stock-list [type='radio']:checked + .stock-list__label {
+  color: #3367d6;
+  background-color: var(--lrnz-active-blue);
+}
+
+.stock-list__label {
+  display: block;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--lrnz-active-blue);
+    cursor: pointer;
+  }
+}
