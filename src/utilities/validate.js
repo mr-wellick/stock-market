@@ -1,5 +1,5 @@
 function validate(userInput) {
-  const singleWord = /\w+/;
+  const singleWord = /[a-zA-Z]+/;
   const isValidInput = userInput.match(singleWord);
 
   if (isValidInput !== null) {

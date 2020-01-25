@@ -5,15 +5,27 @@ import { useSelector } from 'react-redux';
 import { SearchIcon } from '../../icons/';
 import { querying } from '../../redux/';
 import { startFetch } from '../../redux/';
+import { validate } from '../../utilities/';
 import './style.scss';
 
 const useHandler = () => {
-  const { queryTerm } = useSelector(state => state.stockDataReducer);
+  const { queryTerm, data } = useSelector(state => state.stockDataReducer);
   const dispatch = useDispatch();
 
   return e => {
     e.preventDefault();
-    dispatch(startFetch(queryTerm));
+
+    const isValidQueryTerm = validate(queryTerm);
+
+    if (isValidQueryTerm) {
+      if (!data[isValidQueryTerm]) {
+        dispatch(startFetch(isValidQueryTerm));
+      } else {
+        console.log(`duplicate entry ${isValidQueryTerm}`);
+      }
+    } else {
+      console.log('something went wrong');
+    }
 
     const input = document.querySelector('.stock-input');
     input.value = '';
