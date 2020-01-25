@@ -1,6 +1,27 @@
 .dashboard-content {
+  display: flex;
+  justify-content: space-between;
   width: var(--lrnz-dashboard-width);
   margin-left: auto;
   background-color: var(--lrnz-palest-blue);
   padding: 0 40px;
+  padding-top: 40px;
+}
+
+.dashboard-stock-list {
+  background-color: #fff;
+  box-shadow: var(--lrnz-box-shadow);
+
+  &:hover {
+    box-shadow: var(--lrnz-box-shadow-hover);
+  }
+}
+
+.dashboard-chart-info {
+  background-color: #fff;
+  box-shadow: var(--lrnz-box-shadow);
+
+  &:hover {
+    box-shadow: var(--lrnz-box-shadow-hover);
+  }
 }

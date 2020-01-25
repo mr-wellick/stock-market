@@ -16,8 +16,8 @@ const useHistoricalData = () => {
         data: formattedData,
         aes: ['date', 'close'],
         dimensions: {
-          height: window.innerHeight * 0.7,
-          width: window.innerWidth * 0.7,
+          height: window.innerHeight * 0.6,
+          width: window.innerWidth * 0.65,
           padding: 50
         }
       };

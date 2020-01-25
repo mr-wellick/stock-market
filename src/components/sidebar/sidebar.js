@@ -5,15 +5,12 @@ import './style.scss';
 
 const Sidebar = () => {
   return (
-    <section className="sidebar">
+    <section className="sidebar-container">
       <div className="sidebar-header">
         <LrnzIcon />
         <p className="sidebar-brand">LRNZ</p>
-        {/* eslint-disable */}
       </div>
-      <div className="sidebar-routes">
-        <Routes />
-      </div>
+      <Routes />
     </section>
   );
 };

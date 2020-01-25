@@ -1,6 +1,6 @@
-.sidebar {
-  position: fixed;
+.sidebar-container {
   height: 100vh;
+  position: fixed;
   width: var(--lrnz-sidebar-width);
   border-right: var(--lrnz-border);
   background: #fff;
@@ -9,8 +9,7 @@
 .sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: initial;
-  height: 72px;
+  height: 66px;
   padding: 0 24px;
   border-bottom: var(--border-color-gray);
 }
