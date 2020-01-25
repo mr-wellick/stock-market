@@ -3,6 +3,7 @@ import { START_FETCH } from '../constants/';
 import { FETCH_SUCCESS } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
 import { ACTIVE_STOCK } from '../constants/';
+import { DELETE_STOCK } from '../constants/';
 
 function stockDataReducer(
   state = { data: {}, queryTerm: '', isFetching: false, error: {}, activeStock: '' },
@@ -46,6 +47,21 @@ function stockDataReducer(
     return {
       ...state,
       activeStock: action.payload.activeStock
+    };
+  }
+
+  if (action.type === DELETE_STOCK) {
+    const updatedStocks = {};
+
+    for (let stockName in state.data) {
+      if (stockName !== action.payload.stockName) {
+        updatedStocks[stockName] = state.data[stockName];
+      }
+    }
+
+    return {
+      ...state,
+      data: updatedStocks
     };
   }
 
