@@ -35,8 +35,8 @@ const StockFetcher = props => {
 
   return (
     <div className={`stock-fetcher-container ${props.className}`}>
-      <SearchIcon />
       <form className="stock-form" autoComplete="off" onSubmit={handler}>
+        <SearchIcon />
         <input
           className="stock-input"
           type="text"

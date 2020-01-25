@@ -7,12 +7,12 @@
 .stock-form {
   display: flex;
   align-items: center;
-  margin-left: 8px;
   border-radius: 2px;
   height: 36px;
   border: 1px solid #dee7f1;
   background-color: #f7f8fb;
   width: 100%;
+  padding-left: 8px;
 }
 
 .stock-input {
@@ -25,7 +25,6 @@
   &:focus {
     outline: none;
     box-shadow: none;
-    background-color: white;
   }
 
   &:required {
