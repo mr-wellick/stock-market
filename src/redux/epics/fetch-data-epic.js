@@ -12,7 +12,7 @@ const fetchDataEpic = action$ => {
   return action$.pipe(
     ofType(START_FETCH),
     mergeMap(action => {
-      const iex = `https://cloud.iexapis.com/v1/stock/${action.payload.queryTerm}/batch?types=quote,company,news,chart&range=1m&last=10&token=${process.env.IEX_KEY}`;
+      const iex = `https://cloud.iexapis.com/v1/stock/${action.payload.queryTerm}/batch?types=logo,quote,company,news,chart&range=1m&last=10&token=${process.env.IEX_KEY}`;
       return ajax.getJSON(iex).pipe(
         map(data => fetchSuccess(data)),
         catchError(error => of(fetchError(error)))

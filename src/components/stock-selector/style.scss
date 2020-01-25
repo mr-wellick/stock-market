@@ -1,3 +1,11 @@
+.stock-list {
+  width: 160px;
+}
+
+.stock-header {
+  padding: 7px;
+}
+
 .stock-list [type='radio'] {
   display: none;
 }
@@ -8,8 +16,10 @@
 }
 
 .stock-list__label {
-  display: block;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px;
 
   &:hover {
     background-color: var(--lrnz-active-blue);
