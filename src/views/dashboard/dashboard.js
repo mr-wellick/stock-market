@@ -4,6 +4,7 @@ import { Navigation } from '../../components/';
 import { HistoricalChart } from '../../components/';
 import { StockSypnosis } from '../../components/';
 import { CompanyDescription } from '../../components/';
+import { StockSelector } from '../../components/';
 import './style.scss';
 
 const Dashboard = () => {
@@ -13,8 +14,11 @@ const Dashboard = () => {
       <Navigation />
       <div className="dashboard-content">
         <StockSypnosis />
+        <StockSelector />
+        {/*
         <HistoricalChart />
         <CompanyDescription />
+        */}
       </div>
     </>
   );

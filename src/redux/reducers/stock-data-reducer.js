@@ -1,5 +1,8 @@
-import { QUERY_TERM, START_FETCH, FETCH_SUCCESS } from '../constants/';
+import { QUERY_TERM } from '../constants/';
+import { START_FETCH } from '../constants/';
+import { FETCH_SUCCESS } from '../constants/';
 import { FETCH_ERROR } from '../constants/';
+import { ACTIVE_STOCK } from '../constants/';
 
 function stockDataReducer(
   state = { data: {}, queryTerm: '', isFetching: false, error: {}, activeStock: '' },
@@ -36,6 +39,13 @@ function stockDataReducer(
       ...state,
       error: action.payload.error,
       isFetching: action.payload.isFetching
+    };
+  }
+
+  if (action.type === ACTIVE_STOCK) {
+    return {
+      ...state,
+      activeStock: action.payload.activeStock
     };
   }
 
