@@ -3,13 +3,13 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-//import { Modal } from './components/';
+import { Modal } from './components/';
 import { Dashboard } from './views/';
 
 const App = () => {
   return (
     <>
-      {/* <Modal /> */}
+      <Modal />
       <Router>
         <Route exact path="/" component={Dashboard} />
       </Router>

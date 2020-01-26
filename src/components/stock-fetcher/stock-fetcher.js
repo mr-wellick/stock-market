@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { SearchIcon } from '../../icons/';
 import { querying } from '../../redux/';
 import { startFetch } from '../../redux/';
+import { toggleModal } from '../../redux/';
 import { validate } from '../../utilities/';
 import './style.scss';
 
@@ -21,10 +22,12 @@ const useHandler = () => {
       if (!data[isValidQueryTerm]) {
         dispatch(startFetch(isValidQueryTerm));
       } else {
-        console.log(`duplicate entry ${isValidQueryTerm}`);
+        dispatch(
+          toggleModal({ message: `${isValidQueryTerm} is already in your list. Please try again.` })
+        );
       }
     } else {
-      console.log('something went wrong');
+      dispatch(toggleModal({ message: 'Please check your input and try again.' }));
     }
 
     const input = document.querySelector('.stock-input');

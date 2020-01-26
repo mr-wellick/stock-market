@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { TrashIcon } from '../../icons/';
 import { selectStock } from '../../redux/';
+import { toggleModal } from '../../redux/';
 import { deleteStock } from '../../redux/';
 import './style.scss';
 
@@ -22,7 +23,7 @@ const useHandler = () => {
       dispatch(deleteStock(symbol));
       dispatch(selectStock(stockNames[0]));
     } else {
-      console.log('cant delete all stock');
+      dispatch(toggleModal({ message: "You can't delete all your stocks." }));
     }
   };
 };

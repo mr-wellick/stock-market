@@ -29,15 +29,15 @@ const ModalHelper = ({ children }) => {
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { message } = useSelector(state => state.uiReducer);
+  const { modalMessage } = useSelector(state => state.stockDataReducer);
 
-  return message.error ? (
+  return modalMessage.message ? (
     <ModalHelper>
       <div className="modal-container">
         <div className="modal-card">
           <div className="modal-content">
             <h4 className="modal-header">Message</h4>
-            <p className="modal-message">{message.error}</p>
+            <p className="modal-message">{modalMessage.message}</p>
           </div>
           <div className="modal-footer">
             <button className="modal-btn" onClick={() => dispatch(toggleModal({}))}>
