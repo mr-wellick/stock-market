@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: var(--lrnz-dashboard-width);
-  margin-left: auto;
+  margin-left: calc(100% - var(--lrnz-dashboard-width));
   background-color: var(--lrnz-palest-blue);
   padding: 0 40px;
   padding-top: 40px;
