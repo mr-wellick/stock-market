@@ -5,6 +5,7 @@ import { StockSypnosis } from '../../components/';
 import { HistoricalChart } from '../../components/';
 import { CompanyDescription } from '../../components/';
 import { StockSelector } from '../../components/';
+import { News } from '../../components/';
 //import { StockTable } from '../../components/';
 import './style.scss';
 
@@ -22,8 +23,9 @@ const Dashboard = () => {
           <HistoricalChart />
         </div>
       </div>
-      <div className="dashboard-content">
+      <div className="dashboard-content info">
         <CompanyDescription />
+        <News />
       </div>
     </>
   );

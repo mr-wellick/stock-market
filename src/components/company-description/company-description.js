@@ -10,22 +10,28 @@ const CompanyDescription = () => {
   const { companyName, description, tags } = data[activeStock].company;
 
   return (
-    <div className="px-1 pb-1 rounded overflow-hidden shadow-lg" style={{ background: 'white' }}>
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{companyName}</div>
-        <p className="text-gray-700 text-base">{description}</p>
+    <>
+      <h2 className="font-bold text-xl mb-2">Company Description</h2>
+      <div
+        className="px-1 pb-1 rounded overflow-hidden shadow-lg company-info-card"
+        style={{ background: 'white' }}
+      >
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">{companyName}</div>
+          <p className="text-gray-700 text-base">{description}</p>
+        </div>
+        <div className="px-6 py-4">
+          {tags.map(tag => (
+            <span
+              key={tag}
+              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="px-6 py-4">
-        {tags.map(tag => (
-          <span
-            key={tag}
-            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-          >
-            #{tag}
-          </span>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 

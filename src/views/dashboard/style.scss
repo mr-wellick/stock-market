@@ -11,6 +11,7 @@
 .dashboard-stock-list {
   background-color: #fff;
   box-shadow: var(--lrnz-box-shadow);
+  max-height: 250px;
 
   &:hover {
     box-shadow: var(--lrnz-box-shadow-hover);
@@ -24,4 +25,8 @@
   &:hover {
     box-shadow: var(--lrnz-box-shadow-hover);
   }
+}
+
+.dashboard-content.info {
+  flex-direction: column;
 }
