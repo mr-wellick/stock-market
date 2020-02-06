@@ -10,7 +10,7 @@ const CompanyDescription = () => {
   const { companyName, description, tags } = data[activeStock].company;
 
   return (
-    <>
+    <div className="company-container">
       <h2 className="font-bold text-xl mb-2">Company Description</h2>
       <div
         className="px-1 pb-1 rounded overflow-hidden shadow-lg company-info-card"
@@ -31,7 +31,7 @@ const CompanyDescription = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

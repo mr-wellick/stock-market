@@ -4,10 +4,10 @@
   width: var(--lrnz-dashboard-width);
   margin-left: calc(100% - var(--lrnz-dashboard-width));
   height: 52px;
-  padding: 0 40px;
   background-color: var(--lrnz-palest-blue);
 }
 
 .main-nav-search {
   width: 50%;
+  margin: 0 40px;
 }
