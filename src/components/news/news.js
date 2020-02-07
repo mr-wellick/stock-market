@@ -20,34 +20,28 @@ const News = () => {
   return (
     <div className="news-container">
       <h2 className="font-bold text-xl mb-2 news-title">News</h2>
-      {news.map(article => (
-        <div key={article.url} className="max-w-sm w-full lg:max-w-full lg:flex stock-news">
-          <div
-            className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-            style={{ backgroundImage: `url(${article.image})` }}
-            title="Woman holding a mug"
-          ></div>
-          <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-            <div className="mb-8">
-              <div className="text-gray-900 font-bold text-xl mb-2">{article.headline}</div>
-              <p className="text-gray-700 text-base">{article.summary.substring(0, 150)} ...</p>
+      {news.map(article => {
+        return (
+          <div className="md:flex bg-white stock-news" key={article.url}>
+            <div className="md:flex-shrink-0">
+              <img className="md:w-56" src={article.image} alt="Article background" />
             </div>
-            <div className="flex items-center">
-              <div className="text-sm">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={article.url}
-                  className="text-gray-900 leading-none news-link"
-                >
-                  {article.source}
-                </a>
-                <p className="text-gray-600">{null}</p>
-              </div>
+            <div className="mt-4 md:mt-0 md:ml-6">
+              <p className="block mt-1 text-lg leading-tight font-semibold text-gray-900">
+                {article.headline}
+              </p>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={article.url}
+                className="mt-2 text-gray-600 hover:underline"
+              >
+                {article.summary.substring(0, 150)}....
+              </a>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

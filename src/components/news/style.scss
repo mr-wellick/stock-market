@@ -1,9 +1,11 @@
 .news-title {
+  margin: 0 40px;
   margin-top: 20px;
 }
 
 .stock-news {
-  margin: 10px 0;
+  margin: 20px 40px;
+  box-shadow: var(--lrnz-box-shadow);
 
   &:hover {
     box-shadow: var(--lrnz-box-shadow-hover);
