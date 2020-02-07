@@ -12,7 +12,7 @@ const CompanyDescription = () => {
   return (
     <div className="company-container">
       <h2 className="font-bold text-xl mb-2">Company Description</h2>
-      <div className="px-1 pb-1 rounded overflow-hidden shadow-lg company-info-card bg-white">
+      <div className="px-1 pb-1 overflow-hidden company-info-card bg-white">
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{companyName}</div>
           <p className="text-gray-700 text-base">{description}</p>

@@ -3,6 +3,8 @@
 }
 
 .company-info-card {
+  box-shadow: var(--lrnz-box-shadow);
+
   &:hover {
     box-shadow: var(--lrnz-box-shadow-hover);
   }
