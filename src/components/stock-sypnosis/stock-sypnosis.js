@@ -5,7 +5,7 @@ import './style.scss';
 const StockSypnosis = () => {
   const { data, activeStock } = useSelector(state => state.stockDataReducer);
 
-  if (!data[activeStock]) {
+  if (!data[activeStock] || !data[activeStock].quote) {
     return null;
   }
 

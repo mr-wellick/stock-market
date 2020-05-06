@@ -7,19 +7,11 @@ const useHistoricalData = () => {
     const { chart } = data[activeStock];
 
     if (chart.length > 0) {
-      const formattedData = chart.map(day => ({
-        ...day,
-        date: new Date(day.date)
-      }));
-
       return {
-        data: formattedData,
-        aes: ['date', 'close'],
-        dimensions: {
-          height: window.innerHeight * 0.6,
-          width: window.innerWidth * 0.6,
-          padding: 50
-        }
+        data: chart,
+        height: window.innerHeight * 0.6,
+        width: window.innerWidth * 0.6,
+        margin: { top: 5, right: 30, left: 20, bottom: 5 }
       };
     }
   }
