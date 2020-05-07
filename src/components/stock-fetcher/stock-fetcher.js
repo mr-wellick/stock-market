@@ -19,6 +19,7 @@ const useHandler = () => {
     const isValidQueryTerm = validate(queryTerm);
 
     if (isValidQueryTerm) {
+      // note: a valid query term doesn't neccessarily mean it is a valid stock name
       if (!data[isValidQueryTerm]) {
         dispatch(startFetch(isValidQueryTerm));
       } else {
