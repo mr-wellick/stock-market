@@ -19,7 +19,7 @@ const routes = [
 
 const Sidebar = () => {
   return (
-    <section className="h-screen w-1/5 fixed border-r">
+    <section className="h-screen w-1/6 fixed border-r">
       <div className="flex items-center p-4 border-b">
         <LrnzIcon />
       </div>
