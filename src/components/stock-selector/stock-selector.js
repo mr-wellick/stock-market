@@ -39,24 +39,25 @@ const StockSelector = () => {
   }
 
   return (
-    <div className="list-container">
-      <div className="stock-header">
-        <p className="stock-header__name">Stock List</p>
-      </div>
+    <div>
+      <p className="px-4 py-3">Stock List</p>
       <form className="stock-list">
         {stockNames.map(stock => (
-          <div key={stock} className="stock-list__container">
+          <div key={stock} className="flex">
             <input
-              className="stock-list__input"
+              className="hidden"
               type="radio"
               name="stock-selector"
               id={stock}
               checked={activeStock === stock}
               onChange={() => dispatch(selectStock(stock))}
             />
-            <label className="stock-list__label" htmlFor={stock}>
+            <label
+              className="flex justify-between items-center px-4 py-3 w-full cursor-pointer"
+              htmlFor={stock}
+            >
               {stock}
-              <button className="stock-list__btn" data-symbol={stock} onClick={handler}>
+              <button data-symbol={stock} onClick={handler}>
                 <TrashIcon symbol={stock} />
               </button>
             </label>
