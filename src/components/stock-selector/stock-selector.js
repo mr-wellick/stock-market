@@ -40,7 +40,7 @@ const StockSelector = () => {
 
   return (
     <div>
-      <p className="px-4 py-3">Stock List</p>
+      <p className="px-4 py-3 border-b">Stock List</p>
       <form className="stock-list">
         {stockNames.map(stock => (
           <div key={stock} className="flex">
