@@ -10,8 +10,8 @@ const useHistoricalData = () => {
       return {
         data: chart,
         height: window.innerHeight * 0.6,
-        width: window.innerWidth * 0.6,
-        margin: { top: 5, right: 30, left: 20, bottom: 5 }
+        width: window.innerWidth * 0.8,
+        margin: { top: 0, right: 0, left: 0, bottom: 0 }
       };
     }
   }

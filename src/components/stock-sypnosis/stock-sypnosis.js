@@ -13,12 +13,12 @@ const StockSypnosis = () => {
   const trend = change < 0 ? 'is-down' : 'is-up';
 
   return (
-    <div className="company-info-container">
-      <p className="company-name">
+    <div className="py-4">
+      <p className="text-2xl">
         {companyName} [{symbol}]
       </p>
-      <span className="company-close">{close}</span>
-      <span className="company-change" id={trend}>
+      <span className="text-4xl">{close}</span>
+      <span className="company-change text-base pl-2" id={trend}>
         {change}({changePercent})
       </span>
     </div>

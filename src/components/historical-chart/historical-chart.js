@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistoricalData } from '../../hooks/';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip } from 'recharts';
 import { useSelector } from 'react-redux';
+import { StockSypnosis } from '../stock-sypnosis/';
 import './style.scss';
 
 const HistoricalChart = () => {
@@ -22,13 +23,15 @@ const HistoricalChart = () => {
   }
 
   return (
-    <LineChart {...historicalData}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" />
-      <YAxis />
-      <Tooltip />
-      <Line type="monotone" dataKey="close" stroke={trend} />
-    </LineChart>
+    <div className="px-4">
+      <StockSypnosis />
+      <LineChart {...historicalData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
+        <Tooltip />
+        <Line type="monotone" dataKey="close" stroke={trend} />
+      </LineChart>
+    </div>
   );
 };
 
