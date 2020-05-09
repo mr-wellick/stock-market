@@ -1,21 +1,5 @@
-.sidebar-container {
-  height: 100vh;
-  position: fixed;
-  width: var(--lrnz-sidebar-width);
-  border-right: var(--lrnz-border);
-  background: #fff;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  height: 66px;
-  padding: 0 24px;
-  border-bottom: var(--border-color-gray);
-}
-
-.sidebar-brand {
-  margin-left: 16px;
-  font-size: 1.75rem;
-  color: #000000a7;
+.sidebar-routes-container {
+  [type='radio']:checked + label {
+    background: var(--lrnz-active-blue);
+  }
 }
