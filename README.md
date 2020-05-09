@@ -8,10 +8,8 @@
 
 # Demo
 
-![nothing-to-show](./demos/desktop-1.png)
-![nothing-to-show](./demos/desktop-2.png)
-![nothing-to-show](./demos/responsive-1.png)
-![nothing-to-show](./demos/responsive-2.png)
+![nothing-to-show](./demos/v1.png)
+![nothing-to-show](./demos/v2.png)
 
 # Introduction
 
