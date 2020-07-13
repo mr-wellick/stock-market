@@ -2,7 +2,7 @@ import React from 'react';
 
 const DashboardIcon = () => {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="">
+    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M12,7.21a2,2,0,1,1,0,3.92v4.71h2.08a.69.69,0,0,1,.66.69V22.2a.62.62,0,0,0,.63.63h5.1a.64.64,0,0,0,.66-.63V12.36h2.22a.64.64,0,0,0,.45-1.11l-4-3.51V2.5a.68.68,0,0,0-.69-.69h-3a.7.7,0,0,0-.69.69V3.94l-3-2.61a.61.61,0,0,0-.4-.16Z"
         opacity="0.8"
