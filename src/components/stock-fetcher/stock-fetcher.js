@@ -47,7 +47,7 @@ const StockFetcher = () => {
     if (stocks.length <= 0) {
       dispatch(startFetch('tsla'));
     }
-  }, []);
+  }, [data, dispatch]);
 
   return (
     <div className="p-4">
