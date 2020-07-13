@@ -1,27 +1,26 @@
 import React from 'react';
-import { LrnzIcon } from '../../icons/';
+import { IexIcon } from '../../icons/';
 import { DashboardIcon } from '../../icons/';
-import { StockSelector } from '../../components/';
 import './style.scss';
 
 const routes = [
   {
     id: 'dashboard',
     name: 'Dashboard',
-    icon: <DashboardIcon />
-  }
+    icon: <DashboardIcon />,
+  },
 ];
 
 const Sidebar = () => {
   return (
-    <section className="h-screen w-1/6 fixed border-r">
-      <div className="flex items-center p-4 border-b">
-        <LrnzIcon />
+    <section className="h-screen fixed border-r sidebar-container">
+      <div className="px-6 pt-6 pb-5 iex-icon">
+        <IexIcon />
       </div>
       <div className="h-64 border-b">
         <div className="sidebar-routes-container">
           <form>
-            {routes.map(route => (
+            {routes.map((route) => (
               <div key={route.id} className="flex">
                 <input
                   className="hidden"
@@ -42,7 +41,6 @@ const Sidebar = () => {
           </form>
         </div>
       </div>
-      <StockSelector />
     </section>
   );
 };

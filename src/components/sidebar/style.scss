@@ -1,5 +1,8 @@
-.sidebar-routes-container {
-  [type='radio']:checked + label {
-    background: var(--lrnz-active-blue);
-  }
+.iex-icon svg {
+  height: 22px;
+  fill: white;
+}
+.sidebar-container {
+  background-color: #202a35;
+  width: 240px;
 }

@@ -7,3 +7,4 @@ export { default as SearchIcon } from './search-icon.js';
 export { default as TrashIcon } from './trash-icon.js';
 export { default as ExitIcon } from './exit-icon.js';
 export { default as DownloadIcon } from './download-icon.js';
+export { default as IexIcon } from './iex-icon.js';
