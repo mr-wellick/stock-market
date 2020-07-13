@@ -9,11 +9,13 @@ const Dashboard = () => {
   return (
     <>
       <Sidebar />
+      {/*
       <div className="w-5/6 ml-auto">
         <StockFetcher />
         <HistoricalChart />
         <News />
       </div>
+      */}
     </>
   );
 };
