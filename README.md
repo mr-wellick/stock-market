@@ -6,11 +6,6 @@
   <img alt="Codecov" src="https://img.shields.io/codecov/c/github/ll2nz/stock-market?style=flat-square">
 </p>
 
-# Demo
-
-![nothing-to-show](./demos/v1.png)
-![nothing-to-show](./demos/v2.png)
-
 # Introduction
 
 - The purpose of this dashboard is to give you a rough overview of any particular company
