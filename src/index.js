@@ -4,6 +4,8 @@ import App from './App.js';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './redux/';
+import './sass/colors.scss';
+import './sass/dimensions.scss';
 import './index.css';
 import './tailwind.output.css';
 

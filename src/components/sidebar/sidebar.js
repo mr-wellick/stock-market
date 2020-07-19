@@ -1,6 +1,7 @@
 import React from 'react';
 import { IexIcon } from '../../icons/';
 import { DashboardIcon } from '../../icons/';
+import { FinancialsIcon } from '../../icons/';
 import './style.scss';
 
 const routes = [
@@ -8,6 +9,11 @@ const routes = [
     id: 'dashboard',
     name: 'Dashboard',
     icon: <DashboardIcon />
+  },
+  {
+    id: 'financials',
+    name: 'Financials',
+    icon: <FinancialsIcon />
   }
 ];
 
@@ -18,25 +24,23 @@ const Sidebar = () => {
         <IexIcon />
       </div>
       <div>
-        <div>
-          <form>
-            {routes.map(route => (
-              <div key={route.id}>
-                <input
-                  className="hidden"
-                  type="radio"
-                  name="route-selector"
-                  id={route.id}
-                  defaultChecked
-                />
-                <label className="flex items-center pl-28 pr-24 py-7" htmlFor={route.id}>
-                  <div className="mr-16">{route.icon}</div>
-                  <span className="text-white"> {route.name}</span>
-                </label>
-              </div>
-            ))}
-          </form>
-        </div>
+        <form className="route-options">
+          {routes.map(route => (
+            <div key={route.id}>
+              <input
+                className="hidden"
+                type="radio"
+                name="route-selector"
+                id={route.id}
+                defaultChecked={route.id === 'dashboard'}
+              />
+              <label className="flex items-center pl-28 pr-24 py-7" htmlFor={route.id}>
+                <div className="mr-16">{route.icon}</div>
+                <span className="text-white"> {route.name}</span>
+              </label>
+            </div>
+          ))}
+        </form>
       </div>
     </section>
   );

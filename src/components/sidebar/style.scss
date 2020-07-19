@@ -1,0 +1,13 @@
+.route-options {
+  [type='radio']:checked + label svg {
+    fill: var(--lrnz-blue-icon);
+  }
+
+  [type='radio']:checked + label span {
+    color: var(--lrnz-blue-icon);
+  }
+
+  label {
+    cursor: pointer;
+  }
+}

@@ -1,33 +1,4 @@
-//.dashboard-content {
-//  display: flex;
-//  justify-content: space-between;
-//  width: var(--lrnz-dashboard-width);
-//  margin-left: var(--lrnz-sidebar-width);
-//  background-color: var(--lrnz-palest-blue);
-//  padding-top: 40px;
-//}
-
-//.dashboard-stock-list {
-//  margin-left: 40px;
-//  background-color: #fff;
-//  box-shadow: var(--lrnz-box-shadow);
-//  max-height: 250px;
-//
-//  &:hover {
-//    box-shadow: var(--lrnz-box-shadow-hover);
-//  }
-//}
-//
-//.dashboard-chart-info {
-//  background-color: #fff;
-//  box-shadow: var(--lrnz-box-shadow);
-//  margin-right: 40px;
-//
-//  &:hover {
-//    box-shadow: var(--lrnz-box-shadow-hover);
-//  }
-//}
-//
-//.dashboard-content.info {
-//  flex-direction: column;
-//}
+.dashboard-container {
+  width: var(--lrnz-dashboard-width);
+  margin-left: var(--lrnz-sidebar-width);
+}
