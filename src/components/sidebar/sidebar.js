@@ -13,7 +13,7 @@ const routes = [
 
 const Sidebar = () => {
   return (
-    <section className="h-screen fixed" style={{ width: '240px' }}>
+    <section className="h-screen fixed bg-blue w-240">
       <div className="pt-24 pb-20 px-24">
         <IexIcon />
       </div>
@@ -29,9 +29,9 @@ const Sidebar = () => {
                   id={route.id}
                   defaultChecked
                 />
-                <label htmlFor={route.id}>
-                  {route.icon}
-                  <span>{route.name}</span>
+                <label className="flex items-center pl-28 pr-24 py-7" htmlFor={route.id}>
+                  <div className="mr-16">{route.icon}</div>
+                  <span className="text-white"> {route.name}</span>
                 </label>
               </div>
             ))}

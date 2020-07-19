@@ -2,7 +2,12 @@ import React from 'react';
 
 const IexIcon = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.35 119.49">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 585.35 119.49"
+      fill="#fff"
+      className="h-22"
+    >
       <g>
         <path d="M96.17,0A59.76,59.76,0,0,0,39.83,39.82h0a39.83,39.83,0,0,0,0,79.66H96.17A59.75,59.75,0,0,0,96.17,0Zm0,96.25H76A39.71,39.71,0,0,0,62.13,46.66a36.49,36.49,0,1,1,34,49.59Z"></path>
         <path d="M191.35,28.63h15.18v66.6H191.35Z"></path>

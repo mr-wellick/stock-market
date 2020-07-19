@@ -3,14 +3,21 @@ module.exports = {
   theme: {
     extend: {},
     spacing: {
+      '7': '7px',
+      '16': '16px',
       '20': '20px',
-      '24': '24px'
+      '22': '22px',
+      '24': '24px',
+      '28': '28px',
+      '240': '240px'
     },
     fontSize: {
       logo: '22px'
     },
-    screens: {
-      lg: [{ min: '240px' }]
+    colors: {
+      blue: '#202a35',
+      cloud: '#5099FF',
+      white: '#fff'
     }
   },
   variants: {},
