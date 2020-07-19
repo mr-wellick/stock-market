@@ -6,7 +6,9 @@
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.5",
     "@testing-library/user-event": "^12.0.11",
+    "chokidar-cli": "^2.1.0",
     "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -14,10 +16,18 @@
     "react-scripts": "3.4.1",
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
-    "redux-observable": "^1.2.0"
+    "redux-observable": "^1.2.0",
+    "tailwindcss": "^1.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
+    "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'",
+
+    "start": "npm-run-all build:tailwind --parallel watch:tailwind start:react",
+    "start:react": "react-scripts start",
+
+    "prebuild": "run-s build:tailwind",
+
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -26,15 +36,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }

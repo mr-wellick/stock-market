@@ -1,10 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App.js";
-import * as serviceWorker from "./serviceWorker";
-import { Provider } from "react-redux";
-import { store } from "./redux/";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.js';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { store } from './redux/';
+import './index.css';
+import './tailwind.output.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,7 +14,7 @@ ReactDOM.render(
     </Provider>
     ,
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
