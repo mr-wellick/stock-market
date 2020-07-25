@@ -2,8 +2,8 @@
 <p align="center">A stock-market dashboard to give you a rough overview of any company.</p>
 
 <p align="center">
-  <img alt="Travis (.org)" src="https://img.shields.io/travis/ll2nz/stock-market?style=flat-square">
-  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/ll2nz/stock-market?style=flat-square">
+  <img alt="Travis (.org)" src="https://img.shields.io/travis/mr-wellick/stock-market?style=flat-square">
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mr-wellick/stock-market?style=flat-square">
 </p>
 
 # Introduction
