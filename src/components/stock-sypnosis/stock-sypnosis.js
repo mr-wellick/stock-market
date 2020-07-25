@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 
 const StockSypnosis = () => {
-  const { data, activeStock } = useSelector(state => state.stockDataReducer);
+  const { data, activeStock } = useSelector((state) => state.stockDataReducer);
 
   if (!data[activeStock] || !data[activeStock].quote) {
     return null;

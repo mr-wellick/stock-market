@@ -29,7 +29,7 @@ const ModalHelper = ({ children }) => {
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { modalMessage } = useSelector(state => state.stockDataReducer);
+  const { modalMessage } = useSelector((state) => state.stockDataReducer);
 
   return modalMessage.message ? (
     <ModalHelper>

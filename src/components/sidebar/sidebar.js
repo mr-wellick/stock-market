@@ -8,13 +8,13 @@ const routes = [
   {
     id: 'dashboard',
     name: 'Dashboard',
-    icon: <DashboardIcon />
+    icon: <DashboardIcon />,
   },
   {
     id: 'financials',
     name: 'Financials',
-    icon: <FinancialsIcon />
-  }
+    icon: <FinancialsIcon />,
+  },
 ];
 
 const Sidebar = () => {
@@ -25,7 +25,7 @@ const Sidebar = () => {
       </div>
       <div>
         <form className="route-options">
-          {routes.map(route => (
+          {routes.map((route) => (
             <div key={route.id}>
               <input
                 className="hidden"

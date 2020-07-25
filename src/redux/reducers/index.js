@@ -2,7 +2,7 @@ import stockDataReducer from './stock-data-reducer.js';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  stockDataReducer
+  stockDataReducer,
 });
 
 export default rootReducer;

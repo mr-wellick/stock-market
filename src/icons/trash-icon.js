@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TrashIcon = props => {
+const TrashIcon = (props) => {
   return (
     <svg height="18px" width="18px" viewBox="0 0 18 18" fill="#3367d6" data-symbol={props.symbol}>
       <path

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 
 const News = () => {
-  const { data, activeStock } = useSelector(state => state.stockDataReducer);
+  const { data, activeStock } = useSelector((state) => state.stockDataReducer);
 
   // no data
   if (Object.keys(data).length <= 0) {
@@ -20,7 +20,7 @@ const News = () => {
   return (
     <div className="px-4 pt-10">
       <h2 className="font-bold text-4xl pb-4 news-title">News</h2>
-      {news.map(article => {
+      {news.map((article) => {
         return (
           <div key={article.url} className="max-w-sm w-full lg:max-w-full lg:flex pb-10">
             <div

@@ -9,14 +9,14 @@ import './style.scss';
 
 const useHandler = () => {
   const dispatch = useDispatch();
-  const { data } = useSelector(state => state.stockDataReducer);
+  const { data } = useSelector((state) => state.stockDataReducer);
 
-  return e => {
+  return (e) => {
     e.preventDefault();
     const { symbol } = e.target.dataset;
     // here we want to delete symbol from our current stock list in stockData.
     // this line helps us keep our UI in sync.
-    const stockNames = Object.keys(data).filter(stockName => stockName !== symbol);
+    const stockNames = Object.keys(data).filter((stockName) => stockName !== symbol);
 
     // if we have one stock, we won't be allowed to delete it.
     if (stockNames.length > 0) {
@@ -31,7 +31,7 @@ const useHandler = () => {
 const StockSelector = () => {
   const dispatch = useDispatch();
   const handler = useHandler();
-  const { data, activeStock } = useSelector(state => state.stockDataReducer);
+  const { data, activeStock } = useSelector((state) => state.stockDataReducer);
   const stockNames = Object.keys(data);
 
   if (stockNames.length === 0) {
@@ -42,7 +42,7 @@ const StockSelector = () => {
     <div>
       <p className="px-4 py-3 border-b">Stock List</p>
       <form className="stock-list">
-        {stockNames.map(stock => (
+        {stockNames.map((stock) => (
           <div key={stock} className="flex">
             <input
               className="hidden"

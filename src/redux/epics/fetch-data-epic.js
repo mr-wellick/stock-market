@@ -1,12 +1,12 @@
-import { of } from "rxjs";
-import { ajax } from "rxjs/ajax";
-import { map } from "rxjs/operators";
-import { mergeMap } from "rxjs/operators";
-import { catchError } from "rxjs/operators";
-import { ofType } from "redux-observable";
-import { fetchSuccess } from "../actions/";
-import { START_FETCH } from "../constants/";
-import { fetchError } from "../actions/";
+import { of } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { map } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { ofType } from 'redux-observable';
+import { fetchSuccess } from '../actions/';
+import { START_FETCH } from '../constants/';
+import { fetchError } from '../actions/';
 
 const fetchDataEpic = (action$) => {
   return action$.pipe(

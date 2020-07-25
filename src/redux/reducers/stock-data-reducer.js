@@ -13,21 +13,21 @@ function stockDataReducer(
     isFetching: false,
     error: {},
     activeStock: '',
-    modalMessage: {}
+    modalMessage: {},
   },
   action
 ) {
   if (action.type === QUERY_TERM) {
     return {
       ...state,
-      queryTerm: action.payload.queryTerm
+      queryTerm: action.payload.queryTerm,
     };
   }
 
   if (action.type === START_FETCH) {
     return {
       ...state,
-      isFetching: action.payload.isFetching
+      isFetching: action.payload.isFetching,
     };
   }
 
@@ -36,10 +36,10 @@ function stockDataReducer(
       ...state,
       data: {
         ...state.data,
-        [action.payload.data.company.symbol]: action.payload.data
+        [action.payload.data.company.symbol]: action.payload.data,
       },
       isFetching: action.payload.isFetching,
-      activeStock: action.payload.data.company.symbol
+      activeStock: action.payload.data.company.symbol,
     };
   }
 
@@ -47,14 +47,14 @@ function stockDataReducer(
     return {
       ...state,
       error: action.payload.error,
-      isFetching: action.payload.isFetching
+      isFetching: action.payload.isFetching,
     };
   }
 
   if (action.type === ACTIVE_STOCK) {
     return {
       ...state,
-      activeStock: action.payload.activeStock
+      activeStock: action.payload.activeStock,
     };
   }
 
@@ -69,14 +69,14 @@ function stockDataReducer(
 
     return {
       ...state,
-      data: updatedStocks
+      data: updatedStocks,
     };
   }
 
   if (action.type === TOGGLE_MODAL) {
     return {
       ...state,
-      modalMessage: action.payload.message
+      modalMessage: action.payload.message,
     };
   }
 

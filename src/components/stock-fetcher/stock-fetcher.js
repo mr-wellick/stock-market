@@ -10,10 +10,10 @@ import { validate } from '../../utilities/';
 import './style.scss';
 
 const useHandler = () => {
-  const { queryTerm, data } = useSelector(state => state.stockDataReducer);
+  const { queryTerm, data } = useSelector((state) => state.stockDataReducer);
   const dispatch = useDispatch();
 
-  return e => {
+  return (e) => {
     e.preventDefault();
 
     const isValidQueryTerm = validate(queryTerm);
@@ -37,7 +37,7 @@ const useHandler = () => {
 };
 
 const StockFetcher = () => {
-  const { data } = useSelector(state => state.stockDataReducer);
+  const { data } = useSelector((state) => state.stockDataReducer);
   const dispatch = useDispatch();
   const handler = useHandler();
 
@@ -61,7 +61,7 @@ const StockFetcher = () => {
           type="text"
           placeholder="Search Symbols"
           required
-          onChange={e => dispatch(querying(e.target.value))}
+          onChange={(e) => dispatch(querying(e.target.value))}
         />
       </form>
     </div>
