@@ -1,20 +1,14 @@
 import React from 'react';
 import { IexIcon } from '../../icons/';
 import { DashboardIcon } from '../../icons/';
-import { FinancialsIcon } from '../../icons/';
 import './style.scss';
 
 const routes = [
   {
     id: 'dashboard',
     name: 'Dashboard',
-    icon: <DashboardIcon />,
-  },
-  {
-    id: 'financials',
-    name: 'Financials',
-    icon: <FinancialsIcon />,
-  },
+    icon: <DashboardIcon />
+  }
 ];
 
 const Sidebar = () => {
@@ -25,7 +19,7 @@ const Sidebar = () => {
       </div>
       <div>
         <form className="route-options">
-          {routes.map((route) => (
+          {routes.map(route => (
             <div key={route.id}>
               <input
                 className="hidden"

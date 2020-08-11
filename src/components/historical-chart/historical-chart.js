@@ -5,7 +5,7 @@ import { StockSypnosis } from '../stock-sypnosis/';
 import './style.scss';
 
 const useHistoricalData = () => {
-  const { data, activeStock } = useSelector((state) => state.stockDataReducer);
+  const { data, activeStock } = useSelector(state => state.stockDataReducer);
 
   if (data[activeStock]) {
     const { chart } = data[activeStock];
@@ -15,7 +15,7 @@ const useHistoricalData = () => {
         data: chart,
         height: window.innerHeight * 0.6,
         width: window.innerWidth * 0.8,
-        margin: { top: 0, right: 0, left: 0, bottom: 0 },
+        margin: { top: 0, right: 0, left: 0, bottom: 0 }
       };
     }
   }
@@ -25,7 +25,7 @@ const useHistoricalData = () => {
 
 const HistoricalChart = () => {
   const historicalData = useHistoricalData();
-  const { data, activeStock } = useSelector((state) => state.stockDataReducer);
+  const { data, activeStock } = useSelector(state => state.stockDataReducer);
 
   if (!historicalData) {
     return null;
@@ -41,7 +41,7 @@ const HistoricalChart = () => {
   }
 
   return (
-    <div className="px-4">
+    <div className="px-4 pt-40">
       <StockSypnosis />
       <LineChart {...historicalData}>
         <CartesianGrid strokeDasharray="3 3" />

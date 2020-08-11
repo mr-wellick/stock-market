@@ -10,10 +10,10 @@ import { validate } from '../../utilities/';
 import './style.scss';
 
 const useHandler = () => {
-  const { queryTerm, data } = useSelector((state) => state.stockDataReducer);
+  const { queryTerm, data } = useSelector(state => state.stockDataReducer);
   const dispatch = useDispatch();
 
-  return (e) => {
+  return e => {
     e.preventDefault();
 
     const isValidQueryTerm = validate(queryTerm);
@@ -37,7 +37,7 @@ const useHandler = () => {
 };
 
 const StockFetcher = () => {
-  const { data } = useSelector((state) => state.stockDataReducer);
+  const { data } = useSelector(state => state.stockDataReducer);
   const dispatch = useDispatch();
   const handler = useHandler();
 
@@ -51,18 +51,16 @@ const StockFetcher = () => {
 
   return (
     <div className="p-4">
-      <form
-        className="flex items-center border rounded w-2/5"
-        autoComplete="off"
-        onSubmit={handler}
-      >
-        <input
-          className="stock-input bg-gray-200 hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:shadow-outline focus:border-gray-30 w-full p-2"
-          type="text"
-          placeholder="Search Symbols"
-          required
-          onChange={(e) => dispatch(querying(e.target.value))}
-        />
+      <form className="w-full max-w-sm" autoComplete="off" onSubmit={handler}>
+        <div className="flex items-center border-b border-teal-500 py-2">
+          <input
+            className="stock-input appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-7 px-2 leading-tight focus:outline-none"
+            type="text"
+            placeholder="Search Symbols"
+            required
+            onChange={e => dispatch(querying(e.target.value))}
+          />
+        </div>
       </form>
     </div>
   );
