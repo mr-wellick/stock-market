@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     extend: {},
     spacing: {
+      '4': '4px',
       '7': '7px',
       '16': '16px',
       '20': '20px',
@@ -10,7 +11,7 @@ module.exports = {
       '24': '24px',
       '28': '28px',
       '40': '40px',
-      '240': '240px',
+      '240': '240px'
     },
     fontSize: {
       logo: '22px'
