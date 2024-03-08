@@ -1,16 +1,16 @@
-import './main.css'
-import { setupCounter } from './counter.ts'
+import './main.css';
+import { xAxis } from './chart/chart';
+
+xAxis()
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+  <div class="navbar bg-base-100">
+    <a class="btn btn-ghost text-xl">Stocks</a>
   </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+  <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content text-center">
+        <svg width="1400" height="500" id="chart">
+        </svg>
+      </div>
+  </div>
+`;
