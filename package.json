@@ -19,6 +19,8 @@
     "vite": "^5.1.4"
   },
   "dependencies": {
-    "d3-scale": "^4.0.2"
+    "@types/d3-shape": "^3.1.6",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0"
   }
 }
