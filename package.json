@@ -1,56 +1,26 @@
 {
-  "name": "stock-market",
-  "version": "0.1.0",
+  "name": "stocks",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.5",
-    "@testing-library/user-event": "^12.0.11",
-    "chokidar-cli": "^2.1.0",
-    "codecov": "^3.7.2",
-    "eslint-config-prettier": "^6.11.0",
-    "node-sass": "^4.14.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "recharts": "^1.8.5",
-    "redux": "^4.0.5",
-    "redux-observable": "^1.2.0",
-    "tailwindcss": "^1.5.1"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
-    "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'",
-    "start": "npm-run-all build:tailwind --parallel watch:tailwind start:react",
-    "start:react": "react-scripts start",
-    "prebuild": "run-s build:tailwind",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "test": "react-scripts test --watchAll=false --coverage",
-    "test:watch": "react-scripts test",
-    "test:coverage": "cat ./coverage/lcov.info | codecov",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "validate": "npm-run-all -p format:check test"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@types/d3-scale": "^4.0.8",
+    "autoprefixer": "^10.4.18",
+    "cross-env": "^7.0.3",
+    "daisyui": "^4.7.2",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@types/d3-shape": "^3.1.6",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0"
   }
 }
