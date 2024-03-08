@@ -1,4 +1,5 @@
 import { scaleTime } from 'd3-scale';
+import { axisBottom } from '../utils/attribute';
 
 interface MetaData {
   '1. Information': string;
@@ -47,11 +48,12 @@ async function getSymbol(symbol: string = 'IBM'): Promise<ChartData[] | null> {
   }
 
   data = processData(data);
-  return data;
+  return data.reverse();
 }
 
 export async function xAxis() {
   const data = await getSymbol();
+  const dim = { width: 1400, height: 500, padding: 100, scaleBy: 2 };
 
   if (!data) {
     console.log(data);
@@ -60,8 +62,37 @@ export async function xAxis() {
 
   const min = Math.min(...data.map((datum) => datum.x.getTime()));
   const max = Math.max(...data.map((datum) => datum.x.getTime()));
-  const scale = scaleTime().domain([min, max]).range([100, 1400]);
+  const scale = scaleTime()
+    .domain([min, max])
+    .range([dim.padding, dim.width - dim.padding]);
 
-  console.log(scale.domain())
-  console.log(scale.range())
+  const group = document.createElement('g');
+  group.setAttribute('transform', `translate(0, ${dim.height - dim.padding})`);
+
+  const path = document.createElement('path');
+  path.setAttribute('d', axisBottom(scale)!);
+  group.append(path);
+
+  const ticks = scale.ticks().map((datum) => {
+    const tickGroup = document.createElement('g');
+    tickGroup.setAttribute('transform', `translate(${scale(datum)}, 0)`);
+
+    const line = document.createElement('line');
+    line.setAttribute('y2', '6');
+    line.setAttribute('stroke', '#000');
+
+    const text = document.createElement('text');
+    text.setAttribute('dy', '0.71em');
+    text.setAttribute('y', '10');
+    text.setAttribute('transform', 'rotate(45)');
+    text.innerHTML = `${datum.toLocaleDateString()}`;
+
+    tickGroup.append(line, text);
+
+    return tickGroup;
+  });
+
+  group.append(...ticks);
+
+  document.querySelector('#chart')?.append(group);
 }
