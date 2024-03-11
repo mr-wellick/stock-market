@@ -21,14 +21,14 @@ class Axis<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, num
     this.offset = 0;
     this.range0 = 0;
     this.range1 = 0;
-    this.tickSizeOuter = 0;
+    this.tickSizeOuter = 1;
     this.scale = scale;
     this.transform = () => '';
   }
 
   private generateAttributeD(orient: number): string | null {
     this.k = orient === Orientation.top || orient === Orientation.left ? -1 : 1;
-    this.offset = 0;
+    this.offset = typeof window !== 'undefined' && window.devicePixelRatio > 1 ? 0 : 0.5;
     this.range0 = Number(this.scale.range()[0]) + this.offset;
     this.range1 = Number(this.scale.range()[this.scale.range().length - 1]) + this.offset;
     this.transform =
@@ -105,6 +105,30 @@ class Axis<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, num
 
   axisRight() {
     return this.generateAttributeD(Orientation.right);
+  }
+
+  private center() {
+    if ('bandwidth' in this.scale && 'round' in this.scale) {
+      this.offset = Math.max(0, this.scale.bandwidth() - this.offset * 2) / 2;
+      if (this.scale.round()) this.offset = Math.round(this.offset);
+
+      return (d: string): number => Number(this.scale(d)) + this.offset;
+    }
+
+    return null;
+  }
+
+  // fix this any type
+  private number(scale: any) {
+    return (d: number): number => Number(scale(d));
+  }
+
+  position(scale: ScaleType) {
+    if ('bandwidth' in scale) {
+      return this.center();
+    }
+
+    return this.number(this.scale.copy());
   }
 }
 

@@ -1,56 +1,9 @@
 import { scaleLinear, scaleTime } from 'd3-scale';
 import { axisBottom, axisLeft, position } from '../utils/attribute';
 import { line } from 'd3-shape';
+import getStock from '../api/alphavantage';
 
-interface TimeSeries {
-  '1. open': string;
-  '2. high': string;
-  '3. low': string;
-  '4. close': string;
-  '5. volume': string;
-}
-
-interface APIData {
-  'Meta Data': {
-    '1. Information': string;
-    '2. Symbol': string;
-    '3. Last Refreshed': string;
-    '4. Output Size': string;
-    '5. Time Zone': string;
-  };
-  'Time Series (Daily)': { [key: string]: TimeSeries };
-}
-
-interface ChartData {
-  x: Date;
-  y: number;
-}
-
-function processData(data: APIData) {
-  return Object.keys(data['Time Series (Daily)']).map((item) => ({
-    x: new Date(item),
-    y: +data['Time Series (Daily)'][item]['4. close'],
-  }));
-}
-
-async function getSymbol(symbol: string = 'IBM'): Promise<ChartData[] | null> {
-  const res = await fetch(
-    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=demo`,
-  );
-
-  let data;
-  try {
-    data = await res.json();
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-
-  data = processData(data);
-  return data.reverse();
-}
-
-const data = await getSymbol();
+const data = await getStock();
 const dim = { width: 1400, height: 500, padding: 100, scaleBy: 2 };
 
 const xMin = Math.min(...data!.map((datum) => datum.x.getTime()));
