@@ -2,14 +2,6 @@ import { scaleLinear, scaleTime } from 'd3-scale';
 import { axisBottom, axisLeft, position } from '../utils/attribute';
 import { line } from 'd3-shape';
 
-interface MetaData {
-  '1. Information': string;
-  '2. Symbol': string;
-  '3. Last Refreshed': string;
-  '4. Output Size': string;
-  '5. Time Zone': string;
-}
-
 interface TimeSeries {
   '1. open': string;
   '2. high': string;
@@ -19,7 +11,13 @@ interface TimeSeries {
 }
 
 interface APIData {
-  'Meta Data': MetaData;
+  'Meta Data': {
+    '1. Information': string;
+    '2. Symbol': string;
+    '3. Last Refreshed': string;
+    '4. Output Size': string;
+    '5. Time Zone': string;
+  };
   'Time Series (Daily)': { [key: string]: TimeSeries };
 }
 
