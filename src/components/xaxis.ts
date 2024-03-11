@@ -8,6 +8,7 @@ type Dimensions = {
   padding: number;
 };
 
+// fix generics
 class XAxis<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, number>> {
   group: SVGGElement;
   dimensions: Dimensions;

@@ -1,5 +1,4 @@
 import './main.css';
-//import { timeSeriesLine, xAxis, yAxis } from './chart/chart';
 import Component from './components/nav';
 import getStock from './api/alphavantage';
 import { scaleTime } from 'd3-scale';
@@ -25,8 +24,8 @@ const dim = { width: 1400, height: 500, padding: 100, scaleBy: 2 };
 if (!data) {
   console.error('Unable to retrieve data');
 } else {
-  const xMin = Math.min(...data!.map((datum) => datum.x.getTime()));
-  const xMax = Math.max(...data!.map((datum) => datum.x.getTime()));
+  const xMin = Math.min(...data.map((datum) => datum.x.getTime()));
+  const xMax = Math.max(...data.map((datum) => datum.x.getTime()));
   const xScale = scaleTime()
     .domain([xMin, xMax])
     .range([dim.padding, dim.width - dim.padding]);

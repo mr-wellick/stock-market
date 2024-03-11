@@ -1,5 +1,5 @@
 import { scaleLinear, scaleTime } from 'd3-scale';
-import { axisBottom, axisLeft, position } from '../utils/attribute';
+import { axisLeft, position } from '../utils/attribute';
 import { line } from 'd3-shape';
 import getStock from '../api/alphavantage';
 
@@ -16,43 +16,6 @@ const yMax = Math.max(...data!.map((datum) => datum.y));
 const yScale = scaleLinear()
   .domain([0, yMax])
   .range([dim.height - dim.padding, dim.padding]);
-
-export function xAxis() {
-  if (!data) {
-    console.log(data);
-    return;
-  }
-
-  const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  group.setAttribute('transform', `translate(0, ${dim.height - dim.padding})`);
-
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', axisBottom(xScale)!);
-  group.append(path);
-
-  const ticks = xScale.ticks().map((datum) => {
-    const tickGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    tickGroup.setAttribute('transform', `translate(${position(xScale)(datum)}, 0)`);
-
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('y2', '6');
-    line.setAttribute('stroke', '#000');
-
-    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    text.setAttribute('dy', '0.71em');
-    text.setAttribute('y', '10');
-    text.setAttribute('transform', 'rotate(45)');
-    text.innerHTML = `${datum.toLocaleDateString()}`;
-
-    tickGroup.append(line, text);
-
-    return tickGroup;
-  });
-
-  group.append(...ticks);
-
-  document.querySelector('#chart')?.append(group);
-}
 
 export function yAxis() {
   if (!data) {
