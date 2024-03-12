@@ -68,7 +68,7 @@ class Axis<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, num
     console.error(
       'Axis.generateAttributeD: orientation is invalid -- expected one of the following: ' +
         'left, right, top, bottom but got: %s',
-      orient
+      orient,
     );
 
     return null;
@@ -115,9 +115,12 @@ class Axis<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, num
 
   private center() {
     if ('bandwidth' in this.scale && 'round' in this.scale) {
+      // @ts-ignore
       this.offset = Math.max(0, this.scale.bandwidth() - this.offset * 2) / 2;
+      // @ts-ignore
       if (this.scale.round()) this.offset = Math.round(this.offset);
 
+      // @ts-ignore
       return (d: string): number => Number(this.scale(d)) + this.offset;
     }
 

@@ -21,7 +21,7 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
     dimensions: Dimensions,
     scale: ScaleType,
     data: ChartData[],
-    orientation: Orientation
+    orientation: Orientation,
   ) {
     this.group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     this.dimensions = dimensions;
@@ -48,7 +48,7 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
       case Orientation.right: {
         this.group.setAttribute(
           'transform',
-          `translate(0, ${this.dimensions.height - this.dimensions.padding})`
+          `translate(0, ${this.dimensions.height - this.dimensions.padding})`,
         );
         break;
       }
@@ -56,7 +56,7 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
         console.error(
           'Axis.orientGroupElement: orientation is invalid -- expected one of the following: ' +
             'left, right, top, bottom but got: %s',
-          this.axis.orientationValue
+          this.axis.orientationValue,
         );
         break;
     }
@@ -85,7 +85,7 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
       console.error(
         'Axis.renderPath: scale is invalid -- expected a d3 scale like: ' +
           'ScaleTime or ScaleLinear but got: %s',
-        this.scale
+        this.scale,
       );
       return;
     }
@@ -103,7 +103,8 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
         case Orientation.left: {
           tickGroup.setAttribute(
             'transform',
-            `translate(0, ${this.axis.position(this.scale)(datum)})`
+            // @ts-ignore
+            `translate(0, ${this.axis.position(this.scale)(datum)})`,
           );
 
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -122,7 +123,8 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
         case Orientation.right: {
           tickGroup.setAttribute(
             'transform',
-            `translate(${this.axis.position(this.scale)(datum)}, 0)`
+            // @ts-ignore
+            `translate(${this.axis.position(this.scale)(datum)}, 0)`,
           );
 
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -133,6 +135,7 @@ class AxisUI<ScaleType extends ScaleLinear<number, number> | ScaleTime<number, n
           text.setAttribute('dy', '0.71em');
           text.setAttribute('y', '10');
           text.setAttribute('transform', 'rotate(45)');
+          // @ts-ignore
           text.innerHTML = `${datum.toLocaleDateString()}`;
 
           tickGroup.append(line, text);
