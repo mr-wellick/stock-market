@@ -1,4 +1,4 @@
-import { APIData, ChartData } from "./apitypes";
+import { APIData, TickerSearch, ChartData } from './apitypes';
 
 function reshape(data: APIData): ChartData[] {
   return Object.keys(data['Time Series (Daily)']).map((date) => ({
@@ -7,7 +7,7 @@ function reshape(data: APIData): ChartData[] {
   }));
 }
 
-async function getStock(symbol: string = 'IBM'): Promise<ChartData[] | null> {
+export async function getStock(symbol: string = 'IBM'): Promise<ChartData[] | null> {
   const res = await fetch(
     `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=demo`,
   );
@@ -17,11 +17,27 @@ async function getStock(symbol: string = 'IBM'): Promise<ChartData[] | null> {
     data = await res.json();
   } catch (error) {
     console.error(error);
-    return null;
+    return [];
   }
 
   data = reshape(data);
   return data.reverse();
 }
 
-export default getStock
+export async function searchTickers(ticker: string): Promise<TickerSearch | null> {
+  const res = await fetch(
+    `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${
+      import.meta.env.ALPHA_VANTAGE_API_KEY
+    }`,
+  );
+  let data: TickerSearch;
+
+  try {
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+
+  return data;
+}
