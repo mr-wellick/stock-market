@@ -46,6 +46,11 @@ class SearchBar extends HTMLElement {
       }
 
       console.log(this.data);
+      document.querySelector('#stock-list')!.innerHTML = `
+          ${['TSLA', 'IBM'].map((stock) => {
+            return `<li>${stock}</li>`;
+          })}
+      `;
     });
   }
 }
