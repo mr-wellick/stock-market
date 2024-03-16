@@ -26,13 +26,22 @@ class SearchBar extends HTMLElement {
       } catch (error) {
         const { issues } = error as ZodError;
         this.userInputError = issues[0].message;
+        document.querySelector('#error-message')!.innerHTML = this.userInputError;
         return;
       }
 
       this.data = await searchTickers(this.userInput.value);
 
       if (!this.data) {
-        console.log('There is no data', this.data);
+        document.querySelector('#error-message')!.innerHTML =
+          'Something went wrong please try again';
+        return;
+      }
+
+      // @ts-ignore
+      if (this.data.Information) {
+        // @ts-ignore
+        document.querySelector('#error-message')!.innerHTML = this.data.Information;
         return;
       }
 
