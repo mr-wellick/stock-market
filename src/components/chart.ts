@@ -1,6 +1,6 @@
 //import Axis from "../utils/axis";
 
-class Chart extends HTMLElement {
+class DailyTimeSeriesChart extends HTMLElement {
   svg: SVGSVGElement;
   groupForXAxis: SVGGElement;
   groupForYAxis: SVGGElement;
@@ -13,12 +13,11 @@ class Chart extends HTMLElement {
     this.groupForYAxis = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   }
 
-  createXAxis() {
-  }
+  createXAxis() {}
 
   connectedCallback() {
     console.log(this.svg);
   }
 }
 
-export default Chart;
+export default DailyTimeSeriesChart;
