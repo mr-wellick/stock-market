@@ -1,3 +1,4 @@
+import Chart from './components/chart';
 import SearchBar from './components/search-bar';
 import './main.css';
 //import Component from './components/nav';
@@ -13,6 +14,7 @@ import './main.css';
 //header.render();
 
 customElements.define('search-bar', SearchBar);
+customElements.define('chart', Chart)
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="navbar bg-base-100 border-b border-black">
@@ -35,7 +37,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </search-bar>
         <div class="stat">
             <div class="stat-title">IBM</div>
-            <svg width="1400" height="500"></svg>
+            <chart>
+                <svg width="1400" height="500"></svg>
+            </chart>
         </div>
     </div>
 
