@@ -50,9 +50,7 @@ class SearchBar extends HTMLElement {
       list.setAttribute('class', className);
 
       list.innerHTML = `
-          ${this.ticker.bestMatches.map((stock) => {
-            return `<li>${stock['2. name']}</li>`;
-          })}`;
+          ${this.ticker.bestMatches.map((stock) => { return `<li>${stock['2. name']}</li>`; }).join('')}`;
 
       this.querySelector('#stock-list')
         ?.querySelectorAll('li')
