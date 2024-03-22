@@ -18,7 +18,23 @@ class SearchBar extends HTMLElement {
   }
 
   connectedCallback() {
-    this.querySelector('input')?.addEventListener('input', async (event: Event) => {
+    this.querySelector('input')?.addEventListener('blur', (event: Event) => {
+      console.log('lost foucs', event);
+      const list = document.querySelector('#stock-list')!;
+      list.setAttribute('class', 'hidden');
+    });
+
+    this.querySelector('input')?.addEventListener('focus', (event: Event) => {
+      console.log('lost foucs', event);
+      const list = document.querySelector('#stock-list')!;
+      const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
+
+      if (this.ticker && 'bestMatches' in this.ticker) {
+        list.setAttribute('class', className);
+      }
+    });
+
+    this.querySelector('input')?.addEventListener('keyup', async (event: Event) => {
       try {
         this.userInput = SearchBar.userInputValidator.parse({
           value: (event.target as HTMLInputElement).value,
@@ -46,11 +62,15 @@ class SearchBar extends HTMLElement {
       }
 
       const list = document.querySelector('#stock-list')!;
-      const className = 'p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
+      const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
       list.setAttribute('class', className);
 
       list.innerHTML = `
-          ${this.ticker.bestMatches.map((stock) => { return `<li>${stock['2. name']}</li>`; }).join('')}`;
+          ${this.ticker.bestMatches
+            .map((stock) => {
+              return `<li><a>${stock['2. name']}</a></li>`;
+            })
+            .join('')}`;
 
       this.querySelector('#stock-list')
         ?.querySelectorAll('li')
