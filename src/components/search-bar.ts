@@ -34,14 +34,14 @@ class SearchBar extends HTMLElement {
         'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=demo',
       ).then((res) => res.json());
 
-      if (this.ticker.Information) {
-        document.querySelector('#error-message')!.innerHTML = this.ticker.Information;
-        return;
-      }
-
       if (!this.ticker) {
         document.querySelector('#error-message')!.innerHTML =
           'Something went wrong please try again';
+        return;
+      }
+
+      if ('Information' in this.ticker) {
+        document.querySelector('#error-message')!.innerHTML = this.ticker.Information;
         return;
       }
 
