@@ -1,5 +1,4 @@
-import { searchTickers } from '../api/alphavantage';
-import { TickerSearch } from '../api/apitypes';
+import { APIRateLimit, BestMatches } from '../api/apitypes';
 import { ZodError, z } from 'zod';
 
 class SearchBar extends HTMLElement {
@@ -12,7 +11,7 @@ class SearchBar extends HTMLElement {
 
   userInput: z.infer<typeof SearchBar.userInputValidator> = { value: '' };
   userInputError: string | null = null;
-  data: TickerSearch | null = { bestMatches: [] };
+  ticker: APIRateLimit | BestMatches | null = null;
 
   constructor() {
     super();
@@ -21,8 +20,9 @@ class SearchBar extends HTMLElement {
   connectedCallback() {
     this.querySelector('input')?.addEventListener('input', async (event: Event) => {
       try {
-        // @ts-ignore
-        this.userInput = SearchBar.userInputValidator.parse({ value: event.target.value });
+        this.userInput = SearchBar.userInputValidator.parse({
+          value: (event.target as HTMLInputElement).value,
+        });
       } catch (error) {
         const { issues } = error as ZodError;
         this.userInputError = issues[0].message;
@@ -30,27 +30,37 @@ class SearchBar extends HTMLElement {
         return;
       }
 
-      this.data = await searchTickers(this.userInput.value);
+      this.ticker = await fetch(
+        'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=demo',
+      ).then((res) => res.json());
 
-      if (!this.data) {
+      if (this.ticker.Information) {
+        document.querySelector('#error-message')!.innerHTML = this.ticker.Information;
+        return;
+      }
+
+      if (!this.ticker) {
         document.querySelector('#error-message')!.innerHTML =
           'Something went wrong please try again';
         return;
       }
 
-      // @ts-ignore
-      if (this.data.Information) {
-        // @ts-ignore
-        document.querySelector('#error-message')!.innerHTML = this.data.Information;
-        return;
-      }
+      const list = document.querySelector('#stock-list')!;
+      const className = 'p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
+      list.setAttribute('class', className);
 
-      console.log(this.data);
-      document.querySelector('#stock-list')!.innerHTML = `
-          ${['TSLA', 'IBM'].map((stock) => {
-            return `<li>${stock}</li>`;
-          })}
-      `;
+      list.innerHTML = `
+          ${this.ticker.bestMatches.map((stock) => {
+            return `<li>${stock['2. name']}</li>`;
+          })}`;
+
+      this.querySelector('#stock-list')
+        ?.querySelectorAll('li')
+        .forEach((item) => {
+          item.addEventListener('click', (event: Event) => {
+            console.log((event.target as HTMLLIElement).innerHTML);
+          });
+        });
     });
   }
 }

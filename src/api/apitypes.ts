@@ -1,4 +1,4 @@
-export interface APIData {
+export interface TimeSeriesAPI {
   'Meta Data': {
     '1. Information': string;
     '2. Symbol': string;
@@ -17,12 +17,16 @@ export interface APIData {
   };
 }
 
-export interface ChartData {
+export interface TimeSeriesData {
   x: Date;
   y: number;
 }
 
-export interface TickerSearch {
+export interface APIRateLimit {
+  Information: string;
+}
+
+export interface BestMatches {
   bestMatches: {
     '1. symbol': string;
     '2. name': string;
