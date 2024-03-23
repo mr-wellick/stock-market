@@ -1,5 +1,5 @@
-import { APIRateLimit, BestMatches } from '../api/apitypes';
 import { ZodError, z } from 'zod';
+import store from '../state/store';
 
 class SearchBar extends HTMLElement {
   static userInputValidator = z.object({
@@ -10,75 +10,71 @@ class SearchBar extends HTMLElement {
   });
 
   userInput: z.infer<typeof SearchBar.userInputValidator> = { value: '' };
-  userInputError: string | null = null;
-  ticker: APIRateLimit | BestMatches | null = null;
+  input: HTMLInputElement = this.querySelector('input')!;
 
   constructor() {
     super();
   }
 
   connectedCallback() {
-    this.querySelector('input')?.addEventListener('blur', (event: Event) => {
-      console.log('lost foucs', event);
-      const list = document.querySelector('#stock-list')!;
-      list.setAttribute('class', 'hidden');
-    });
+    //this.querySelector('input')?.addEventListener('blur', (event: Event) => {
+    //  console.log('lost foucs', event);
+    //  const list = document.querySelector('#stock-list')!;
+    //  list.setAttribute('class', 'hidden');
+    //});
 
-    this.querySelector('input')?.addEventListener('focus', (event: Event) => {
-      console.log('lost foucs', event);
-      const list = document.querySelector('#stock-list')!;
-      const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
+    //this.querySelector('input')?.addEventListener('focus', (event: Event) => {
+    //  console.log('lost foucs', event);
+    //  const list = document.querySelector('#stock-list')!;
+    //  const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
 
-      if (this.ticker && 'bestMatches' in this.ticker) {
-        list.setAttribute('class', className);
-      }
-    });
+    //  if (store.ticker && 'bestMatches' in store.ticker) {
+    //    list.setAttribute('class', className);
+    //  }
+    //});
 
-    this.querySelector('input')?.addEventListener('keyup', async (event: Event) => {
+    this.input.addEventListener('keyup', async (event: Event) => {
       try {
         this.userInput = SearchBar.userInputValidator.parse({
           value: (event.target as HTMLInputElement).value,
         });
       } catch (error) {
         const { issues } = error as ZodError;
-        this.userInputError = issues[0].message;
-        document.querySelector('#error-message')!.innerHTML = this.userInputError;
+        document.querySelector('#error-message')!.innerHTML = issues[0].message;
         return;
       }
 
-      this.ticker = await fetch(
-        'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=demo',
-      ).then((res) => res.json());
+      await store.searchTickers(this.userInput.value);
 
-      if (!this.ticker) {
-        document.querySelector('#error-message')!.innerHTML =
-          'Something went wrong please try again';
+      if (!store.ticker) {
+        document.querySelector('#error-message')!.innerHTML = 'something went wrong. try again.';
         return;
       }
 
-      if ('Information' in this.ticker) {
-        document.querySelector('#error-message')!.innerHTML = this.ticker.Information;
+      if ('Information' in store.ticker) {
+        document.querySelector('#error-message')!.innerHTML = store.ticker.Information;
         return;
       }
 
-      const list = document.querySelector('#stock-list')!;
-      const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
-      list.setAttribute('class', className);
+      //const list = document.querySelector('#stock-list')!;
+      //const className = 'shadow menu dropdown-content z-[1] bg-base-100 rounded-box mt-1';
+      //list.setAttribute('class', className);
 
-      list.innerHTML = `
-          ${this.ticker.bestMatches
-            .map((stock) => {
-              return `<li><a>${stock['2. name']}</a></li>`;
-            })
-            .join('')}`;
+      //list.innerHTML = `
+      //    ${store.ticker.bestMatches
+      //      .map((stock) => {
+      //        return `<li><a>${stock['1. symbol']}</a></li>`;
+      //      })
+      //      .join('')}
+      //  `;
 
-      this.querySelector('#stock-list')
-        ?.querySelectorAll('li')
-        .forEach((item) => {
-          item.addEventListener('click', (event: Event) => {
-            console.log((event.target as HTMLLIElement).innerHTML);
-          });
-        });
+      //this.querySelector('#stock-list')
+      //  ?.querySelectorAll('li')
+      //  .forEach((item) => {
+      //    item.addEventListener('click', (event: Event) => {
+      //      store.getStock((event.target as HTMLLIElement).innerHTML);
+      //    });
+      //  });
     });
   }
 }
