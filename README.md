@@ -1,36 +1,38 @@
-<h1 align="center">Stock Market</h1>
-<p align="center">A stock-market dashboard to give you a rough overview of any company.</p>
+# create-svelte
 
-<p align="center">
-  <img alt="Travis (.org)" src="https://img.shields.io/travis/mr-wellick/stock-market?style=flat-square">
-  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mr-wellick/stock-market?style=flat-square">
-</p>
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-# Introduction
+## Creating a project
 
-- The purpose of this dashboard is to give you a rough overview of any particular company
+If you're seeing this, you've probably already done this step. Congrats!
 
-- Six Key Metrics
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-  - `Stock Price`
-  - `Shares Outstanding`
-  - `Market Cap` = Stock Price x Shares Outstanding
-  - `Total Cash`
-  - `Total Debt`
-  - `Enterprise Value` = Market Cap - Total Cash + Total Debt
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-- Historical Chart
+## Developing
 
-  - Displays stock price for the last five years
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-- Company Description
+```bash
+npm run dev
 
-  - A brief description of the products/services that a company offers
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-- Company News
+## Building
 
-  - Lists multiple articles related to current company news
+To create a production version of your app:
 
-# Disclaimer
+```bash
+npm run build
+```
 
-- Not intended to replace a financial advisor
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

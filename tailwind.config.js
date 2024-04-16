@@ -1,11 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.ts'],
-  theme: {
-    extend: {},
-  },
-  daisyui: {
-    themes: ['cyberpunk'],
-  },
-  plugins: [require('daisyui')],
+	content: ['./src/**/*.{html,svelte,ts}'],
+	theme: {
+		extend: {}
+	},
+	plugins: [require('daisyui')],
+	daisyui: { themes: ['cyberpunk'] }
 };
