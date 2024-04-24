@@ -1,43 +1,5 @@
 <script lang="ts">
-	let tickers = [];
-	let tickerData = [];
-
-	async function searchTickers(event: KeyboardEvent) {
-		const { value } = event.target as HTMLInputElement;
-		const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${value}&apikey=${
-			import.meta.env.ALPHA_VANTAGE_API_KEY
-		}`;
-
-		//const demoUrl =
-		//	'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo';
-		const res = await fetch(url);
-
-		try {
-			tickers = (await res.json()).bestMatches;
-		} catch (error) {
-			console.error('Failed to fetch ticker results', error);
-			tickers = [];
-		}
-	}
-	async function getStock(event: MouseEvent) {
-		const { dataset } = event.target as HTMLButtonElement;
-
-		const res = await fetch(
-			`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${dataset.stock}&apikey=${import.meta.env.ALPHA_VANTAGE_API_KEY}`
-		);
-
-		try {
-			tickerData = await res.json();
-
-			tickerData = Object.keys(tickerData['Time Series (Daily)']).map((date) => ({
-				x: new Date(date),
-				y: +tickerData['Time Series (Daily)'][date]['4. close']
-			}));
-		} catch (error) {
-			console.error(error);
-			return [];
-		}
-	}
+	import Stocks from '$lib/stocks.svelte';
 </script>
 
 <div class="navbar bg-base-100 border-b border-black">
@@ -45,49 +7,10 @@
 </div>
 
 <div class="stats shadow bg-base-200 flex m-5">
-	<div class="min-w-64">
-		<label class="input input-bordered flex items-center gap-2" for="ticker">
-			<input
-				type="text"
-				class="grow"
-				placeholder="Search"
-				on:keyup={searchTickers}
-				id="ticker"
-				name="ticker"
-				required
-				minlength="4"
-				maxlength="8"
-				size="10"
-			/>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 16 16"
-				fill="currentColor"
-				class="w-4 h-4 opacity-70"
-				><path
-					fill-rule="evenodd"
-					d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-					clip-rule="evenodd"
-				/></svg
-			>
-		</label>
-
-		{#if tickers.length}
-			<ul class="menu rounded-box min-w-64 flex">
-				{#each tickers as ticker}
-					<button class="cursor-pointer" on:click={getStock} data-stock={ticker['1. symbol']}>
-						{ticker['2. name']}
-					</button>
-				{/each}
-			</ul>
-		{/if}
-	</div>
-
+	<Stocks />
 	<div class="stat">
 		<div class="stat-title">IBM</div>
-		<daily-time-series-chart>
-			<svg width="1400" height="500"></svg>
-		</daily-time-series-chart>
+		<svg width="1400" height="500"></svg>
 	</div>
 </div>
 
@@ -108,8 +31,8 @@
 		<p>Copyright © 2024 - All right reserved</p>
 	</aside>
 	<nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-		<a
-			><svg
+		<div>
+			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
 				height="24"
@@ -119,9 +42,9 @@
 					d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
 				></path></svg
 			>
-		</a>
-		<a
-			><svg
+		</div>
+		<div>
+			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
 				height="24"
@@ -130,10 +53,10 @@
 				><path
 					d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
 				></path></svg
-			></a
-		>
-		<a
-			><svg
+			>
+		</div>
+		<div>
+			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
 				height="24"
@@ -142,7 +65,7 @@
 				><path
 					d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
 				></path></svg
-			></a
-		>
+			>
+		</div>
 	</nav>
 </footer>
