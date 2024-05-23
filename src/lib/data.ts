@@ -1,26 +1,26 @@
-import type { BestMatches, TimeSeriesAPI, TimeSeriesData } from './types';
+import type { /*BestMatches*/ TimeSeriesAPI /*TimeSeriesData*/ } from './types';
 
-export async function searchTickers(event: KeyboardEvent) {
-	const { value } = event.target as HTMLInputElement;
-	const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${value}&apikey=${
-		import.meta.env.ALPHA_VANTAGE_API_KEY
-	}`;
+// export async function searchTickers(event: KeyboardEvent) {
+// 	const { value } = event.target as HTMLInputElement;
+// 	const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${value}&apikey=${
+// 		import.meta.env.ALPHA_VANTAGE_API_KEY
+// 	}`;
 
-	//const demoUrl =
-	//	'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo';
-	const res = await fetch(url);
+// 	//const demoUrl =
+// 	//	'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo';
+// 	const res = await fetch(url);
 
-	let tickers: BestMatches = { bestMatches: [] };
-	try {
-		tickers = await res.json();
-	} catch (error) {
-		console.error('Failed to fetch ticker results', error);
-		tickers = { bestMatches: [] };
-		return tickers;
-	}
+// 	let tickers: BestMatches = { bestMatches: [] };
+// 	try {
+// 		tickers = await res.json();
+// 	} catch (error) {
+// 		console.error('Failed to fetch ticker results', error);
+// 		tickers = { bestMatches: [] };
+// 		return tickers;
+// 	}
 
-	return tickers;
-}
+// 	return tickers;
+// }
 
 export async function getStock(event: MouseEvent) {
 	const { dataset } = event.target as HTMLButtonElement;
