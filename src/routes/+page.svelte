@@ -6,7 +6,7 @@
 
 <div class="stats shadow bg-base-200 flex m-5">
 	<div class="min-w-64">
-		<form method="POST">
+		<form method="POST" action="?/searchTickers">
 			<label class="input input-bordered flex items-center gap-2" for="ticker">
 				<input
 					type="text"
@@ -37,7 +37,7 @@
 			<ul class="menu rounded-box min-w-64 flex">
 				{#each form.bestMatches as ticker}
 					<li>
-						<button class="cursor-pointer" on:click={null} data-stock={ticker['1. symbol']}>
+						<button class="cursor-pointer" data-stock={ticker['1. symbol']}>
 							{ticker['2. name']}
 						</button>
 					</li>
