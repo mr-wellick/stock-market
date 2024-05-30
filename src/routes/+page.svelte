@@ -1,7 +1,24 @@
 <script lang="ts">
+	import type { TimeSeriesAPI } from '$lib/types';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
+
+	export let data: TimeSeriesAPI | {} = {};
+
+	async function getStock(event) {
+		const { dataset } = event.target;
+		console.log(dataset);
+		const response = await fetch('/api/alphavantange', {
+			method: 'POST',
+			body: JSON.stringify(dataset),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+
+		data = await response.json();
+	}
 </script>
 
 <div class="stats shadow bg-base-200 flex m-5">
@@ -37,7 +54,7 @@
 			<ul class="menu rounded-box min-w-64 flex">
 				{#each form.bestMatches as ticker}
 					<li>
-						<button class="cursor-pointer" data-stock={ticker['1. symbol']}>
+						<button class="cursor-pointer" data-stock={ticker['1. symbol']} on:click={getStock}>
 							{ticker['2. name']}
 						</button>
 					</li>
@@ -47,7 +64,7 @@
 	</div>
 
 	<div class="stat">
-		<div class="stat-title">IBM</div>
+		<div class="stat-title">{data['Meta Data']['2. Symbol']}</div>
 		<svg width="100%" height="500"></svg>
 	</div>
 </div>
