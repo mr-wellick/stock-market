@@ -1,5 +1,5 @@
 import type { TimeSeriesAPI } from '$lib/types';
-import { error, json } from '@sveltejs/kit';
+//import { error, json } from '@sveltejs/kit';
 
 // https://stackoverflow.com/questions/40385133/retrieve-data-from-a-readablestream-object
 export const POST = async ({ request }) => {
@@ -13,7 +13,7 @@ export const POST = async ({ request }) => {
 	try {
 		data = await api.json();
 	} catch (error) {
-		return new Response(JSON.stringify([]));
+		return new Response(JSON.stringify({}));
 	}
 
 	return new Response(JSON.stringify(data));

@@ -4,11 +4,10 @@
 
 	export let form: ActionData;
 
-	export let data: TimeSeriesAPI | {} = {};
+	export let data: TimeSeriesAPI | Record<string, never> = {};
 
-	async function getStock(event) {
-		const { dataset } = event.target;
-		console.log(dataset);
+	async function getStock(event: Event) {
+		const { dataset } = event.target as HTMLInputElement;
 		const response = await fetch('/api/alphavantange', {
 			method: 'POST',
 			body: JSON.stringify(dataset),
@@ -64,7 +63,9 @@
 	</div>
 
 	<div class="stat">
-		<div class="stat-title">{data['Meta Data']['2. Symbol']}</div>
+        {#if data['Meta Data']}
+            <div class="stat-title">{data['Meta Data']['2. Symbol']}</div>
+        {/if}
 		<svg width="100%" height="500"></svg>
 	</div>
 </div>
