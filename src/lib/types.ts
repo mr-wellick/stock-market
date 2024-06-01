@@ -24,9 +24,9 @@ export type TimeSeriesData =
 	  }[]
 	| [];
 
-export interface APIRateLimit {
-	Information: string;
-}
+//export interface APIRateLimit {
+//	Information: string;
+//}
 
 export interface BestMatches {
 	bestMatches: {
@@ -40,4 +40,5 @@ export interface BestMatches {
 		'8. currency': string;
 		'9. matchScore': string;
 	}[];
+	Information: string;
 }

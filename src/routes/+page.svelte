@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { BestMatches, TimeSeriesAPI, TimeSeriesData } from '$lib/types';
+	import type {  BestMatches, TimeSeriesAPI, TimeSeriesData } from '$lib/types';
 	import Graph from '$lib/+graph.svelte';
 
 	let stockTicker = '';
-	let tickerList: BestMatches = { bestMatches: [{ '1. symbol': 'IBM' }] };
+	let tickerList: BestMatches = { bestMatches: [] };
 	let data: TimeSeriesData = [];
 	let activeTicker: string;
 
@@ -24,13 +24,10 @@
 	}
 
 	async function getTicker() {
-		//if (!stockTicker) return;
+		if (!stockTicker) return;
 
-		//const res = await fetch(
-		//	`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockTicker}&apikey=${import.meta.env.ALPHA_VANTAGE_API_KEY}`
-		//);
 		const res = await fetch(
-			'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=IBM&apikey=demo'
+			`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockTicker}&apikey=${import.meta.env.ALPHA_VANTAGE_API_KEY}`
 		);
 
 		try {
@@ -85,6 +82,8 @@
 					</li>
 				{/each}
 			</ul>
+            {:else if tickerList.Information}
+            <p>{tickerList.Information}</p>
 		{/if}
 	</div>
 	<div class="stat">
