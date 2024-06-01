@@ -19,6 +19,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/d3-scale": "^4.0.8",
 		"@types/eslint": "^8.56.0",
 		"@typescript-eslint/eslint-plugin": "^7.0.0",
 		"@typescript-eslint/parser": "^7.0.0",
@@ -40,6 +41,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tanstack/svelte-query": "^5.32.0"
+		"@tanstack/svelte-query": "^5.32.0",
+		"d3-scale": "^4.0.2"
 	}
 }

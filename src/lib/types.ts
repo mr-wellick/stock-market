@@ -17,10 +17,12 @@ export interface TimeSeriesAPI {
 	};
 }
 
-export interface TimeSeriesData {
-	x: Date;
-	y: number;
-}
+export type TimeSeriesData =
+	| {
+			x: Date;
+			y: number;
+	  }[]
+	| [];
 
 export interface APIRateLimit {
 	Information: string;
