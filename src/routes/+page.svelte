@@ -89,6 +89,8 @@
 	</div>
 	<div class="stat">
 		<div class="stat-title">{activeTicker}</div>
-		<Graph {data} />
+        {#if data.length > 0}
+            <Graph {data} />
+        {/if}
 	</div>
 </div>
