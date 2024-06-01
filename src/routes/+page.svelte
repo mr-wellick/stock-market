@@ -1,59 +1,81 @@
 <script lang="ts">
-	import type { TimeSeriesAPI } from '$lib/types';
-	import type { ActionData } from './$types';
+	import type { BestMatches, TimeSeriesAPI, TimeSeriesData } from '$lib/types';
 
-	export let form: ActionData;
+    let stockTicker = '';
+    let tickerList: BestMatches = { bestMatches: [] };
+    let data: TimeSeriesData[] = [];
+    let activeTicker: string;
 
-	export let data: TimeSeriesAPI | Record<string, never> = {};
+    async function searchTickers(event: KeyboardEvent) {
+        if(event.key === 'Enter') {
+            const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockTicker}&apikey=${
+                import.meta.env.ALPHA_VANTAGE_API_KEY
+            }`;
+            const res = await fetch(url);
 
-	async function getStock(event: Event) {
-		const { dataset } = event.target as HTMLInputElement;
-		const response = await fetch('/api/alphavantange', {
-			method: 'POST',
-			body: JSON.stringify(dataset),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
+            try {
+                tickerList = await res.json();
+            } catch (error) {
+                console.error('Failed to fetch ticker results', error);
+                tickerList = { bestMatches: [] };
+            }
+        }
+    }
 
-		data = await response.json();
-	}
+    async function getTicker() {
+        if(!stockTicker) return;
+
+        const res = await fetch(
+            `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockTicker}&apikey=${import.meta.env.ALPHA_VANTAGE_API_KEY}`
+        );
+
+        try {
+            const apiData: TimeSeriesAPI = await res.json();
+            data = Object.keys(apiData['Time Series (Daily)']).map((date) => ({
+                x: new Date(date),
+                y: +apiData['Time Series (Daily)'][date]['4. close']
+            }));
+            activeTicker = apiData['Meta Data']['2. Symbol'];
+        } catch (error) {
+            data = []
+        }
+    }
 </script>
 
 <div class="stats shadow bg-base-200 flex m-5">
 	<div class="min-w-64">
-		<form method="POST" action="?/searchTickers">
-			<label class="input input-bordered flex items-center gap-2" for="ticker">
-				<input
-					type="text"
-					class="grow"
-					placeholder="Search"
-					id="ticker"
-					name="ticker"
-					required
-					minlength="3"
-					maxlength="8"
-					size="10"
-				/>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 16 16"
-					fill="currentColor"
-					class="w-4 h-4 opacity-70"
-					><path
-						fill-rule="evenodd"
-						d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-						clip-rule="evenodd"
-					/></svg
-				>
-			</label>
-		</form>
+        <label class="input input-bordered flex items-center gap-2" for="ticker">
+            <input
+                bind:value={stockTicker}
+                on:keypress={searchTickers}
+                type="text"
+                class="grow"
+                placeholder="Search"
+                id="ticker"
+                name="ticker"
+                required
+                minlength="3"
+                maxlength="8"
+                size="10"
+            />
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="w-4 h-4 opacity-70"
+                ><path
+                    fill-rule="evenodd"
+                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                    clip-rule="evenodd"
+                /></svg
+            >
+        </label>
 
-		{#if form?.bestMatches}
+		{#if tickerList.bestMatches}
 			<ul class="menu rounded-box min-w-64 flex">
-				{#each form.bestMatches as ticker}
+				{#each tickerList.bestMatches as ticker}
 					<li>
-						<button class="cursor-pointer" data-stock={ticker['1. symbol']} on:click={getStock}>
+						<button class="cursor-pointer" data-stock={ticker['1. symbol']} on:click={getTicker}>
 							{ticker['2. name']}
 						</button>
 					</li>
@@ -61,11 +83,8 @@
 			</ul>
 		{/if}
 	</div>
-
 	<div class="stat">
-        {#if data['Meta Data']}
-            <div class="stat-title">{data['Meta Data']['2. Symbol']}</div>
-        {/if}
+        <div class="stat-title">{activeTicker}</div>
 		<svg width="100%" height="500"></svg>
 	</div>
 </div>
