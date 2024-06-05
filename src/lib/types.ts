@@ -40,5 +40,5 @@ export interface BestMatches {
 		'8. currency': string;
 		'9. matchScore': string;
 	}[];
-	Information: string;
+	Information?: string;
 }

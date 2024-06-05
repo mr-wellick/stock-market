@@ -43,7 +43,7 @@
 	}
 </script>
 
-<div class="stats shadow bg-base-200 flex m-5">
+<div class="stats shadow bg-base-200 flex m-5 flex-1">
 	<div class="min-w-64">
 		<label class="input input-bordered flex items-center gap-2" for="ticker">
 			<input
